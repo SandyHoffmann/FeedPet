@@ -11,18 +11,50 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsToMany(models.Usuario, {
+        through: "usuarios_animais",
+        as: "usuario",
+        foreignKey: {
+          name: "id_animal",
+          type: DataTypes.UUID
+        }
+        })
     }
   };
   Animal.init({
-    nome: DataTypes.STRING,
-    raca: DataTypes.STRING,
-    cor: DataTypes.STRING,
-    porte: DataTypes.STRING,
-    tipo_animal: DataTypes.STRING,
-    status: DataTypes.STRING
+    id:{
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4
+    },
+    nome: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    raca: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    cor: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    porte: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    tipo_animal: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    status: {
+      type:DataTypes.STRING,
+      allowNull:false
+    }
   }, {
     sequelize,
     modelName: 'Animal',
+    tableName: 'animais'
   });
   return Animal;
 };

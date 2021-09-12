@@ -12,6 +12,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsToMany(models.Animal, {
+        through: "usuarios_animais",
+        as: "animal",
+        foreignKey: {
+          name: "id_usuario",
+          type: DataTypes.UUID
+        }
+        });
     }
 
     verificarSenha(senha) {
@@ -21,8 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     toJSON(){
       return{
         ...this.get(),
-        senha:undefined,
-        cargo:undefined
+        senha:undefined
       }
     }
 

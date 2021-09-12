@@ -14,11 +14,23 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Token.init({
-    token: DataTypes.BIGINT,
-    refresh_token: DataTypes.BIGINT
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4
+    },
+    token: {
+      type:DataTypes.BIGINT,
+      allowNull: false
+    },
+    refresh_token: {
+      type:DataTypes.BIGINT,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Token',
+    tableName: "tokens"
   });
   return Token;
 };

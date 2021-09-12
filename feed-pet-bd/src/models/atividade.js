@@ -14,11 +14,23 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Atividade.init({
-    atividade_feita: DataTypes.STRING,
-    data_atividade: DataTypes.DATE
+    id:{
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4
+    },
+    atividade_feita: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    data_atividade: {
+      type:DataTypes.DATE,
+      allowNull:false
+    }
   }, {
     sequelize,
     modelName: 'Atividade',
+    tableName: "atividades"
   });
   return Atividade;
 };

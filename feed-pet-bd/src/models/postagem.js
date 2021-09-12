@@ -14,11 +14,22 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Postagem.init({
-    titulo: DataTypes.STRING,
-    conteudo: DataTypes.STRING
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4
+    },
+    titulo: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    conteudo: {
+      type:DataTypes.STRING,
+    }
   }, {
     sequelize,
     modelName: 'Postagem',
+    tableName: 'postagems'
   });
   return Postagem;
 };
