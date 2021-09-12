@@ -14,13 +14,31 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Endereco.init({
-    rua: DataTypes.STRING,
-    bairro: DataTypes.STRING,
-    cidade: DataTypes.STRING,
-    estado: DataTypes.STRING
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4
+    },
+    rua: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    bairro: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    cidade: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    estado: {
+      type:DataTypes.STRING,
+      allowNull:false
+    }
   }, {
     sequelize,
     modelName: 'Endereco',
+    tableName: 'enderecos'
   });
   return Endereco;
 };

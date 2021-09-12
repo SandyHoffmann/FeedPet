@@ -14,10 +14,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Comentario.init({
-    conteudo: DataTypes.STRING
+    id:{
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4
+    },
+    conteudo: {
+      type:DataTypes.STRING,
+      allowNull:false
+    }
   }, {
     sequelize,
     modelName: 'Comentario',
+    tableName: "comentarios"
   });
   return Comentario;
 };
