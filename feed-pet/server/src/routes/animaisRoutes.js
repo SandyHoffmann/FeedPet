@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const usuariosController = require("../controllers/usuariosController");
+const usuariosController = require("../controllers/usuariosControllers");
 const animaisController = require("../controllers/animaisControllers");
 
 //fazer validators

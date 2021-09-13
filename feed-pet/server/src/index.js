@@ -8,6 +8,8 @@ const app = express();
 const usuariosRoutes = require("./routes/usuariosRoutes");
 const animaisRoutes = require("./routes/animaisRoutes");
 const postagensRoutes = require("./routes/postagensRoutes");
+const enderecosRoutes = require("./routes/enderecoRoutes");
+const agendasRoutes = require("./routes/agendasRoutes");
 
 const PORT = process.env.PORT || 3000;
 
@@ -18,6 +20,9 @@ app.use(express.json());
 app.use("/usuarios", usuariosRoutes);
 app.use("/animais", animaisRoutes);
 app.use("/postagens", postagensRoutes);
+app.use("/enderecos", enderecosRoutes);
+app.use("/agendas", agendasRoutes);
+
 
 app.get("/", (req, res) => {
     res.send("Ola a");

@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         this.hasMany(models.Postagem, { foreignKey: "user_id", onDelete: 'CASCADE'});
         this.hasMany(models.Comentario, { foreignKey: "user_id", onDelete: 'CASCADE'});
         this.hasMany(models.Curtida, { foreignKey: "user_id", onDelete: 'CASCADE'});
+        this.belongsTo(models.Endereco, { foreignKey: "endereco_id", as: "endereco", onDelete: 'CASCADE'  });
 
     }
 
