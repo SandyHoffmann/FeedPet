@@ -22,8 +22,29 @@ async function create(req, res, next) {
     }
 }
 
+async function getAllAnimalsByUserId(req, res, next) {    
+    try {
+        const animais = await usuariosServices.acharAnimaisUsuario(req.params.id);
+        res.json(animais);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
+async function getAllPostsByUserId(req, res, next) {    
+    try {
+        const postagem = await usuariosServices.acharPostagensUsuario(req.params.id);
+        res.json(postagem);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
 
 module.exports = {
     getAll,
-    create
+    create,
+    getAllAnimalsByUserId,
+    getAllPostsByUserId
 };

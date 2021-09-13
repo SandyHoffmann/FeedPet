@@ -1,5 +1,5 @@
 const createError = require("http-errors");
-const { Usuario } = require("../models");
+const { Animal,Usuario,Postagem } = require("../models");
 
 async function getUsuarios() {    
     return await Usuario.findAll();    
@@ -17,8 +17,24 @@ async function createUsuario(usuario) {
     return await Usuario.create(usuario);
 }
 
+async function acharAnimaisUsuario(id) {
+    const usuario = await Usuario.findOne({ where: { id:id } });
+    if (!usuario) throw createError(404, "Usuário não encontrado!");
+    console.log(usuario)
+    return await usuario.getAnimal();
+}
+
+async function acharPostagensUsuario(id) {
+    const usuario = await Usuario.findOne({ where: { id:id } });
+    if (!usuario) throw createError(404, "Usuário não encontrado!");
+    console.log(usuario)
+    const postagens = await Postagem.findAll({ where: { user_id:id } });
+    return postagens;
+}
 
 module.exports = {
     getUsuarios,
-    createUsuario
+    createUsuario,
+    acharAnimaisUsuario,
+    acharPostagensUsuario
 }
