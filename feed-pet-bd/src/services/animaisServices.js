@@ -1,6 +1,10 @@
 const createError = require("http-errors");
 const { Animal, Usuario } = require("../models");
 
+async function getAnimais() {    
+    return await Animal.findAll();    
+}
+
 async function createAnimalparaUsuario(id, novoAnimal) {
     console.log(id)
     const usuario = await Usuario.findOne({ where: { id:id } });
@@ -18,6 +22,15 @@ async function createAnimalparaUsuario(id, novoAnimal) {
     return animal;
 }
 
+
+async function acharUsuariosAnimal(id) {
+    const animal = await Animal.findOne({ where: { id:id } });
+    if (!animal) throw createError(404, "Animal não encontrado!");
+    return await animal.getUsuario();
+}
+
 module.exports = {
-    createAnimalparaUsuario
+    createAnimalparaUsuario,
+    acharUsuariosAnimal,
+    getAnimais
 }
