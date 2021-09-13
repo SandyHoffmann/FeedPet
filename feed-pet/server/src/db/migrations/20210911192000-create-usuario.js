@@ -41,6 +41,15 @@ module.exports = {
       data_nascimento: {
         type:Sequelize.DATE
       },
+      endereco_id: {
+        type: Sequelize.UUID,
+        references: {
+          model: "enderecos",
+          key: "id"
+        },        
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const usuariosController = require("../controllers/usuariosController");
+const usuariosController = require("../controllers/usuariosControllers");
 const animaisController = require("../controllers/animaisControllers");
 const postagensController = require("../controllers/postagensControllers");
+const enderecosController = require("../controllers/enderecosControllers");
 
 //fazer validators
 
@@ -15,8 +16,10 @@ router.get("/postagens/:id", usuariosController.getAllPostsByUserId);
 
 router.post("/", usuariosController.create);
 
-router.post("/:id/animais", animaisController.criarParaUsuario);
+router.post("/animais/:id", animaisController.criarParaUsuario);
 
-router.post("/:id/postagens", postagensController.criarPostagem);
+router.post("/postagens/:id", postagensController.criarPostagem);
+
+router.post("/enderecos/:id_user", enderecosController.defineEndereco);
 
 module.exports = router;

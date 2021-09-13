@@ -29,6 +29,16 @@ async function createCurtida(id_usuario, id_postagem, curtida) {
     return "Curtida Apagada"
 }
 
+async function getCurtida(id_postagem) {
+    const postagem = await Postagem.findOne({ where: { id:id_postagem } });
+    if (!postagem) throw createError(404, "Postagem não encontrada!");    
+
+    const curtidas = await Curtida.findAll({where:{post_id:id_postagem}});    
+
+    return curtidas
+
+}
+
 // async function acharComentariosPost(id_postagem) {
 //     const postagem = await Postagem.findOne({ where: { id:id_postagem } });
 //     if (!postagem) throw createError(404, "Postagem não encontrada!"); 
@@ -37,5 +47,6 @@ async function createCurtida(id_usuario, id_postagem, curtida) {
 // }
 
 module.exports = {
-    createCurtida
+    createCurtida,
+    getCurtida
 }

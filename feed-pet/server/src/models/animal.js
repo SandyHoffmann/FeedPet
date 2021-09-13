@@ -19,6 +19,8 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.UUID
         }
         })
+        this.hasOne(models.Agenda, { foreignKey: "id_animal", as: "agenda" });
+
     }
   };
   Animal.init({

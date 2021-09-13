@@ -16,6 +16,16 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       },
+      agenda_id: {
+        type: Sequelize.UUID,
+        allowNull: false,
+        references: {
+          model: "agendas",
+          key: "id"
+        },        
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

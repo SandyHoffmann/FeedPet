@@ -23,6 +23,16 @@ async function getAll(req, res, next) {
     }
 }
 
+async function getAllCurtidas(req, res, next) {    
+    try {
+        const curtidas = await curtidasServices.getCurtida(req.params.id_post);
+        res.json(curtidas);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
 async function getPostOwner(req, res, next) {    
     try {
         const usuario = await postagensServices.acharUsuarioPostagem(req.params.id);
@@ -70,5 +80,6 @@ module.exports = {
     getPostOwner,
     createComentario,
     getComentariosPostagem,
-    createCurtida
+    createCurtida,
+    getAllCurtidas
 }
