@@ -1,11 +1,26 @@
 import './App.css';
-import { Ola } from './components/teste';
+
+import { MdThumbDown,MdThumbUp } from 'react-icons/md';
 
 function App() {
   return (
-    <div className="App">
-      <Ola nome="Teste"></Ola>
-    </div>
+    <>
+    <button type="submit">
+      Like
+      <MdThumbUp
+        size={30}
+        color="#"
+      />
+    </button>
+    <button type="submit">
+    Deslike
+      <MdThumbDown
+        size={30}
+        color="#"
+      />
+    </button>
+    </>
+    
   );
 }
 
