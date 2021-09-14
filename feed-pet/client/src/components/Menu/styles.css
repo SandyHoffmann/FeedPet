@@ -1,0 +1,33 @@
+.menu {
+  background-color: #ffff;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  margin-bottom: 0.5%;
+}
+
+.teste {
+  font-size: 140%;
+  color: #ff4880;
+}
+.alerta {
+    background-color: #ff4880;
+}
+.botaopesquisa {
+  background-color: #8fc424;
+  color: white;
+}
+.lupa {
+  color: white;
+  font-size: 250%;
+}
+#dropdown::after{
+   border-top-color: white;
+}
+#dropdown:focus{
+    outline: none;
+    box-shadow: 0 0 0 .25rem #8fc42442;
+}
+#navbarSupportedContent{
+    text-align: center;
+    justify-self: center;
+}
