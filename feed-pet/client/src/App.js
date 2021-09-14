@@ -35,7 +35,7 @@ import Blogs from './components/pages/blogs';
 import SignUp from './components/pages/signup';
 import { CardTeste } from './components/Card';
 import { CardTeste2 } from './components/Card2';
-
+import {LikeDeslike} from './components/LikeDeslike'
 
 function App() {
 return (
@@ -54,6 +54,7 @@ return (
 	</Router>
 	<CardTeste/>
 	<CardTeste2/>
+<LikeDeslike/>
 	</>
 );
 }
