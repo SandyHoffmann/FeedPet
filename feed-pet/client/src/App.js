@@ -33,10 +33,13 @@ import AnnualReport from './components/pages/annual';
 import Teams from './components/pages/team';
 import Blogs from './components/pages/blogs';
 import SignUp from './components/pages/signup';
+import { CardTeste } from './components/Card';
+import { CardTeste2 } from './components/Card2';
 
 
 function App() {
 return (
+	<>
 	<Router>
 	<Navbar />
 	<Switch>
@@ -49,6 +52,9 @@ return (
 		<Route path='/sign-up' component={SignUp} />
 	</Switch>
 	</Router>
+	<CardTeste/>
+	<CardTeste2/>
+	</>
 );
 }
 
