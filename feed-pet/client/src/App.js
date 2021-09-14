@@ -36,6 +36,7 @@ import SignUp from './components/pages/signup';
 import { CardTeste } from './components/Card';
 import { CardTeste2 } from './components/Card2';
 import {LikeDeslike} from './components/LikeDeslike'
+import { Cardhome, Cardhometeste } from './components/ComponentsReact/CardsHome';
 
 function App() {
 return (
@@ -44,8 +45,13 @@ return (
 	<Navbar />
 	<Switch>
 		<Route path='/' exact component={Home} />    
-		<Route path='/about' component={About} />
-		<Route path='/events' component={Events} />
+		<Route path='/teste' component={About}>
+			<CardTeste/>
+			<CardTeste2/>
+		</Route>
+		<Route path='/cardsAnimal' component={Events}>
+			<Cardhometeste></Cardhometeste>
+		</Route>
 		<Route path='/annual' component={AnnualReport} />
 		<Route path='/team' component={Teams} />
 		<Route path='/blogs' component={Blogs} />
