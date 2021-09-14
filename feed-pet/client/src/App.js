@@ -35,13 +35,19 @@ import Blogs from './components/pages/blogs';
 import SignUp from './components/pages/signup';
 import { CardTeste } from './components/Card';
 import { CardTeste2 } from './components/Card2';
+import { Menu } from './components/Menu';
+import { Body } from './components/Body';
+import { Footer } from './components/Footer';
 
 
 function App() {
 return (
 	<>
-	<Router>
-	<Navbar />
+	
+	<Body>
+	<Menu />
+	
+	{/*<Router>
 	<Switch>
 		<Route path='/' exact component={Home} />    
 		<Route path='/about' component={About} />
@@ -51,9 +57,12 @@ return (
 		<Route path='/blogs' component={Blogs} />
 		<Route path='/sign-up' component={SignUp} />
 	</Switch>
-	</Router>
+	</Router>*/}
+	
 	<CardTeste/>
 	<CardTeste2/>
+	<Footer />
+	</Body>
 	</>
 );
 }
