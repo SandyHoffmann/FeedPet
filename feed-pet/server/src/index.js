@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+const cors = require('cors');
+const morgan = require('morgan');
+
 // const usuario = require("./models/usuario");
 // const { Usuario, Animal, Endereco, Atividade, Postagem, Comentario, Curtida } = require("./models");
 
@@ -14,6 +17,8 @@ const agendasRoutes = require("./routes/agendasRoutes");
 const PORT = process.env.PORT || 3000;
 
 require("dotenv").config;
+app.use(cors())
+app.use(morgan())
 
 app.use(express.json());
 
