@@ -3,12 +3,14 @@ import { api } from "../../../service";
 import { CardTesteReact } from "../Card";
 import { FormAnimal } from "../FormularioAnimal";
 
+
 export class Cardhometeste extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             card: []
         };
+
     }
 
     async componentDidMount(){
@@ -31,10 +33,15 @@ export class Cardhometeste extends React.Component {
             ]
         });
     }
+
+
     render() {
+
         const card = this.state.card;
+
         console.log(card)
         return (
+
             <>
                  <FormAnimal/>
                  <h1>{card.map(card => <CardTesteReact key={card.id} nome={card.nome} raca={card.raca}></CardTesteReact>)}</h1>
