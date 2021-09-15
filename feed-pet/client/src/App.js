@@ -40,6 +40,8 @@ import { Footer } from './components/Footer';
 import {LikeDeslike} from './components/LikeDeslike'
 import { Cardhome, Cardhometeste } from './components/ComponentsReact/CardsHome';
 import {id,secret} from './varAmbiente'
+import { ModalAnimal } from './components/ComponentsReact/Modal';
+import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAdicionarAnimal';
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -47,8 +49,6 @@ const token = jwt.sign({ sub: id }, secret);
 function App() {
 	
 return (
-	<>
-	
 	<Body>
 	<Menu />
 	<Router>
@@ -60,21 +60,17 @@ return (
 		</Route>
 		<Route path='/cardsAnimal' component={Events}>
 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
-			<Cardhometeste></Cardhometeste>
-		</Route>
+			<CorpoPaginaAdicionarAnimal/>
+		</Route>	
 		<Route path='/annual' component={AnnualReport} />
 		<Route path='/team' component={Teams} />
 		<Route path='/blogs' component={Blogs} />
 		<Route path='/sign-up' component={SignUp} />
 	</Switch>
 	</Router>
-	<CardTeste/>
-	<CardTeste2/>
 	<Footer />
 	</Body>
   
-<LikeDeslike/>
-	</>
 );
 }
 
