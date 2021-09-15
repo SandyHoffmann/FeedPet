@@ -21,10 +21,16 @@ export const Box  = () => {
     }
     
     return (
-      <div style={{ marginLeft: '40%', marginTop: '60px' }}>
+      <div style={{ 
+        marginLeft: '700px',
+        marginRight: '250px',
+         marginTop: '40px' }}>
         <h3></h3>
         <Autocomplete
-          style={{ width: 500 }}
+          style={{ width: 700 ,
+            backgroundColor: 'white',
+            paddingTop: '3px'
+          }}
           freeSolo
           autoComplete
           autoHighlight

@@ -23,7 +23,6 @@ import './App.css';
 //     </>
 //   );
 
-import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/home';
 import About from './components/pages/about';
@@ -32,13 +31,10 @@ import AnnualReport from './components/pages/annual';
 import Teams from './components/pages/team';
 import Blogs from './components/pages/blogs';
 import SignUp from './components/pages/signup';
-import { CardTeste } from './components/Card';
-import { CardTeste2 } from './components/Card2';
 import { Menu } from './components/Menu';
 import { Body } from './components/Body';
 import { Footer } from './components/Footer';
-import {LikeDeslike} from './components/LikeDeslike'
-import { Cardhome, Cardhometeste } from './components/ComponentsReact/CardsHome';
+import {LikeDeslike} from './components/LikeDeslike';
 import {id,secret} from './varAmbiente'
 
 const jwt = require('jsonwebtoken');
@@ -55,12 +51,10 @@ return (
 	<Switch>
 		<Route path='/' exact component={Home} />    
 		<Route path='/teste' component={About}>
-			<CardTeste/>
-			<CardTeste2/>
 		</Route>
 		<Route path='/cardsAnimal' component={Events}>
 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
-			<Cardhometeste></Cardhometeste>
+			
 		</Route>
 		<Route path='/annual' component={AnnualReport} />
 		<Route path='/team' component={Teams} />
@@ -68,8 +62,6 @@ return (
 		<Route path='/sign-up' component={SignUp} />
 	</Switch>
 	</Router>
-	<CardTeste/>
-	<CardTeste2/>
 	<Footer />
 	</Body>
   
