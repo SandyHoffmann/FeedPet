@@ -5,6 +5,7 @@ const usuariosController = require("../controllers/usuariosControllers");
 const animaisController = require("../controllers/animaisControllers");
 const postagensController = require("../controllers/postagensControllers");
 const enderecosController = require("../controllers/enderecosControllers");
+const refreshController = require("../controllers/refreshTokensControllers");
 
 //fazer validators
 
@@ -15,6 +16,8 @@ router.get("/animais/:id", usuariosController.getAllAnimalsByUserId);
 router.get("/postagens/:id", usuariosController.getAllPostsByUserId);
 
 router.post("/", usuariosController.create);
+
+router.post("/login", refreshController.login);
 
 router.post("/animais/:id", animaisController.criarParaUsuario);
 
