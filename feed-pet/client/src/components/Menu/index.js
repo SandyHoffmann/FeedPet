@@ -33,12 +33,12 @@ export function Menu(props) {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link teste" href="#">
-                    Login
+                    Menu
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link teste" href="#">
-                    Menu
+                    Pesquisa de usuário
                   </a>
                 </li>
               </ul>
@@ -64,7 +64,7 @@ export function Menu(props) {
                 Editar informações
               </Dropdown.Item>
               <Dropdown.Item href="#/action-3">
-                ALERTA DE ANIMAL DESAPARECIDO
+                Log Out
               </Dropdown.Item>
             </DropdownButton>
           </div>
