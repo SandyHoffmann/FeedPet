@@ -6,6 +6,7 @@ async function getAll(req, res, next) {
         const animais = await animaisServices.getAnimais();
 
         res.json(animais);
+
     } catch (err) {
         console.log(err);
         next(err);

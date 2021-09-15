@@ -9,3 +9,4 @@ router.get("/", animaisController.getAll);
 router.get("/:id", animaisController.getAllByAnimalId);
 
 module.exports = router;
+
