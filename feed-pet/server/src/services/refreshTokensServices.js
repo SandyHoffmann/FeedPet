@@ -35,6 +35,7 @@ async function criarRefreshToken(sub) {
 }
 
 function criarAccessToken(sub) {
+    console.log(process.env.ACCESS_TOKEN_SECRET)
     const token = jwt.sign(
         { sub }, 
         process.env.ACCESS_TOKEN_SECRET, 
@@ -95,7 +96,7 @@ async function loginUserCredentials(userCredeentials) {
     }
 
     const accessToken = criarAccessToken(usuarioRegistrado.id);
-    const refreshToken = criarRefreshToken(usuarioRegistrado.id);
+    const refreshToken = await criarRefreshToken(usuarioRegistrado.id);
     
     return { accessToken, refreshToken };
 }
@@ -112,8 +113,8 @@ async function refreshTokens(refreshToken) {
         throw new createHttpError(401, "Invalid refresh-token");
     }
 
-    const accessToken = criarAccessToken(validRefreshToken.Usuario.id);
-    const newRefreshToken = await criarRefreshToken(validRefreshToken.Usuario.id);
+    const accessToken = criarAccessToken(validRefreshToken.user_id);
+    const newRefreshToken = await criarRefreshToken(validRefreshToken.user_id);
     
     return { accessToken, refreshToken: newRefreshToken };
 }
