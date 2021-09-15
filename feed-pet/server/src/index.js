@@ -16,7 +16,7 @@ const agendasRoutes = require("./routes/agendasRoutes");
 
 const PORT = process.env.PORT || 3000;
 
-require("dotenv").config;
+require("dotenv").config();
 app.use(cors())
 app.use(morgan())
 
@@ -29,10 +29,10 @@ app.use("/enderecos", enderecosRoutes);
 app.use("/agendas", agendasRoutes);
 
 
+
 app.get("/", (req, res) => {
     res.send("Ola a");
 });
-
 
 
 app.listen(PORT, () => console.log(`Servidor rodando em: http://localhost:${PORT}`))

@@ -84,7 +84,7 @@ async function loginUserCredentials(userCredeentials) {
     const { email, password } = userCredeentials;
 
     const usuarioRegistrado = await Usuario.findOne({ where: { email } });    
-
+    console.log(usuarioRegistrado)
     if (!usuarioRegistrado) {
         throw new createHttpError(401, "E-mail ou senha inválidos.");
     }
@@ -97,8 +97,9 @@ async function loginUserCredentials(userCredeentials) {
 
     const accessToken = criarAccessToken(usuarioRegistrado.id);
     const refreshToken = await criarRefreshToken(usuarioRegistrado.id);
+
     
-    return { accessToken, refreshToken };
+    return { refreshToken };
 }
 
 async function refreshTokens(refreshToken) {
@@ -122,5 +123,6 @@ async function refreshTokens(refreshToken) {
 module.exports = {
     // loginGoogle,
     loginUserCredentials,
-    refreshTokens
+    refreshTokens,
+    criarRefreshToken
 };

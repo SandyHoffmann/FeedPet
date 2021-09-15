@@ -1,5 +1,6 @@
 const createError = require("http-errors");
-const { Animal,Usuario,Postagem } = require("../models");
+const { Animal,Usuario,Postagem,RefreshToken } = require("../models");
+const {criarRefreshToken} = require("./refreshTokensServices")
 
 async function getUsuarios() {    
     return await Usuario.findAll();    
@@ -14,7 +15,8 @@ async function createUsuario(usuario) {
 
     if (usuarioJaExiste) throw new createError(409, "Usuário já existe!");
 
-    return await Usuario.create(usuario);
+    const usuarioCriado =  await Usuario.create(usuario);
+    return usuarioCriado
 }
 
 async function acharAnimaisUsuario(id) {
