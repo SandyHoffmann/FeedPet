@@ -29,7 +29,7 @@ async function refresh(req, res, next) {
     try {
         const { refreshToken } = req.body;
 
-        const tokens = await refreshTokensServices.refreshTokens(refreshToken);
+        const tokens = refreshTokensServices.refreshTokens(refreshToken);
 
         res.json(tokens);
     } catch (error) {

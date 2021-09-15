@@ -5,7 +5,9 @@ const usuariosController = require("../controllers/usuariosControllers");
 const animaisController = require("../controllers/animaisControllers");
 const postagensController = require("../controllers/postagensControllers");
 const enderecosController = require("../controllers/enderecosControllers");
-const refreshController = require("../controllers/refreshTokensControllers");
+
+const refreshTokensControllers = require("../controllers/refreshTokensControllers");
+
 
 //fazer validators
 
@@ -24,6 +26,9 @@ router.post("/animais/:id", animaisController.criarParaUsuario);
 router.post("/postagens/:id", postagensController.criarPostagem);
 
 router.post("/enderecos/:id_user", enderecosController.defineEndereco);
+
+router.post("/login", refreshTokensControllers.login);
+router.post("/refreshToken", refreshTokensControllers.refresh);
 
 module.exports = router;
 
