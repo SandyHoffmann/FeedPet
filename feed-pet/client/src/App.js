@@ -40,6 +40,7 @@ import { Footer } from './components/Footer';
 import {LikeDeslike} from './components/LikeDeslike'
 import { Cardhome, Cardhometeste } from './components/ComponentsReact/CardsHome';
 import {id,secret} from './varAmbiente'
+import { PaginaAnimal } from './components/PaginaAnimal';
 import { ModalAnimal } from './components/ComponentsReact/Modal';
 import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAdicionarAnimal';
 
@@ -54,9 +55,7 @@ return (
 	<Menu />
 	<Switch>
 		<Route path='/' exact component={Home} />    
-		<Route path='/postagens' component={About}>
-
-		</Route>
+		<Route path='/postagens' component={About}></Route>
 		<Route path='/animais' component={Events}>
 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
 			<CorpoPaginaAdicionarAnimal/>
