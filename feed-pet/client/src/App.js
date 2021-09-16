@@ -32,18 +32,16 @@ import AnnualReport from './components/pages/annual';
 import Teams from './components/pages/team';
 import Blogs from './components/pages/blogs';
 import SignUp from './components/pages/signup';
-import { CardTeste } from './components/Card';
-import { CardTeste2 } from './components/Card2';
 import { Menu } from './components/Menu';
 import { Body } from './components/Body';
 import { Footer } from './components/Footer';
 import {LikeDeslike} from './components/LikeDeslike'
-import { Cardhome, Cardhometeste } from './components/ComponentsReact/CardsHome';
 import {id,secret} from './varAmbiente'
+import { CorpoPaginaPostagem } from './components/ComponentsReact/PostagemPage/BodyPostagem';
 import { PaginaAnimal } from './components/PaginaAnimal';
 import { ModalAnimal } from './components/ComponentsReact/Modal';
-import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAdicionarAnimal';
 import { PaginaPessoa } from './components/PaginaPessoa';
+import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAnimal/PaginaAdicionarAnimal';
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -55,8 +53,15 @@ return (
 	<Router>
 	<Menu />
 	<Switch>
-		<Route path='/' exact component={Home} />    
-		<Route path='/postagens' component={About}></Route>
+		<Route path='/' exact>
+			
+		</Route>    
+		<Route path='/postagens'>
+			<CorpoPaginaPostagem/>
+		</Route>			
+		<Route path='/perfil'>
+			<PaginaAnimal/>
+		</Route>		
 		<Route path='/animais' component={Events}>
 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
 			<CorpoPaginaAdicionarAnimal/>
