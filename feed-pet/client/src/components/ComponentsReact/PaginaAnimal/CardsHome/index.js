@@ -10,7 +10,7 @@ export function Cardhometeste(props) {
 
     return (
             <div className="corpoAnimal">
-                 {card.map(card => <CardTesteReact key={card.id} nome={card.nome} raca={card.raca}></CardTesteReact>)}
+                 {card.map(card => <CardTesteReact key={card.id} nome={card.nome} raca={card.raca} className="cardReact"></CardTesteReact>)}
             </div>
         );
     

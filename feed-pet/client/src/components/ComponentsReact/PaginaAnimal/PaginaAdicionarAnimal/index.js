@@ -1,7 +1,8 @@
 import React from "react";
+import { api } from "../../../../service";
 import { Cardhometeste } from "../CardsHome";
 import { ModalAnimal } from "../Modal";
-import { api } from "../../../service";
+import "./styles.css"
 
 export class CorpoPaginaAdicionarAnimal extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ export class CorpoPaginaAdicionarAnimal extends React.Component {
             const res = await api.get("/animais");
             const animais = res.data;
             console.log(animais)
-            this.setState({card:animais})
+            this.setState({card:animais.reverse()})
         } catch (error) {
             console.log(error)
         }
@@ -37,7 +38,7 @@ export class CorpoPaginaAdicionarAnimal extends React.Component {
         return(
             <>
                 <ModalAnimal setarCard={this.addCard}/>
-                <Cardhometeste animais={this.state.card}/>
+                <Cardhometeste animais={this.state.card} className="cardReact"/>
             </>
         )
     };

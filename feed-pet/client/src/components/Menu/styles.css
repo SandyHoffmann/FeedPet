@@ -1,3 +1,7 @@
+.navbar{
+  font-family: 'Montserrat', sans-serif;
+}
+
 .menu {
   background-color: #ffff;
   margin-left: 0.5%;
@@ -5,9 +9,9 @@
   margin-bottom: 0.5%;
 }
 
-.teste {
+#teste {
   font-size: 140%;
-  color: #ff4880;
+  color: #ff4880 !important;
 }
 .alerta {
     background-color: #ff4880;
@@ -30,4 +34,10 @@
 #navbarSupportedContent{
     text-align: center;
     justify-self: center;
+}
+
+.link-drop{
+  text-decoration: none;
+  font-style: normal;
+  color: rgb(0, 0, 0);
 }

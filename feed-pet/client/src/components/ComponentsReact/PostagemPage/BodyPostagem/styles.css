@@ -1,0 +1,9 @@
+.corpoPostagem{
+    border: 1px solid palegreen;
+    background-color: paleturquoise;
+}
+
+.bodyPost{
+    display: flex;
+    flex-wrap: wrap;
+}
