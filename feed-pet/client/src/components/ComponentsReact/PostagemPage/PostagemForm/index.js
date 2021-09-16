@@ -31,9 +31,9 @@ export class FormPostagem extends React.Component {
     handleSubmit = async e => {
         try {
             e.preventDefault();
-            let token = jwt.decode(localStorage.getItem("token"),secret).sub
-            console.log(token)
-            await api.post(`/usuarios/postagens/${'c49ebd84-bba1-4b8e-9689-e20f0fabc661'}`,
+            // let token = jwt.decode(localStorage.getItem("token"),secret).sub
+            // console.log(token)
+            await api.post(`/usuarios/postagens/${'ed39d86e-7577-4c2c-8ba7-2a47343eac17'}`,
                 {
                     "titulo":this.state.titulo,
                     "conteudo": this.state.conteudo
