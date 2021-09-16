@@ -34,6 +34,11 @@ export function Menu(props) {
                     Menu
                   </a>
                 </li>
+                <li className="nav-item">
+                  <a className="nav-link teste" href="#">
+                    Pesquisa de usuário
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -56,7 +61,7 @@ export function Menu(props) {
               <Dropdown.Item><li><NavLink to="/animais" activeClassName="selected" className="link-drop">Meus Animais</NavLink></li></Dropdown.Item>
               <Dropdown.Item><li><NavLink to="/editar-perfil" activeClassName="selected" className="link-drop">Editar Perfil</NavLink></li></Dropdown.Item>
               <Dropdown.Item href="#/action-3">
-                ALERTA DE ANIMAL DESAPARECIDO
+                Log Out
               </Dropdown.Item>
             </DropdownButton>
           </div>

@@ -40,6 +40,9 @@ import {id,secret} from './varAmbiente'
 import { ModalAnimal } from './components/ComponentsReact/PaginaAnimal/Modal';
 import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAnimal/PaginaAdicionarAnimal';
 import { CorpoPaginaPostagem } from './components/ComponentsReact/PostagemPage/BodyPostagem';
+import { PaginaAnimal } from './components/PaginaAnimal';
+import { ModalAnimal } from './components/ComponentsReact/Modal';
+import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAdicionarAnimal';
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -55,7 +58,8 @@ return (
 		<Route path='/postagens'>
 			<CorpoPaginaPostagem/>
 		</Route>
-		<Route path='/animais'>
+		<Route path='/postagens' component={About}></Route>
+		<Route path='/animais' component={Events}>
 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
 			<CorpoPaginaAdicionarAnimal/>
 		</Route>	
