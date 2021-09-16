@@ -13,6 +13,7 @@ const animaisRoutes = require("./routes/animaisRoutes");
 const postagensRoutes = require("./routes/postagensRoutes");
 const enderecosRoutes = require("./routes/enderecoRoutes");
 const agendasRoutes = require("./routes/agendasRoutes");
+const authRoutes = require("./routes/agendasRoutes");
 
 const PORT = process.env.PORT || 3000;
 
@@ -27,6 +28,7 @@ app.use("/animais", animaisRoutes);
 app.use("/postagens", postagensRoutes);
 app.use("/enderecos", enderecosRoutes);
 app.use("/agendas", agendasRoutes);
+app.use("/auth", authRoutes);
 
 
 
