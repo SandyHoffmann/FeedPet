@@ -33,7 +33,7 @@ export class FormPostagem extends React.Component {
             e.preventDefault();
             let token = jwt.decode(localStorage.getItem("token"),secret).sub
             console.log(token)
-            await api.post(`/usuarios/postagens/${'f7cbfb44-eb12-42e4-a582-4cd973cf13a2'}`,
+            await api.post(`/usuarios/postagens/${'c49ebd84-bba1-4b8e-9689-e20f0fabc661'}`,
                 {
                     "titulo":this.state.titulo,
                     "conteudo": this.state.conteudo
@@ -41,6 +41,7 @@ export class FormPostagem extends React.Component {
             )
             this.props.setarPost(this.state)
             this.setState({titulo:"",conteudo:""})
+            this.props.fecharForm()
 
         } catch (error) {
             console.log(this.state)
