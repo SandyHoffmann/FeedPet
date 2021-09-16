@@ -2,6 +2,7 @@ import img from "../../assets/logofinalhome.png";
 import "./styles.css";
 import { CgMenuGridO } from "react-icons/cg";
 import { DropdownButton, Dropdown } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 export function Menu(props) {
   return (
@@ -26,11 +27,8 @@ export function Menu(props) {
             </a>
             <div class="nav-fill">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <a className="nav-link teste" href="#">
-                    Home
-                  </a>
-                </li>
+                <li className="nav-item"><NavLink exact to="/" activeClassName="selected" className="nav-link teste">Home</NavLink></li>
+                <li className="nav-item"><NavLink to="/postagens" activeClassName="selected" className="nav-link teste">Postagens</NavLink></li>
                 <li className="nav-item">
                   <a className="nav-link teste" href="#">
                     Menu
@@ -59,10 +57,9 @@ export function Menu(props) {
               title={<CgMenuGridO className="lupa" />}
               variant="flat"
             >
-              <Dropdown.Item href="#/action-1">Seu perfil</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">
-                Editar informações
-              </Dropdown.Item>
+              <Dropdown.Item><li><NavLink to="/perfil" activeClassName="selected" className="link-drop">Perfil</NavLink></li></Dropdown.Item>
+              <Dropdown.Item><li><NavLink to="/animais" activeClassName="selected" className="link-drop">Meus Animais</NavLink></li></Dropdown.Item>
+              <Dropdown.Item><li><NavLink to="/editar-perfil" activeClassName="selected" className="link-drop">Editar Perfil</NavLink></li></Dropdown.Item>
               <Dropdown.Item href="#/action-3">
                 Log Out
               </Dropdown.Item>
