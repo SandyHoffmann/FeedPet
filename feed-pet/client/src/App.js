@@ -32,14 +32,14 @@ import AnnualReport from './components/pages/annual';
 import Teams from './components/pages/team';
 import Blogs from './components/pages/blogs';
 import SignUp from './components/pages/signup';
-import { CardTeste } from './components/Card';
-import { CardTeste2 } from './components/Card2';
 import { Menu } from './components/Menu';
 import { Body } from './components/Body';
 import { Footer } from './components/Footer';
 import {LikeDeslike} from './components/LikeDeslike'
-import { Cardhome, Cardhometeste } from './components/ComponentsReact/CardsHome';
 import {id,secret} from './varAmbiente'
+import { ModalAnimal } from './components/ComponentsReact/PaginaAnimal/Modal';
+import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAnimal/PaginaAdicionarAnimal';
+import { CorpoPaginaPostagem } from './components/ComponentsReact/PostagemPage/BodyPostagem';
 import { PaginaAnimal } from './components/PaginaAnimal';
 import { ModalAnimal } from './components/ComponentsReact/Modal';
 import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAdicionarAnimal';
@@ -55,6 +55,9 @@ return (
 	<Menu />
 	<Switch>
 		<Route path='/' exact component={Home} />    
+		<Route path='/postagens'>
+			<CorpoPaginaPostagem/>
+		</Route>
 		<Route path='/postagens' component={About}></Route>
 		<Route path='/animais' component={Events}>
 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
