@@ -43,6 +43,7 @@ import {id,secret} from './varAmbiente'
 import { PaginaAnimal } from './components/PaginaAnimal';
 import { ModalAnimal } from './components/ComponentsReact/Modal';
 import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAdicionarAnimal';
+import { PaginaPessoa } from './components/PaginaPessoa';
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -62,6 +63,9 @@ return (
 		</Route>
 		<Route path='/perfil' component={Events}>
             <PaginaAnimal/>
+        </Route>
+		<Route path='/editar-perfil' component={Events}>
+            <PaginaPessoa/>
         </Route>	
 		<Route path='/annual' component={AnnualReport} />
 		<Route path='/team' component={Teams} />
