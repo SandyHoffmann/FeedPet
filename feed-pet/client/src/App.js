@@ -50,15 +50,14 @@ function App() {
 	
 return (
 	<Body>
-	<Menu />
 	<Router>
+	<Menu />
 	<Switch>
 		<Route path='/' exact component={Home} />    
-		<Route path='/teste' component={About}>
-			<CardTeste/>
-			<CardTeste2/>
+		<Route path='/postagens' component={About}>
+
 		</Route>
-		<Route path='/cardsAnimal' component={Events}>
+		<Route path='/animais' component={Events}>
 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
 			<CorpoPaginaAdicionarAnimal/>
 		</Route>	
@@ -66,6 +65,8 @@ return (
 		<Route path='/team' component={Teams} />
 		<Route path='/blogs' component={Blogs} />
 		<Route path='/sign-up' component={SignUp} />
+		{/* <Route path="*" component={NotFound} />                                             */}
+
 	</Switch>
 	</Router>
 	<Footer />

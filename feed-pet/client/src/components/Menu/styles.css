@@ -31,3 +31,9 @@
     text-align: center;
     justify-self: center;
 }
+
+.link-drop{
+  text-decoration: none;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+}
