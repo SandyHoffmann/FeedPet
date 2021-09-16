@@ -19,7 +19,7 @@ router.get("/postagens/:id", usuariosController.getAllPostsByUserId);
 
 router.post("/", usuariosController.create);
 
-router.post("/login", refreshController.login);
+// router.post("/login", refreshController.login);
 
 router.post("/animais/:id", animaisController.criarParaUsuario);
 
