@@ -39,10 +39,10 @@ import {LikeDeslike} from './components/LikeDeslike'
 import {id,secret} from './varAmbiente'
 import { CorpoPaginaPostagem } from './components/ComponentsReact/PostagemPage/BodyPostagem';
 import { PaginaAnimal } from './components/PaginaAnimal';
-import { ModalAnimal } from './components/ComponentsReact/Modal';
 import { PaginaPessoa } from './components/PaginaPessoa';
 import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAnimal/PaginaAdicionarAnimal';
 import { FormLogin } from './components/ComponentsReact/PaginaLogin/Login';
+import { ModalLogin } from './components/ComponentsReact/PaginaLogin/Modal';
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -75,7 +75,7 @@ return (
             <PaginaPessoa/>
         </Route>	
 		<Route path='/login' component={Events}>
-            <FormLogin/>
+            <ModalLogin/>
         </Route>	
 		<Route path='/annual' component={AnnualReport} />
 		<Route path='/team' component={Teams} />

@@ -32,9 +32,9 @@ export class FormLogin extends React.Component {
             e.preventDefault();
             // let token = jwt.decode(localStorage.getItem("token"),secret).sub
             // console.log(token)
-            await api.post(`/usuarios/animais/${'c49ebd84-bba1-4b8e-9689-e20f0fabc661'}`,
+            await api.post(`/auth/login`,
                 {   "email":this.state.email,
-                    "senha": this.state.senha
+                    "password": this.state.senha
                 }
             )
             this.setState({...initialState})
