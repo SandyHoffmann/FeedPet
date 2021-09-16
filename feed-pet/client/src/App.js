@@ -36,11 +36,13 @@ import SignUp from './components/pages/signup';
 import { CardTeste } from './components/Card';
 import { CardTeste2 } from './components/Card2';
 import {LikeDeslike} from './components/LikeDeslike'
+import { CaixaComentarios } from './components/CaixaComentarios'
 
 function App() {
 return (
 	<>
 	<Router>
+	<CaixaComentarios />
 	<Navbar />
 	<Switch>
 		<Route path='/' exact component={Home} />    
