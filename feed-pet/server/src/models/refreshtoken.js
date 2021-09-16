@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Token extends Model {
+  class RefreshToken extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,26 +11,27 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Usuario, { foreignKey: "user_id", as: "usuario" });
     }
   };
-  Token.init({
+  RefreshToken.init({
     id: {
       type: DataTypes.UUID,
-      primaryKey: true,
-      defaultValue: DataTypes.UUIDV4
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
     },
     token: {
-      type:DataTypes.BIGINT,
-      allowNull: false
+      type: DataTypes.UUID,
+      allowNull: false,
+      unique: true
     },
-    refresh_token: {
-      type:DataTypes.BIGINT,
+    expiresIn: {
+      type: DataTypes.BIGINT,
       allowNull: false
     }
   }, {
     sequelize,
-    modelName: 'Token',
-    tableName: "tokens"
+    modelName: 'RefreshToken',
   });
-  return Token;
+  return RefreshToken;
 };

@@ -1,0 +1,15 @@
+
+.botaoUp{
+background-color:  #ff4880;
+border-radius: 4px;
+border: none;
+color: white;
+font-size: 10px;
+margin-right: 40px;
+height: 20%;
+
+} 
+.botaoUp:hover {
+    background-color: #4CAF50;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

@@ -21,7 +21,6 @@ import './App.css';
 //       />
 //     </button>
 //     </>
-    
 //   );
 
 import Navbar from './components/Navbar';
@@ -33,31 +32,62 @@ import AnnualReport from './components/pages/annual';
 import Teams from './components/pages/team';
 import Blogs from './components/pages/blogs';
 import SignUp from './components/pages/signup';
-import { CardTeste } from './components/Card';
-import { CardTeste2 } from './components/Card2';
+import { Menu } from './components/Menu';
+import { Body } from './components/Body';
+import { Footer } from './components/Footer';
 import {LikeDeslike} from './components/LikeDeslike'
 import { CaixaComentarios } from './components/CaixaComentarios'
+import {id,secret} from './varAmbiente'
+import { CorpoPaginaPostagem } from './components/ComponentsReact/PostagemPage/BodyPostagem';
+import { PaginaAnimal } from './components/PaginaAnimal';
+import { PaginaPessoa } from './components/PaginaPessoa';
+import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAnimal/PaginaAdicionarAnimal';
+import { FormLogin } from './components/ComponentsReact/PaginaLogin/Login';
+import { ModalLogin } from './components/ComponentsReact/PaginaLogin/Modal';
+
+const jwt = require('jsonwebtoken');
+const token = jwt.sign({ sub: id }, secret);
 
 function App() {
+	
 return (
-	<>
+	<Body>
 	<Router>
-	<CaixaComentarios />
-	<Navbar />
+	<Menu />
 	<Switch>
-		<Route path='/' exact component={Home} />    
-		<Route path='/about' component={About} />
-		<Route path='/events' component={Events} />
+		<Route path='/' exact>
+			
+		</Route>    
+		<Route path='/postagens'>
+			<CorpoPaginaPostagem/>
+
+		</Route>			
+		<Route path='/perfil'>
+			<PaginaAnimal/>
+		</Route>		
+		<Route path='/animais' component={Events}>
+			<CorpoPaginaAdicionarAnimal/>
+		</Route>
+		<Route path='/perfil' component={Events}>
+            <PaginaAnimal/>
+        </Route>
+		<Route path='/editar-perfil' component={Events}>
+            <PaginaPessoa/>
+        </Route>	
+		<Route path='/login' component={Events}>
+            <ModalLogin/>
+        </Route>	
 		<Route path='/annual' component={AnnualReport} />
 		<Route path='/team' component={Teams} />
 		<Route path='/blogs' component={Blogs} />
 		<Route path='/sign-up' component={SignUp} />
+		{/* <Route path="*" component={NotFound} />                                             */}
+
 	</Switch>
 	</Router>
-	<CardTeste/>
-	<CardTeste2/>
-<LikeDeslike/>
-	</>
+	<Footer />
+	</Body>
+  
 );
 }
 

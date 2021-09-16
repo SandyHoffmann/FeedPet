@@ -6,6 +6,7 @@ const animaisController = require("../controllers/animaisControllers");
 const postagensController = require("../controllers/postagensControllers");
 const enderecosController = require("../controllers/enderecosControllers");
 
+
 //fazer validators
 
 router.get("/", usuariosController.getAll);
@@ -22,4 +23,6 @@ router.post("/postagens/:id", postagensController.criarPostagem);
 
 router.post("/enderecos/:id_user", enderecosController.defineEndereco);
 
+
 module.exports = router;
+
