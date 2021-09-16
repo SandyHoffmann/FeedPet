@@ -18,7 +18,7 @@ export class CorpoPaginaAdicionarAnimal extends React.Component {
             const res = await api.get("/animais");
             const animais = res.data;
             console.log(animais)
-            this.setState({card:animais})
+            this.setState({card:animais.reverse()})
         } catch (error) {
             console.log(error)
         }

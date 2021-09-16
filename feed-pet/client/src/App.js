@@ -37,12 +37,9 @@ import { Body } from './components/Body';
 import { Footer } from './components/Footer';
 import {LikeDeslike} from './components/LikeDeslike'
 import {id,secret} from './varAmbiente'
-import { ModalAnimal } from './components/ComponentsReact/PaginaAnimal/Modal';
-import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAnimal/PaginaAdicionarAnimal';
 import { CorpoPaginaPostagem } from './components/ComponentsReact/PostagemPage/BodyPostagem';
 import { PaginaAnimal } from './components/PaginaAnimal';
-import { ModalAnimal } from './components/ComponentsReact/Modal';
-import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAdicionarAnimal';
+import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAnimal/PaginaAdicionarAnimal';
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -54,11 +51,15 @@ return (
 	<Router>
 	<Menu />
 	<Switch>
-		<Route path='/' exact component={Home} />    
+		<Route path='/' exact>
+			
+		</Route>    
 		<Route path='/postagens'>
 			<CorpoPaginaPostagem/>
-		</Route>
-		<Route path='/postagens' component={About}></Route>
+		</Route>			
+		<Route path='/perfil'>
+			<PaginaAnimal/>
+		</Route>		
 		<Route path='/animais' component={Events}>
 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
 			<CorpoPaginaAdicionarAnimal/>

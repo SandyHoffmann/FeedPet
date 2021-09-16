@@ -52,7 +52,7 @@ export class FormAnimal extends React.Component {
             e.preventDefault();
             let token = jwt.decode(localStorage.getItem("token"),secret).sub
             console.log(token)
-            await api.post(`/usuarios/animais/${'f7cbfb44-eb12-42e4-a582-4cd973cf13a2'}`,
+            await api.post(`/usuarios/animais/${'c49ebd84-bba1-4b8e-9689-e20f0fabc661'}`,
                 {"nome":this.state.nome,
                     "cor": this.state.cor,
                     "porte":"grande",
