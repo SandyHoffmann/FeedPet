@@ -54,7 +54,6 @@ return (
 		</Route>
 		<Route path='/cardsAnimal' component={Events}>
 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
-			
 		</Route>
 		<Route path='/annual' component={AnnualReport} />
 		<Route path='/team' component={Teams} />

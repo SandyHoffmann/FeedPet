@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Box } from '../Box';
 import MediaCard from '../Card/Card';
+import { Example } from '../carrosel/carrosel';
 import Checkbox from '../CheckBox-Icon/CheckBox';
 
 
@@ -13,14 +14,13 @@ const About = () => {
 		flexDirection: 'column',
 
 	}}
-	
 	>
 		<div
 			style={{
 				display: 'flex',
-				justifyContent: 'center',
+				justifyContent: 'left',
+				marginLeft: '-29%',
 				marginTop: '40px',
-				marginRight: '23%',
 				marginBottom: '60px'
 				
 			}}
@@ -31,7 +31,8 @@ const About = () => {
 		<div
 		style={{
 			display: 'flex',
-			justifyContent: 'center'
+			justifyContent: 'left',
+			marginLeft: '8%'
 		}}
 		>
 			<Checkbox />
@@ -48,17 +49,18 @@ const About = () => {
 				paddingTop: '60px',
 				display: 'flex',
 				flexDirection: 'row',
-				justifyContent: 'space-evenly'	
+				justifyContent: 'space-around',
+				flexWrap: 'scroll'	
 				
 			}}
 			>
-				
-
 			<MediaCard />
 			<MediaCard />
 			<MediaCard />
 			<MediaCard />
+			
 			</div>
+			<Example />
 		</div>
 	);
 };
