@@ -62,7 +62,10 @@ return (
 		<Route path='/animais' component={Events}>
 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
 			<CorpoPaginaAdicionarAnimal/>
-		</Route>	
+		</Route>
+		<Route path='/perfil' component={Events}>
+            <PaginaAnimal/>
+        </Route>	
 		<Route path='/annual' component={AnnualReport} />
 		<Route path='/team' component={Teams} />
 		<Route path='/blogs' component={Blogs} />
