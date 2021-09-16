@@ -13,7 +13,7 @@ const animaisRoutes = require("./routes/animaisRoutes");
 const postagensRoutes = require("./routes/postagensRoutes");
 const enderecosRoutes = require("./routes/enderecoRoutes");
 const agendasRoutes = require("./routes/agendasRoutes");
-const authRoutes = require("./routes/agendasRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 const PORT = process.env.PORT || 3000;
 

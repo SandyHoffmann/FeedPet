@@ -4,6 +4,7 @@ const createHttpError = require("http-errors");
 const jwt = require("jsonwebtoken");
 const ms = require("ms");
 const { Usuario, RefreshToken } = require("../models"); 
+require("dotenv").config();
 
 async function criarRefreshToken(sub) {
     const refreshTokenExpiration = Date.now() + ms(process.env.REFRESH_TOKEN_EXPIRATION);    
@@ -35,7 +36,7 @@ async function criarRefreshToken(sub) {
 }
 
 function criarAccessToken(sub) {
-    console.log(process.env.ACCESS_TOKEN_SECRET)
+    console.log(`${process.env.ACCESS_TOKEN_SECRET} AA`)
     const token = jwt.sign(
         { sub }, 
         process.env.ACCESS_TOKEN_SECRET, 
