@@ -9,7 +9,7 @@ const initialState = {
     nome:"",
     raca:"",
     porte:"",
-    cor:"",
+    cor:"Branco",
     tipo_animal:"",
     status:""
 }
@@ -21,7 +21,7 @@ export class FormAnimal extends React.Component {
             nome:"",
             raca:"",
             porte:"",
-            cor:"",
+            cor:"Branco",
             tipo_animal:"",
             status:""
         };
@@ -63,7 +63,7 @@ export class FormAnimal extends React.Component {
             )
             this.props.setarCard(this.state)
             this.setState({...initialState})
-
+            this.props.fecharForm()
         } catch (error) {
             console.log(this.state)
         }
