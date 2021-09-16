@@ -1,7 +1,7 @@
 import React from "react";
-import { api } from "../../../service";
+import { api } from "../../../../service";
 import "./styles.css"
-import {id,secret} from '../../../varAmbiente'
+import {id,secret} from '../../../../varAmbiente'
 
 const jwt = require('jsonwebtoken');
 
@@ -52,7 +52,7 @@ export class FormAnimal extends React.Component {
             e.preventDefault();
             let token = jwt.decode(localStorage.getItem("token"),secret).sub
             console.log(token)
-            await api.post(`/usuarios/animais/${'8aabd9eb-68a8-4818-a0e3-1f9e60c1dc2c'}`,
+            await api.post(`/usuarios/animais/${'f7cbfb44-eb12-42e4-a582-4cd973cf13a2'}`,
                 {"nome":this.state.nome,
                     "cor": this.state.cor,
                     "porte":"grande",
