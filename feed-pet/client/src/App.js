@@ -42,6 +42,10 @@ import { PaginaPessoa } from './components/PaginaPessoa';
 import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAnimal/PaginaAdicionarAnimal';
 import { FormLogin } from './components/ComponentsReact/PaginaLogin/Login';
 import { ModalLogin } from './components/ComponentsReact/PaginaLogin/Modal';
+import { FormularioPostagem } from './components/ComponentsReact/PostagemPaginaAtualizada/Formularios/FormPostagem';
+import { ModalPostagem } from './components/ComponentsReact/PostagemPaginaAtualizada/FormElements/Modal';
+import { Postagem } from './components/ComponentsReact/PostagemPage/Post';
+import { Postagens } from './components/ComponentsReact/PostagemPaginaAtualizada/CorpoPágina/Postagens';
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -86,7 +90,9 @@ return (
 		<Route path='/login' component={Events}>
             <ModalLogin/>
         </Route>	
-		<Route path='/annual' component={AnnualReport} />
+		<Route path='/annual' component={AnnualReport}>
+			<Postagens/>
+		</Route>
 		<Route path='/team' component={Teams} />
 		<Route path='/blogs' component={Blogs} />
 		<Route path='/sign-up' component={SignUp} />
