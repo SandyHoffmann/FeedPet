@@ -1,5 +1,6 @@
 import React from "react";
 import { api } from "../../../../service";
+import { PostagemCard } from "../CardPost";
 import { ModalPostagem } from "../Modal";
 import { Postagem } from "../Post";
 import "./styles.css"
@@ -8,17 +9,17 @@ export class CorpoPaginaPostagem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            postagem:[]
+            postagem: []
         };
     }
 
-    
-    async componentDidMount(){
+
+    async componentDidMount() {
         try {
             const res = await api.get("/postagens");
             const postagens = res.data;
             console.log(postagens)
-            this.setState({postagem:postagens})
+            this.setState({ postagem: postagens })
         } catch (error) {
             console.log(error)
         }
@@ -28,18 +29,27 @@ export class CorpoPaginaPostagem extends React.Component {
         this.setState({
             postagem: [
                 postagens,
-                ...this.state.postagem                
+                ...this.state.postagem
             ]
         });
     }
 
-    render(){
-        return(
+    render() {
+        const postagens = this.state.postagem
+        return (
             <>
-            <ModalPostagem setarPost={this.addPostagem}/>
-            <div className="bodyPost">
-                <Postagem postagens={this.state.postagem} className="corpoPostagem"/>
-            </div>
+                <ModalPostagem setarPost={this.addPostagem} />
+                <div className="bodyPost">
+                        <div className="tab-content p-0">
+                            <div className="tab-pane fade active show" id="profile-post">
+                                <ul className="timeline post">
+                                    <li>
+                                    {postagens.map(post => <PostagemCard key={post.id} id_post={post.id} titulo={post.titulo} conteudo={post.conteudo} ></PostagemCard>)}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
             </>
         )
     };

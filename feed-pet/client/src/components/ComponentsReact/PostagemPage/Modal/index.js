@@ -18,7 +18,7 @@ export function ModalPostagem(props) {
           <Modal.Header closeButton>
             <Modal.Title>Formulario</Modal.Title>
           </Modal.Header>
-          <Modal.Body><FormPostagem setarPost={props.setarPost}/></Modal.Body>
+          <Modal.Body><FormPostagem setarPost={props.setarPost} fecharForm={handleClose}/></Modal.Body>
         </Modal>
       </>
     );

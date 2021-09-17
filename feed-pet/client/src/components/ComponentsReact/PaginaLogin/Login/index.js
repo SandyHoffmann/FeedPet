@@ -1,21 +1,21 @@
 import React from "react";
 import { api } from "../../../../service";
-import "./styles.css"
+import authServices from "../../../../service/authServices";
 import {id,secret} from '../../../../varAmbiente'
 
 const jwt = require('jsonwebtoken');
 
 const initialState = {
-    titulo:"",
-    conteudo:""
+    email:"",
+    senha:""
 }
 
-export class FormPostagem extends React.Component {
+export class FormLogin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            titulo:"",
-            conteudo:""
+            email:"",
+            senha:""
         };
     }
 
@@ -33,14 +33,8 @@ export class FormPostagem extends React.Component {
             e.preventDefault();
             // let token = jwt.decode(localStorage.getItem("token"),secret).sub
             // console.log(token)
-            await api.post(`/usuarios/postagens/${'ed39d86e-7577-4c2c-8ba7-2a47343eac17'}`,
-                {
-                    "titulo":this.state.titulo,
-                    "conteudo": this.state.conteudo
-                }
-            )
-            this.props.setarPost(this.state)
-            this.setState({titulo:"",conteudo:""})
+            await authServices.signIn(this.state.email,this.state.senha)
+            this.setState({...initialState})
             this.props.fecharForm()
 
         } catch (error) {
@@ -54,13 +48,14 @@ export class FormPostagem extends React.Component {
             <>
                 <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="nome">Titulo:</label>
-                    <input type="text" className="form-control" id="nome" name="titulo" aria-describedby="Nome" value={this.state.nome} onChange={this.handleChange} placeholder="Nome do Animal"/>
+                    <label htmlFor="email">Email:</label>
+                    <input type="text" className="form-control" id="email" name="email" aria-describedby="Email" value={this.state.email} onChange={this.handleChange} placeholder="Email"/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="nome">Conteudo:</label>
-                    <input type="text" className="form-control" id="nome" name="conteudo" aria-describedby="Nome" value={this.state.nome} onChange={this.handleChange} placeholder="Nome do Animal"/>
+                    <label htmlFor="senha">Nome:</label>
+                    <input type="text" className="form-control" id="senha" name="senha" aria-describedby="Senha" value={this.state.senha} onChange={this.handleChange} placeholder="Senha"/>
                 </div>
+                
                 <button type="submit" className="btn btn-primary">Enviar</button>
                 </form>            
             </>
