@@ -36,6 +36,7 @@ import { Menu } from './components/Menu';
 import { Body } from './components/Body';
 import { Footer } from './components/Footer';
 import {LikeDeslike} from './components/LikeDeslike'
+import { CaixaComentarios } from './components/CaixaComentarios'
 import {id,secret} from './varAmbiente'
 import { CorpoPaginaPostagem } from './components/ComponentsReact/PostagemPage/BodyPostagem';
 import { PaginaAnimal } from './components/PaginaAnimal';
