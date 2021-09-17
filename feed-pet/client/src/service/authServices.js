@@ -1,4 +1,4 @@
-// import jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 import { api } from "../service";
 
 function saveTokens(accessToken, refreshToken) {
@@ -14,20 +14,20 @@ function getRefreshToken() {
     return localStorage.getItem("refresh-token");
 }
 
-// function getRoleFromAccessToken(accessToken) {
-//     try {
-//         const { role } = jwtDecode(accessToken);
+function getRoleFromAccessToken(accessToken) {
+    try {
+        const { cargo } = jwtDecode(accessToken);
 
-//         return role;
-//     } catch (err) {
-//         console.log(err);
-//         return;
-//     }
-// }
+        return cargo;
+    } catch (err) {
+        console.log(err);
+        return;
+    }
+}
 
 async function getUser(accessToken) {
     try {        
-        const user = await api.get("/users", { headers: { "Authorization": `Bearer ${accessToken}` }});
+        const user = await api.get("/usuarios", { headers: { "Authorization": `Bearer ${accessToken}` }});
 
         return user;
     } catch (err) {
@@ -65,7 +65,7 @@ async function refreshToken() {
 const authServices = {
     getAccessToken,
     getRefreshToken,
-    // getRoleFromAccessToken,
+    getRoleFromAccessToken,
     getUser,
     refreshToken,
     signIn

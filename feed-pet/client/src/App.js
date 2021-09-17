@@ -74,7 +74,7 @@ return (
 			<CorpoPaginaPostagem/>
 
 		</Route>			
-		<Route path='/perfil'>
+		<Route path='/perfil' >
 			<PaginaAnimal/>
 		</Route>		
 		<Route path='/animais' component={Events}>
