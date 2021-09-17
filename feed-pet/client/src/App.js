@@ -23,7 +23,6 @@ import './App.css';
 //     </>
 //   );
 
-import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/home';
 import About from './components/pages/about';
@@ -55,6 +54,15 @@ return (
 	<Router>
 	<Menu />
 	<Switch>
+
+  // Luiz - to com sono dms pra ler oq isso aqui embaixo faz ent só comentei pra nao dar conflito
+// 		<Route path='/' exact component={Home} />    
+// 		<Route path='/teste' component={About}>
+// 		</Route>
+// 		<Route path='/cardsAnimal' component={Events}>
+// 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
+
+    // parte q tinha sido apagada
 		<Route path='/' exact>
 			
 		</Route>    
@@ -67,6 +75,8 @@ return (
 		</Route>		
 		<Route path='/animais' component={Events}>
 			<CorpoPaginaAdicionarAnimal/>
+      // fim da parte q foi apagada
+  
 		</Route>
 		<Route path='/perfil' component={Events}>
             <PaginaAnimal/>
