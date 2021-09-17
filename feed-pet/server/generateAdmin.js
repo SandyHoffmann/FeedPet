@@ -15,4 +15,4 @@ const { Usuario } = require("./src/models");
     }
 })();
 
-// criar admin: node .\generateAdmin.js --nome=admin --email=admin@admin --senha=admin
+// criar admin: node .\generateAdmin.js --nome=admin --email=admin2@admin --senha=admin
