@@ -2,6 +2,8 @@ import img from "../../../../assets/olho.jpg";
 import { LikesButtons } from "../Curtida";
 import '../../../PaginaAnimal/styles.css'
 import './styles.css'
+import { ComentarioPost } from "../Comentario";
+
 export function PostagemCard(props) {
     return(
         <div className="timeline-body">
@@ -37,28 +39,7 @@ export function PostagemCard(props) {
           <LikesButtons id_postagem={props.id_post}/>
         </div>
         <div className="timeline-comment-box">
-          <div className="user">
-            <img src={img}></img>
-          </div>
-          <div className="input">
-            <form action="">
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control rounded-corner"
-                  placeholder="Write a comment..."
-                ></input>
-                <span className="input-group-btn p-l-10">
-                  <button
-                    className="btn btn-primary f-s-12 rounded-corner"
-                    type="button"
-                  >
-                    Comment
-                  </button>
-                </span>
-              </div>
-            </form>
-          </div>
+        <ComentarioPost id_postagem={props.id_post}/>
         </div>
       </div>
 

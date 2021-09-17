@@ -2,6 +2,7 @@ import { LikeDeslike } from "../../LikeDeslike";
 import { api } from "../../../../service";
 import { useState, useEffect } from "react";
 
+
 export function LikesButtons(props) {
     let id_postagem = props.id_postagem
     const [totalLikes,setTotalLikes] = useState(0)
@@ -21,27 +22,27 @@ export function LikesButtons(props) {
 
     async function handleClick(e) {
         try {
+            console.log("aaa")
             e.preventDefault();
             // let token = jwt.decode(localStorage.getItem("token"),secret).sub
             // console.log(token)
-            await api.post(`/usuarios/postagens/${'ed39d86e-7577-4c2c-8ba7-2a47343eac17'}`,
+            await api.post(`/postagens/${'f7cbfb44-eb12-42e4-a582-4cd973cf13a2'}/${id_postagem}/curtidas`,
                 {
-                    "titulo":this.state.titulo,
-                    "conteudo": this.state.conteudo
+                    "tipo":"like"
                 }
             )
-            this.props.setarPost(this.state)
-            this.setState({titulo:"",conteudo:""})
-            this.props.fecharForm()
+            const res = await api.get(`/postagens/${id_postagem}/curtidas`)
+            const curtidas = res.data.length;
+            setTotalLikes(curtidas);
 
         } catch (error) {
-            console.log(this.state)
+            console.log(error)
         }
     }
 
     return(
         <>
-         <LikeDeslike/><span>{totalLikes}</span>
+         <LikeDeslike onClickBotao={handleClick}/><span>{totalLikes}</span>
         </>
     );
 }

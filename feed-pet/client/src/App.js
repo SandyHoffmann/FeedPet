@@ -35,7 +35,6 @@ import { Menu } from './components/Menu';
 import { Body } from './components/Body';
 import { Footer } from './components/Footer';
 import {LikeDeslike} from './components/LikeDeslike'
-import { CaixaComentarios } from './components/CaixaComentarios'
 import {id,secret} from './varAmbiente'
 import { CorpoPaginaPostagem } from './components/ComponentsReact/PostagemPage/BodyPostagem';
 import { PaginaAnimal } from './components/PaginaAnimal';
@@ -55,14 +54,14 @@ return (
 	<Menu />
 	<Switch>
 
-  // Luiz - to com sono dms pra ler oq isso aqui embaixo faz ent só comentei pra nao dar conflito
+  {/* // Luiz - to com sono dms pra ler oq isso aqui embaixo faz ent só comentei pra nao dar conflito
 // 		<Route path='/' exact component={Home} />    
 // 		<Route path='/teste' component={About}>
 // 		</Route>
 // 		<Route path='/cardsAnimal' component={Events}>
 // 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
 
-    // parte q tinha sido apagada
+    // parte q tinha sido apagada */}
 		<Route path='/' exact>
 			
 		</Route>    
@@ -75,7 +74,7 @@ return (
 		</Route>		
 		<Route path='/animais' component={Events}>
 			<CorpoPaginaAdicionarAnimal/>
-      // fim da parte q foi apagada
+      {/* // fim da parte q foi apagada */}
   
 		</Route>
 		<Route path='/perfil' component={Events}>
