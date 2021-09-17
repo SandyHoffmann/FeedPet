@@ -1,9 +1,14 @@
 const createError = require("http-errors");
-const { Animal,Usuario,Postagem,RefreshToken } = require("../models");
-const {criarRefreshToken} = require("./refreshTokensServices")
+const { Usuario,Postagem, } = require("../models");
 
 async function getUsuarios() {    
     return await Usuario.findAll();    
+}
+
+async function deleteUsuario(id) {
+    return await Usuario.destroy({
+        where: { id:id} 
+      });
 }
 
 async function createUsuario(usuario) {
@@ -38,5 +43,6 @@ module.exports = {
     getUsuarios,
     createUsuario,
     acharAnimaisUsuario,
-    acharPostagensUsuario
+    acharPostagensUsuario,
+    deleteUsuario
 }

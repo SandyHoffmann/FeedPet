@@ -13,6 +13,16 @@ async function getAll(req, res, next) {
     }
 }
 
+async function deleteAnimal(req, res, next) {
+    try {
+        const animalDeleteado = await animaisServices.deleteAnimal(req.params.id);
+        res.json(animalDeleteado);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
 async function criarParaUsuario(req, res, next) {
     try {        
         const animais = await animaisServices.createAnimalparaUsuario(req.params.id, req.body)
@@ -37,5 +47,6 @@ async function getAllByAnimalId(req, res, next) {
 module.exports = {
     getAll,
     criarParaUsuario,
-    getAllByAnimalId
+    getAllByAnimalId,
+    deleteAnimal
 }
