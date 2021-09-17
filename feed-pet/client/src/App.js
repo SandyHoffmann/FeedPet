@@ -40,6 +40,7 @@ import { CorpoPaginaPostagem } from './components/ComponentsReact/PostagemPage/B
 import { PaginaAnimal } from './components/PaginaAnimal';
 import { PaginaPessoa } from './components/PaginaPessoa';
 import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAnimal/PaginaAdicionarAnimal';
+import { TestePerfilUsuario } from './components/TestePerfilUsuario';
 import { FormLogin } from './components/ComponentsReact/PaginaLogin/Login';
 import { ModalLogin } from './components/ComponentsReact/PaginaLogin/Modal';
 
@@ -78,7 +79,8 @@ return (
   
 		</Route>
 		<Route path='/perfil' component={Events}>
-            <PaginaAnimal/>
+			<TestePerfilUsuario/>
+            {/* <PaginaAnimal/> */}
         </Route>
 		<Route path='/editar-perfil' component={Events}>
             <PaginaPessoa/>
