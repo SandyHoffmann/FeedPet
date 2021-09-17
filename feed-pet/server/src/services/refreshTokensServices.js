@@ -4,6 +4,7 @@ const createHttpError = require("http-errors");
 const jwt = require("jsonwebtoken");
 const ms = require("ms");
 const { Usuario, RefreshToken } = require("../models"); 
+require("dotenv").config();
 
 async function criarRefreshToken(sub) {
     const refreshTokenExpiration = Date.now() + ms(process.env.REFRESH_TOKEN_EXPIRATION);    
@@ -35,6 +36,7 @@ async function criarRefreshToken(sub) {
 }
 
 function criarAccessToken(sub) {
+    console.log(`${process.env.ACCESS_TOKEN_SECRET} AA`)
     const token = jwt.sign(
         { sub }, 
         process.env.ACCESS_TOKEN_SECRET, 
@@ -94,10 +96,11 @@ async function loginUserCredentials(userCredeentials) {
         throw new createHttpError(401, "E-mail ou senha inválidos.");
     }
 
-    // const accessToken = criarAccessToken(usuarioRegistrado.id);
-    const refreshToken = criarRefreshToken(usuarioRegistrado.id);
+    const accessToken = criarAccessToken(usuarioRegistrado.id);
+    const refreshToken = await criarRefreshToken(usuarioRegistrado.id);
+
     
-    return { refreshToken };
+    return { refreshToken, accessToken };
 }
 
 async function refreshTokens(refreshToken) {
@@ -112,8 +115,8 @@ async function refreshTokens(refreshToken) {
         throw new createHttpError(401, "Invalid refresh-token");
     }
 
-    const accessToken = criarAccessToken(validRefreshToken.Usuario.id);
-    const newRefreshToken = await criarRefreshToken(validRefreshToken.Usuario.id);
+    const accessToken = criarAccessToken(validRefreshToken.user_id);
+    const newRefreshToken = await criarRefreshToken(validRefreshToken.user_id);
     
     return { accessToken, refreshToken: newRefreshToken };
 }
