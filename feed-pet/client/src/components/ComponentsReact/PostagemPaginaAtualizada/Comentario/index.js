@@ -3,39 +3,35 @@ import React from "react";
 import img from "../../../../assets/olho.jpg";
 import { CardComentario } from "../CardComentario";
 
+import { useState, useEffect } from "react";
 
-export class ComentarioPost extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            conteudo: "",
-            comentarios: []
 
-        };
-    }
+export function ComentarioPost(props) {
+    let id_postagem = props.id_postagem
+    const [conteudo,setConteudo] = useState("")
+    const [comentarios,setComentarios] = useState([])
 
-    async componentDidMount(){
+    useEffect(async () => {        
         try {
             const res = await api.get(`/postagens/${this.props.id_postagem}/comentarios`);
             const comentario = res.data;
-            this.setState({comentarios:comentario})
+            setComentarios(comentario)
             console.log(comentario)
 
         } catch (error) {
             console.log(error)
         }
+    },[])
+
+    function addComentario (comentario) {
+        setComentarios([
+            comentario,
+            ...comentarios                
+        ])
+
     }
 
-    addComentario = comentario => {
-        this.setState({
-            comentarios: [
-                comentario,
-                ...this.state.comentarios                
-            ]
-        });
-    }
-
-    handleChange = e => {
+    function handleChange (e){
         const value = e.target.value;
         const nome = e.target.name;
         this.setState({
