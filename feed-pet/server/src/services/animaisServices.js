@@ -5,6 +5,12 @@ async function getAnimais() {
     return await Animal.findAll();    
 }
 
+async function deleteAnimal(id) {
+    return await Animal.destroy({
+        where: { id:id} 
+      });
+}
+
 async function createAnimalparaUsuario(id, novoAnimal) {
     console.log(id)
     const usuario = await Usuario.findOne({ where: { id:id } });
@@ -37,5 +43,6 @@ async function acharUsuariosAnimal(id) {
 module.exports = {
     createAnimalparaUsuario,
     acharUsuariosAnimal,
-    getAnimais
+    getAnimais,
+    deleteAnimal
 }
