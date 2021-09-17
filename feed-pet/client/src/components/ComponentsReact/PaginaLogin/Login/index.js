@@ -1,5 +1,6 @@
 import React from "react";
 import { api } from "../../../../service";
+import authServices from "../../../../service/authServices";
 import {id,secret} from '../../../../varAmbiente'
 
 const jwt = require('jsonwebtoken');
@@ -32,11 +33,7 @@ export class FormLogin extends React.Component {
             e.preventDefault();
             // let token = jwt.decode(localStorage.getItem("token"),secret).sub
             // console.log(token)
-            await api.post(`/auth/login`,
-                {   "email":this.state.email,
-                    "password": this.state.senha
-                }
-            )
+            await authServices.signIn(this.state.email,this.state.senha)
             this.setState({...initialState})
             this.props.fecharForm()
 

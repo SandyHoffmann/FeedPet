@@ -100,7 +100,7 @@ async function loginUserCredentials(userCredeentials) {
     const refreshToken = await criarRefreshToken(usuarioRegistrado.id);
 
     
-    return { refreshToken };
+    return { refreshToken, accessToken };
 }
 
 async function refreshTokens(refreshToken) {

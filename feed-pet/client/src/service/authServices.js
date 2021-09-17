@@ -1,5 +1,5 @@
 // import jwtDecode from "jwt-decode";
-import { api } from "./api";
+import { api } from "../service";
 
 function saveTokens(accessToken, refreshToken) {
     localStorage.setItem("access-token", accessToken);
@@ -38,8 +38,8 @@ async function getUser(accessToken) {
 
 async function signIn(email, password) {
     try {
-        const res = await api.post("/auth/login", { email, password });
-        
+        const res = await api.post("/auth/login", { email, password});
+        console.log(res)
         saveTokens(res.data.accessToken, res.data.refreshToken);        
         
     } catch (err) {
@@ -52,7 +52,7 @@ async function refreshToken() {
     const refresh_token = getRefreshToken();
     try {
         const res = await api.post("/auth/refreshToken", { refreshToken: refresh_token });
-
+        console.log(res.data)
         const newAccessToken = res.data.accessToken;
         const newRefreshToken = res.data.refreshToken;        
         saveTokens(newAccessToken, newRefreshToken);        
