@@ -11,12 +11,27 @@ async function createAtividadeparaAgenda(id, atividade) {
     const { atividade_feita, data_atividade } = atividade;
     
     const atividadeCriada = await Atividade.create({
-        atividade_feita, data_atividade, agenda_id:agenda.id
+        atividade_feita, data_atividade:data_atividade, agenda_id:agenda.id
     })
 
     return atividadeCriada;
 }
 
+async function listarAtividades(id){
+    const agenda = await Agenda.findOne({ where: { id:id } });
+
+    if (!agenda) throw createError(404, "Agenda não encontrada!");    
+    
+    const atividades = await Atividade.findAll({
+        where: {
+            agenda_id:id
+        }
+    })
+
+    return atividades
+}
+
 module.exports = {
-    createAtividadeparaAgenda
+    createAtividadeparaAgenda,
+    listarAtividades
 }

@@ -18,7 +18,7 @@ export class ComentarioPost extends React.Component {
     async componentDidMount(){
         try {
             const res = await api.get(`/postagens/${this.props.id_postagem}/comentarios`);
-            const comentario = res.data;
+            const comentario = res.data.reverse();
             this.setState({comentarios:comentario})
             console.log(comentario)
 
@@ -47,17 +47,14 @@ export class ComentarioPost extends React.Component {
     handleSubmit = async e => {
         try {
             e.preventDefault();
-            // let token = jwt.decode(localStorage.getItem("token"),secret).sub
-            // console.log(token)
-            const [sub] = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
-            const comentario = await api.post(`/postagens/${sub}/${this.props.id_postagem}/comentarios`,
+            const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+            const comentario = await api.post(`/postagens/${token.sub}/${this.props.id_postagem}/comentarios`,
                 {
                     "conteudo": this.state.conteudo
                 }
             )
             // this.props.setarPost(this.state)
             this.setState({conteudo:""})
-            console.log(comentario.data)
             this.addComentario(comentario.data)
 
 

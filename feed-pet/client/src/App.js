@@ -37,7 +37,6 @@ import { Footer } from './components/Footer';
 import {LikeDeslike} from './components/LikeDeslike'
 import {id,secret} from './varAmbiente'
 import { CorpoPaginaPostagem } from './components/ComponentsReact/PostagemPage/BodyPostagem';
-import { PaginaAnimal } from './components/PaginaAnimal';
 import { PaginaPessoa } from './components/PaginaPessoa';
 import { CorpoPaginaAdicionarAnimal } from './components/ComponentsReact/PaginaAnimal/PaginaAdicionarAnimal';
 import { TestePerfilUsuario } from './components/TestePerfilUsuario';
@@ -47,6 +46,7 @@ import { FormularioPostagem } from './components/ComponentsReact/PostagemPaginaA
 import { ModalPostagem } from './components/ComponentsReact/PostagemPaginaAtualizada/FormElements/Modal';
 import { Postagem } from './components/ComponentsReact/PostagemPage/Post';
 import { Postagens } from './components/ComponentsReact/PostagemPaginaAtualizada/CorpoPágina/Postagens';
+import { PaginaAnimal } from './components/ComponentsReact/PaginaPerfilAnimal/Perfil';
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -74,7 +74,7 @@ return (
 			<CorpoPaginaPostagem/>
 
 		</Route>			
-		<Route path='/perfil' >
+		<Route path='/perfil/:id' >
 			<PaginaAnimal/>
 		</Route>		
 		<Route path='/animais' component={Events}>
