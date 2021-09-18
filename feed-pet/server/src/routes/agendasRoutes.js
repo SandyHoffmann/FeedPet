@@ -7,6 +7,8 @@ const agendasController = require("../controllers/agendaControllers");
 //fazer validators
 // router.get("/", animaisController.getAll);
 router.get("/", agendasController.getAllAgenda);
+router.get("/:id_animal", agendasController.getAnimalAgenda);
 router.post("/:id_agenda", atividadesController.createAtividade);
+router.get("/atividades/:id", atividadesController.listarAtividades);
 
 module.exports = router;

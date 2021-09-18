@@ -7,6 +7,7 @@ const authentication = require("../middlewares/authMiddleware");
 
 //fazer validators
 router.get("/", authentication(["usuario", "admin"]), animaisController.getAll);
+router.get("/geral/:id", authentication(["usuario", "admin"]), animaisController.getEspecific);
 router.get("/:id", authentication(["usuario", "admin"]), animaisController.getAllByAnimalId);
 router.delete("/:id", authentication(["usuario", "admin"]), animaisController.deleteAnimal);
 

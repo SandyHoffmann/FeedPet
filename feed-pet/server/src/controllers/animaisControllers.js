@@ -1,6 +1,15 @@
 const animaisServices = require("../services/animaisServices");
 
+async function getEspecific(req, res, next) {    
+    try {
+        const animal = await animaisServices.getEspecific(req.params.id);
+        res.json(animal);
 
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
 async function getAll(req, res, next) {    
     try {
         const animais = await animaisServices.getAnimais();
@@ -48,5 +57,6 @@ module.exports = {
     getAll,
     criarParaUsuario,
     getAllByAnimalId,
-    deleteAnimal
+    deleteAnimal,
+    getEspecific
 }

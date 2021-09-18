@@ -10,6 +10,12 @@ async function deleteAnimal(id) {
         where: { id:id} 
       });
 }
+async function getEspecific(id) {
+    const animal = await Animal.findOne({ where: { id:id } });
+    if (!animal) throw createError(404, "Animal não encontrado!");    
+    return animal;
+
+}
 
 async function createAnimalparaUsuario(id, novoAnimal) {
     console.log(id)
@@ -44,5 +50,6 @@ module.exports = {
     createAnimalparaUsuario,
     acharUsuariosAnimal,
     getAnimais,
-    deleteAnimal
+    deleteAnimal,
+    getEspecific
 }
