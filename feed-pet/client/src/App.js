@@ -47,6 +47,8 @@ import { ModalPostagem } from './components/ComponentsReact/PostagemPaginaAtuali
 import { Postagem } from './components/ComponentsReact/PostagemPage/Post';
 import { Postagens } from './components/ComponentsReact/PostagemPaginaAtualizada/CorpoPágina/Postagens';
 import { PaginaAnimal } from './components/ComponentsReact/PaginaPerfilAnimal/Perfil';
+import { FormCadastro } from './components/ComponentsReact/FormCadastro';
+import { PaginaPerfil } from './components/ComponentsReact/PaginaPerfilPessoa/Perfil';
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -67,12 +69,17 @@ return (
 // 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
 
     // parte q tinha sido apagada */}
+		<Route path='/cadastro'>
+			<FormCadastro/>
+		</Route>    
+		<Route path='/perfil-usuario'>
+			<PaginaPerfil/>
+		</Route>    
 		<Route path='/' exact>
 			
 		</Route>    
 		<Route path='/postagens'>
 			<CorpoPaginaPostagem/>
-
 		</Route>			
 		<Route path='/perfil/:id' >
 			<PaginaAnimal/>
@@ -82,10 +89,7 @@ return (
       {/* // fim da parte q foi apagada */}
   
 		</Route>
-		<Route path='/perfil' component={Events}>
-			<TestePerfilUsuario/>
-            {/* <PaginaAnimal/> */}
-        </Route>
+
 		<Route path='/editar-perfil' component={Events}>
             <PaginaPessoa/>
         </Route>	

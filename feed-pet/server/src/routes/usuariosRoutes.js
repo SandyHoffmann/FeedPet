@@ -12,11 +12,13 @@ const authentication = require("../middlewares/authMiddleware");
 
 router.get("/", authentication(["usuario", "admin"]),usuariosController.getAll);
 
+router.get("/:id", authentication(["usuario", "admin"]),usuariosController.getUser);
+
 router.get("/animais/:id", authentication(["usuario", "admin"]),usuariosController.getAllAnimalsByUserId);
 
 router.get("/postagens/:id", authentication(["usuario", "admin"]),usuariosController.getAllPostsByUserId);
 
-router.post("/", authentication(["admin"]),usuariosController.create);
+router.post("/",usuariosController.create);
 
 router.delete("/:id", authentication(["admin"]),usuariosController.deleteUser);
 
