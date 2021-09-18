@@ -1,60 +1,61 @@
 import React from "react";
-import { api } from "../../../../../service";
+import { api } from "../../../service";
+import { useState, useEffect } from "react";
 
-const initialState = {
-    email:"",
-    senha:""
-}
-
-export class FormCadastro extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email:"",
-            senha:""
-        };
-    }
-
+export function FormCadastro(){
+    const [nome,setNome] = useState("")
+    const [email,setEmail] = useState("")
+    const [senha,setSenha] = useState("")
     
-    handleChange = e => {
+    async function handleChange(e){
         const value = e.target.value;
         const nome = e.target.name;
-        this.setState({
-            [nome]:value
-        });
+        if (nome=="nome"){
+            setNome(value)
+        } else if (nome=="email"){
+            setEmail(value)
+        } else if (nome=="senha"){
+            setSenha(value)
+        }
     }
     
-    handleSubmit = async e => {
+    async function handleSubmit(e){
         try {
             e.preventDefault();
-            // let token = jwt.decode(localStorage.getItem("token"),secret).sub
-            // console.log(token)
-            await authServices.signIn(this.state.email,this.state.senha)
-            this.setState({...initialState})
-            this.props.fecharForm()
-
+            const res = await api.post(`/usuarios/`, 
+                                {
+                                    "nome":nome,
+                                    "email":email,
+                                    "senha":senha 
+                                });
+            console.log(res.data)
+            setNome("")
+            setEmail("")
+            setSenha("")      
         } catch (error) {
-            console.log(this.state)
+            console.log(error)
         }
     }
 
-    render() {
-
         return (
             <>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input type="text" className="form-control" id="email" name="email" aria-describedby="Email" value={this.state.email} onChange={this.handleChange} placeholder="Email"/>
+                    <label htmlFor="nome">Nome:</label>
+                    <input type="text" className="form-control" id="nome" name="nome" aria-describedby="Nome" value={nome} onChange={handleChange} placeholder="Nome"/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="senha">Nome:</label>
-                    <input type="text" className="form-control" id="senha" name="senha" aria-describedby="Senha" value={this.state.senha} onChange={this.handleChange} placeholder="Senha"/>
+                    <label htmlFor="email">Email:</label>
+                    <input type="text" className="form-control" id="email" name="email" aria-describedby="Email" value={email} onChange={handleChange} placeholder="Email"/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="senha">Senha:</label>
+                    <input type="text" className="form-control" id="senha" name="senha" aria-describedby="Senha" value={senha} onChange={handleChange} placeholder="Senha"/>
                 </div>
                 
                 <button type="submit" className="btn btn-primary">Enviar</button>
                 </form>            
             </>
         );
-    }
+
 }

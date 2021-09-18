@@ -4,7 +4,11 @@ const { Usuario,Postagem, } = require("../models");
 async function getUsuarios() {    
     return await Usuario.findAll();    
 }
-
+async function getUsuario() {
+    return await Usuario.findOne({
+        where:{id:id}
+    })
+}
 async function deleteUsuario(id) {
     return await Usuario.destroy({
         where: { id:id} 
@@ -44,5 +48,6 @@ module.exports = {
     createUsuario,
     acharAnimaisUsuario,
     acharPostagensUsuario,
-    deleteUsuario
+    deleteUsuario,
+    getUsuario
 }

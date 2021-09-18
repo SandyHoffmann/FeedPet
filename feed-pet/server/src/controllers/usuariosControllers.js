@@ -10,6 +10,16 @@ async function deleteUser(req, res, next) {
     }
 }
 
+async function getUser(req, res, next) {    
+    try {
+        const usuario = await usuariosServices.getUsuario(req.params.id);
+        res.json(usuario);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
 async function getAll(req, res, next) {    
     try {
         const usuarios = await usuariosServices.getUsuarios();
@@ -57,5 +67,6 @@ module.exports = {
     create,
     getAllAnimalsByUserId,
     getAllPostsByUserId,
-    deleteUser
+    deleteUser,
+    getUser
 };
