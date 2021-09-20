@@ -16,6 +16,8 @@ import { FormLogin } from './components/ComponentsReact/PaginaLogin/Login';
 import { PaginaPerfil } from './components/ComponentsReact/PaginaPerfilPessoa/Perfil';
 import { HomeAnimal } from './components/ComponentsReact/Home';
 import About from './components/pages/about';
+import {Conteiner} from './components/CaixaComentarios/Conteiner'
+import { CaixaComentarios } from './components/CaixaComentarios';
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
