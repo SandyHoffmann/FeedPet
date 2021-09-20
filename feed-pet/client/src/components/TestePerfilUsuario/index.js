@@ -1,459 +1,240 @@
 import "./styles.css";
 import imgpost from "../../assets/icone1.png";
 import imgsrd from "../../assets/srd.jpg";
-import imgperfil from "../../assets/amyperfil.jpg"
+import love from "../../assets/likeredondo.png";
+import food from "../../assets/food-bowl.png";
+import bed from "../../assets/pet-bed.png";
+import local from "../../assets/local.png";
 
 export function TestePerfilUsuario(props) {
-    return (<section class="section about-section gray-bg" id="about">
-    <div class="container">
-        <div class="row align-items-center flex-row-reverse">
-            <div class="col-lg-6">
-                <div class="about-text go-to">
-                    <h3 class="dark-color">About Me</h3>
-                    <h6 class="theme-color lead">A Lead UX &amp; UI designer based in Canada</h6>
-                    <p>I <mark>design and develop</mark> services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences through the bold interface and meaningful interactions.</p>
-                    <div class="row about-list">
-                        <div class="col-md-6">
-                            <div class="media">
-                                <label>Birthday</label>
-                                <p>4th april 1998</p>
-                            </div>
-                            <div class="media">
-                                <label>Age</label>
-                                <p>22 Yr</p>
-                            </div>
-                            <div class="media">
-                                <label>Residence</label>
-                                <p>Canada</p>
-                            </div>
-                            <div class="media">
-                                <label>Address</label>
-                                <p>California, USA</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <label>E-mail</label>
-                                <p>info@domain.com</p>
-                            </div>
-                            <div class="media">
-                                <label>Phone</label>
-                                <p>820-885-3321</p>
-                            </div>
-                            <div class="media">
-                                <label>Skype</label>
-                                <p>skype.0404</p>
-                            </div>
-                            <div class="media">
-                                <label>Freelance</label>
-                                <p>Available</p>
-                            </div>
-                        </div>
+  return (
+    <>
+      <section class="section about-section gray-bg" id="about">
+        <div class="container" id="cabecalho">
+          <div class="row align-items-center flex-row-reverse ">
+            <div class="col-lg-6" id="sobreanimal">
+              <div class="about-text go-to">
+                <h3 class="dark-color">Sem nome</h3>
+                <h6 class="theme-color lead">Um doguinho muito amoroso!</h6>
+                <p>
+                  Calmo, dócil com crianças e outros animais. Está procurando um
+                  lar amoroso pra chamar de seu!
+                </p>
+                <div class="row about-list" id="lista">
+                  <div class="col-md-6">
+                    <div class="small">
+                      <label>COR</label>
+                      <p>Preto</p>
                     </div>
+                    <div class="small">
+                      <label>TUTOR</label>
+                      <p>Sem tutor</p>
+                    </div>
+                    <div class="small">
+                      <label>RAÇA</label>
+                      <p>SRD</p>
+                    </div>
+                    <div class="small">
+                      <label>PORTE</label>
+                      <p>Médio</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="small">
+                      <label>ENDEREÇO</label>
+                      <p>Visto em Indaial</p>
+                    </div>
+                    <div class="small">
+                      <label>CASTRADO</label>
+                      <p>Não</p>
+                    </div>
+                    <div class="small">
+                      <label>PELO</label>
+                      <p>Pelo curto</p>
+                    </div>
+                    <div class="small">
+                      <label>SEXO</label>
+                      <p>Macho</p>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div class="col-lg-6">
-                <div class="about-avatar">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt=""/>
-                </div>
+            <div class="col-md-6">
+              <div class="about-avatar">
+                <img id="perfilcachorro" src={imgsrd} />
+              </div>
             </div>
-        </div>
-        <div class="counter">
+          </div>
+          <div class="counter">
             <div class="row">
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="500" data-speed="500">500</h6>
-                        <p class="m-0px font-w-600">Happy Clients</p>
-                    </div>
+              <div class="col-6 col-lg-3">
+                <div class="count-data text-center">
+                  <h6 class="count h2" data-to="500" data-speed="500">
+                    <img src={love}></img>
+                  </h6>
+                  <p class="m-0px font-w-600">100 likes</p>
                 </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="150" data-speed="150">150</h6>
-                        <p class="m-0px font-w-600">Project Completed</p>
-                    </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div class="count-data text-center">
+                  <h6 class="count h2" data-to="150" data-speed="150">
+                  <img src={food}></img>
+                  </h6>
+                  <p class="m-0px font-w-600">Alimentado 7x</p>
                 </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="850" data-speed="850">850</h6>
-                        <p class="m-0px font-w-600">Photo Capture</p>
-                    </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div class="count-data text-center">
+                  <h6 class="count h2" data-to="850" data-speed="850">
+                  <img src={bed}></img>
+                  </h6>
+                  <p class="m-0px font-w-600">Dormiu em 5 locais</p>
                 </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="190" data-speed="190">190</h6>
-                        <p class="m-0px font-w-600">Telephonic Talk</p>
-                    </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div class="count-data text-center">
+                  <h6 class="count h2" data-to="190" data-speed="190">
+                  <img src={local}></img>
+                  </h6>
+                  <p class="m-0px font-w-600">Visto em Timbó</p>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
-);}
+      </section>
 
-// export function PaginaPessoa(props) {
-//   return (
-//     <div className="container">
-//       <div className="row">
-//         <div className="col-md-12">
-//           <div id="content" className="content content-full-width">
-//             <div className="profile">
-//               <div className="profile-header"></div>
+      <div className="linhatempo">
+        <div className="profile-content">
+          <div className="tab-content p-0">
+            <div className="tab-pane fade active show" id="profile-post">
+              <ul className="timeline">
+                <li>
+                  <div className="timeline-time">
+                    <span className="date">today</span>
+                    <span className="time">07:20</span>
+                  </div>
 
-//               <div className="profile-header-cover"></div>
+                  <div className="timeline-icon">
+                    <a href="javascript:;">&nbsp;</a>
+                  </div>
 
-//               <div className="profile-header-content">
-//                 <div className="profile-header-img">
-//                   <img src={imgperfil} alt=""></img>
-//                 </div>
+                  <div className="timeline-body">
+                    <div className="timeline-header">
+                      <span className="userimage">
+                        <img src={imgpost} alt=""></img>
+                      </span>
+                      <span className="username">Sabrina</span>
+                    </div>
+                    <div className="timeline-content">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nunc faucibus turpis quis tincidunt luctus. Nam sagittis
+                        dui in nunc consequat, in imperdiet nunc sagittis.
+                      </p>
+                    </div>
+                    <div className="timeline-likes">
+                      <div className="stats">
+                        <span className="fa-stack fa-fw stats-icon">
+                          <i className="fa fa-circle fa-stack-2x text-danger"></i>
+                          <i className="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+                        </span>
+                        <span className="fa-stack fa-fw stats-icon">
+                          <i className="fa fa-circle fa-stack-2x text-primary"></i>
+                          <i className="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                        </span>
+                        {/* <span className="stats-total">4.3k</span> */}
+                      </div>
+                      <div className="timeline-footer"></div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="timeline-time">
+                    <span className="date">today</span>
+                    <span className="time">07:20</span>
+                  </div>
 
-//                 <div className="profile-header-info">
-//                   <h4 className="m-t-10 m-b-5">Amy</h4>
-//                   <p className="m-b-10">Tutora</p>
-//                   <a href="#" className="btn btn-success">
-//                     Editar perfil
-//                   </a>
-//                 </div>
-//               </div>
-//               <br/>
+                  <div className="timeline-icon">
+                    <a href="javascript:;">&nbsp;</a>
+                  </div>
 
-//               <ul className="profile-header-tab nav nav-tabs">
-//                 <li className="nav-item">
-//                   <a
-//                     href="#profile-post"
-//                     className="nav-link active show"
-//                     data-toggle="tab"
-//                   >
-//                     POSTS
-//                   </a>
-//                 </li>
-//                 <li className="nav-item">
-//                   <a
-//                     href="#profile-about"
-//                     className="nav-link"
-//                     data-toggle="tab"
-//                   >
-//                     ABOUT
-//                   </a>
-//                 </li>
-//                 <li className="nav-item">
-//                   <a
-//                     href="#profile-photos"
-//                     className="nav-link"
-//                     data-toggle="tab"
-//                   >
-//                     PHOTOS
-//                   </a>
-//                 </li>
-//                 <li className="nav-item">
-//                   <a
-//                     href="#profile-videos"
-//                     className="nav-link"
-//                     data-toggle="tab"
-//                   >
-//                     VIDEOS
-//                   </a>
-//                 </li>
-//                 <li className="nav-item">
-//                   <a
-//                     href="#profile-friends"
-//                     className="nav-link"
-//                     data-toggle="tab"
-//                   >
-//                     FRIENDS
-//                   </a>
-//                 </li>
-//               </ul>
-//             </div>
-//           </div>
+                  <div className="timeline-body">
+                    <div className="timeline-header">
+                      <span className="userimage">
+                        <img src={imgpost} alt=""></img>
+                      </span>
+                      <span className="username">Sabrina</span>
+                    </div>
+                    <div className="timeline-content">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nunc faucibus turpis quis tincidunt luctus. Nam sagittis
+                        dui in nunc consequat, in imperdiet nunc sagittis.
+                      </p>
+                    </div>
+                    <div className="timeline-likes">
+                      <div className="stats">
+                        <span className="fa-stack fa-fw stats-icon">
+                          <i className="fa fa-circle fa-stack-2x text-danger"></i>
+                          <i className="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+                        </span>
+                        <span className="fa-stack fa-fw stats-icon">
+                          <i className="fa fa-circle fa-stack-2x text-primary"></i>
+                          <i className="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                        </span>
+                        {/* <span className="stats-total">4.3k</span> */}
+                      </div>
+                      <div className="timeline-footer"></div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="timeline-time">
+                    <span className="date">today</span>
+                    <span className="time">07:20</span>
+                  </div>
 
-//           <div className="profile-content">
-//             <div className="tab-content p-0">
-//               <div className="tab-pane fade active show" id="profile-post">
-//                 <ul className="timeline">
-//                   <li>
-//                     <div className="timeline-time">
-//                       <span className="date">today</span>
-//                       <span className="time">07:20</span>
-//                     </div>
+                  <div className="timeline-icon">
+                    <a href="javascript:;">&nbsp;</a>
+                  </div>
 
-//                     <div className="timeline-icon">
-//                       <a href="javascript:;">&nbsp;</a>
-//                     </div>
-
-//                     <div className="timeline-body">
-//                       <div className="timeline-header">
-//                         <span className="userimage">
-//                           <img src={imgperfil} alt=""></img>
-//                         </span>
-//                         <span className="username">Amy</span>
-//                         {/* <span className="pull-right text-muted">18 Views</span> */}
-//                       </div>
-//                       <div className="timeline-content">
-//                         <p>
-//                           Lorem ipsum dolor sit amet, consectetur adipiscing
-//                           elit. Nunc faucibus turpis quis tincidunt luctus. Nam
-//                           sagittis dui in nunc consequat, in imperdiet nunc
-//                           sagittis.
-//                         </p>
-//                       </div>
-//                       <div className="timeline-likes">
-//                         <div className="stats-right">
-//                           <span className="stats-text">259 Shares</span>
-//                           <span className="stats-text">21 Comments</span>
-//                         </div>
-//                         <div className="stats">
-//                           <span className="fa-stack fa-fw stats-icon">
-//                             <i className="fa fa-circle fa-stack-2x text-danger"></i>
-//                             <i className="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
-//                           </span>
-//                           <span className="fa-stack fa-fw stats-icon">
-//                             <i className="fa fa-circle fa-stack-2x text-primary"></i>
-//                             <i className="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
-//                           </span>
-//                           <span className="stats-total">4.3k</span>
-//                         </div>
-//                       </div>
-//                       <div className="timeline-footer">
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           <i className="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i>{" "}
-//                           Like
-//                         </a>
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           <i className="fa fa-comments fa-fw fa-lg m-r-3"></i>{" "}
-//                           Comment
-//                         </a>
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           <i className="fa fa-share fa-fw fa-lg m-r-3"></i>{" "}
-//                           Share
-//                         </a>
-//                       </div>
-//                       <div className="timeline-comment-box">
-//                         <div className="user">
-//                           <img src={imgpost}></img>
-//                         </div>
-//                         <div className="input">
-//                           <form action="">
-//                             <div className="input-group">
-//                               <input
-//                                 type="text"
-//                                 className="form-control rounded-corner"
-//                                 placeholder="Write a comment..."
-//                               ></input>
-//                               <span className="input-group-btn p-l-10">
-//                                 <button
-//                                   className="btn btn-primary f-s-12 rounded-corner"
-//                                   type="button"
-//                                 >
-//                                   Comment
-//                                 </button>
-//                               </span>
-//                             </div>
-//                           </form>
-//                         </div>
-//                       </div>
-//                     </div>
-//                   </li>
-//                   <li>
-//                     <div className="timeline-time">
-//                       <span className="date">yesterday</span>
-//                       <span className="time">20:17</span>
-//                     </div>
-
-//                     <div className="timeline-icon">
-//                       <a href="javascript:;">&nbsp;</a>
-//                     </div>
-//                     <div className="timeline-body">
-//                       <div className="timeline-header">
-//                         <span className="userimage">
-//                           <img
-//                             src={imgperfil}
-//                             alt=""
-//                           ></img>
-//                         </span>
-//                         <span className="username">Amy</span>
-//                         {/* <span className="pull-right text-muted">82 Views</span> */}
-//                       </div>
-//                       <div className="timeline-content">
-//                         <p>Localização: Blumenau</p>
-//                       </div>
-//                       <div className="timeline-footer">
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           <i className="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i>{" "}
-//                           Like
-//                         </a>
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           <i className="fa fa-comments fa-fw fa-lg m-r-3"></i>{" "}
-//                           Comment
-//                         </a>
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           <i className="fa fa-share fa-fw fa-lg m-r-3"></i>{" "}
-//                           Share
-//                         </a>
-//                       </div>
-//                     </div>
-//                   </li>
-//                   <li>
-//                     <div className="timeline-time">
-//                       <span className="date">24 Agosto 2021</span>
-//                       <span className="time">08:17</span>
-//                     </div>
-
-//                     <div className="timeline-icon">
-//                       <a href="javascript:;">&nbsp;</a>
-//                     </div>
-
-//                     <div className="timeline-body">
-//                       <div className="timeline-header">
-//                         <span className="userimage">
-//                           <img
-//                             src={imgperfil}
-//                             alt=""
-//                           ></img>
-//                         </span>
-//                         <span className="username">Amy</span>
-//                         {/* <span className="pull-right text-muted">
-//                           1,282 Views
-//                         </span> */}
-//                       </div>
-//                       <div className="timeline-content">
-//                         <p className="lead">
-//                           <i className="fa fa-quote-left fa-fw pull-left"></i>
-//                           Quisque sed varius nisl. Nulla facilisi. Phasellus
-//                           consequat sapien sit amet nibh molestie placerat.
-//                           Donec nulla quam, ullamcorper ut velit vitae, lobortis
-//                           condimentum magna. Suspendisse mollis in sem vel
-//                           mollis.
-//                           <i className="fa fa-quote-right fa-fw pull-right"></i>
-//                         </p>
-//                       </div>
-//                       <div className="timeline-footer">
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           <i className="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i>{" "}
-//                           Like
-//                         </a>
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           <i className="fa fa-comments fa-fw fa-lg m-r-3"></i>{" "}
-//                           Comment
-//                         </a>
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           <i className="fa fa-share fa-fw fa-lg m-r-3"></i>{" "}
-//                           Share
-//                         </a>
-//                       </div>
-//                     </div>
-//                   </li>
-//                   <li>
-//                     <div className="timeline-time">
-//                       <span className="date">10 Julho 2021</span>
-//                       <span className="time">20:43</span>
-//                     </div>
-
-//                     <div className="timeline-icon">
-//                       <a href="javascript:;">&nbsp;</a>
-//                     </div>
-
-//                     <div className="timeline-body">
-//                       <div className="timeline-header">
-//                         <span className="userimage">
-//                           <img
-//                             src={imgperfil}
-//                             alt=""
-//                           ></img>
-//                         </span>
-//                         <span className="username">Amy</span>
-//                         {/* <span className="pull-right text-muted">
-//                           1,021,282 Views
-//                         </span> */}
-//                       </div>
-//                       <div className="timeline-content">
-//                         <p className="lead">
-//                           <i className="fa fa-quote-left fa-fw pull-left"></i>
-//                           Lorem ipsum dolor sit amet. Et corrupti repellendus ut
-//                           unde vero et galisum explicabo aut dolore soluta et
-//                           fuga doloribus in ipsa fugit non consequatur ipsum!
-//                           Hic enim magnam aut obcaecati cupiditate qui
-//                           voluptatem amet. Eum adipisci commodi et accusamus
-//                           dolorem est quis facere ut magni velit. Sed delectus
-//                           accusamus quo vero rerum ut odio earum.
-//                           <i className="fa fa-quote-right fa-fw pull-right"></i>
-//                         </p>
-//                       </div>
-//                       <div className="timeline-content">
-//                         <p className="m-t-20">
-//                           <img
-//                             src="../assets/img/gallery/gallery-5.jpg"
-//                             alt=""
-//                           ></img>
-//                         </p>
-//                       </div>
-//                       <div className="timeline-footer">
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           {/* <i className="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i>{" "}
-//                           Like
-//                         </a>
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           <i className="fa fa-comments fa-fw fa-lg m-r-3"></i>{" "}
-//                           Comment
-//                         </a>
-//                         <a
-//                           href="javascript:;"
-//                           className="m-r-15 text-inverse-lighter"
-//                         >
-//                           <i className="fa fa-share fa-fw fa-lg m-r-3"></i>{" "}
-//                       Share*/}
-//                         </a>
-//                       </div>
-//                     </div>
-//                   </li>
-//                   <li>
-//                     <div className="timeline-icon">
-//                       <a href="javascript:;">&nbsp;</a>
-//                     </div>
-
-//                     <div className="timeline-body">Loading...</div>
-//                   </li>
-//                 </ul>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-
-
+                  <div className="timeline-body">
+                    <div className="timeline-header">
+                      <span className="userimage">
+                        <img src={imgpost} alt=""></img>
+                      </span>
+                      <span className="username">Sabrina</span>
+                    </div>
+                    <div className="timeline-content">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nunc faucibus turpis quis tincidunt luctus. Nam sagittis
+                        dui in nunc consequat, in imperdiet nunc sagittis.
+                      </p>
+                    </div>
+                    <div className="timeline-likes">
+                      <div className="stats">
+                        <span className="fa-stack fa-fw stats-icon">
+                          <i className="fa fa-circle fa-stack-2x text-danger"></i>
+                          <i className="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+                        </span>
+                        <span className="fa-stack fa-fw stats-icon">
+                          <i className="fa fa-circle fa-stack-2x text-primary"></i>
+                          <i className="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                        </span>
+                        {/* <span className="stats-total">4.3k</span> */}
+                      </div>
+                      <div className="timeline-footer"></div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

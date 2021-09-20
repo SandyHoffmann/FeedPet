@@ -61,15 +61,15 @@ return (
 			<CorpoPaginaPostagem/>
 		</Route>			
 		<Route path='/perfil'>
-			<PaginaAnimal/>
+		<TestePerfilUsuario/>
+			{/* <PaginaAnimal/> */}
 		</Route>		
 		<Route path='/animais' component={Events}>
 			{(!localStorage.getItem("token"))?localStorage.setItem("token",token):null}
 			<CorpoPaginaAdicionarAnimal/>
 		</Route>
 		<Route path='/perfil' component={Events}>
-			<TestePerfilUsuario/>
-            {/* <PaginaAnimal/> */}
+            <PaginaAnimal/>
         </Route>
 		<Route path='/editar-perfil' component={Events}>
             <PaginaPessoa/>
