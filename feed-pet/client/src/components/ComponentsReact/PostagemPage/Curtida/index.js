@@ -1,7 +1,7 @@
 import { LikeDeslike } from "../../LikeDeslike";
 import { api } from "../../../../service";
 import { useState, useEffect } from "react";
-
+const jwt = require('jsonwebtoken');
 
 export function LikesButtons(props) {
     let id_postagem = props.id_postagem
@@ -11,10 +11,13 @@ export function LikesButtons(props) {
 
     useEffect(async () => {
         try {
+            
             const res = await api.get(`/postagens/${id_postagem}/curtidas`)
             const curtidas = res.data.length;
-            console.log(typeof curtidas)
             setTotalLikes(curtidas);
+            const curtidasVerificacao = res.data
+            const achar = curtidasVerificacao.map(curtida => {if (curtida.user_id == 'ed39d86e-7577-4c2c-8ba7-2a47343eac17'){ return true}})
+            console.log(achar)
         } catch (error) {
             console.log(error)
         }
@@ -24,9 +27,8 @@ export function LikesButtons(props) {
         try {
             console.log("aaa")
             e.preventDefault();
-            // let token = jwt.decode(localStorage.getItem("token"),secret).sub
-            // console.log(token)
-            await api.post(`/postagens/${'f7cbfb44-eb12-42e4-a582-4cd973cf13a2'}/${id_postagem}/curtidas`,
+            const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+            await api.post(`/postagens/${token.sub}/${id_postagem}/curtidas`,
                 {
                     "tipo":"like"
                 }

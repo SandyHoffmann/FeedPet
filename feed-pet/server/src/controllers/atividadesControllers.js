@@ -9,7 +9,16 @@ async function createAtividade(req, res, next) {
         next(err);
     }
 }
-
+async function listarAtividades(req, res, next) {    
+    try {
+        const atividades = await atividadesServices.listarAtividades(req.params.id);
+        res.json(atividades);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
 module.exports = {
-    createAtividade
+    createAtividade,
+    listarAtividades
 }

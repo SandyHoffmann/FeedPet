@@ -6,10 +6,10 @@ const ms = require("ms");
 const { Usuario, RefreshToken } = require("../models"); 
 require("dotenv").config();
 
-async function criarRefreshToken(sub) {
+async function criarRefreshToken(sub, cargo) {
     const refreshTokenExpiration = Date.now() + ms(process.env.REFRESH_TOKEN_EXPIRATION);    
     const newRefreshToken = jwt.sign(
-        { sub }, 
+        { sub, cargo }, 
         process.env.REFRESH_TOKEN_SECRET,
         { expiresIn: refreshTokenExpiration }
     );
@@ -35,10 +35,10 @@ async function criarRefreshToken(sub) {
     }        
 }
 
-function criarAccessToken(sub) {
+function criarAccessToken(sub, cargo) {
     console.log(`${process.env.ACCESS_TOKEN_SECRET} AA`)
     const token = jwt.sign(
-        { sub }, 
+        { sub, cargo}, 
         process.env.ACCESS_TOKEN_SECRET, 
         { expiresIn: process.env.ACCESS_TOKEN_EXPIRATION }
     );
@@ -96,11 +96,11 @@ async function loginUserCredentials(userCredeentials) {
         throw new createHttpError(401, "E-mail ou senha inválidos.");
     }
 
-    const accessToken = criarAccessToken(usuarioRegistrado.id);
-    const refreshToken = await criarRefreshToken(usuarioRegistrado.id);
+    const accessToken = criarAccessToken(usuarioRegistrado.id, usuarioRegistrado.cargo);
+    const refreshToken = await criarRefreshToken(usuarioRegistrado.id, usuarioRegistrado.cargo);
 
     
-    return { refreshToken, accessToken };
+    return { accessToken, refreshToken };
 }
 
 async function refreshTokens(refreshToken) {
@@ -115,8 +115,8 @@ async function refreshTokens(refreshToken) {
         throw new createHttpError(401, "Invalid refresh-token");
     }
 
-    const accessToken = criarAccessToken(validRefreshToken.user_id);
-    const newRefreshToken = await criarRefreshToken(validRefreshToken.user_id);
+    const accessToken = criarAccessToken(validRefreshToken.usuario.id, validRefreshToken.usuario.cargo);
+    const newRefreshToken = await criarRefreshToken(validRefreshToken.usuario.id);
     
     return { accessToken, refreshToken: newRefreshToken };
 }

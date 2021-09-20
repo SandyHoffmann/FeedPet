@@ -1,0 +1,14 @@
+.imgComentario{
+    display: inline !important;
+    margin-right: 2%;
+}
+.cardComentario{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.comentario{
+    text-align: center;
+}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
  
 import { Carousel } from 'react-circular-carousel'
-import 'react-circular-carousel/dist/index.css'
 import MediaCard from '../Card/Card'
  
 export class Example extends Component {

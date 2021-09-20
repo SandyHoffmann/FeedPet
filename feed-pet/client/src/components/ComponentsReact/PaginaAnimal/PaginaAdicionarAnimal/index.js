@@ -3,6 +3,7 @@ import { api } from "../../../../service";
 import { Cardhometeste } from "../CardsHome";
 import { ModalAnimal } from "../Modal";
 import "./styles.css"
+const jwt = require('jsonwebtoken');
 
 export class CorpoPaginaAdicionarAnimal extends React.Component {
     constructor(props) {
@@ -10,14 +11,13 @@ export class CorpoPaginaAdicionarAnimal extends React.Component {
         this.state = {
             card: []
         };
-
     }
 
     async componentDidMount(){
         try {
-            const res = await api.get(`/usuarios/animais/${'c49ebd84-bba1-4b8e-9689-e20f0fabc661'}`);
+            const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+            const res = await api.get(`/usuarios/animais/${token.sub||'undefined'}`);
             const animais = res.data;
-            console.log(animais)
             this.setState({card:animais.reverse()})
         } catch (error) {
             console.log(error)

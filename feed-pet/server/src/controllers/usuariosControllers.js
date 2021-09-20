@@ -1,5 +1,25 @@
 const usuariosServices = require("../services/usuariosServices");
 
+async function deleteUser(req, res, next) {
+    try {
+        const usuarioDeleteado = await usuariosServices.deleteUsuario(req.params.id);
+        res.json(usuarioDeleteado);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
+async function getUser(req, res, next) {    
+    try {
+        const usuario = await usuariosServices.getUsuario(req.params.id);
+        res.json(usuario);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
 async function getAll(req, res, next) {    
     try {
         const usuarios = await usuariosServices.getUsuarios();
@@ -46,5 +66,7 @@ module.exports = {
     getAll,
     create,
     getAllAnimalsByUserId,
-    getAllPostsByUserId
+    getAllPostsByUserId,
+    deleteUser,
+    getUser
 };

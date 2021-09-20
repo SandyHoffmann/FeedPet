@@ -2,6 +2,7 @@ import { api } from "../../../../service";
 import React from "react";
 import img from "../../../../assets/olho.jpg";
 import { CardComentario } from "../CardComentario";
+const jwt = require('jsonwebtoken');
 
 
 export class ComentarioPost extends React.Component {
@@ -17,7 +18,7 @@ export class ComentarioPost extends React.Component {
     async componentDidMount(){
         try {
             const res = await api.get(`/postagens/${this.props.id_postagem}/comentarios`);
-            const comentario = res.data;
+            const comentario = res.data.reverse();
             this.setState({comentarios:comentario})
             console.log(comentario)
 
@@ -46,9 +47,8 @@ export class ComentarioPost extends React.Component {
     handleSubmit = async e => {
         try {
             e.preventDefault();
-            // let token = jwt.decode(localStorage.getItem("token"),secret).sub
-            // console.log(token)
-            const comentario = await api.post(`/postagens/${'f7cbfb44-eb12-42e4-a582-4cd973cf13a2'}/${this.props.id_postagem}/comentarios`,
+            const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+            const comentario = await api.post(`/postagens/${token.sub}/${this.props.id_postagem}/comentarios`,
                 {
                     "conteudo": this.state.conteudo
                 }
