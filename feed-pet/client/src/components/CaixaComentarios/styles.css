@@ -1,0 +1,24 @@
+.container-comentario {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    background-color: grey;
+    padding: 10px;
+}
+
+.comentario-img {
+    height: 300px;
+}
+
+.comentario-nome {
+
+}
+
+.comentario-data {
+
+}
+
+.comentario-conteudo {
+    grid-column: span 2;
+}
+
+
