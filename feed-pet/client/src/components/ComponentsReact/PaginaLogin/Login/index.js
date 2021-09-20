@@ -2,6 +2,9 @@ import React from "react";
 import { api } from "../../../../service";
 import authServices from "../../../../service/authServices";
 import {id,secret} from '../../../../varAmbiente'
+import { Form } from 'react-bootstrap';
+import "./styles.css"
+import { Link } from "react-router-dom";
 
 const jwt = require('jsonwebtoken');
 
@@ -35,7 +38,7 @@ export class FormLogin extends React.Component {
             // console.log(token)
             await authServices.signIn(this.state.email,this.state.senha)
             this.setState({...initialState})
-            this.props.fecharForm()
+            window.location.replace("/");    
 
         } catch (error) {
             console.log(this.state)
@@ -46,19 +49,31 @@ export class FormLogin extends React.Component {
 
         return (
             <>
-                <form onSubmit={this.handleSubmit}>
+            <div className="container caixa">
+                <form onSubmit={this.handleSubmit} className="caixaElemento">
+                <h1>Login</h1>
                 <div className="form-group">
+                    <br/>
                     <label htmlFor="email">Email:</label>
                     <input type="text" className="form-control" id="email" name="email" aria-describedby="Email" value={this.state.email} onChange={this.handleChange} placeholder="Email"/>
                 </div>
+                <br/>
+
                 <div className="form-group">
                     <label htmlFor="senha">Nome:</label>
                     <input type="text" className="form-control" id="senha" name="senha" aria-describedby="Senha" value={this.state.senha} onChange={this.handleChange} placeholder="Senha"/>
                 </div>
-                
+                <br/>
+
                 <button type="submit" className="btn btn-primary">Enviar</button>
-                </form>            
+                </form> 
+                <br/>
+                <Link to="/cadastro" className="caixaElemento">Cadastre-se</Link>
+
+                </div>
+
             </>
+
         );
     }
 }
