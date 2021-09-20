@@ -1,8 +1,8 @@
-import { FormAnimal } from "../FormularioAnimal";
 import { Modal,Button } from 'react-bootstrap';
 import { useState } from "react";
+import { FormLogin } from "../Login";
 
-export function ModalAnimal(props) {
+export function ModalLogin(props) {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -11,14 +11,14 @@ export function ModalAnimal(props) {
     return (
       <>
         <Button variant="primary" onClick={handleShow}>
-          Cadastrar Animal
+          Login
         </Button>
   
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Formulario</Modal.Title>
           </Modal.Header>
-          <Modal.Body><FormAnimal setarCard={props.setarCard} fecharForm={handleClose}/></Modal.Body>
+          <Modal.Body><FormLogin fecharForm={handleClose}/></Modal.Body>
         </Modal>
       </>
     );
