@@ -11,6 +11,9 @@ export function PaginaPerfil(props) {
   useEffect(async () => {
     try {
       const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+      if (!token){
+        window.location.replace("/login");
+      }
       const res = await api.get(`/usuarios/${token.sub}`);
       const informacao = res.data;
       setInformacoes(informacao)

@@ -15,6 +15,7 @@ import { FormCadastro } from './components/ComponentsReact/FormCadastro';
 import { FormLogin } from './components/ComponentsReact/PaginaLogin/Login';
 import { PaginaPerfil } from './components/ComponentsReact/PaginaPerfilPessoa/Perfil';
 import { HomeAnimal } from './components/ComponentsReact/Home';
+import About from './components/pages/about';
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -31,8 +32,11 @@ function App() {
 			<Router>
 				<Menu />
 				<Switch>
+				<Route path='/teste' component={About}>
+
+ 				</Route>
 					<Route path='/' exact>
-						<HomeAnimal />
+						{/* <MediaCard/> */}
 					</Route>
 					<Route path='/login'>
 						<FormLogin />
