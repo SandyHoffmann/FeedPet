@@ -14,10 +14,12 @@ import { PaginaAnimal } from './components/ComponentsReact/PaginaPerfilAnimal/Pe
 import { FormCadastro } from './components/ComponentsReact/FormCadastro';
 import { FormLogin } from './components/ComponentsReact/PaginaLogin/Login';
 import { PaginaPerfil } from './components/ComponentsReact/PaginaPerfilPessoa/Perfil';
-import { HomeAnimal } from './components/ComponentsReact/Home';
+import { HomeAnimal } from './components/ComponentsReact/Home/Home';
 import About from './components/pages/about';
 import {Conteiner} from './components/CaixaComentarios/Conteiner'
 import { CaixaComentarios } from './components/CaixaComentarios';
+import { FiltragemHome } from './components/ComponentsReact/Home/Tabela';
+
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -28,18 +30,20 @@ function logoff() {
 }
 
 function App() {
-
 	return (
 		<Body>
 			<Router>
 				<Menu />
 				<Switch>
 				<Route path='/teste' component={About}>
-
  				</Route>
 					<Route path='/' exact>
+					<FiltragemHome/>
 						{/* <MediaCard/> */}
 					</Route>
+          <Route path='/perfil'>
+            <TestePerfilUsuario/>
+            </Route>		
 					<Route path='/login'>
 						<FormLogin />
 					</Route>
