@@ -20,7 +20,7 @@ export function AgendaAnimal(props) {
             const informacao = res.data;
             setAgenda(informacaoAgenda)
             setInformacoes(informacao.reverse())
-            console.log(informacao)
+            console.log("ativou")
         } catch (error) {
             console.log(error)
         }

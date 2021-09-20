@@ -15,17 +15,22 @@ api.interceptors.request.use(config => {
 });
 
 api.interceptors.response.use(function (response) {
+  console.log("aqui nao tem erro")
     return response;
   }, async function (error) {
-    const originalRequest = error.config;
-    const loginUrl = `/auth/login`;
-    const refreshTokenUrl = "http://localhost:3000/auth/refreshToken";    
-    if (error.response.status === 401 && originalRequest.url !== refreshTokenUrl && error.request.responseURL !== loginUrl) {      
-      await authServices.refreshToken();     
-      window.location.replace("/login"); 
-      return api(originalRequest);
+      console.log("aqui")
+      const originalRequest = error.config;
+      const loginUrl = `/auth/login`;
+      const refreshTokenUrl = "http://localhost:3000/auth/refreshToken";    
+      if (error.response.status === 401 && originalRequest.url !== refreshTokenUrl && error.request.responseURL !== loginUrl) {      
+        await authServices.refreshToken();     
+        window.location.replace("/login"); 
+        return api(originalRequest);
     }
+    console.log("não entrou")
     return Promise.reject(error);
+    
+    
 });
 
 export const cancelTokenSource = axios.CancelToken.source();

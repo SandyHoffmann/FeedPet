@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3000;
 
 require("dotenv").config();
 app.use(cors())
-app.use(morgan())
+app.use(morgan("dev"))
 
 app.use(express.json());
 

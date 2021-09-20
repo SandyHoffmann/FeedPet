@@ -8,19 +8,25 @@ const jwt = require('jsonwebtoken');
 export function PaginaPerfil(props) {
   const [informacoes, setInformacoes] = useState([])
 
-  useEffect(async () => {
-    try {
-      const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
-      if (!token){
-        window.location.replace("/login");
-      }
-      const res = await api.get(`/usuarios/${token.sub}`);
-      const informacao = res.data;
-      setInformacoes(informacao)
+  useEffect(() => {
+    async function fetchUserData() {
+      try {
+        const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+        console.log(token);
+        if (!token){
+          // window.location.replace("/login");
+        }
 
-    } catch (error) {
-      console.log(error)
-    }
+        const res = await api.get(`/usuarios/${token?.sub}`);
+        const informacao = res.data;
+        setInformacoes(informacao)
+  
+      } catch (error) {
+        console.log(error)
+      }
+    };
+    
+    fetchUserData();
   }, [])
 
   return (
