@@ -26,18 +26,19 @@ function logoff() {
 }
 
 function App() {
-
 	return (
 		<Body>
 			<Router>
 				<Menu />
 				<Switch>
 				<Route path='/teste' component={About}>
-
  				</Route>
 					<Route path='/' exact>
 						{/* <MediaCard/> */}
 					</Route>
+          <Route path='/perfil'>
+            <TestePerfilUsuario/>
+            </Route>		
 					<Route path='/login'>
 						<FormLogin />
 					</Route>
