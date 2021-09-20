@@ -4,7 +4,7 @@ const { Usuario,Postagem, } = require("../models");
 async function getUsuarios() {    
     return await Usuario.findAll();    
 }
-async function getUsuario() {
+async function getUsuario(id) {
     return await Usuario.findOne({
         where:{id:id}
     })

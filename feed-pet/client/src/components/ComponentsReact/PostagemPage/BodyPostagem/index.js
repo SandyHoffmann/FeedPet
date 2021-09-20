@@ -37,8 +37,10 @@ export class CorpoPaginaPostagem extends React.Component {
     render() {
         const postagens = this.state.postagem
         return (
-            <>
-                <ModalPostagem setarPost={this.addPostagem} />
+            <div className="pagPostagem">
+            <div className="divBotao">
+                <ModalPostagem setarPost={this.addPostagem} className="botaoPostagem"/>
+            </div>
                 <div className="bodyPost">
                         <div className="tab-content p-0">
                             <div className="tab-pane fade active show" id="profile-post">
@@ -50,7 +52,7 @@ export class CorpoPaginaPostagem extends React.Component {
                             </div>
                         </div>
                     </div>
-            </>
+            </div>
         )
     };
 }

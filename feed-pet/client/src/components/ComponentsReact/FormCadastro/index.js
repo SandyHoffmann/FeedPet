@@ -31,7 +31,8 @@ export function FormCadastro(){
             console.log(res.data)
             setNome("")
             setEmail("")
-            setSenha("")      
+            setSenha("")   
+            window.location.replace("/login");    
         } catch (error) {
             console.log(error)
         }
@@ -39,22 +40,29 @@ export function FormCadastro(){
 
         return (
             <>
-                <form onSubmit={handleSubmit}>
+            <div className="container caixa">
+                <form onSubmit={handleSubmit} className="caixaElemento">
+                <h1>Cadastre-se</h1>
+                <br/>
                 <div className="form-group">
                     <label htmlFor="nome">Nome:</label>
                     <input type="text" className="form-control" id="nome" name="nome" aria-describedby="Nome" value={nome} onChange={handleChange} placeholder="Nome"/>
                 </div>
+                <br/>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input type="text" className="form-control" id="email" name="email" aria-describedby="Email" value={email} onChange={handleChange} placeholder="Email"/>
                 </div>
+                <br/>
                 <div className="form-group">
                     <label htmlFor="senha">Senha:</label>
                     <input type="text" className="form-control" id="senha" name="senha" aria-describedby="Senha" value={senha} onChange={handleChange} placeholder="Senha"/>
                 </div>
-                
+                <br/>
                 <button type="submit" className="btn btn-primary">Enviar</button>
-                </form>            
+                </form>   
+                <br/>
+                </div>         
             </>
         );
 

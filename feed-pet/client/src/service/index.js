@@ -21,7 +21,8 @@ api.interceptors.response.use(function (response) {
     const loginUrl = `/auth/login`;
     const refreshTokenUrl = "http://localhost:3000/auth/refreshToken";    
     if (error.response.status === 401 && originalRequest.url !== refreshTokenUrl && error.request.responseURL !== loginUrl) {      
-      await authServices.refreshToken();      
+      await authServices.refreshToken();     
+      window.location.replace("/login"); 
       return api(originalRequest);
     }
     return Promise.reject(error);

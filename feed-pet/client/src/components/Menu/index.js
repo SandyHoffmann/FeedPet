@@ -62,8 +62,10 @@ export function Menu(props) {
               <Dropdown.Item><li><NavLink to="/perfil-usuario" activeClassName="selected" className="link-drop">Perfil</NavLink></li></Dropdown.Item>
               <Dropdown.Item><li><NavLink to="/animais" activeClassName="selected" className="link-drop">Meus Animais</NavLink></li></Dropdown.Item>
               <Dropdown.Item><li><NavLink to="/editar-perfil" activeClassName="selected" className="link-drop">Editar Perfil</NavLink></li></Dropdown.Item>
-              <Dropdown.Item href="#/action-3">
-                Log Out
+              <Dropdown.Item>
+                <NavLink to="/logoff" activeClassName="selected" className="link-drop">
+                  Log Out
+                </NavLink>
               </Dropdown.Item>
             </DropdownButton>
           </div>
