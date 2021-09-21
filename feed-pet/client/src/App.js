@@ -17,7 +17,6 @@ import { PaginaPerfil } from './components/ComponentsReact/PaginaPerfilPessoa/Pe
 import { HomeAnimal } from './components/ComponentsReact/Home/Home';
 import About from './components/pages/about';
 import { FiltragemHome } from './components/ComponentsReact/Home/Tabela';
-
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
 
@@ -39,7 +38,7 @@ function App() {
 						{/* <MediaCard/> */}
 					</Route>
           <Route path='/perfil'>
-            <TestePerfilUsuario/>
+            {/* <TestePerfilUsuario/> */}
             </Route>		
 					<Route path='/login'>
 						<FormLogin />
