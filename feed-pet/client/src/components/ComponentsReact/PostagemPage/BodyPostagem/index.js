@@ -1,5 +1,6 @@
 import React from "react";
 import { api } from "../../../../service";
+import { CaixaComentarios } from "../../../CaixaComentarios";
 import { PostagemCard } from "../CardPost";
 import { ModalPostagem } from "../Modal";
 import { Postagem } from "../Post";
@@ -37,6 +38,8 @@ export class CorpoPaginaPostagem extends React.Component {
     render() {
         const postagens = this.state.postagem
         return (
+            <>
+            <CaixaComentarios nome="Teste" dataComentario="22/08/2021" avatarUsuario="https://i.pinimg.com/736x/59/74/d0/5974d04323d9efbaf170c72cfdb07b44.jpg" comentario="audshfiauhsdifuhasdiuhfiasudhfiuasdhifuhaiusdhfiasudhfiuasdhifuda fdshsadfsdhsadlsadkçlsjalçsaçsa fhsalsdfsdfhsdflsdjdfshfsdhsadaa hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdsf hhhhhhhhhhhhhhh"/>
             <div className="pagPostagem">
             <div className="divBotao">
                 <ModalPostagem setarPost={this.addPostagem} className="botaoPostagem"/>
@@ -53,6 +56,8 @@ export class CorpoPaginaPostagem extends React.Component {
                         </div>
                     </div>
             </div>
+            
+            </>
         )
     };
 }
