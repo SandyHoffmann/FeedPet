@@ -7,8 +7,12 @@ import imgdog from "../../assets/doguinho.jpg";
 import { AiOutlineAlert } from 'react-icons/ai';
 import alerta from '../../assets/alerta.png';
 import menu from '../../assets/menu-nav.png';
+const jwt = require('jsonwebtoken');
 
+// ${token.sub}
 export function Menu(props) {
+  const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light menu">
@@ -62,7 +66,7 @@ export function Menu(props) {
               variant="flat"
             >              
               <Dropdown.Item><li><NavLink to="/perfil" activeClassName="selected" className="link-drop">Perfil</NavLink></li></Dropdown.Item>
-              <Dropdown.Item><li><NavLink to="/perfil-usuario" activeClassName="selected" className="link-drop">Perfil-Usuario</NavLink></li></Dropdown.Item>
+              <Dropdown.Item><li><NavLink to={`/perfil-usuario/${token?.sub}`} activeClassName="selected" className="link-drop">Perfil-Usuario</NavLink></li></Dropdown.Item>
               <Dropdown.Item><li><NavLink to="/animais" activeClassName="selected" className="link-drop">Meus Animais</NavLink></li></Dropdown.Item>
               <Dropdown.Item><li><NavLink to="/editar-perfil" activeClassName="selected" className="link-drop">Editar Perfil</NavLink></li></Dropdown.Item>
               <Dropdown.Item>

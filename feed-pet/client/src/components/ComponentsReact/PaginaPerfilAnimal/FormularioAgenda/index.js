@@ -22,8 +22,6 @@ export function FormularioAgenda(props) {
                     "data_atividade":'2004-10-19 10:23:54+02'
                 });
                 const atividade_feita = res.data;
-                let lista = props.atividades.push([atividade_feita])
-                console.log(props.atividades)
                 props.setarAtividade(atividade_feita)
                 setAtividadeFeita("")
     

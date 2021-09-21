@@ -3,24 +3,32 @@ import imgpost from "../../../../assets/icone1.png";
 import imgdog from "../../../../assets/doguinho.jpg"
 import { useState, useEffect } from "react";
 import { api } from "../../../../service";
+import {useParams} from "react-router-dom";
+
 const jwt = require('jsonwebtoken');
+
 
 export function PaginaPerfil(props) {
   const [informacoes, setInformacoes] = useState([])
+  const {id} = useParams();
 
-  useEffect(async () => {
-    try {
-      const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
-      if (!token){
-        window.location.replace("/login");
+  useEffect(() => {
+    async function fetchUserData() {
+      try {
+        const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+        if (!token){
+          // window.location.replace("/login");
+        }
+        const res = await api.get(`/usuarios/${id}`);
+        const informacao = res.data;
+        setInformacoes(informacao)
+  
+      } catch (error) {
+        console.log(error)
       }
-      const res = await api.get(`/usuarios/${token.sub}`);
-      const informacao = res.data;
-      setInformacoes(informacao)
-
-    } catch (error) {
-      console.log(error)
-    }
+    };
+    
+    fetchUserData();
   }, [])
 
   return (
