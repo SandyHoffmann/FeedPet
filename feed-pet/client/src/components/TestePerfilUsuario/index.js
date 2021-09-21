@@ -11,7 +11,7 @@ export function TestePerfilUsuario(props) {
     <>
       <section class="section about-section gray-bg" id="about">
         <div class="container" id="cabecalho">
-          <div class="row align-items-center flex-row-reverse ">
+          <div class="row align-items-center flex-row-reverse" id="boxsobrefotos">
             <div class="col-lg-6" id="sobreanimal">
               <div class="about-text go-to">
                 <h3 class="dark-color">Sem nome</h3>
@@ -70,7 +70,7 @@ export function TestePerfilUsuario(props) {
             <div class="row">
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
-                  <h6 class="count h2" data-to="500" data-speed="500">
+                  <h6 class="count h2" id="icones" data-to="500" data-speed="500">
                     <img src={love}></img>
                   </h6>
                   <p class="m-0px font-w-600">100 likes</p>
@@ -78,7 +78,7 @@ export function TestePerfilUsuario(props) {
               </div>
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
-                  <h6 class="count h2" data-to="150" data-speed="150">
+                  <h6 class="count h2" id="icones" data-to="150" data-speed="150">
                   <img src={food}></img>
                   </h6>
                   <p class="m-0px font-w-600">Alimentado 7x</p>
@@ -86,7 +86,7 @@ export function TestePerfilUsuario(props) {
               </div>
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
-                  <h6 class="count h2" data-to="850" data-speed="850">
+                  <h6 class="count h2" id="icones" data-to="850" data-speed="850">
                   <img src={bed}></img>
                   </h6>
                   <p class="m-0px font-w-600">Dormiu em 5 locais</p>
@@ -94,7 +94,7 @@ export function TestePerfilUsuario(props) {
               </div>
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
-                  <h6 class="count h2" data-to="190" data-speed="190">
+                  <h6 class="count h2" id="icones" data-to="190" data-speed="190">
                   <img src={local}></img>
                   </h6>
                   <p class="m-0px font-w-600">Visto em Timbó</p>
@@ -129,9 +129,7 @@ export function TestePerfilUsuario(props) {
                     </div>
                     <div className="timeline-content">
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nunc faucibus turpis quis tincidunt luctus. Nam sagittis
-                        dui in nunc consequat, in imperdiet nunc sagittis.
+                        Alimentei hoje no bairro Capitais em Timbó
                       </p>
                     </div>
                     <div className="timeline-likes">
