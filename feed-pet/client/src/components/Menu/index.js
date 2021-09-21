@@ -5,6 +5,8 @@ import { DropdownButton, Dropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import imgdog from "../../assets/doguinho.jpg";
 import { AiOutlineAlert } from 'react-icons/ai';
+import alerta from '../../assets/alerta.png';
+import menu from '../../assets/menu-nav.png';
 const jwt = require('jsonwebtoken');
 
 // ${token.sub}
@@ -15,7 +17,7 @@ export function Menu(props) {
     <>
       <nav className="navbar navbar-expand-lg navbar-light menu">
         <div className="container-fluid">
-          <button
+          {/* <button
             className="navbar-toggler"
             type="button"
             data-mdb-toggle="collapse"
@@ -25,11 +27,11 @@ export function Menu(props) {
             aria-label="Toggle navigation"
           >
             <i className="fas fa-bars"></i>
-          </button>
+          </button> */}
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <a className="navbar-brand mt-2 mt-lg-0" href="#">
-              <img src={img} height="80" alt="" loading="lazy" />
+              <img src={img} height="60" alt="10" loading="lazy" id="imagemlogo" />
             </a>
             <div class="nav-fill">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -54,13 +56,13 @@ export function Menu(props) {
               <i className="fas fa-shopping-cart"></i>
             </a>
 
-            <button type="button" class="btn btn-danger">{<AiOutlineAlert className="alertaanimal"/>}</button>
+            <button type="button" class="btn btn-danger" id="botaoalerta">{ <img src={alerta}></img>}</button>
 
             <DropdownButton
               id="dropdown"
               className="botaopesquisa"
               prefixes={{ btn: "botaopesquisa" }}
-              title={<CgMenuGridO className="lupa" />}
+              title={<img src={menu} className="lupa" ></img>}
               variant="flat"
             >              
               <Dropdown.Item><li><NavLink to="/perfil" activeClassName="selected" className="link-drop">Perfil</NavLink></li></Dropdown.Item>
