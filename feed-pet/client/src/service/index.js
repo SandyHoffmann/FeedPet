@@ -15,10 +15,8 @@ api.interceptors.request.use(config => {
 });
 
 api.interceptors.response.use(function (response) {
-  console.log("aqui nao tem erro")
     return response;
   }, async function (error) {
-      console.log("aqui")
       const originalRequest = error.config;
       const loginUrl = `/auth/login`;
       const refreshTokenUrl = "http://localhost:3000/auth/refreshToken";    
@@ -27,7 +25,6 @@ api.interceptors.response.use(function (response) {
         window.location.replace("/login"); 
         return api(originalRequest);
     }
-    console.log("não entrou")
     return Promise.reject(error);
     
     
