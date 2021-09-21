@@ -17,7 +17,15 @@ async function createPostagem(id, postagem) {
 }
 
 async function getPostagem() {    
-    return await Postagem.findAll();    
+    let postagens = await Postagem.findAll(
+        {
+            include:{
+                model:Usuario,
+                as:'usuario'
+            }
+        }
+    );    
+    return postagens
 }
 
 async function acharUsuarioPostagem(id) {

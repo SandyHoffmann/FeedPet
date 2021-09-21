@@ -7,6 +7,7 @@ import { LikesButtons } from "../../Curtida";
 import { PostagemCard } from "../PostagemDefault";
 import { Comentarios } from "../../CaixaDeComentarios";
 
+
 export function Postagens(props){
     const [postagem,setPostagem] = useState([])
 
@@ -29,6 +30,7 @@ export function Postagens(props){
                         <FormularioPostagem addPost = {setPostagem} postagens={postagem}/>
                         <div className="tab-content p-0">
                             <div className="tab-pane fade active show" id="profile-post">
+                                
                                 <ul className="timeline post">
                                     <li>
                                     {postagens.map(post =><> <PostagemCard
@@ -39,7 +41,7 @@ export function Postagens(props){
                                                             <LikesButtons id_postagem={post.id}>  
                                                             </LikesButtons>
                                                             <Comentarios id_postagem={post.id}/>
-                                                            </PostagemCard>
+                                                            </PostagemCard>                                                            
                                                             </>
                                                             )}
                                     </li>

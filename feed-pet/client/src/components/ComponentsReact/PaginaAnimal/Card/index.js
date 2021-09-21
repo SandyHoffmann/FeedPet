@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import img from "../../../../assets/olho.jpg";
 import "./styles.css";
 
@@ -9,7 +9,7 @@ return(
     <div className="card-body">
         <h5 className="card-title">{props.nome}</h5>
         <p className="card-text">{props.raca}</p>
-        <a href="#" className="btn"><NavLink to={`/perfil/${props.id}`} id={props.id} activeClassName="selected" className="link-drop">Perfil</NavLink></a>
+        <a href="#" className="btn"><Link to={`/perfil/${props.id}`} id={props.id} activeClassName="selected" className="link-drop">Perfil</Link></a>
     </div>
     </div>
 )
