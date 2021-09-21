@@ -3,6 +3,7 @@ import React, { Component } from "react";
 export class SignUp extends Component {
     render() {
         return (
+            <div className="containerlogin">
             <form>
                 <h3>Sign Up</h3>
 
@@ -31,6 +32,7 @@ export class SignUp extends Component {
                     Already registered <a href="#">sign in?</a>
                 </p>
             </form>
+            </div>
         );
     }
 }

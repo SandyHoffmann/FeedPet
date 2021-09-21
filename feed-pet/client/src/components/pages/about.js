@@ -1,5 +1,5 @@
 import React from 'react';
-import Logbox from '../../App';
+// import Logbox from '../../App';
 
 import { Box } from '../Box';
 import MediaCard from '../Card/Card';
@@ -40,7 +40,7 @@ const About = () => {
 			<Checkbox />
 			<Checkbox />
 			<Checkbox />
-			<Logbox />
+			{/* <Logbox /> */}
 			
 		</div>
 		

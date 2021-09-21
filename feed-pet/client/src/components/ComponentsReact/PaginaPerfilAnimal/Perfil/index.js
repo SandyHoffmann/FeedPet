@@ -12,6 +12,7 @@ export function PaginaAnimal(props) {
   const {id} = useParams();
   useEffect(async () => {
     try {
+        console.log("aaaaa")
         const res = await api.get(`/animais/geral/${id}`);
         const informacao = res.data;
         console.log(informacao)
