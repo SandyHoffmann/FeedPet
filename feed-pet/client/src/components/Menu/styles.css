@@ -19,10 +19,14 @@
 .botaopesquisa {
   background-color: #8fc424;
   color: white;
+  border-radius: .25rem;
 }
 .lupa {
   color: white;
   font-size: 250%;
+}
+#botaoalerta{
+  margin-right: 4px;
 }
 #dropdown::after{
    border-top-color: white;
