@@ -16,7 +16,6 @@ import { FormLogin } from './components/ComponentsReact/PaginaLogin/Login';
 import { PaginaPerfil } from './components/ComponentsReact/PaginaPerfilPessoa/Perfil';
 import { HomeAnimal } from './components/ComponentsReact/Home/Home';
 import About from './components/pages/about';
-import {Conteiner} from './components/CaixaComentarios/Conteiner'
 import { CaixaComentarios } from './components/CaixaComentarios';
 import { FiltragemHome } from './components/ComponentsReact/Home/Tabela';
 
@@ -41,8 +40,7 @@ function App() {
 					<FiltragemHome/>
 						{/* <MediaCard/> */}
 					</Route>
-          <Route path='/perfil'>
-            <TestePerfilUsuario/>
+          <Route path='/perfil'>            
             </Route>		
 					<Route path='/login'>
 						<FormLogin />

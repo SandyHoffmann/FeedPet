@@ -1,5 +1,5 @@
-import { FotoComentario } from "./FotoComentario";
-import { NomeData } from "./NomeData";
+import { FotoComentario } from "./fotoComentario";
+import { NomeData } from "./nomeData";
 import { TextoComentario } from "./TextoComentario";
 import "./stylesConteiner.css";
 

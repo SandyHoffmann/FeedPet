@@ -1,24 +1,31 @@
 .container-comentario {
     display: grid;
     grid-template-columns: min-content 1fr;
-    background-color: grey;
+    background-color: white;
     padding: 10px;
+    width: 70%;
+    margin: auto;
 }
 
 .comentario-img {
-    height: 300px;
+    height: 80px
 }
 
 .comentario-nome {
+    margin-left: 15px;
+    
+font-weight: bold; 
 
 }
 
 .comentario-data {
 
+    margin-left: 15px;
 }
 
 .comentario-conteudo {
     grid-column: span 2;
+    text-align: left;
 }
 
 
