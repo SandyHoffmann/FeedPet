@@ -9,8 +9,7 @@ import { FormularioAgenda } from "../FormularioAgenda";
 
 export function PaginaAnimal(props) {
   const [informacoes,setInformacoes] = useState([])
-  const { id } = useParams();
-  console.log(id)
+  const {id} = useParams();
   useEffect(async () => {
     try {
         const res = await api.get(`/animais/geral/${id}`);

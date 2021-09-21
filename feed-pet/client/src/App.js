@@ -16,8 +16,10 @@ import { FormLogin } from './components/ComponentsReact/PaginaLogin/Login';
 import { PaginaPerfil } from './components/ComponentsReact/PaginaPerfilPessoa/Perfil';
 import { HomeAnimal } from './components/ComponentsReact/Home/Home';
 import About from './components/pages/about';
+// import {Conteiner} from './components/CaixaComentarios/Conteiner'
 import { CaixaComentarios } from './components/CaixaComentarios';
 import { FiltragemHome } from './components/ComponentsReact/Home/Tabela';
+
 
 
 import React from 'react';
@@ -83,13 +85,14 @@ function App() {
 					</Route>
           <Route path='/perfil'>            
             </Route>		
+
 					<Route path='/login'>
 						<Login />
 					</Route>
 					<Route path='/cadastro'>
 						<SignUp />
 					</Route>
-					<Route path='/perfil-usuario'>
+					<Route path='/perfil-usuario/:id'>
 						<PaginaPerfil />
 					</Route>
 					<Route path='/postagens'>

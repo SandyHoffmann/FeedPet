@@ -2,8 +2,8 @@
     "openapi": "3.0.0",
     "info": {
         "version": "1.0.0",
-        "title": "Todo APP",
-        "description": "REST API para um TODO APP"
+        "title": "FeedPet",
+        "description": "FeedPet - RESTAPI"
     },
     "servers": [
         {
@@ -250,7 +250,8 @@
                     "404": {
                         "description": "Usuário não encontrado"
                     }
-                },
+                }
+            },
                 "get": {
                     "tags": [
                         "Usuarios"
@@ -311,7 +312,435 @@
                         }
                     }
                 }
-            }
+        },
+        "/usuarios/animais/{id}": {
+            "post": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "security": [{"BearerAuth": []}],
+                "summary": "Cria um animal para o usuário",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "O id do usuário",
+                        "schema": {
+                            "type": "string",
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Animal a ser criado",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "raca",
+                                    "cor",
+                                    "porte",
+                                    "tipo_animal",
+                                    "status"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "description": "Nome do animal"
+                                    },
+                                    "raca": {
+                                        "type": "string",
+                                        "description": "Raça do animal"
+                                    },
+                                    "cor": {
+                                        "type": "string",
+                                        "description": "Cor do animal"
+                                    },
+                                    "porte": {
+                                        "type": "string",
+                                        "description": "Porte do animal"
+                                    },
+                                    "tipo_animal": {
+                                        "type": "string",
+                                        "description": "Gato ou Cachorro"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "description": "Tem dono?"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "description": "ID do animal"
+                                        },
+                                        "nome": {
+                                            "type": "string",
+                                            "description": "Nome do animal"
+                                        },
+                                        "raca": {
+                                            "type": "string",
+                                            "description": "Raça do animal"
+                                        },
+                                        "cor": {
+                                            "type": "string",
+                                            "description": "Cor do animal"
+                                        },
+                                        "porte": {
+                                            "type": "string",
+                                            "description": "Porte do animal"
+                                        },
+                                        "tipo_animal": {
+                                            "type": "string",
+                                            "description": "Gato ou Cachorro"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "description": "Tem dono?"
+                                        },
+                                        "createdAt": {
+                                            "type": "string",
+                                            "description": "Data de criação"
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "description": "Data de atualização"
+                                        },
+                                        "id_usuario": {
+                                            "type": "string",
+                                            "description": "ID do usuário"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "E-mail já cadastrado."
+                    }
+                }
+            },
+                "get": {
+                    "tags": [
+                        "Usuarios"
+                    ],
+                    "security": [
+                        {
+                            "BearerAuth": []
+                        }
+                    ],
+                    "summary": "Retorna os animais de um usuário",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "required": true,
+                            "description": "O id do usuário",
+                            "schema": {
+                                "type": "string",
+                                "minimum": 1
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "OK",
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "description": "ID do animal"
+                                            },
+                                            "nome": {
+                                                "type": "string",
+                                                "description": "Nome do animal"
+                                            },
+                                            "raca": {
+                                                "type": "string",
+                                                "description": "Raça do animal"
+                                            },
+                                            "cor": {
+                                                "type": "string",
+                                                "description": "Cor do animal"
+                                            },
+                                            "porte": {
+                                                "type": "string",
+                                                "description": "Porte do animal"
+                                            },
+                                            "tipo_animal": {
+                                                "type": "string",
+                                                "description": "Gato ou Cachorro"
+                                            },
+                                            "status": {
+                                                "type": "string",
+                                                "description": "Tem dono?"
+                                            },
+                                            "createdAt": {
+                                                "type": "string",
+                                                "description": "Data de criação"
+                                            },
+                                            "updatedAt": {
+                                                "type": "string",
+                                                "description": "Data de atualização"
+                                            },
+                                            "id_usuario": {
+                                                "type": "string",
+                                                "description": "ID do usuário"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Usuário não encontrado"
+                        }
+                    }
+                }
+            },
+            "/usuarios/postagens/{id}": {
+                "post": {
+                    "tags": [
+                        "Usuarios"
+                    ],
+                    "security": [{"BearerAuth": []}],
+                    "summary": "Cria uma postagem para o usuário",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "required": true,
+                            "description": "O id do usuário",
+                            "schema": {
+                                "type": "string",
+                                "minimum": 1
+                            }
+                        }
+                    ],
+                    "requestBody": {
+                        "description": "Postagem a ser criada",
+                        "required": true,
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "required": [
+                                        "titulo",
+                                        "conteudo"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "titulo": {
+                                            "type": "string",
+                                            "description": "Título da postagem"
+                                        },
+                                        "conteudo": {
+                                            "type": "string",
+                                            "description": "Conteúdo da postagem"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "responses": {
+                        "200": {
+                            "description": "OK",
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "description": "ID da postagem"
+                                            },
+                                            "user_id": {
+                                                "type": "string",
+                                                "description": "ID do usuário"
+                                            },
+                                            "titulo": {
+                                                "type": "string",
+                                                "description": "Título da postagem"
+                                            },
+                                            "conteudo": {
+                                                "type": "string",
+                                                "description": "Conteúdo da postagem"
+                                            },
+                                            "createdAt": {
+                                                "type": "string",
+                                                "description": "Data de criação"
+                                            },
+                                            "updatedAt": {
+                                                "type": "string",
+                                                "description": "Data de atualização"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                    "get": {
+                        "tags": [
+                            "Usuarios"
+                        ],
+                        "security": [
+                            {
+                                "BearerAuth": []
+                            }
+                        ],
+                        "summary": "Retorna as postagens de um usuário",
+                        "parameters": [
+                            {
+                                "name": "id",
+                                "in": "path",
+                                "required": true,
+                                "description": "O id do usuário",
+                                "schema": {
+                                    "type": "string",
+                                    "minimum": 1
+                                }
+                            }
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "OK",
+                                "content": {
+                                    "application/json": {
+                                        "schema": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "description": "ID da postagem"
+                                                },
+                                                "user_id": {
+                                                    "type": "string",
+                                                    "description": "ID do usuário"
+                                                },
+                                                "titulo": {
+                                                    "type": "string",
+                                                    "description": "Título da postagem"
+                                                },
+                                                "conteudo": {
+                                                    "type": "string",
+                                                    "description": "Conteúdo da postagem"
+                                                },
+                                                "createdAt": {
+                                                    "type": "string",
+                                                    "description": "Data de criação"
+                                                },
+                                                "updatedAt": {
+                                                    "type": "string",
+                                                    "description": "Data de atualização"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "404": {
+                                "description": "Usuário não encontrado"
+                            }
+                        }
+                    }
+                },
+                "/usuarios/enderecos/:id_user": {
+                    "post": {
+                        "tags": [
+                            "Usuarios"
+                        ],
+                        "security": [{"BearerAuth": []}],
+                        "summary": "Define o endereço de um usuário",
+                        "parameters": [
+                            {
+                                "name": "id",
+                                "in": "path",
+                                "required": true,
+                                "description": "O id do usuário",
+                                "schema": {
+                                    "type": "string",
+                                    "minimum": 1
+                                }
+                            }
+                        ],
+                        "requestBody": {
+                            "description": "Endereço a ser atribuído",
+                            "required": true,
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "required": [
+                                            "rua",
+                                            "bairro",
+                                            "cidade",
+                                            "estado"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "rua": {
+                                                "type":"string",
+                                                "description":"Rua"
+                                            },
+                                            "bairro": {
+                                                "type":"string",
+                                                "description":"Bairro"
+                                            },
+                                            "cidade": {
+                                                "type":"string",
+                                                "description":"Cidade"
+                                            },
+                                            "estado": {
+                                                "type":"string",
+                                                "description":"Estado"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "description": "OK",
+                                "content": {
+                                    "application/json": {
+                                        "schema": {
+                                            "type": "object",
+                                            "properties": {
+                                                "endereçoCriado": {
+                                                    "type":"string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "404": {
+                                "description": "Usuário não encontrado"
+                            }
+                        }
+                    }
+
+                }
+                
         }
     }
-}

@@ -1,6 +1,15 @@
 .container-comentario {
     display: grid;
     grid-template-columns: min-content 1fr;
+    background-color: grey;
+    padding: 10px;
+}
+
+.comentario-img {
+    height: 300px;
+}
+
+.comentario-nome {
     background-color: white;
     padding: 10px;
     width: 70%;
@@ -19,7 +28,6 @@ font-weight: bold;
 }
 
 .comentario-data {
-
     margin-left: 15px;
 }
 

@@ -3,6 +3,7 @@ import { LikesButtons } from "../Curtida";
 import '../../../PaginaAnimal/styles.css'
 import './styles.css'
 import { ComentarioPost } from "../Comentario";
+import { Link } from "react-router-dom";
 
 export function PostagemCard(props) {
     return(
@@ -11,9 +12,10 @@ export function PostagemCard(props) {
           <span className="userimage">
             <img src={img} alt=""></img>
           </span>
-          <span>{props.titulo}</span>
+          <Link to={`/perfil-usuario/${props.id_usuario}`}><span>{props.usuario.nome}</span></Link>
         </div>
         <div className="timeline-content">
+        <h3>{props.titulo}</h3>
           <p>
           {props.conteudo}
           </p>
