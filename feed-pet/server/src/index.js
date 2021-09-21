@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 const morgan = require('morgan');
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("../swagger.json");
 
 // const usuario = require("./models/usuario");
 // const { Usuario, Animal, Endereco, Atividade, Postagem, Comentario, Curtida } = require("./models");
@@ -36,5 +38,7 @@ app.get("/", (req, res) => {
     res.send("Ola a");
 });
 
+
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(PORT, () => console.log(`Servidor rodando em: http://localhost:${PORT}`))

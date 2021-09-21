@@ -1,0 +1,317 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Todo APP",
+        "description": "REST API para um TODO APP"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "Servidor de desenvolvimento"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Usuarios",
+            "description": "Endpoints de Usuários"
+        },
+        {
+            "name": "Todos",
+            "description": "Endpoints de Todos"
+        },
+        {
+            "name": "Auth",
+            "description": "Endpoints de Autenticação"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "BearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        },
+        "schemas": {
+            "Todo": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID do Todo"
+                    },
+                    "task": {
+                        "type": "string",
+                        "description": "Tarefa a ser cumprida"
+                    },
+                    "completed": {
+                        "type": "boolean",
+                        "description": "Estado de andamento da tarefa"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Data de criação"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Data de atualização"
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/usuarios": {
+            "post": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Cria um usuário",
+                "requestBody": {
+                    "description": "Usuário a ser criado",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "email",
+                                    "password",
+                                    "cargo"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "description": "Nome do usuário"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "description": "Email do usuário"
+                                    },
+                                    "senha": {
+                                        "type": "string",
+                                        "description": "Senha do usuário"
+                                    },
+                                    "cargo": {
+                                        "type": "string",
+                                        "description": "Cargo do usuário"
+                                    },
+                                    "telefone": {
+                                        "type": "string",
+                                        "description": "Endereço do usuário"
+                                    },
+                                    "cpf": {
+                                        "type": "string",
+                                        "description": "CPF do usuário"
+                                    },
+                                    "data_nascimento": {
+                                        "type": "integer",
+                                        "description": "Data de nascimento"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "description": "ID do usuário"
+                                        },
+                                        "nome": {
+                                            "type": "string",
+                                            "description": "Nome do usuário"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "description": "Email do usuário"
+                                        },
+                                        "telefone": {
+                                            "type": "string",
+                                            "description": "Endereço do usuário"
+                                        },
+                                        "cpf": {
+                                            "type": "string",
+                                            "description": "CPF do usuário"
+                                        },
+                                        "data_nascimento": {
+                                            "type": "string",
+                                            "description": "Data de nascimento"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "description": "Data de criação"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "description": "Data de atualização"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "E-mail já cadastrado."
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "summary": "Mostrar todos os usuários",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "description": "ID do usuário"
+                                        },
+                                        "nome": {
+                                            "type": "string",
+                                            "description": "Nome do usuário"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "description": "Email do usuário"
+                                        },
+                                        "telefone": {
+                                            "type": "string",
+                                            "description": "Endereço do usuário"
+                                        },
+                                        "cpf": {
+                                            "type": "string",
+                                            "description": "CPF do usuário"
+                                        },
+                                        "data_nascimento": {
+                                            "type": "string",
+                                            "description": "Data de nascimento"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "description": "Data de criação"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "description": "Data de atualização"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/usuarios/{id}": {
+            "delete": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "security": [{"BearerAuth": []}],
+                "summary": "Exclui um usuário",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "O id do usuário a ser removido",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Ok"
+                    },
+                    "404": {
+                        "description": "Usuário não encontrado"
+                    }
+                },
+                "get": {
+                    "tags": [
+                        "Usuarios"
+                    ],
+                    "security": [
+                        {
+                            "BearerAuth": []
+                        }
+                    ],
+                    "summary": "Retorna um usuário",
+                    "responses": {
+                        "200": {
+                            "description": "OK",
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "description": "ID do usuário"
+                                            },
+                                            "nome": {
+                                                "type": "string",
+                                                "description": "Nome do usuário"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "description": "Email do usuário"
+                                            },
+                                            "telefone": {
+                                                "type": "string",
+                                                "description": "Endereço do usuário"
+                                            },
+                                            "cpf": {
+                                                "type": "string",
+                                                "description": "CPF do usuário"
+                                            },
+                                            "data_nascimento": {
+                                                "type": "string",
+                                                "description": "Data de nascimento"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "description": "Data de criação"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "description": "Data de atualização"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Usuário não encontrado"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
