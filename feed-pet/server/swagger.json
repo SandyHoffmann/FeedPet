@@ -25,14 +25,6 @@
             "description": "Endpoints de Postagens"
         },
         {
-            "name": "Agendas",
-            "description": "Endpoints de Agendas"
-        },
-        {
-            "name": "Enderecos",
-            "description": "Endpoints de Endereços"
-        },
-        {
             "name": "Auth",
             "description": "Endpoints de Autenticação"
         }
@@ -1040,5 +1032,440 @@
                     }
                 }
             }
+        },
+        "/postagens": {
+            "get": {
+                "tags": [
+                    "Postagens"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "summary": "Mostrar todas as postagens",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "ID da postagem"
+                                        },
+                                        "user_id": {
+                                            "type": "string",
+                                            "description": "ID do usuário que fez a postagem"
+                                        },
+                                        "titulo": {
+                                            "type": "string",
+                                            "description": "Titulo da postagem"
+                                        },
+                                        "conteudo": {
+                                            "type": "string",
+                                            "description": "Conteúdo da postagem"
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "description": "Data de modificação da postagem"
+                                        },
+                                        "createdAt": {
+                                            "type": "string",
+                                            "description": "Data de criação da postagem"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/postagens/{id}": {
+            "get": {
+                "tags": [
+                    "Postagens"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "O id da postagem",
+                        "schema": {
+                            "type": "string",
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "summary": "Retorna o dono da postagem",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                     "id": {
+                                            "type": "string",
+                                            "description": "ID do usuário"
+                                        },
+                                        "nome": {
+                                            "type": "string",
+                                            "description": "Nome do usuário"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "description": "Email do usuário"
+                                        },
+                                        "telefone": {
+                                            "type": "string",
+                                            "description": "Endereço do usuário"
+                                        },
+                                        "cpf": {
+                                            "type": "string",
+                                            "description": "CPF do usuário"
+                                        },
+                                        "data_nascimento": {
+                                            "type": "string",
+                                            "description": "Data de nascimento"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "description": "Data de criação"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "description": "Data de atualização"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/postagens/{id_user}/{id_post}/curtidas": {
+            "post": {
+                "tags": [
+                    "Postagens"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id_post",
+                        "in": "path",
+                        "required": true,
+                        "description": "O id da postagem",
+                        "schema": {
+                            "type": "string",
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "id_user",
+                        "in": "path",
+                        "required": true,
+                        "description": "O id do usuário",
+                        "schema": {
+                            "type": "string",
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "summary": "O usuário curte a postagem",
+                "requestBody": {
+                    "description": "Tipo da curtida",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "tipo"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                  "tipo": {
+                                      "type": "string",
+                                      "description": "Tipo de curtida"
+                                  }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "ID da curtida"
+                                        },
+                                        "tipo": {
+                                            "type": "string",
+                                            "description": "Tipo de curtida"
+                                        },
+                                        "user_id": {
+                                            "type": "string",
+                                            "description": "ID do usuário que fez a curtida"
+                                        },
+                                            "post_id": {
+                                                "type": "string",
+                                                "description": "ID da postagem"
+                                            },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "description": "Data de modificação da curtida"
+                                        },
+                                        "createdAt": {
+                                            "type": "string",
+                                            "description": "Data de criação da curtida"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/postagens/{id_user}/{id_post}/comentarios": {
+            "post": {
+                "tags": [
+                    "Postagens"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id_post",
+                        "in": "path",
+                        "required": true,
+                        "description": "O id da postagem",
+                        "schema": {
+                            "type": "string",
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "id_user",
+                        "in": "path",
+                        "required": true,
+                        "description": "O id do usuário",
+                        "schema": {
+                            "type": "string",
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "summary": "O usuário comenta na postagem",
+                "requestBody": {
+                    "description": "Comentário",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "tipo"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                  "conteudo": {
+                                      "type": "string",
+                                      "description": "Tipo de curtida"
+                                  }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "ID do comentario"
+                                        },
+                                        "conteudo": {
+                                            "type": "string",
+                                            "description": "Conteudo do comentario"
+                                        },
+                                        "user_id": {
+                                            "type": "string",
+                                            "description": "ID do usuário que fez o comentario"
+                                        },
+                                            "post_id": {
+                                                "type": "string",
+                                                "description": "ID da postagem"
+                                            },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "description": "Data de modificação do comentario"
+                                        },
+                                        "createdAt": {
+                                            "type": "string",
+                                            "description": "Data de criação do comentario"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/postagens/{id_post}/curtidas": {
+            "get": {
+                "tags": [
+                    "Postagens"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id_post",
+                        "in": "path",
+                        "required": true,
+                        "description": "O id da postagem",
+                        "schema": {
+                            "type": "string",
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "summary": "Retorna todas as curtidas da postagem",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "ID da curtida"
+                                        },
+                                        "tipo": {
+                                            "type": "string",
+                                            "description": "Tipo de curtida"
+                                        },
+                                        "user_id": {
+                                            "type": "string",
+                                            "description": "ID do usuário que fez a curtida"
+                                        },
+                                            "post_id": {
+                                                "type": "string",
+                                                "description": "ID da postagem"
+                                            },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "description": "Data de modificação da curtida"
+                                        },
+                                        "createdAt": {
+                                            "type": "string",
+                                            "description": "Data de criação da curtida"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/postagens/{id_post}/comentarios": {
+            "get": {
+                "tags": [
+                    "Postagens"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id_post",
+                        "in": "path",
+                        "required": true,
+                        "description": "O id da postagem",
+                        "schema": {
+                            "type": "string",
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "summary": "Retorna todos os comentários da postagem",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "ID do comentario"
+                                        },
+                                        "conteudo": {
+                                            "type": "string",
+                                            "description": "Conteudo do comentario"
+                                        },
+                                        "user_id": {
+                                            "type": "string",
+                                            "description": "ID do usuário que fez o comentario"
+                                        },
+                                            "post_id": {
+                                                "type": "string",
+                                                "description": "ID da postagem"
+                                            },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "description": "Data de modificação do comentario"
+                                        },
+                                        "createdAt": {
+                                            "type": "string",
+                                            "description": "Data de criação do comentario"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
+}
