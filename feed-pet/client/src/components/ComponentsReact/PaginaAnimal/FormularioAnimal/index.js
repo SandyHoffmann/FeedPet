@@ -51,7 +51,7 @@ export class FormAnimal extends React.Component {
         try {
             e.preventDefault();
             const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
-            await api.post(`/usuarios/animais/${token.sub}`,
+            const animal = await api.post(`/usuarios/animais/${token.sub}`,
                 {"nome":this.state.nome,
                     "cor": this.state.cor,
                     "porte":"grande",
@@ -60,7 +60,7 @@ export class FormAnimal extends React.Component {
                     "raca": this.state.raca,
                 }
             )
-            this.props.setarCard(this.state)
+            this.props.setarCard(animal.data)
             this.setState({...initialState})
             this.props.fecharForm()
         } catch (error) {

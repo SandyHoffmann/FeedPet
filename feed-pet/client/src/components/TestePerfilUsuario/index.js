@@ -10,7 +10,7 @@ export function TestePerfilUsuario(props) {
   return (
     <>
       <section class="section about-section gray-bg" id="about">
-        <div class="container" id="cabecalho">
+        <div class="container bodyDog" id="cabecalho">
           <div class="row align-items-center flex-row-reverse" id="boxsobrefotos">
             <div class="col-lg-6" id="sobreanimal">
               <div class="about-text go-to">
@@ -232,7 +232,8 @@ export function TestePerfilUsuario(props) {
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </div> 
+      </>
+
   );
 }

@@ -1,7 +1,7 @@
 import { FormAnimal } from "../FormularioAnimal";
 import { Modal,Button } from 'react-bootstrap';
 import { useState } from "react";
-
+import "./styles.css"
 export function ModalAnimal(props) {
     const [show, setShow] = useState(false);
   
@@ -10,10 +10,11 @@ export function ModalAnimal(props) {
   
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
-          Cadastrar Animal
-        </Button>
-  
+        <div className="botaoModal">
+          <Button variant="primary" className="botaoModalTag botaoCor" onClick={handleShow}>
+            Cadastrar Animal
+          </Button>
+        </div>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Formulario</Modal.Title>

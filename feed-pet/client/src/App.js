@@ -25,7 +25,6 @@ import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Login } from './components/LoginRegister/Login';
 import { SignUp } from './components/LoginRegister/Register';
-import { TestePerfilUsuario } from './components/TestePerfilUsuario';
 
 
 
@@ -85,7 +84,7 @@ function App() {
 						<FormLogin />
 					</Route>
 					<Route path='/cadastro'>
-						<SignUp />
+						<FormCadastro />
 					</Route>
 					<Route path='/perfil-usuario/:id'>
 						<PaginaPerfil />

@@ -17,7 +17,6 @@ export function LikesButtons(props) {
             setTotalLikes(curtidas);
             const curtidasVerificacao = res.data
             const achar = curtidasVerificacao.map(curtida => {if (curtida.user_id == 'ed39d86e-7577-4c2c-8ba7-2a47343eac17'){ return true}})
-            console.log(achar)
         } catch (error) {
             console.log(error)
         }
@@ -25,7 +24,6 @@ export function LikesButtons(props) {
 
     async function handleClick(e) {
         try {
-            console.log("aaa")
             e.preventDefault();
             const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
             await api.post(`/postagens/${token.sub}/${id_postagem}/curtidas`,
