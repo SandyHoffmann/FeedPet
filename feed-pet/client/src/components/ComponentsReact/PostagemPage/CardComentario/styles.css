@@ -1,7 +1,3 @@
-.imgComentario{
-    display: inline !important;
-    margin-right: 2%;
-}
 .cardComentario{
     width: 100%;
     display: flex;
@@ -9,6 +5,47 @@
     justify-content: space-between;
 }
 
+.cabecalhoComentario{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid pink;
+}
 .comentario{
     text-align: center;
+    background-color: rgb(252, 252, 252);
+}
+.comentario-img{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+}
+
+.container-comentario {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    background-color: grey;
+    padding: 10px;
+}
+.comentario-data{
+    margin: 0px;
+    border-right: 4%;
+
+}
+.comentario-nome{
+    margin: 0px;
+    font-weight: bolder;
+    font-size: clamp(1em, 1em + 1vw, 1.5em);
+}
+.comentario-conteudo {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    font-size: clamp(1em, 1em + 1vw, 1.5em);
+
+}
+.comentario-text{
+    margin-left: 5%;
+    
 }

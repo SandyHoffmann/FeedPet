@@ -28,37 +28,37 @@ import { SignUp } from './components/LoginRegister/Register';
 
 
 
-export function Logbox() {
-  return (<Router>
-    <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container">
-          <Link className="navbar-brand" to={"/sign-in"}>positronX.io</Link>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to={"/sign-in"}>Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+// export function Logbox() {
+//   return (<Router>
+//     <div className="App">
+//       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+//         <div className="container">
+//           <Link className="navbar-brand" to={"/sign-in"}>positronX.io</Link>
+//           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+//             <ul className="navbar-nav ml-auto">
+//               <li className="nav-item">
+//                 <Link className="nav-link" to={"/sign-in"}>Login</Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
+//               </li>
+//             </ul>
+//           </div>
+//         </div>
+//       </nav>
 
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Switch>
-            <Route exact path='/' component={Login} />
-            <Route path="/sign-in" component={Login} />
-            <Route path="/sign-up" component={SignUp} />
-          </Switch>
-        </div>
-      </div>
-    </div></Router>
-  );
-}
+//       <div className="auth-wrapper">
+//         <div className="auth-inner">
+//           <Switch>
+//             <Route exact path='/' component={Login} />
+//             <Route path="/sign-in" component={Login} />
+//             <Route path="/sign-up" component={SignUp} />
+//           </Switch>
+//         </div>
+//       </div>
+//     </div></Router>
+//   );
+// }
 
 const jwt = require('jsonwebtoken');
 const token = jwt.sign({ sub: id }, secret);
@@ -80,14 +80,11 @@ function App() {
 					<FiltragemHome/>
 						{/* <MediaCard/> */}
 					</Route>
-          <Route path='/perfil'>            
-            </Route>		
-
 					<Route path='/login'>
-						<Login />
+						<FormLogin />
 					</Route>
 					<Route path='/cadastro'>
-						<SignUp />
+						<FormCadastro />
 					</Route>
 					<Route path='/perfil-usuario/:id'>
 						<PaginaPerfil />
@@ -102,7 +99,7 @@ function App() {
 						<CorpoPaginaAdicionarAnimal />
 					</Route>
 					<Route path='/editar-perfil'>
-						<PaginaPessoa />
+						<TestePerfilUsuario />
 					</Route>
 					<Route path='/annual'>
 						<Postagens />

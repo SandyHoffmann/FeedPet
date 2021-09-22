@@ -1,136 +1,81 @@
-.bodyDog{
-    color: #ff4880 !important;
+body{
     margin-top:20px;
+    background:#eee;
+    font-family: 'Montserrat', sans-serif !important;
 }
-.section {
-    padding: 0 0;
-    margin: 2em 5em;
-    position:relative;
+.profile{
+    background-color: white;
 }
-.gray-bg {
-    background-color: #ffff;
-}
-#lista{
-  padding-bottom: 1em;
-}
-#perfilcachorro {
-    width: 100%;
-    height: 15em;
-    background: #ffffff;
-
-}
-#perfilcachorro {
-    vertical-align: middle;
-    border-style: none;
-}
-#sobreanimal{
-  height: 75%;
-}
-#cabecalho {
-  width: 100%;
-  padding: 12px;
-}
-.about-text h3 {
-  font-size: 35px;
-  font-weight: 700;
-  margin: 0 0 6px;
+.profile-header {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
 }
 
-/* @media (max-width: 767px) {
-  .about-text h3 {
-    font-size: 35px;
-  }
-}
-.about-text h6 {
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-@media (max-width: 767px) {
-  .about-text h6 {
-    font-size: 17px;
-  }
-} */
-.about-text p {
-  font-size: 15px;
-  max-width: 450px;
-}
-.about-text p mark {
-  font-weight: 600;
-  color: #680682;
-}
-
-.about-list {
-  padding-top: 10px;
-}
-.about-list .media {
-  padding: 5px 0;
-}
-.about-list label {
-  color: #680682;
-  font-weight: 600;
-  width: 88px;
-  margin: 0;
-  position: relative;
-}
-.about-list label:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 11px;
-  height: 12px;
-  background: #680682;
-  -moz-transform: rotate(15deg);
-  -o-transform: rotate(15deg);
-  -ms-transform: rotate(15deg);
-  -webkit-transform: rotate(15deg);
-  transform: rotate(15deg);
-  margin: auto;
-  opacity: 0.5;
-}
-.about-list p {
-  margin: 0;
-  font-size: 15px;
-}
-/* @media (max-width: 991px) {
-  .about-avatar {
-    margin-top: 30px;
-  }
-} */
-
-.about-section .counter {
-  padding: 20px 15px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 40px #ff487f3f;
-}
-.about-section .counter .count-data {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.about-section .counter .count {
-  font-weight: 700;
-  color: #680682;
-  margin: 0 0 5px;
-}
-.about-section .counter p {
-  font-weight: 600;
-  margin: 0;
-}
-mark {
-    background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
-    background-size: 100% 3px;
+.profile-header .profile-header-cover {
+    background-image: url(https://bootdey.com/img/Content/bg1.jpg);
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    background-position: 0 bottom;
-    background-color: transparent;
-    padding: 0;
-    color: currentColor;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0
 }
-.theme-color {
-    color: #ff4880;
+
+.profile-header .profile-header-cover:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .75) 100%)
 }
-.dark-color {
+
+.profile-header .profile-header-content {
+    color: #fff;
+    padding: 25px
+}
+
+.profile-header-img {
+    float: left;
+    width: 220px;
+    height: 170px;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+    margin: 0 0 -20px;
+    padding: 3px;
+    border-radius: 15px;
+    background: #fff
+}
+
+.profile-header-img img {
+    max-width: 100%
+}
+
+.profile-header-info h4 {
+    font-size: 50px;
+    font-weight: 200;
     color: #680682;
+}
+.profile-header-info a {
+    font-size: 20px;
+    font-weight: 100;
+    color: #262626;
+    background-color: #ff4880;
+}
+.profile-header-info p{
+    font-size: 25px !important;
+}
+
+.profile-header-img+.profile-header-info {
+    margin-left: 140px
+}
+.nav-opcao{
+    color: #8fc424 !important;
 }
 
 .profile-header .profile-header-content,
@@ -256,7 +201,7 @@ mark {
 }
 
 .profile-content {
-    padding: 0;
+    padding: 25px;
     border-radius: 4px;
 }
 
@@ -713,18 +658,3 @@ select.form-control:not([size]):not([multiple]) {
 .text-danger, .text-red {
     color: #ff5b57!important;
 }
-
-@media (max-width: 767px) {
-    .about-text h3 {
-      font-size: 35px;
-    }
-  }
-  .about-text h6 {
-    font-weight: 600;
-    margin-bottom: 15px;
-  }
-  @media (max-width: 767px) {
-    .about-text h6 {
-      font-size: 17px;
-    }
-  }

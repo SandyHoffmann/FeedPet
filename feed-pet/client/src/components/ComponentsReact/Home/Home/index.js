@@ -2,7 +2,7 @@ import React from "react";
 import { api } from "../../../../service";
 import { Cardhometeste } from "../../PaginaAnimal/CardsHome";
 import { useState, useEffect } from "react";
-
+import "./styles.css"
 export function HomeAnimal(props) {
 
     const [card, setCard] = useState([])
@@ -21,9 +21,9 @@ export function HomeAnimal(props) {
         )   
     }
     return (
-        <>
+        <div className="bodyAnimal">
             <Cardhometeste animais={card} className="cardReact" />
-        </>
+        </div>
     )
 
 }

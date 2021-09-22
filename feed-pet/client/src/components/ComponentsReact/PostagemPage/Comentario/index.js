@@ -20,7 +20,6 @@ export class ComentarioPost extends React.Component {
             const res = await api.get(`/postagens/${this.props.id_postagem}/comentarios`);
             const comentario = res.data.reverse();
             this.setState({comentarios:comentario})
-            console.log(comentario)
 
         } catch (error) {
             console.log(error)

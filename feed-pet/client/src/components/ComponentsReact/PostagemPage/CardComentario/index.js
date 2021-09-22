@@ -1,23 +1,38 @@
 import "./styles.css"
-export function CardComentario(props){
+import img from "../../../../assets/olho.jpg";
+
+export function CardComentario(props) {
     return (
-        <div class="card p-3">
-        <div class="cardComentario">
-            <div class="card">
-                <img src="https://i.imgur.com/hczKIze.jpg" width="30" className="imgComentario"/>
+        <>
+            {/* <div className="card p-3">
+                <div className="cabecalhoComentario">
+                    <div>
+                        <img className="rounded-circle" src={img} className="comentario-img" />
+                    </div>
+                    <div className="comentario-text">
+                        <p className="comentario-nome">'aa'</p>
+                        <div className="comentario">
+                            <p>{props.conteudo} </p>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div> */}
+            <div className="card p-3">
+                <div className="cardComentario">
+                    <div className="card">
+                        <img src="https://i.imgur.com/hczKIze.jpg" width="30" className="imgComentario" />
+                    </div>
+                    <span>james_olesenn</span>
+                    <small>2 days ago</small>
+
+                </div>
+                <div className="comentario">
+                    <p>{props.conteudo} </p>
+                </div>
+                
             </div>
-            <span>james_olesenn</span>
-            <small>2 days ago</small>
-
-        </div>
-        <div class="comentario">
-        <p>{props.conteudo} </p>
-        </div>
-        <div class="action d-flex justify-content-between mt-2 align-items-center">
-            <div class="reply px-4"> <small>Remove</small> <span class="dots"></span> <small>Reply</small> <span class="dots"></span> <small>Translate</small> </div>
-            <div class="icons align-items-center"> <i class="fa fa-star text-warning"></i> <i class="fa fa-check-circle-o check-icon"></i> </div>
-        </div>
-    </div>
-
+        </>
     )
 }

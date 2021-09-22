@@ -1,7 +1,24 @@
 .Pesquisa{
     width: 100%;
+    padding: 1%;
 }
 .hidden{
     display: none;
     opacity: 0;
+}
+.barra-pesquisa{
+    padding: 5%;
+    width: 100%;
+    background-color:#ff4880;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.elemento{
+    
 }

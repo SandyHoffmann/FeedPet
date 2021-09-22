@@ -1,4 +1,4 @@
-body{
+.bodyDog{
     color: #ff4880 !important;
     margin-top:20px;
 }
@@ -6,6 +6,10 @@ body{
     padding: 0 0;
     margin: 2em 5em;
     position:relative;
+}
+
+.botaoCor {
+    background-color: #ff4880 !important;
 }
 .gray-bg {
     background-color: #ffff;
