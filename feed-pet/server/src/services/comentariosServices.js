@@ -20,7 +20,11 @@ async function createComentario(id_usuario, id_postagem, comentario) {
 async function acharComentariosPost(id_postagem) {
     const postagem = await Postagem.findOne({ where: { id:id_postagem } });
     if (!postagem) throw createError(404, "Postagem não encontrada!"); 
-    const comentarios = await Comentario.findAll({ where: { post_id:id_postagem } });
+    const comentarios = await Comentario.findAll({ where: { post_id:id_postagem },
+        include:{
+            model:Usuario,
+            as:'usuario'
+        }});
     return comentarios;
 }
 

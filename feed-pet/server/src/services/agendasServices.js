@@ -1,15 +1,21 @@
 const createError = require("http-errors");
-const { Agenda } = require("../models");
+const { Agenda,Usuario,Atividade } = require("../models");
 
 async function mostrarAgendas() {
-    return await Agenda.findAll();    
+    return await Agenda.findAll();
 
 }
 
-async function mostrarAgendaEspecifica(id){
-    const agenda = await Agenda.findOne({ where: { id_animal:id } });
+async function mostrarAgendaEspecifica(id) {
+    const agenda = await Agenda.findOne({
+        where:
+            { id_animal: id }
+    });
+    
     if (!agenda) throw createError(404, "Agenda não encontrado!");
-    return agenda
+    const atividades = await agenda.getAtividades()
+
+    return [agenda,atividades]
 }
 module.exports = {
     mostrarAgendas,
