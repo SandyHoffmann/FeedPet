@@ -20,7 +20,7 @@ import { TestePerfilUsuario } from './components/TestePerfilUsuario';
 // import {Conteiner} from './components/CaixaComentarios/Conteiner'
 import { CaixaComentarios } from './components/CaixaComentarios';
 import { FiltragemHome } from './components/ComponentsReact/Home/Tabela';
-
+import { CaixaMensagem } from './components/CaixaMesagem';
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Login } from './components/LoginRegister/Login';
@@ -75,17 +75,18 @@ function App() {
 			<Router>
 				<Menu />
 				<Switch>
-				<Route path='/teste' component={About}>
- 				</Route>
+					<Route path="/caixa-mensagem" component={CaixaMensagem} />
+					<Route path='/teste' component={About}>
+					</Route>
 					<Route path='/' exact>
-					<FiltragemHome/>
+						<FiltragemHome />
 						{/* <MediaCard/> */}
 					</Route>
 					<Route path='/login'>
 						<FormLogin />
 					</Route>
 					<Route path='/cadastro'>
-						<FormCadastro />					
+						<FormCadastro />
 					</Route>
 					<Route path='/perfil-usuario/:id'>
 						<PaginaPerfil />
