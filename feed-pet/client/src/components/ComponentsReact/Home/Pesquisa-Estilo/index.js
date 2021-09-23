@@ -2,17 +2,22 @@ import React from "react";
 import "./style.css"
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import logo from "./logo.png";
 
 
 export function PesquisaEstilo(props) {
 
     return (
-
+       
+          
         <div className="barra-pesquisa">
+            
+            <div class="stars" ></div>
+            <div class="stars2" ></div>
             <input type="text" value={props.texto} className="Pesquisa" onChange={props.onChange} name="filterText"></input>
             <div className="filtros">
                 <div className="elemento">
-                    <label htmlFor="form">Tem dono?</label>
+                    <label htmlFor="form"><p  className= "temdono">Tem dono?</p></label>
                     <div className="form-check" id="form">
                         <input className="form-check-input" type="radio" name="status" id="radiotipo1" value="Tem dono" onClick={props.onClick} />
                         <label className="form-check-label" htmlFor="radiotipo1">
@@ -80,6 +85,7 @@ export function PesquisaEstilo(props) {
 
             </div>
         </div>
+       
     );
 }
 
