@@ -41,7 +41,7 @@ export function Footer(props) {
               <div className="col-md-6 item text">
                 <h3>FeedPet</h3>
                 <p>
-                  Site criado pela equipe Animalium com o objetivo de ajudar os pets de rua. Que tal alimentar ou dar abrigo a umnpm que está precisando?
+                  Site criado pela equipe Animalium com o objetivo de ajudar os pets de rua. Que tal alimentar ou dar abrigo a um animal que está precisando?
                 </p>
               </div>
               <div className="col item social">

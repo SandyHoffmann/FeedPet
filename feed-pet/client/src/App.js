@@ -25,6 +25,8 @@ import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Login } from './components/LoginRegister/Login';
 import { SignUp } from './components/LoginRegister/Register';
+import { FeedInicio } from './components/FeedInicio';
+import { Perfilnovo } from './components/PerfilNovo';
 import Perfilpessoa from './components/Userprofile/Userprofile';
 
 
@@ -91,13 +93,14 @@ function App() {
 						<PaginaPerfil />
 					</Route>
 					<Route path='/postagens'>
-						<CorpoPaginaPostagem />
+						<FeedInicio/>
+						{/* <CorpoPaginaPostagem /> */}
 					</Route>
 					<Route path='/perfil/:id' >
 						<PaginaAnimal />
 					</Route>
 					<Route path='/animais'>
-						<CorpoPaginaAdicionarAnimal />
+						<Perfilnovo/>
 					</Route>
 					<Route path='/editar-perfil'>
 						<TestePerfilUsuario />
