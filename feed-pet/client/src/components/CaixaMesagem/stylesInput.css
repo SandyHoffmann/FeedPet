@@ -1,0 +1,10 @@
+.inputMensagem{
+    border: none;
+    width: 500px;
+    height: 40px;
+}
+.conteiner{
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+}

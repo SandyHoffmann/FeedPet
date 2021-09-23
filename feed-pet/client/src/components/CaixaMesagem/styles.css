@@ -1,0 +1,17 @@
+.container-caixa-mensagem {
+  
+    width: 60%;    
+    margin: auto;    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 40px;
+    
+}
+ 
+
+
+.conteudo {
+    padding: 0 20px;
+    background-color: white;
+}
+
