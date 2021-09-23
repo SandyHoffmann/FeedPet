@@ -4,9 +4,12 @@ import { useParams } from "react-router-dom";
 import { FormularioAgenda } from "../FormularioAgenda";
 import imgpost from "../../../../assets/icone1.png";
 import "./styles.css"
+const jwt = require('jsonwebtoken');
+
 export function AgendaAnimal(props) {
     const [informacoes, setInformacoes] = useState([])
     const [agenda, setAgenda] = useState([])
+    const [usuario, setUsuario] = useState([])
 
     const { id } = useParams();
     console.log(id)
@@ -14,13 +17,16 @@ export function AgendaAnimal(props) {
 
     useEffect(async () => {
         try {
+            
             const agenda = await api.get(`/agendas/${id}`);
             const informacaoAgenda = agenda.data;
-            const res = await api.get(`/agendas/atividades/${informacaoAgenda.id}`);
-            const informacao = res.data;
-            setAgenda(informacaoAgenda)
-            setInformacoes(informacao.reverse())
-            console.log("ativou")
+            const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+            const usuarioLogado = await api.get(`/usuarios/${token.sub}`);  
+            setUsuario(usuarioLogado.data)      
+            setAgenda(agenda.data[0])
+            console.log(agenda.data[0])
+            setInformacoes(agenda.data[1].reverse())
+            console.log(agenda.data[1][0].id)
         } catch (error) {
             console.log(error)
         }

@@ -5,6 +5,7 @@ import "./style.css"
 import { HomeAnimal } from "../Home";
 import { Cardhometeste } from "../../PaginaAnimal/CardsHome";
 import { api } from "../../../../service";
+import { PesquisaEstilo } from "../Pesquisa-Estilo";
 
 export function FiltragemHome(props) {
     const [filtrarTexto, setFiltrarTexto] = useState("")
@@ -79,7 +80,7 @@ export function FiltragemHome(props) {
     return (
         <>
             <div className="Tabela">
-                <Pesquisa options={cards} texto={filtrarTexto} onChange={handleChange} onClick={handleClick} onChangeOption={handleClick} tipo_animal={filtros.tipo_animal} />
+                <PesquisaEstilo options={cards} texto={filtrarTexto} onChange={handleChange} onClick={handleClick} onChangeOption={handleClick} tipo_animal={filtros.tipo_animal} />
                 <div className="bodyAnimal">
 
                     <Cardhometeste animais={cardFiltrada} className="cardReact" />
