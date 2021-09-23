@@ -26,11 +26,7 @@ export function FormCadastro(){
     async function handleSubmit(e){
         try {
             e.preventDefault();
-            const formData = new FormData();
-            formData.append('avatar',imagem)
-            formData.append('nome',nome)
-            formData.append('email',email)
-            formData.append('senha',senha)
+            const formData = new FormData(e.target);
 
             const res = await api.post(`/usuarios/`, 
                                 formData, {
