@@ -1,5 +1,6 @@
 import "./styles.css"
 import img from "../../../../assets/olho.jpg";
+import { Link } from "react-router-dom";
 
 export function CardComentario(props) {
     return (
@@ -24,7 +25,7 @@ export function CardComentario(props) {
                     <div className="card">
                         <img src="https://i.imgur.com/hczKIze.jpg" width="30" className="imgComentario" />
                     </div>
-                    <span>james_olesenn</span>
+                    <Link to={`/perfil-usuario/${props.usuario.id}`}><span>{props.usuario.nome}</span></Link>
                     <small>2 days ago</small>
 
                 </div>
