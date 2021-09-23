@@ -19,22 +19,23 @@ module.exports = (sequelize, DataTypes) => {
           name: "id_usuario",
           type: DataTypes.UUID
         }
-        });
-        this.hasMany(models.Postagem, { foreignKey: "user_id", onDelete: 'CASCADE'});
-        this.hasMany(models.Comentario, { foreignKey: "user_id", onDelete: 'CASCADE'});
-        this.hasMany(models.Curtida, { foreignKey: "user_id", onDelete: 'CASCADE'});
-        this.belongsTo(models.Endereco, { foreignKey: "endereco_id", as: "endereco", onDelete: 'CASCADE'  });
-        this.hasOne(models.RefreshToken, { foreignKey: "user_id", onDelete: 'CASCADE'});
+      });
+      this.hasMany(models.Postagem, { foreignKey: "user_id", onDelete: 'CASCADE' });
+      this.hasMany(models.Comentario, { foreignKey: "user_id", onDelete: 'CASCADE' });
+      this.hasMany(models.Curtida, { foreignKey: "user_id", onDelete: 'CASCADE' });
+      this.hasMany(models.Atividade, { foreignKey: "user_id", onDelete: 'CASCADE' });
+      this.belongsTo(models.Endereco, { foreignKey: "endereco_id", as: "endereco", onDelete: 'CASCADE' });
+      this.hasOne(models.RefreshToken, { foreignKey: "user_id", onDelete: 'CASCADE' });
     }
 
     verificarSenha(senha) {
       return bcrypt.compareSync(senha, this.senha);
     }
 
-    toJSON(){
-      return{
+    toJSON() {
+      return {
         ...this.get(),
-        senha:undefined
+        senha: undefined
       }
     }
 
@@ -46,37 +47,37 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV4
     },
     nome: {
-            type:DataTypes.STRING,
-            allowNull:false
-          },
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     email: {
-            type:DataTypes.STRING,
-            allowNull:false,
-            unique:true
-            },
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
     senha: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            set(senha) {
-              this.setDataValue("senha", bcrypt.hashSync(senha, 10));
-            }
-        },
+      type: DataTypes.STRING,
+      allowNull: false,
+      set(senha) {
+        this.setDataValue("senha", bcrypt.hashSync(senha, 10));
+      }
+    },
     cargo: {
-            type:DataTypes.STRING,
-            allowNull:false,
-            validate: {
-              isIn: [["admin","usuario"]]
-            },
-            defaultValue: "usuario"
-        },
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isIn: [["admin", "usuario"]]
+      },
+      defaultValue: "usuario"
+    },
     telefone: {
-      type:DataTypes.STRING,
+      type: DataTypes.STRING,
     },
     cpf: {
-      type:DataTypes.STRING,
+      type: DataTypes.STRING,
     },
     data_nascimento: {
-      type:DataTypes.DATE
+      type: DataTypes.DATE
     }
   }, {
     sequelize,

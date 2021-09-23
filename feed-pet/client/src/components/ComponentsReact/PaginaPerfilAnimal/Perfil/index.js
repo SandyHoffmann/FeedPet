@@ -86,7 +86,7 @@ export function PaginaAnimal(props) {
                 </div>
                 <div class="small">
                   <label>SEXO</label>
-                  <p>Macho</p>
+                  <p>{informacoes.sexo}</p>
                 </div>
               </div>
             </div>

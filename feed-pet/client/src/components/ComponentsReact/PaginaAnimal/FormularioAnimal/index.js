@@ -11,7 +11,8 @@ const initialState = {
     porte:"",
     cor:"Branco",
     tipo_animal:"",
-    status:""
+    status:"",
+    sexo:""
 }
 
 export class FormAnimal extends React.Component {
@@ -23,7 +24,8 @@ export class FormAnimal extends React.Component {
             porte:"",
             cor:"Branco",
             tipo_animal:"",
-            status:""
+            status:"",
+            sexo:""
         };
     }
 
@@ -58,6 +60,7 @@ export class FormAnimal extends React.Component {
                     "status": this.state.status,
                     "tipo_animal":this.state.tipo_animal,
                     "raca": this.state.raca,
+                    "sexo":this.state.sexo
                 }
             )
             this.props.setarCard(animal.data)
@@ -91,6 +94,19 @@ export class FormAnimal extends React.Component {
                     <input className="form-check-input" type="radio" name="status" id="radiotipo2" value="Não possui dono" onChange={this.handleChange}/>
                     <label className="form-check-label" htmlFor="radiotipo2">
                         Não
+                    </label>
+                </div>
+                <label htmlFor="sexo">Sexo</label>
+                <div className="form-check" id="form">
+                    <input className="form-check-input" type="radio" name="sexo" id="radiotipo1" value="macho" onChange={this.handleChange}/>
+                    <label className="form-check-label" htmlFor="radiotipo1">
+                        Macho
+                    </label>
+                </div>
+                <div className="form-check" id="form">
+                    <input className="form-check-input" type="radio" name="sexo" id="radiotipo2" value="fêmea" onChange={this.handleChange}/>
+                    <label className="form-check-label" htmlFor="radiotipo2">
+                        Fêmea
                     </label>
                 </div>
                 <label htmlFor="form">Tipo de Animal</label>

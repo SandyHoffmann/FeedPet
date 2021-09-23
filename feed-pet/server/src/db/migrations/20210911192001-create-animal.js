@@ -16,6 +16,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull:false
       },
+      sexo: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       cor: {
         type: Sequelize.STRING,
         allowNull:false
