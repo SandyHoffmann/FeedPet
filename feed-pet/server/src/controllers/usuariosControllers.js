@@ -35,6 +35,7 @@ async function create(req, res, next) {
     try {
         const usuario = req.body;
         const novoUsuario = await usuariosServices.createUsuario(usuario);
+        console.log(req.body)
         res.status(201).json(novoUsuario);
     } catch (err) {
         console.log(err.message);

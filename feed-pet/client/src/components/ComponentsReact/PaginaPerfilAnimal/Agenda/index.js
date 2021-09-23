@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { FormularioAgenda } from "../FormularioAgenda";
 import imgpost from "../../../../assets/icone1.png";
 import "./styles.css"
+import { Link } from "react-router-dom";
+
 const jwt = require('jsonwebtoken');
 
 export function AgendaAnimal(props) {
@@ -19,19 +21,17 @@ export function AgendaAnimal(props) {
         try {
             
             const agenda = await api.get(`/agendas/${id}`);
-            const informacaoAgenda = agenda.data;
             const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
             const usuarioLogado = await api.get(`/usuarios/${token.sub}`);  
             setUsuario(usuarioLogado.data)      
             setAgenda(agenda.data[0])
-            console.log(agenda.data[0])
             setInformacoes(agenda.data[1].reverse())
-            console.log(agenda.data[1][0].id)
         } catch (error) {
             console.log(error)
         }
     }, [])
     function setInformacoesAtiv(informacao) {
+        informacao["usuario"]=usuario
         setInformacoes([
             informacao,
             ...informacoes
@@ -57,7 +57,7 @@ export function AgendaAnimal(props) {
                             <span className="userimage">
                                 <img src={imgpost} alt=""></img>
                             </span>
-                            <span className="username">Sabrina</span>
+                            <Link to={`/perfil-usuario/${tarefa.usuario.id}`}><span className="username">{tarefa.usuario.nome}</span></Link>
                         </div>
                         <div className="timeline-content">
                             <p>

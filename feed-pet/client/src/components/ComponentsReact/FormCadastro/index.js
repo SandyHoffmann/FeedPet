@@ -6,7 +6,8 @@ export function FormCadastro(){
     const [nome,setNome] = useState("")
     const [email,setEmail] = useState("")
     const [senha,setSenha] = useState("")
-    
+    const [imagem,setImagem] = useState("")
+
     async function handleChange(e){
         const value = e.target.value;
         const nome = e.target.name;
@@ -16,22 +17,32 @@ export function FormCadastro(){
             setEmail(value)
         } else if (nome=="senha"){
             setSenha(value)
+        } else if (nome=="avatar"){
+            setImagem(e.target.files[0])
         }
+        console.log(imagem)
     }
     
     async function handleSubmit(e){
         try {
             e.preventDefault();
+            const formData = new FormData();
+            formData.append('avatar',imagem)
+            formData.append('nome',nome)
+            formData.append('email',email)
+            formData.append('senha',senha)
+
             const res = await api.post(`/usuarios/`, 
-                                {
-                                    "nome":nome,
-                                    "email":email,
-                                    "senha":senha 
+                                formData, {
+                                    headers: {
+                                        "Content-Type": `multipart/form-data;boundary=${formData._boundary}`,
+                                        }
                                 });
             console.log(res.data)
             setNome("")
             setEmail("")
             setSenha("")   
+            setImagem("")   
             window.location.replace("/login");    
         } catch (error) {
             console.log(error)
@@ -41,7 +52,7 @@ export function FormCadastro(){
         return (
             <>
             <div className="container caixa">
-                <form onSubmit={handleSubmit} className="caixaElemento">
+                <form onSubmit={handleSubmit} className="caixaElemento" enctype="multipart/form-data"> 
                 <h1>Cadastre-se</h1>
                 <br/>
                 <div className="form-group">
@@ -58,6 +69,7 @@ export function FormCadastro(){
                     <label htmlFor="senha">Senha:</label>
                     <input type="text" className="form-control" id="senha" name="senha" aria-describedby="Senha" value={senha} onChange={handleChange} placeholder="Senha"/>
                 </div>
+                <input type="file" name="avatar" class="img" onChange={handleChange}/>
                 <br/>
                 <button type="submit" className="btn btn-primary">Enviar</button>
                 </form>   

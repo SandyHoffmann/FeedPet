@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
-
+// const multer  = require('multer');
+// const upload = multer({ dest: './uploads' });
 const usuariosController = require("../controllers/usuariosControllers");
 const animaisController = require("../controllers/animaisControllers");
 const postagensController = require("../controllers/postagensControllers");
 const enderecosController = require("../controllers/enderecosControllers");
 const authentication = require("../middlewares/authMiddleware");
-
+const upload = require("../middlewares/multer")
 
 //fazer validators
 
@@ -18,7 +19,7 @@ router.get("/animais/:id", authentication(["usuario", "admin"]),usuariosControll
 
 router.get("/postagens/:id", authentication(["usuario", "admin"]),usuariosController.getAllPostsByUserId);
 
-router.post("/",usuariosController.create);
+router.post("/", upload.single('avatar'),usuariosController.create);
 
 router.delete("/:id", authentication(["admin"]),usuariosController.deleteUser);
 

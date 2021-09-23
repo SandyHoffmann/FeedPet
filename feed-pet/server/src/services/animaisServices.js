@@ -23,10 +23,10 @@ async function createAnimalparaUsuario(id, novoAnimal) {
     console.log(usuario)
     if (!usuario) throw createError(404, "Usuário não encontrado!");    
 
-    const { nome, raca, cor, porte, tipo_animal, status } = novoAnimal;
+    const { nome, raca, cor, porte, sexo, tipo_animal, status } = novoAnimal;
     
     const animal = await Animal.create({
-        nome,raca,cor,porte,tipo_animal,status
+        nome,raca,cor,porte,tipo_animal,status,sexo
     })
 
     await usuario.addAnimal(animal);

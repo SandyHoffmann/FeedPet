@@ -2,7 +2,7 @@ const atividadesServices = require("../services/atividadesServices");
 
 async function createAtividade(req, res, next) {    
     try {
-        const atividade = await atividadesServices.createAtividadeparaAgenda(req.params.id_agenda,req.body);
+        const atividade = await atividadesServices.createAtividadeparaAgenda(req.params.id_agenda,req.params.id_usuario,req.body);
         res.json(atividade);
     } catch (err) {
         console.log(err);

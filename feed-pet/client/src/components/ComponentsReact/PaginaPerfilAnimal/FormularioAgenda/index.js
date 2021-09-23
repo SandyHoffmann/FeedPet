@@ -1,6 +1,8 @@
 import { api } from "../../../../service";
 import { useState, useEffect } from "react";
 
+const jwt = require('jsonwebtoken');
+
 
 export function FormularioAgenda(props) {
     const [atividadeFeita, setAtividadeFeita] = useState("")
@@ -14,10 +16,11 @@ export function FormularioAgenda(props) {
     
     async function handleSubmit(e) {
             e.preventDefault();
+            const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
 
             try {
-                const res = await api.post(`/agendas/${props.atividade_feita}`,
-                {
+                const res = await api.post(`/agendas/${props.atividade_feita}/${token?.sub}`,
+                {   
                     "atividade_feita": atividadeFeita,
                     "data_atividade":'2004-10-19 10:23:54+02'
                 });
