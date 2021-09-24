@@ -28,6 +28,8 @@ import { SignUp } from './components/LoginRegister/Register';
 import { FeedInicio } from './components/FeedInicio';
 import { Perfilnovo } from './components/PerfilNovo';
 import Perfilpessoa from './components/Userprofile/Userprofile';
+import { FormCadastroEstilizado } from './components/ComponentsReact/FormCadastro/index-estilizado';
+import { FormLoginEstilizado } from './components/ComponentsReact/PaginaLogin/Login/index-estilizado';
 
 
 
@@ -85,10 +87,10 @@ function App() {
 						{/* <MediaCard/> */}
 					</Route>
 					<Route path='/login'>
-						<FormLogin />
+						<FormLoginEstilizado />
 					</Route>
 					<Route path='/cadastro'>
-						<FormCadastro />
+						<FormCadastroEstilizado />
 					</Route>
 					<Route path='/perfil-usuario/:id'>
 						<PaginaPerfil />
