@@ -2,9 +2,12 @@
     border: none;
     width: 500px;
     height: 40px;
+    background-color:#f4f2ef ;
+    margin-bottom: 40px;
+    border-radius: 14px;
 }
-.conteiner{
-    background-color: white;
-    padding: 10px;
-    border-radius: 8px;
+.nome {
+    background-color:#f4f2ef ;
+    text-align: center;
+    margin-top: 10px;
 }

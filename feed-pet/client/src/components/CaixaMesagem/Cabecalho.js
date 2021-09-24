@@ -2,7 +2,7 @@ import "./stylesCabecalho.css"
 export function Cabecalho (props){
     return(
     
-    <div className = "texto1">
+    <div className = "texto">
         <h1>About</h1>
     <p>
     A card is a flexible and extensible content container. It includes options for
