@@ -41,12 +41,22 @@ export class FormPostagem extends React.Component {
                     "conteudo": this.state.conteudo
                 }
             )
+
+            if (!post.ok){
+                console.log(post.body)
+            }
+
             this.props.setarPost(post.data)
             this.setState({titulo:"",conteudo:""})
             this.props.fecharForm()
-
+            
         } catch (error) {
-            console.log(this.state)
+            let erros = error.response.data
+            console.log(erros)
+            for (let err of erros.errors){
+                console.log(err.msg)
+
+            }
         }
     }
 
