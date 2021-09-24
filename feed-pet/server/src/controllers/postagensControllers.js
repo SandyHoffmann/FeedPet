@@ -8,7 +8,7 @@ async function criarPostagem(req, res, next) {
 
         res.status(201).json(postagem);
     } catch (err) {
-        console.log(err);
+        console.log(err.message);
         next(err);
     }
 }

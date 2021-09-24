@@ -8,6 +8,7 @@ const postagensController = require("../controllers/postagensControllers");
 const enderecosController = require("../controllers/enderecosControllers");
 const authentication = require("../middlewares/authMiddleware");
 const upload = require("../middlewares/multer")
+const postagemValidations = require("../validations/postagemValidations");
 
 //fazer validators
 
@@ -25,7 +26,7 @@ router.delete("/:id", authentication(["admin"]),usuariosController.deleteUser);
 
 router.post("/animais/:id", authentication(["usuario", "admin"]), animaisController.criarParaUsuario);
 
-router.post("/postagens/:id", authentication(["usuario", "admin"]), postagensController.criarPostagem);
+router.post("/postagens/:id", postagemValidations.post, authentication(["usuario", "admin"]), postagensController.criarPostagem);
 
 router.post("/enderecos/:id_user", authentication(["usuario", "admin"]),enderecosController.defineEndereco);
 
