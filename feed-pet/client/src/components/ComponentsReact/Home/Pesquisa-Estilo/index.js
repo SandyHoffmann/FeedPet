@@ -14,6 +14,7 @@ export function PesquisaEstilo(props) {
             
             <div class="stars" ></div>
             <div class="stars2" ></div>
+            <img src={logo} className="logo"></img>
             <input type="text" value={props.texto} className="Pesquisa" onChange={props.onChange} name="filterText"></input>
             <div className="filtros">
                 <div className="elemento">
