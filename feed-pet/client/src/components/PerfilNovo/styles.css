@@ -4,6 +4,16 @@ body {
 }
 #bordaheading {
   margin-top: 20px;
+  background-color: #fff;
+}
+#bordaheading h2{
+  color: #8fc424;
+  font-weight: 1000;
+  align-items: center;
+}
+#texto-sobre{
+  font-weight: 700;
+  color: #555555;
 }
 .fs35 {
   font-size: 35px !important;
@@ -31,6 +41,9 @@ body {
 
 .p30 {
   padding:  0px !important;
+}
+.foto-animal{
+  background-image: ;
 }
 #caixaanimais{
   padding: 15px !important;

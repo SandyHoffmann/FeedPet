@@ -92,8 +92,8 @@ function App() {
 						<PaginaPerfil />
 					</Route>
 					<Route path='/postagens'>
-						<FeedInicio/>
-						{/* <CorpoPaginaPostagem /> */}
+						{/* <FeedInicio/> */}
+						<CorpoPaginaPostagem />
 					</Route>
 					<Route path='/perfil/:id' >
 						<PaginaAnimal />
