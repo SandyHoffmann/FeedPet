@@ -37,6 +37,10 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull:false
     },
+    sexo: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     cor: {
       type:DataTypes.STRING,
       allowNull:false

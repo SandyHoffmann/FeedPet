@@ -1,0 +1,30 @@
+.container-caixa-mensagem {
+  
+    width: 60%;    
+    margin: auto;    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 40px;
+    
+}
+
+.inputUsuario{
+    margin: auto;
+}
+
+.conteudo {
+    padding: 0 20px;
+    background-color: white;
+    border-radius: 14px;
+}
+
+.cards {
+    
+}
+.cards .inputUsuario{
+margin-left: 100px;
+width: 300px;
+height: 40px;
+background-color:#f4f2ef ;
+border: none;
+}

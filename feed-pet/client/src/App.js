@@ -20,7 +20,7 @@ import { TestePerfilUsuario } from './components/TestePerfilUsuario';
 // import {Conteiner} from './components/CaixaComentarios/Conteiner'
 import { CaixaComentarios } from './components/CaixaComentarios';
 import { FiltragemHome } from './components/ComponentsReact/Home/Tabela';
-
+import { CaixaMensagem } from './components/CaixaMesagem';
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Login } from './components/LoginRegister/Login';
@@ -28,6 +28,8 @@ import { SignUp } from './components/LoginRegister/Register';
 import { FeedInicio } from './components/FeedInicio';
 import { Perfilnovo } from './components/PerfilNovo';
 import Perfilpessoa from './components/Userprofile/Userprofile';
+import { FormCadastroEstilizado } from './components/ComponentsReact/FormCadastro/index-estilizado';
+import { FormLoginEstilizado } from './components/ComponentsReact/PaginaLogin/Login/index-estilizado';
 
 
 
@@ -77,17 +79,18 @@ function App() {
 			<Router>
 				<Menu />
 				<Switch>
-				<Route path='/teste' component={About}>
- 				</Route>
+					<Route path="/caixa-mensagem" component={CaixaMensagem} />
+					<Route path='/teste' component={About}>
+					</Route>
 					<Route path='/' exact>
-					<FiltragemHome/>
+						<FiltragemHome />
 						{/* <MediaCard/> */}
 					</Route>
 					<Route path='/login'>
-						<FormLogin />
+						<FormLoginEstilizado />
 					</Route>
 					<Route path='/cadastro'>
-						<FormCadastro />					
+						<FormCadastroEstilizado />
 					</Route>
 					<Route path='/perfil-usuario/:id'>
 						<PaginaPerfil />
@@ -100,7 +103,8 @@ function App() {
 						<PaginaAnimal />
 					</Route>
 					<Route path='/animais'>
-						<Perfilnovo/>
+						<CorpoPaginaAdicionarAnimal/>
+						{/* <Perfilnovo/> */}
 					</Route>
 					<Route path='/editar-perfil'>
 						<TestePerfilUsuario />

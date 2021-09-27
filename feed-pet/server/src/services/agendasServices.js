@@ -13,7 +13,12 @@ async function mostrarAgendaEspecifica(id) {
     });
     
     if (!agenda) throw createError(404, "Agenda não encontrado!");
-    const atividades = await agenda.getAtividades()
+    const atividades = await agenda.getAtividades({
+        include:{
+            model:Usuario,
+            as:'usuario'
+        }
+    })
 
     return [agenda,atividades]
 }

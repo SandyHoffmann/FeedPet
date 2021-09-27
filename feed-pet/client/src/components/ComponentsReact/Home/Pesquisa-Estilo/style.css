@@ -1,3 +1,5 @@
+
+
 .Pesquisa{
     width: 100%;
     padding: 1%;
@@ -7,11 +9,12 @@
     opacity: 0;
 }
 .barra-pesquisa{
+    height: 300px;
     padding: 5%;
     width: 100%;
-    background-color:#ff4880;
+    background: linear-gradient(0, #ff719b, #ff91b2 );
+    /* #ff4880, #ff91b2 */
 }
-
 .filtros{
     display: flex;
     flex-direction: row;
@@ -19,6 +22,182 @@
     flex-wrap: wrap;
 }
 
-.elemento{
-    
+.logo{
+    width: 10%;
+    position: absolute;
+    top: 66px;
 }
+
+.stars{
+    position: relative;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    box-shadow: 50px 30px white,
+    120px 80px  white,
+    90px 200px white,
+    280px 300px white,
+    230px 130px white,
+    170px 50px white,
+    130px 100px white,
+    0px 80px  white,
+    20px 150px  white,
+    370px 150px  white,
+    550px 180px  white,
+    750px 160px  white,
+    620px 100px  white,
+    720px 95px  white,
+    900px 120px  white,
+    850px 230px  white,
+    950px 200px  white,
+    1050px 150px  white,
+    1150px 100px  white,
+    1150px 200px  white,
+    1250px 130px  white,
+    1350px 200px  white,
+    1450px 220px  white,
+    1490px 180px  white,
+    1590px 150px  white,
+    1490px 90px  white,
+    220px  200px white,
+    700px  250px white,
+    800px  350px white,
+    700px  70px white,
+    600px  60px white,
+    500px  70px white,
+   
+    220px  200px white;
+    
+    animation: anim-stars 10s linear infinite;
+  }
+  
+  .stars::after{
+    content: " ";
+    position: absolute;
+    top: 300px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    box-shadow: 50px 30px white,
+    120px 80px  white,
+    90px 200px white,
+    280px 300px white,
+    230px 130px white,
+    170px 50px white,
+    130px 100px white,
+    0px 80px  white,
+    20px 150px  white,
+    370px 150px  white,
+    550px 180px  white,
+    750px 160px  white,
+    620px 100px  white,
+    720px 95px  white,
+    900px 120px  white,
+    850px 230px  white,
+    950px 200px  white,
+    1050px 150px  white,
+    1150px 100px  white,
+    1150px 200px  white,
+    1250px 130px  white,
+    1350px 200px  white,
+    1450px 220px  white,
+    1490px 180px  white,
+    1590px 150px  white,
+    1490px 90px  white,
+    220px  200px white,
+    700px  250px white,
+    800px  350px white,
+    800px  350px white,
+    700px  70px white,
+    600px  60px white,
+    500px  70px white,
+    220px  200px white;
+  }
+  .stars2{
+    position: relative;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    box-shadow: 50px 30px white,
+    100px 80px  white,
+    80px 200px white,
+    300px 300px white,
+    250px 130px white,
+    200px 50px white,
+    150px 100px white,
+    20px 80px  white,
+    30px 150px  white,
+    400px 150px  white,
+    600px 180px  white,
+    800px 160px  white,
+    780px 100px  white,
+    890px 95px  white,
+    1000px 120px  white,
+    950px 230px  white,
+    1050px 200px  white,
+    1150px 150px  white,
+    1250px 100px  white,
+    1250px 200px  white,
+    1350px 130px  white,
+    1450px 200px  white,
+    1550px 220px  white,
+    1590px 180px  white,
+    1690px 150px  white,
+    1590px 90px  white,
+    320px  200px white,
+    800px  250px white,
+    900px  350px white,
+    900px  350px white,
+    320px  200px white;
+    animation: anim-stars 16s linear infinite;
+  }
+  
+  .stars2::after{
+    content: " ";
+    position: absolute;
+    top: 300px;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    box-shadow: 50px 30px white,
+    100px 80px  white,
+    80px 200px white,
+    300px 300px white,
+    250px 130px white,
+    200px 50px white,
+    150px 100px white,
+    20px 80px  white,
+    30px 150px  white,
+    400px 150px  white,
+    600px 180px  white,
+    800px 160px  white,
+    780px 100px  white,
+    890px 95px  white,
+    1000px 120px  white,
+    950px 230px  white,
+    1050px 200px  white,
+    1150px 150px  white,
+    1250px 100px  white,
+    1250px 200px  white,
+    1350px 130px  white,
+    1450px 200px  white,
+    1550px 220px  white,
+    1590px 180px  white,
+    1690px 150px  white,
+    1590px 90px  white,
+    320px  200px white,
+    800px  250px white,
+    900px  350px white,
+    900px  350px white,
+    320px  200px white;
+  }
+  
+  
+  @keyframes anim-stars {
+      from {
+          transform: translateY(0px);
+      }
+      to {
+          transform: translateY(-300px);
+      }
+  }

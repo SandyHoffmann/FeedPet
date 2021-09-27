@@ -2,7 +2,7 @@ import React from "react";
 import { api } from "../../../service";
 import { useState, useEffect } from "react";
 
-export function FormCadastro(){
+export function FormCadastroEstilizado(){
     const [nome,setNome] = useState("")
     const [email,setEmail] = useState("")
     const [senha,setSenha] = useState("")
