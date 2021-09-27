@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createElement } from "react";
 import { api } from "../../../../service";
 import "./styles.css"
 import {id,secret} from '../../../../varAmbiente'
@@ -53,9 +53,18 @@ export class FormPostagem extends React.Component {
         } catch (error) {
             let erros = error.response.data
             console.log(erros)
-            for (let err of erros.errors){
-                console.log(err.msg)
+            let inputs = document.querySelectorAll('.postagem')
+            for (let input of inputs){
+                let pExistentes = input.querySelector('p')
+                if (pExistentes) input.removeChild(pExistentes)
+            }
 
+            for (let err of erros.errors){
+                let elementoAdc = document.querySelector('.'+err.param+'-postagem')
+                let p = document.createElement("p")
+                p.innerHTML = err.msg
+                p.className = 'err'
+                elementoAdc.appendChild(p)
             }
         }
     }
@@ -65,11 +74,11 @@ export class FormPostagem extends React.Component {
         return (
             <>
                 <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
+                <div className="form-group titulo-postagem postagem">
                     <label htmlFor="nome">Titulo:</label>
                     <input type="text" className="form-control" id="nome" name="titulo" aria-describedby="Nome" value={this.state.nome} onChange={this.handleChange} placeholder="Nome do Animal"/>
                 </div>
-                <div className="form-group">
+                <div className="form-group conteudo-postagem postagem">
                     <label htmlFor="nome">Conteudo:</label>
                     <input type="text" className="form-control" id="nome" name="conteudo" aria-describedby="Nome" value={this.state.nome} onChange={this.handleChange} placeholder="Nome do Animal"/>
                 </div>

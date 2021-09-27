@@ -2,3 +2,7 @@
     display: none;
     opacity: 0;
 }
+
+.err{
+    color: red;
+}

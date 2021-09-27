@@ -1,7 +1,8 @@
 .body {
   background-color: #f5ecdc;
-  background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png%22");
+  background-image: url('../../assets/fundo-com-cor-2.png');
+  background-size: 150px 150px;
+
+  /* background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png%22"); */
   padding-top: 0.5%;
-
-
 }
