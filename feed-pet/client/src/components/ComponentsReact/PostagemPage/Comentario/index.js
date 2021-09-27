@@ -10,7 +10,8 @@ export class ComentarioPost extends React.Component {
         super(props);
         this.state = {
             conteudo: "",
-            comentarios: []
+            comentarios: [],
+            usuario: ""
 
         };
     }
@@ -19,6 +20,9 @@ export class ComentarioPost extends React.Component {
         try {
             const res = await api.get(`/postagens/${this.props.id_postagem}/comentarios`);
             const comentario = res.data.reverse();
+            const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+            const usuarioLogado = await api.get(`/usuarios/${token.sub}`);        
+            this.setState({usuario:usuarioLogado.data})
             this.setState({comentarios:comentario})
 
         } catch (error) {
@@ -27,6 +31,7 @@ export class ComentarioPost extends React.Component {
     }
 
     addComentario = comentario => {
+        comentario["usuario"]=this.state.usuario
         this.setState({
             comentarios: [
                 comentario,
@@ -87,7 +92,9 @@ export class ComentarioPost extends React.Component {
                             </span>
                         </div>
                     </form>
-                {this.state.comentarios.map(coment => <CardComentario key={coment.id} conteudo={coment.conteudo} ></CardComentario>)}
+                <div>
+                    {this.state.comentarios.map(coment => <CardComentario key={coment.id} conteudo={coment.conteudo} usuario={coment.usuario}></CardComentario>)}
+                </div>
             </>
 
         )

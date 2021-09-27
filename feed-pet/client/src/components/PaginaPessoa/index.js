@@ -1,7 +1,10 @@
 import "./styles.css";
 import imgpost from "../../assets/icone1.png";
 import imgsrd from "../../assets/srd.jpg";
-import imgperfil from "../../assets/amyperfil.jpg"
+import imgperfil from "../../assets/amyperfil.jpg";
+import Perfilpessoa from "../Userprofile/Userprofile";
+
+
 
 
 export function PaginaPessoa(props) {
@@ -16,20 +19,25 @@ export function PaginaPessoa(props) {
               <div className="profile-header-cover"></div>
 
               <div className="profile-header-content">
+                
                 <div className="profile-header-img">
                   <img src={imgperfil} alt=""></img>
+                 
                 </div>
 
                 <div className="profile-header-info">
                   <h4 className="m-t-10 m-b-5">Amy</h4>
                   <p className="m-b-10">Tutora</p>
                   <a href="#" className="btn btn-success">
-                    Editar perfil
+                    Editar perfil 
                   </a>
+                  
                 </div>
+                
               </div>
+              
               <br/>
-
+              
               <ul className="profile-header-tab nav nav-tabs">
                 <li className="nav-item">
                   <a

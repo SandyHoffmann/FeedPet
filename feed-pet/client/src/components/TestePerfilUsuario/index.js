@@ -5,6 +5,7 @@ import love from "../../assets/likeredondo.png";
 import food from "../../assets/food-bowl.png";
 import bed from "../../assets/pet-bed.png";
 import local from "../../assets/local.png";
+import User from "../Userprofile/Userprofile";
 
 export function TestePerfilUsuario(props) {
   return (
