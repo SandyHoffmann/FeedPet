@@ -5,6 +5,7 @@ import {id,secret} from '../../../../varAmbiente'
 import { Form } from 'react-bootstrap';
 import "./styles.css"
 import { Link } from "react-router-dom";
+import { VerificarErros } from "../../../../errorHandling";
 
 const jwt = require('jsonwebtoken');
 
@@ -41,7 +42,8 @@ export class FormLogin extends React.Component {
             window.location.replace("/");    
 
         } catch (error) {
-            console.log(this.state)
+            let erros = error.response.data
+            console.log(erros)
         }
     }
 
