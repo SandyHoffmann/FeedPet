@@ -11,8 +11,9 @@ export function CaixaMensagem() {
         <div className="container-caixa-mensagem">
             <Cabecalho />
             <div className="cards">
-           
-            <input type="text" value="Digite Nome do Usuario" className="inputUsuario" > <i aria-hidden="true" ><BiSearchAlt2/></i></input>
+           <div className =" CaixaLupa">
+            <i aria-hidden="true" className ="Lupa" ><BiSearchAlt2/></i><input type="text" value="Digite Nome do Usuario" className="inputUsuario" /> 
+            </div>
                 <NavBarLateral />
                 <NavBarLateral />
                 <NavBarLateral />
