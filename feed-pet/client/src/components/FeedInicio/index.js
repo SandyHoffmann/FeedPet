@@ -24,7 +24,7 @@ export function FeedInicio(props) {
                     <img src={imgperfil} alt=""></img>
                   </span>
                   <span className="username">Amy</span>
-                  {/* <span className="pull-right text-muted">18 Views</span> */}
+                  <span className="pull-right text-muted">18 Views</span>
                 </div>
                 <div className="timeline-content">
                   <p>
@@ -87,7 +87,8 @@ export function FeedInicio(props) {
                         ></input>
                         <span className="input-group-btn p-l-10">
                           <button
-                            className="btn btn-primary f-s-12 rounded-corner"
+                            className="btn f-s-12 rounded-corner btn-green"
+                            id="botao-comentario"
                             type="button"
                           >
                             Comment
@@ -141,6 +142,31 @@ export function FeedInicio(props) {
                   >
                     <i className="fa fa-share fa-fw fa-lg m-r-3"></i> Share
                   </a>
+                </div>
+                <div className="timeline-comment-box">
+                  <div className="user">
+                    <img src={imgpost}></img>
+                  </div>
+                  <div className="input">
+                    <form action="">
+                      <div className="input-group">
+                        <input
+                          type="text"
+                          className="form-control rounded-corner"
+                          placeholder="Write a comment..."
+                        ></input>
+                        <span className="input-group-btn p-l-10">
+                          <button
+                            className="btn f-s-12 rounded-corner btn-green"
+                            id="botao-comentario"
+                            type="button"
+                          >
+                            Comment
+                          </button>
+                        </span>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </li>
@@ -197,14 +223,36 @@ export function FeedInicio(props) {
                     <i className="fa fa-share fa-fw fa-lg m-r-3"></i> Share
                   </a>
                 </div>
+                <div className="timeline-comment-box">
+                  <div className="user">
+                    <img src={imgpost}></img>
+                  </div>
+                  <div className="input">
+                    <form action="">
+                      <div className="input-group">
+                        <input
+                          type="text"
+                          className="form-control rounded-corner"
+                          placeholder="Write a comment..."
+                        ></input>
+                        <span className="input-group-btn p-l-10">
+                          <button
+                            className="btn f-s-12 rounded-corner btn-green"
+                            id="botao-comentario"
+                            type="button"
+                          >
+                            Comment
+                          </button>
+                        </span>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div>
             </li>
             <li>
               <div className="hoverWrapper">
-                Show Div 1
-                <div id="hoverShow1">
-            
-                </div>
+                Show Div 1<div id="hoverShow1"></div>
               </div>
               <div className="timeline-time">
                 <span className="date">10 Julho 2021</span>
@@ -265,6 +313,31 @@ export function FeedInicio(props) {
                   >
                     <i className="fa fa-share fa-fw fa-lg m-r-3"></i> Share
                   </a>
+                </div>
+                <div className="timeline-comment-box">
+                  <div className="user">
+                    <img src={imgpost}></img>
+                  </div>
+                  <div className="input">
+                    <form action="">
+                      <div className="input-group">
+                        <input
+                          type="text"
+                          className="form-control rounded-corner"
+                          placeholder="Write a comment..."
+                        ></input>
+                        <span className="input-group-btn p-l-10">
+                          <button
+                            className="btn f-s-12 rounded-corner btn-green"
+                            id="botao-comentario"
+                            type="button"
+                          >
+                            Comment
+                          </button>
+                        </span>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </li>

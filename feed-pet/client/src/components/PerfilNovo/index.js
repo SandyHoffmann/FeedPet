@@ -12,7 +12,7 @@ import gatinho from "../../assets/gatinho.jpeg";
 export function Perfilnovo(props) {
   return (
     <>
-      <section id="content" className="container">
+      <section id="container-total" className="container">
         <div className="page-heading" id="bordaheading">
           <div className="media clearfix">
             <div className="media-left pr30">
@@ -29,7 +29,7 @@ export function Perfilnovo(props) {
                 Amy Santiago
                 {/* <small> - Profile</small> */}
               </h2>
-              <p className="lead">
+              <p className="lead" id="texto-sobre">
                 Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod
                 tempor incididunt
               </p>
@@ -247,6 +247,7 @@ export function Perfilnovo(props) {
                         alt="..."
                       />{" "}
                     </a> */}{" "}
+                  <div className="panel">
                     <div className="panel-heading">
                       <span className="panel-icon">
                         <i className="fa fa-star"></i>
@@ -257,9 +258,9 @@ export function Perfilnovo(props) {
                       {/* <h5 className="media-heading mb20">
                         <p>Tutora de 3 animais</p>
                       </h5> */}
-                      <img src={gatinho} className="mw140 mr25 mb20"></img>
-                      <img src={gatinho} className="mw140 mr25 mb20"></img>
-                      <img src={gatinho} className="mw140 mb20"></img>
+                      <img src={gatinho} className="mw140 mr25 mb20 foto-animal"></img>
+                      <img src={gatinho} className="mw140 mr25 mb20 foto-animal"></img>
+                      <img src={gatinho} className="mw140 mr25 mb20 foto-animal"></img>
                       {/* <div className="media-links">
                         <span className="text-light fs12 mr10">
                           <span className="fa fa-thumbs-o-up text-primary mr5"></span>{" "}
@@ -367,6 +368,7 @@ export function Perfilnovo(props) {
                         </span>
                       </div> */}
                     </div>
+                  </div>
                   </div>
                 </div>
                 

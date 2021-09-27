@@ -72,7 +72,6 @@ export class ComentarioPost extends React.Component {
                 <div className="user">
                     <img src={img}></img>
                 </div>
-                <div className="input">
                     <form onSubmit={this.handleSubmit}>
                         <div className="input-group">
                             <input
@@ -82,18 +81,20 @@ export class ComentarioPost extends React.Component {
                                 name="conteudo"
                                 value={this.state.conteudo} onChange={this.handleChange}
                             ></input>
-                            <span className="input-group-btn p-l-10">
+                            <span className="input-group-btn">
                                 <button
-                                    className="btn btn-primary f-s-12 rounded-corner"
+                                    className="btn f-s-12 rounded-corner btn-green"
                                     type="submit"
+                                    id="botao-comentario"
                                 >
                                     Comente!
                                 </button>
                             </span>
                         </div>
                     </form>
+                <div>
+                    {this.state.comentarios.map(coment => <CardComentario key={coment.id} conteudo={coment.conteudo} usuario={coment.usuario}></CardComentario>)}
                 </div>
-                {this.state.comentarios.map(coment => <CardComentario key={coment.id} conteudo={coment.conteudo} usuario={coment.usuario}></CardComentario>)}
             </>
 
         )
