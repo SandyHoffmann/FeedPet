@@ -26,6 +26,16 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Atividade, { foreignKey: "user_id", onDelete: 'CASCADE' });
       this.belongsTo(models.Endereco, { foreignKey: "endereco_id", as: "endereco", onDelete: 'CASCADE' });
       this.hasOne(models.RefreshToken, { foreignKey: "user_id", onDelete: 'CASCADE' });
+      this.belongsToMany(models.Chat, {
+        through: "chat_usuarios",
+        as: "chats",
+        foreignKey: {
+          name: "id_usuario",
+          type: DataTypes.UUID
+        }
+      })
+      this.hasMany(models.Mensagem, { foreignKey: "usuario_id", onDelete: 'CASCADE'});
+
     }
 
     verificarSenha(senha) {
