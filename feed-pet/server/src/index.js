@@ -16,6 +16,7 @@ const postagensRoutes = require("./routes/postagensRoutes");
 const enderecosRoutes = require("./routes/enderecoRoutes");
 const agendasRoutes = require("./routes/agendasRoutes");
 const authRoutes = require("./routes/authRoutes");
+const chatsRoutes = require("./routes/chatsRoutes");
 
 const PORT = process.env.PORT || 3000;
 
@@ -31,6 +32,7 @@ app.use("/postagens", postagensRoutes);
 app.use("/enderecos", enderecosRoutes);
 app.use("/agendas", agendasRoutes);
 app.use("/auth", authRoutes);
+app.use("/chats", chatsRoutes);
 
 
 

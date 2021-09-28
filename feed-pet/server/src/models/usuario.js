@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       this.hasOne(models.RefreshToken, { foreignKey: "user_id", onDelete: 'CASCADE' });
       this.belongsToMany(models.Chat, {
         through: "chat_usuarios",
-        as: "chats",
+        as: "chat",
         foreignKey: {
           name: "id_usuario",
           type: DataTypes.UUID

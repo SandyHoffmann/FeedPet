@@ -3,12 +3,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('chat_usuarios', {
-      id: {
-        allowNull: false,
-        primaryKey: true,
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4
-      },
       id_chat: {
         primaryKey: true,
         type: Sequelize.UUID,
