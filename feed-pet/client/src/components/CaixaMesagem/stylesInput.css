@@ -7,13 +7,37 @@
     border-radius: 14px;
     margin-left: 10px;
 }
-.nome {
-    background-color:#f4f2ef ;
+.textoAviso {
+    border: 5px solid;
+    border-color:#ff4880 ;
+    border-radius:10px ;
     text-align: center;
     margin-top: 10px;
+    font-size: 10px;
+    margin-left: 60px;
+    margin-right: 5px;
 }
-.LupaMessagem{
+.texto1{
+    border: 5px solid;
+    border-color:#8fc424;
+    border-radius:10px ;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 10px;
+    margin-right: 60px;
+    margin-left: 5px;
+    margin-top: 20px;
+
+}
+.LupaProcurra{
+    margin-top: 400px;
+    margin-left: 40px;
+    
+}
+.LupaProcurra .LupaMessagem{
+
     width: 100px;
 height: 100px;
 font-size:35px;
+
 }

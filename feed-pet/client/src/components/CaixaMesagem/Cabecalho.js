@@ -1,17 +1,18 @@
 import "./stylesCabecalho.css"
+import { FaUserCircle } from "react-icons/fa";
+
 export function Cabecalho (props){
     return(
     
     <div className = "texto">
-        <h1>About</h1>
+     <div className = "NomePessoa"> 
     <p>
-    A card is a flexible and extensible content container. It includes options for
-     headers and footers, a wide variety of content, contextual background colors, 
-     and powerful display options. If you’re familiar with Bootstrap 3, cards replace 
-     our old panels, wells, and thumbnails. Similar functionality to those components 
-     is available as modifier classes for cards.
+    Nome da Pessoa
     
     </p>
-    
+    </div>
+    <div className ="icone">
+    <FaUserCircle size={60}  color="white" />
+    </div>
     </div>  ) 
 }
