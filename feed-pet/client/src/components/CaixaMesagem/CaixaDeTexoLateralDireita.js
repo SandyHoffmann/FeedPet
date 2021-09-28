@@ -1,4 +1,6 @@
 import "./stylesInput.css";
+import { BiSearchAlt2 } from 'react-icons/bi';
+
 export function CaixaDeTextoLateralDireita() {
     return (
         <div classeName="conteiner">
@@ -23,7 +25,9 @@ export function CaixaDeTextoLateralDireita() {
 
             </p>
             </div>
-            <input type="text" value="Digite sua Mensagem" className="inputMensagem" />
+            <div className = "LupaProcurra">
+            <i aria-hidden="true" className ="LupaMessagem" ><BiSearchAlt2/></i> <input type="text" value="Digite sua Mensagem" className="inputMensagem" />
+            </div>
         </div>
     )
 }

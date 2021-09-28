@@ -28,3 +28,20 @@ height: 40px;
 background-color:#f4f2ef ;
 border: none;
 }
+.Lupa{
+    position: relative;
+    
+left: 95px;
+    
+width: 100px;
+height: 100px;
+font-size:35px;
+}
+
+@media (max-width: 600px)
+{
+ .container-caixa-mensagem{
+     display: flex;
+     flex-direction: column;
+ }
+}
