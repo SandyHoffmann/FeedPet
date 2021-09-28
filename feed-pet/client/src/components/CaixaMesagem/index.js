@@ -35,11 +35,14 @@ export function CaixaMensagem() {
     }
 
     return (
+        <div className ="ConteinerMaior">
         <div className="container-caixa-mensagem">
-            <Cabecalho />
+            
+            
             <div className="cards">
            <div className =" CaixaLupa">
             <i aria-hidden="true" className ="Lupa" ><BiSearchAlt2/></i><input type="text" value="Digite Nome do Usuario" className="inputUsuario" /> 
+           
             </div>
                 <NavBarLateral />
                 <NavBarLateral />
@@ -47,8 +50,10 @@ export function CaixaMensagem() {
                 
             </div>
             <div className="conteudo">
+                <Cabecalho />
                 <CaixaDeTextoLateralDireita />
             </div>
+        </div>
         </div>
     );
 }
