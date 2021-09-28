@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsToMany(models.Usuario, {
         through: "chat_usuarios",
-        as: "usuarios",
+        as: "usuario",
         foreignKey: {
           name: "id_chat",
           type: DataTypes.UUID
