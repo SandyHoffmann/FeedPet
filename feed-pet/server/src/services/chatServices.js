@@ -34,7 +34,14 @@ async function addMensagem(id_usuario, id_chat, mensagem){
     return mensagemCriada
 }
 
+async function findMessages(id_chat){
+    let chat = await Chat.findOne({ where: { id: id_chat }})
+    if (!chat) throw createError(404, "Chat não encontrado!");
+    let mensagens = await Mensagem.findAll({ where: {id_chat}})
+    return mensagens
+}
 module.exports = {
     addChat,
-    addMensagem
+    addMensagem,
+    findMessages
 }

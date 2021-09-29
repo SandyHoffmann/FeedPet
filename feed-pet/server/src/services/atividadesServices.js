@@ -4,6 +4,7 @@ const { Agenda, Atividade } = require("../models");
 
 
 async function createAtividadeparaAgenda(id, id_usuario, atividade) {
+    console.log(id_usuario)
     const agenda = await Agenda.findOne({ where: { id:id } });
 
     if (!agenda) throw createError(404, "Agenda não encontrada!");    

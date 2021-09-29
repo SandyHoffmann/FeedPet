@@ -10,7 +10,7 @@ router.get("/:id", authentication(["usuario", "admin"]), postagensController.get
 router.get("/:id_post/curtidas", authentication(["usuario", "admin"]), postagensController.getAllCurtidas);
 
 router.get("/:id_post/comentarios", authentication(["usuario", "admin"]), postagensController.getComentariosPostagem);
-router.post("/:id_user/:id_post/comentarios", authentication(["usuario", "admin"]), postagensController.createComentario);
-router.post("/:id_user/:id_post/curtidas", authentication(["usuario", "admin"]), postagensController.createCurtida);
+router.post("/:id_post/comentarios", authentication(["usuario", "admin"]), postagensController.createComentario);
+router.post("/:id_post/curtidas", authentication(["usuario", "admin"]), postagensController.createCurtida);
 
 module.exports = router;

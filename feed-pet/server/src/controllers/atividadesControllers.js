@@ -1,8 +1,9 @@
 const atividadesServices = require("../services/atividadesServices");
 
 async function createAtividade(req, res, next) {    
+    console.log(res.locals)
     try {
-        const atividade = await atividadesServices.createAtividadeparaAgenda(req.params.id_agenda,req.params.id_usuario,req.body);
+        const atividade = await atividadesServices.createAtividadeparaAgenda(req.params.id_agenda,res.locals.userId,req.body);
         res.json(atividade);
     } catch (err) {
         console.log(err);
