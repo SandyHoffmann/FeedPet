@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.UUID
         }
       })
-      this.hasMany(models.Mensagem, { foreignKey: "usuario_id", onDelete: 'CASCADE'});
+      this.hasMany(models.Mensagem, { foreignKey: "id_usuario", onDelete: 'CASCADE'});
 
     }
 

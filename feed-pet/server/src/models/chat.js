@@ -19,6 +19,9 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.UUID
         }
         })
+      this.hasMany(models.Mensagem, { foreignKey: "id_chat", onDelete: 'CASCADE'});
+
+      
     }
   };
   Chat.init({
