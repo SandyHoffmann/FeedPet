@@ -25,8 +25,7 @@ export function LikesButtons(props) {
     async function handleClick(e) {
         try {
             e.preventDefault();
-            const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
-            await api.post(`/postagens/${token.sub}/${id_postagem}/curtidas`,
+            await api.post(`/postagens/${id_postagem}/curtidas`,
                 {
                     "tipo":"like"
                 }

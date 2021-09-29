@@ -5,7 +5,7 @@ async function createChat(req, res, next) {
 
     const transaction = await sequelize.transaction();  
     try {
-        const chat = await chatServices.addChat(req.params.id_user,req.body);
+        const chat = await chatServices.addChat(res.locals.userId,req.body);
         await transaction.commit();
         res.status(201).json(chat)
 
@@ -18,11 +18,21 @@ async function createChat(req, res, next) {
 async function createMensagem(req, res, next){
     
     try {
-        const mensagem = await chatServices.addMensagem(req.params.id_usuario,req.params.id_chat,req.body);
+        const mensagem = await chatServices.addMensagem(res.locals.userId,req.params.id_chat,req.body);
         res.status(201).json(mensagem)
 
     } catch (err) {
         next(err);
     }
 }
-module.exports = {createChat,createMensagem};
+
+async function getMensagens(req, res, next){
+    try {
+        const mensagens = await chatServices.findMessages(req.params.id_chat);
+        res.status(201).json(mensagens)
+
+    } catch (err) {
+        next(err);
+    }
+}
+module.exports = {createChat,createMensagem,getMensagens};
