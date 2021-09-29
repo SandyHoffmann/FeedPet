@@ -22,6 +22,16 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
+      id_chat:{
+        type: Sequelize.UUID,
+        allowNull: false,
+        references: {
+          model: "chats",
+          key: "id"
+        },        
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE
