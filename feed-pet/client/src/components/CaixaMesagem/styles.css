@@ -27,9 +27,11 @@ margin-top: 40px;
     
 }
 
-.cards {
-    
+.conteiner {
+    max-height: 50vh;
+    overflow-y: auto;
 }
+
 .cards .inputUsuario{
 margin-left: 160px;
 width: 300px;
