@@ -1,0 +1,57 @@
+.chat_fp{
+    background-color: white;
+    display: flex;
+    width: 80%;
+    height: 90%;
+    padding: 5%;
+    border: 1px solid black;
+}
+
+.chat_fp_body{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+
+}
+
+.chat_fp__elemento{
+    padding: 5%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.mensagens{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 5%;
+}
+.mensagens__corpo{
+    height: 90%;
+    overflow-y: auto;
+}
+.mensagens__mandar{
+    display: flex;
+    flex-direction: column;
+}
+.mensagens__mandar input{
+    width: 100%;
+}
+
+.mensagens__mandar__inputs{
+    display: flex;
+}
+.direita{
+    display: flex;
+    justify-content: flex-end;
+    color: red;
+}
+
+.esquerda{
+    display: flex;
+    justify-content: flex-start;
+}
