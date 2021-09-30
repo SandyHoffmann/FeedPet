@@ -5,7 +5,7 @@ import "./styles.css";
 export function CaixaDeTextoLateralDireita() {
   return (
     <>
-    <div className="conteiner">
+      <div className="conteiner">
         <div className="texto1">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
@@ -98,13 +98,13 @@ export function CaixaDeTextoLateralDireita() {
           </p>
         </div>
 
-          <div className="textoAviso">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              ornare cursus nulla. Nulla vestibulum sollicitudin
+        <div className="textoAviso">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+            ornare cursus nulla. Nulla vestibulum sollicitudin
             </p>
-          </div>
         </div>
+      </div>
       <div className="LupaProcurra">
         <input
           type="text"
@@ -114,7 +114,7 @@ export function CaixaDeTextoLateralDireita() {
         <i aria-hidden="true" className="LupaMessagem">
           <MdKeyboardArrowRight />
         </i>
-    </div>
-   </>
+      </div>
+    </>
   );
 }
