@@ -28,13 +28,13 @@ margin-top: 40px;
 }
 
 .conteiner {
-    max-height: 50vh;
+    max-height: 60vh;
     overflow-y: auto;
 }
 
 .cards .inputUsuario{
-margin-left: 160px;
-width: 300px;
+margin-left: 175px;
+width: 250px;
 height: 40px;
 background-color:white ;
 border-radius: 8px;
@@ -44,12 +44,24 @@ display: flex;
 .Lupa{
     position: relative;
     top:48px;
-left: 120px;
+left: 143px;
     
 width: 100px;
 height: 100px;
 font-size:35px;
 }
+
+.ScrollCard{
+    max-height: 70vh;
+    overflow-y: auto;
+    margin-top: 5px;
+    
+    margin-left: 130px; 
+}
+
+
+
+
 
 @media (max-width: 600px)
 {

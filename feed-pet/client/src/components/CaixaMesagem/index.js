@@ -44,10 +44,17 @@ export function CaixaMensagem() {
             <i aria-hidden="true" className ="Lupa" ><BiSearchAlt2/></i><input type="text" value="Digite Nome do Usuario" className="inputUsuario" /> 
            
             </div>
+
+            <div className = "ScrollCard">
                 <NavBarLateral />
                 <NavBarLateral />
                 <NavBarLateral />
-                
+                <NavBarLateral />
+                <NavBarLateral />
+                <NavBarLateral /> 
+                <NavBarLateral />
+                <NavBarLateral />
+            </div> 
             </div>
             <div className="conteudo">
                 <Cabecalho />
