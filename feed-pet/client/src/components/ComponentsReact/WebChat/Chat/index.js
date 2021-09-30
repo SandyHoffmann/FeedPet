@@ -4,6 +4,7 @@ import { api } from "../../../../service";
 import { ChatBox } from '../ChatBox';
 import { ChatMsg } from '../ChatMsg';
 import { ChatForm } from '../ChatForm';
+import { ChatCriar } from '../ChatCriar';
 const jwt = require('jsonwebtoken');
 
 
@@ -37,7 +38,12 @@ export function Chat(props) {
         <div className="chat_fp_body">
             <div className="chat_fp">
                 <div className="chat_fp__elemento">
-                    {chats.map(chat => <ChatBox chat={chat} key={chat.id} onClick={handleClick}></ChatBox>)}
+                    <div>            
+                        <ChatCriar/>
+                    </div>
+                    <div className="chat_fp__elemento_cards">            
+                        {chats.map(chat => <ChatBox chat={chat} key={chat.id} onClick={handleClick}></ChatBox>)}
+                    </div>
                 </div>
                 <div className="mensagens">
                     <div className="mensagens__corpo">
