@@ -35,4 +35,13 @@ async function getMensagens(req, res, next){
         next(err);
     }
 }
-module.exports = {createChat,createMensagem,getMensagens};
+
+async function getChats(req, res, next){
+    try {
+        const chats = await chatServices.findChats(res.locals.userId);
+        res.status(201).json(chats)
+    } catch (err) {
+        next(err);
+    }
+}
+module.exports = {createChat,createMensagem,getMensagens,getChats};
