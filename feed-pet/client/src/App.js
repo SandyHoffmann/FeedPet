@@ -30,6 +30,7 @@ import { Perfilnovo } from './components/PerfilNovo';
 import Perfilpessoa from './components/Userprofile/Userprofile';
 import { FormCadastroEstilizado } from './components/ComponentsReact/FormCadastro/index-estilizado';
 import { FormLoginEstilizado } from './components/ComponentsReact/PaginaLogin/Login/index-estilizado';
+import { Chat } from './components/ComponentsReact/WebChat/Chat';
 
 
 
@@ -81,6 +82,9 @@ function App() {
 				<Switch>
 					<Route path="/caixa-mensagem" component={CaixaMensagem} />
 					<Route path='/teste' component={About}>
+					</Route>
+					<Route path='/chat'>
+						<Chat></Chat>
 					</Route>
 					<Route path='/' exact>
 						<FiltragemHome />

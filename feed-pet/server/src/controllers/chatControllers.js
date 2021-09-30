@@ -39,6 +39,7 @@ async function getMensagens(req, res, next){
 async function getChats(req, res, next){
     try {
         const chats = await chatServices.findChats(res.locals.userId);
+
         res.status(201).json(chats)
     } catch (err) {
         next(err);
