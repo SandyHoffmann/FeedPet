@@ -4,6 +4,20 @@ body {
 }
 #bordaheading {
   margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
+}
+#bordaheading h2{
+  color: #8fc424;
+  font-weight: 1000;
+  align-items: center;
+}
+.panel{
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
+}
+#texto-sobre{
+  font-weight: 700;
+  color: #555555;
 }
 .fs35 {
   font-size: 35px !important;
@@ -31,6 +45,10 @@ body {
 
 .p30 {
   padding:  0px !important;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
+}
+.foto-animal{
+  background-image: ;
 }
 #caixaanimais{
   padding: 15px !important;
@@ -38,10 +56,9 @@ body {
 }
 
 .page-heading {
-  position: relative;
-  padding: 30px 40px;
+  padding: 30px 40px !important;
   margin: -25px -20px 25px;
-  border-bottom: 1px solid #d9d9d9;
+  /* border-bottom: 1px solid #d9d9d9; */
   background-color: #f2f2f2;
 }
 .page-tabs {
@@ -121,7 +138,6 @@ body {
 }
 .panel.panel-border > .panel-heading {
   background-color: #ffffff;
-  border-color: #8fc424;
   border-top: 1px solid transparent;
 }
 .panel.panel-border > .panel-heading > .panel-title {

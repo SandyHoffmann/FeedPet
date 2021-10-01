@@ -98,13 +98,14 @@ function App() {
 					<Route path='/postagens'>
 						{/* <FeedInicio/> */}
 						<CorpoPaginaPostagem /> 
+
 					</Route>
 					<Route path='/perfil/:id' >
 						<PaginaAnimal />
 					</Route>
 					<Route path='/animais'>
-						<CorpoPaginaAdicionarAnimal/>
-						{/* <Perfilnovo/> */}
+						{/* <CorpoPaginaAdicionarAnimal/> */}
+						<Perfilnovo/>
 					</Route>
 					<Route path='/editar-perfil'>
 						<TestePerfilUsuario />

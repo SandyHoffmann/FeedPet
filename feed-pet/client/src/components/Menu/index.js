@@ -9,6 +9,7 @@ import alerta from '../../assets/alerta.png';
 import menu from '../../assets/menu-nav.png';
 const jwt = require('jsonwebtoken');
 
+
 // ${token.sub}
 export function Menu(props) {
   const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
@@ -44,7 +45,7 @@ export function Menu(props) {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" id="teste" href="#">
-                    Pesquisa de usuário
+                   Pesquisa de usúario
                   </a>
                 </li>
               </ul>
@@ -55,7 +56,6 @@ export function Menu(props) {
             <a className="text-reset me-3" href="#">
               <i className="fas fa-shopping-cart"></i>
             </a>
-
             <button type="button" class="btn btn-danger" id="botaoalerta">{ <img src={alerta}></img>}</button>
 
             <DropdownButton
