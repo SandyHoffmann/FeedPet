@@ -23,6 +23,10 @@ export function ChatCriar(props) {
     }, [])
 
     function handleChange(e){
+        let nome = e.target.options[e.target.selectedIndex].text
+        console.log(nome)
+        console.log(pessoas.map( pessoa => (pessoa.email===nome)?null:pessoa.email))
+        // setPessoas(pessoas.map( pessoa =>{if(pessoa.id==!props.pessoa.id){return pessoa}}))
         setpessoasDoChat([...pessoasDoChat,{id:e.target.value,nome:e.target.options[e.target.selectedIndex].text}])
     }
 

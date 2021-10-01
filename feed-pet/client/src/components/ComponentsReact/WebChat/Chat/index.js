@@ -39,7 +39,7 @@ export function Chat(props) {
             <div className="chat_fp">
                 <div className="chat_fp__elemento">
                     <div>            
-                        <ChatCriar/>
+                        <ChatCriar pessoa={user}/>
                     </div>
                     <div className="chat_fp__elemento_cards">            
                         {chats.map(chat => <ChatBox chat={chat} key={chat.id} onClick={handleClick}></ChatBox>)}
