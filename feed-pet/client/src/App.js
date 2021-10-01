@@ -21,6 +21,7 @@ import { TestePerfilUsuario } from './components/TestePerfilUsuario';
 import { CaixaComentarios } from './components/CaixaComentarios';
 import { FiltragemHome } from './components/ComponentsReact/Home/Tabela';
 import { CaixaMensagem } from './components/CaixaMesagem';
+import {ChatBot} from './components/ChatBot';
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Login } from './components/LoginRegister/Login';
@@ -80,6 +81,7 @@ function App() {
 			<Router>
 				<Menu />
 				<Switch>
+					<Route path ="/ChatBot" component={ChatBot}/>
 					<Route path="/caixa-mensagem" component={CaixaMensagem} />
 					<Route path='/teste' component={About}>
 					</Route>
