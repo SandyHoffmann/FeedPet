@@ -1,5 +1,6 @@
 .body{
-    font-weight: 700;
+    font-weight:700;
+
 }
 .theme-color {
     color: #ff4880;
@@ -194,6 +195,7 @@ body.flat-black {
     color: #b2b2b2
 }
 
+/* .flat-black .sidebar.sidebar-grid .nav>li>a {
 .flat-black .sidebar.sidebar-grid .nav>li>a {
     border-bottom: 1px solid #474747;
     border-top: 1px solid #474747
@@ -246,7 +248,7 @@ body.flat-black {
 
 .flat-black .sidebar .nav>li.nav-profile .cover.with-shadow:before {
     background: rgba(42, 42, 42, .75)
-}
+} */
 
 .bg-white {
     background-color: #fff!important;
@@ -354,7 +356,8 @@ select.form-control:not([size]):not([multiple]) {
     background: #fff;
     position: relative;
     padding: 20px 25px;
-    border-radius: 6px
+    border-radius: 6px;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
 }
 
 .timeline .timeline-body:before {
@@ -382,6 +385,9 @@ select.form-control:not([size]):not([multiple]) {
     border-bottom: 1px solid #e2e7eb;
     line-height: 30px
 }
+.userimage a{
+    text-decoration: none;
+}
 
 .timeline-header .userimage {
     float: left;
@@ -394,11 +400,23 @@ select.form-control:not([size]):not([multiple]) {
 
 .timeline-header .username {
     font-size: 25px;
-    font-weight: 600
+    font-weight: 600;
+    color: #680682;
+    margin-right: 0.5em;
 }
 
 .timeline-header .username,
 .timeline-header .username a {
+    color: #680682;
+    /* font-style: none !important;
+    text-decoration: none !important;
+    border: none !important;
+    background-color: transparent !important; */
+}
+
+.timeline-header .username a:link {
+    text-decoration: none !important;
+    border: none;
     color: #680682
 }
 
@@ -458,6 +476,10 @@ select.form-control:not([size]):not([multiple]) {
     float: left;
     margin-right: 5px;
     font-size: 9px
+}
+
+.teste-link {
+    text-decoration: none;
 }
 
 .timeline-likes .stats-icon+.stats-icon {

@@ -24,16 +24,15 @@ export function PostagemCard(props) {
           <div className="timeline-icon">
             <a href="javascript:;">&nbsp;</a>
           </div>
-
           <div className="timeline-body">
             <div className="timeline-header">
               <span className="userimage">
                 <img src={img} alt=""></img>
               </span>
-              <Link to={`/perfil-usuario/${props.id_usuario}`}>
+              <Link className="teste-link" to={`/perfil-usuario/${props.id_usuario}`}>
                 <span className="username">{props.usuario.nome}</span>
               </Link>
-              <span className="pull-right text-muted">18 Views</span>
+              <span className="pull-right text-muted">34 Views</span>
             </div>
             <div className="timeline-content">
               <p>{props.titulo}</p>
@@ -81,9 +80,7 @@ export function PostagemCard(props) {
             </div>
             <div className="timeline-comment-box">
               <div className="input">
-                <div className="input-group">
                   <ComentarioPost id_postagem={props.id_post} />
-                </div>
               </div>
             </div>
             </div>

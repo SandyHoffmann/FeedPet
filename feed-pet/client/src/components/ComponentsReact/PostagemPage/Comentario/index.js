@@ -91,8 +91,8 @@ export class ComentarioPost extends React.Component {
                             </span>
                         </div>
                     </form>
-                <div>
-                    {this.state.comentarios.map(coment => <CardComentario key={coment.id} conteudo={coment.conteudo} usuario={coment.usuario}></CardComentario>)}
+                    <div>
+                      {this.state.comentarios.map(coment => <CardComentario key={coment.id} conteudo={coment.conteudo} usuario={coment.usuario}></CardComentario>)}
                 </div>
             </>
 

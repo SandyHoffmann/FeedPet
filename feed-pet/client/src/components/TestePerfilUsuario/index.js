@@ -90,7 +90,7 @@ export function TestePerfilUsuario(props) {
                   <h6 class="count h2" id="icones" data-to="850" data-speed="850">
                   <img src={bed}></img>
                   </h6>
-                  <p class="m-0px font-w-600">Dormiu em 5 locais</p>
+                  <p class="m-0px font-w-600">Dormiu em 7 locais</p>
                 </div>
               </div>
               <div class="col-6 col-lg-3">

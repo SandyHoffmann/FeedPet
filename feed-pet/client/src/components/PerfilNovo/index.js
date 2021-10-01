@@ -24,10 +24,9 @@ export function Perfilnovo(props) {
                 ></img>
               </a>
             </div>
-            <div className="media-body va-m">
+            <div className="media-body ">
               <h2 className="media-heading">
-                Amy Santiago
-                {/* <small> - Profile</small> */}
+                Usuário da Silva
               </h2>
               <p className="lead" id="texto-sobre">
                 Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod
@@ -44,50 +43,22 @@ export function Perfilnovo(props) {
                   <li>
                     <a href="#" title="twitter link">
                       <img src={twitter} id="icone-twitter"></img>
-                      {/* <span className="fa fa-twitter-square fs35 text-info"></span> */}
+
                     </a>
                   </li>
                   <li>
                     <a href="#" title="instagram link">
                       <img src={instagram} id="icone-instagram"></img>
-                      {/* <span className="fa fa-google-plus-square fs35 text-danger"></span> */}
+
                     </a>
                   </li>
-                  {/* <li className="hidden">
-                    <a href="#" title="behance link">
-                      <span className="fa fa-behance-square fs35 text-primary"></span>
-                    </a>
-                  </li> */}
-                  {/* <li className="hidden">
-                    <a href="#" title="pinterest link">
-                      <span className="fa fa-pinterest-square fs35 text-danger-light"></span>
-                    </a>
-                  </li>
-                  <li className="hidden">
-                    <a href="#" title="linkedin link">
-                      <span className="fa fa-linkedin-square fs35 text-info"></span>
-                    </a>
-                  </li>
-                  <li className="hidden">
-                    <a href="#" title="github link">
-                      <span className="fa fa-github-square fs35 text-dark"></span>
-                    </a>
-                  </li> */}
                   <li className="">
                     <a href="#" title="linkedin link">
                       <img src={linkedin} id="icone-linkedin"></img>
-                      {/* <span className="fa fa-phone-square fs35 text-system"></span> */}
+
                     </a>
                   </li>
                   <li>
-                    {/* <a href="#" title="email link">
-                      <span className="fa fa-envelope-square fs35 text-muted"></span>
-                    </a>
-                  </li>
-                  <li className="hidden">
-                    <a href="#" title="external link">
-                      <span className="fa fa-external-link-square fs35 text-muted"></span>
-                    </a> */}
                   </li>
                 </ul>
               </div>
@@ -106,13 +77,6 @@ export function Perfilnovo(props) {
               </div>
               <div className="panel-body pn">
                 <table className="table mbn tc-icon-1 tc-med-2 tc-bold-last">
-                  {/* <thead>
-                    <tr className="hidden">
-                      <th className="mw30">#</th>
-                      <th>First Name</th>
-                      <th>Revenue</th>
-                    </tr>
-                  </thead> */}
                   <tbody>
                     <tr>
                       <td>
@@ -163,18 +127,6 @@ export function Perfilnovo(props) {
                   condimentum.
                 </p>
               </div>
-              {/* <div className="panel-body pb5">
-                <span className="label label-warning mr5 mb10 ib lh15">Default</span>
-                <span className="label label-primary mr5 mb10 ib lh15">Primary</span>
-                <span className="label label-info mr5 mb10 ib lh15">Success</span>
-                <span className="label label-success mr5 mb10 ib lh15">Info</span>
-                <span className="label label-alert mr5 mb10 ib lh15">Warning</span>
-                <span className="label label-system mr5 mb10 ib lh15">Danger</span>
-                <span className="label label-info mr5 mb10 ib lh15">Success</span>
-                <span className="label label-success mr5 mb10 ib lh15">Ui Design</span>
-                <span className="label label-primary mr5 mb10 ib lh15">Primary</span>
-  
-              </div> */}
             </div>
             <div className="panel">
               <div className="panel-heading">
@@ -219,26 +171,11 @@ export function Perfilnovo(props) {
           </div>
           <div className="col-md-8">
             <div className="tab-block">
-              {/* <ul className="nav nav-tabs">
-                <li className="active">
-                  <a href="#tab1" data-toggle="tab">
-                    Activity
-                  </a>
-                </li>
-                <li>
-                  <a href="#tab1" data-toggle="tab">
-                    Social
-                  </a>
-                </li>
-                <li>
-                  <a href="#tab1" data-toggle="tab">
-                    Media
-                  </a>
-                </li>
-              </ul> */}
-              <div className="tab-content p30">
+ 
+              {/* <div className="tab-content p30"> */}
                 <div id="tab1" className="tab-pane active">
                   <div className="media">
+
                     {/* <a className="pull-left" href="#">
                       {" "}
                       <img
@@ -370,8 +307,8 @@ export function Perfilnovo(props) {
                     </div>
                   </div>
                   </div>
-                </div>
-                
+                {/* </div> */}
+         
                 <div id="tab2" className="tab-pane"></div>
                 <div id="tab3" className="tab-pane"></div>
                 <div id="tab4" className="tab-pane"></div>

@@ -1,13 +1,17 @@
 .bodyDog{
     color: #ff4880 !important;
     margin-top:20px;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
+    border-radius: 6px;
 }
 .section {
     padding: 0 0;
     margin: 2em 5em;
     position:relative;
 }
-
+#bordaheading{
+    padding: 0;
+}
 .botaoCor {
     background-color: #ff4880 !important;
 }
