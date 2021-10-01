@@ -33,8 +33,9 @@ async function deleteAnimal(req, res, next) {
 }
 
 async function criarParaUsuario(req, res, next) {
+    console.log(res.locals)
     try {        
-        const animais = await animaisServices.createAnimalparaUsuario(req.params.id, req.body)
+        const animais = await animaisServices.createAnimalparaUsuario(res.locals.userId, req.body)
 
         res.status(201).json(animais);
     } catch (err) {

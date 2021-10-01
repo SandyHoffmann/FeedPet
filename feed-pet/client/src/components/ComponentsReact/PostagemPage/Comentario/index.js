@@ -51,8 +51,7 @@ export class ComentarioPost extends React.Component {
     handleSubmit = async e => {
         try {
             e.preventDefault();
-            const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
-            const comentario = await api.post(`/postagens/${token.sub}/${this.props.id_postagem}/comentarios`,
+            const comentario = await api.post(`/postagens/${this.props.id_postagem}/comentarios`,
                 {
                     "conteudo": this.state.conteudo
                 }
@@ -94,7 +93,6 @@ export class ComentarioPost extends React.Component {
                     </form>
                     <div>
                       {this.state.comentarios.map(coment => <CardComentario key={coment.id} conteudo={coment.conteudo} usuario={coment.usuario}></CardComentario>)}
-
                 </div>
             </>
 

@@ -15,6 +15,7 @@ body {
 .panel{
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
 }
+
 #texto-sobre{
   font-weight: 700;
   color: #555555;
@@ -46,6 +47,9 @@ body {
 .p30 {
   padding:  0px !important;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
+}
+.foto-animal{
+  background-image: ;
 }
 .foto-animal{
   background-image: ;

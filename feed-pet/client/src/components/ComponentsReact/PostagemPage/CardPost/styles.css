@@ -1,5 +1,6 @@
 .body{
     font-weight:700;
+
 }
 .theme-color {
     color: #ff4880;
@@ -195,6 +196,7 @@ body.flat-black {
 }
 
 /* .flat-black .sidebar.sidebar-grid .nav>li>a {
+.flat-black .sidebar.sidebar-grid .nav>li>a {
     border-bottom: 1px solid #474747;
     border-top: 1px solid #474747
 }
@@ -386,6 +388,7 @@ select.form-control:not([size]):not([multiple]) {
 .userimage a{
     text-decoration: none;
 }
+
 .timeline-header .userimage {
     float: left;
     width: 34px;
@@ -414,6 +417,7 @@ select.form-control:not([size]):not([multiple]) {
 .timeline-header .username a:link {
     text-decoration: none !important;
     border: none;
+    color: #680682
 }
 
 .timeline img {

@@ -1,6 +1,7 @@
 import React from "react";
 import { api } from "../../../service";
 import { useState, useEffect } from "react";
+import { VerificarErros } from "../../../errorHandling";
 
 export function FormCadastro(){
     const [nome,setNome] = useState("")
@@ -41,6 +42,8 @@ export function FormCadastro(){
             setImagem("")   
             window.location.replace("/login");    
         } catch (error) {
+            let erros = error.response.data
+            VerificarErros(erros)
             console.log(error)
         }
     }

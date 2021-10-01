@@ -1,4 +1,4 @@
-import "./stylesNavBarLateral.css";
+
 export function NavBarLateral() {
     return (
         <div className="divBorda">

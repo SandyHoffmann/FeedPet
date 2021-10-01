@@ -9,6 +9,7 @@ const enderecosController = require("../controllers/enderecosControllers");
 const authentication = require("../middlewares/authMiddleware");
 const upload = require("../middlewares/multer")
 const postagemValidations = require("../validations/postagemValidations");
+const cadastroValidations = require("../validations/cadastroValidations");
 
 //fazer validators
 
@@ -19,14 +20,14 @@ router.get("/:id", authentication(["usuario", "admin"]),usuariosController.getUs
 router.get("/animais/:id", authentication(["usuario", "admin"]),usuariosController.getAllAnimalsByUserId);
 
 router.get("/postagens/:id", authentication(["usuario", "admin"]),usuariosController.getAllPostsByUserId);
-
-router.post("/", upload.single('avatar'),usuariosController.create);
+// cadastroValidations.post,
+router.post("/", upload.single('avatar'),  usuariosController.create);
 
 router.delete("/:id", authentication(["admin"]),usuariosController.deleteUser);
 
 router.post("/animais/:id", authentication(["usuario", "admin"]), animaisController.criarParaUsuario);
 
-router.post("/postagens/:id", postagemValidations.post, authentication(["usuario", "admin"]), postagensController.criarPostagem);
+router.post("/postagens", postagemValidations.post, authentication(["usuario", "admin"]), postagensController.criarPostagem);
 
 router.post("/enderecos/:id_user", authentication(["usuario", "admin"]),enderecosController.defineEndereco);
 

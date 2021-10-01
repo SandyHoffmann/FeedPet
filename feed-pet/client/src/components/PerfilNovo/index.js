@@ -175,6 +175,15 @@ export function Perfilnovo(props) {
               {/* <div className="tab-content p30"> */}
                 <div id="tab1" className="tab-pane active">
                   <div className="media">
+
+                    {/* <a className="pull-left" href="#">
+                      {" "}
+                      <img
+                        className="media-object mn thumbnail mw50"
+                        src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                        alt="..."
+                      />{" "}
+                    </a> */}{" "}
                   <div className="panel">
                     <div className="panel-heading">
                       <span className="panel-icon">
@@ -299,7 +308,7 @@ export function Perfilnovo(props) {
                   </div>
                   </div>
                 {/* </div> */}
-                
+         
                 <div id="tab2" className="tab-pane"></div>
                 <div id="tab3" className="tab-pane"></div>
                 <div id="tab4" className="tab-pane"></div>
