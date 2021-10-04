@@ -1,9 +1,21 @@
 const createError = require("http-errors");
 const { Usuario,Postagem, } = require("../models");
+const { Op } = require("sequelize");
 
 async function getUsuarios() {    
     return await Usuario.findAll();    
 }
+
+
+async function getUsuariosSemUsuarioLogado(usuario_logado) {    
+    return await Usuario.findAll(
+        {where:{
+            [Op.not]:{id:[usuario_logado]}
+        }
+    }
+    );    
+}
+
 async function getUsuario(id) {
     return await Usuario.findOne({
         where:{id:id}
@@ -49,5 +61,6 @@ module.exports = {
     acharAnimaisUsuario,
     acharPostagensUsuario,
     deleteUsuario,
-    getUsuario
+    getUsuario,
+    getUsuariosSemUsuarioLogado
 }

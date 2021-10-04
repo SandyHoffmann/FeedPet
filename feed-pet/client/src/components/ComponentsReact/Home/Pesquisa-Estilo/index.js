@@ -63,7 +63,7 @@ export function PesquisaEstilo(props) {
                 <div className="filtros_footer">
 
                     <div className="elemento select">
-                        <div className="form-group" className={`select ${(props.tipo_animal == "Cachorro" || "hidden")}`}>
+                        <div className="form-group form-personalizado" className={`select ${(props.tipo_animal == "Cachorro" || "hidden")}`}>
                             <label htmlFor="raca">Selecione a Raça
                             <select className="form-control" id="raca" name="raca" onChange={props.onChangeOption}>
                                 <option>Pit Bull</option>
@@ -76,7 +76,7 @@ export function PesquisaEstilo(props) {
                         </div>
                         <div className="form-group" className={`select ${(props.tipo_animal == "Gato" || "hidden")}`}>
                             <label htmlFor="raca">Selecione a Raça</label>
-                            <select className="form-control" id="raca" name="raca" onChange={props.onChangeOption}>
+                            <select className="form-control form-personalizado" id="raca" name="raca" onChange={props.onChangeOption}>
                                 <option>Angora</option>
                                 <option>Siames</option>
                                 <option>Gato Rebaixado</option>
@@ -86,7 +86,7 @@ export function PesquisaEstilo(props) {
                         </div>
                     </div>
                     <div className="elemento select cor">
-                        <div className="form-group">
+                        <div className="form-group form-personalizado">
                             <label htmlFor="raca">Selecione a Cor</label>
                             <select className="form-control selectRaca" id="cor" name="cor" onChange={props.onChangeOption}>
                                 <option>Branco</option>

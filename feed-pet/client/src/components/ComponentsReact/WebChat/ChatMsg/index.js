@@ -1,7 +1,7 @@
 export function ChatMsg(props) {
     return(
-        <div className="chatMsg">
-            <p className={props.className}>{props.mensagem.conteudo}</p>
+        <div className={"chatMsg-"+props.className}>
+            <p className={props.className+" chatmsg"}>{props.mensagem.conteudo}</p>
         </div>
     )
 }
