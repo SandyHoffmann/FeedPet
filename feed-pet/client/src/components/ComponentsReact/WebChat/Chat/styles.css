@@ -1,10 +1,8 @@
 .chat_fp{
-    background-color: white;
     display: flex;
-    width: 80%;
-    height: 90%;
-    padding: 5%;
-    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    padding: 0% 2% 2% 2%;
 }
 
 .chat_fp_body{
@@ -12,7 +10,6 @@
     justify-content: center;
     width: 100%;
     height: 90vh;
-
 }
 
 .chat_fp__elemento{
@@ -20,6 +17,8 @@
     flex-direction: column;
     border: 1px solid black;
     width: 30%;
+    background-color: white;
+
 }
 .chat_fp__elemento_cards{
     display: flex;
@@ -39,6 +38,8 @@
     flex-direction: column;
     border: 1px solid black;
     overflow-y: auto;
+    background-color: white;
+
 }
 
 .mensagens__corpo{
@@ -68,32 +69,38 @@
     justify-content: flex-start;
 } */
 
-.direita {
+.chatMsg-esquerda{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.chatMsg-direita{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chatmsg{
     margin-left: 50%;
-    width: 50%;
+    min-width: 20%;
     display: flex;
     justify-content: flex-end;
     border: 5px solid;
-    border-color:#ff4880 ;
     border-radius:10px ;
     text-align: center;
 	-webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
 	-moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
 	box-shadow:  9px 7px 5px rgba(50, 50, 50, 0.77);
+    word-break: break-all;
+    padding: 2%;
+}
+.direita {
+    border-color:#ff4880 ;
 }
 
 .esquerda{
-    width: 50%;
-    display: flex;
-    justify-content: flex-start;
-    border: 5px solid;
     border-color:#8fc424;
-    border-radius:10px ;
-    text-align: center;
-    -webkit-box-shadow:9px 7px 5px rgba(50, 50, 50, 0.77);
-	-moz-box-shadow:9px 7px 5px rgba(50, 50, 50, 0.77);
-	box-shadow:9px 7px 5px rgba(50, 50, 50, 0.77);
-
 }
 
 .texto{
@@ -105,6 +112,9 @@
     text-align: center;
 }
 .texto .NomePessoa{
+    display: flex;
+    justify-content: center;
     text-align: center;
     color: white;
+    padding: 1%,1%,1%,1%;
 }

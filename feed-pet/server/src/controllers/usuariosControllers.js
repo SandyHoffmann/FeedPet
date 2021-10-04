@@ -20,6 +20,15 @@ async function getUser(req, res, next) {
     }
 }
 
+async function getUsuariosSemUsuarioLogado(req, res, next){
+    try {
+        const usuarios = await usuariosServices.getUsuariosSemUsuarioLogado(res.locals.userId);
+        res.json(usuarios);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
 async function getAll(req, res, next) {    
     try {
         const usuarios = await usuariosServices.getUsuarios();
@@ -69,5 +78,6 @@ module.exports = {
     getAllAnimalsByUserId,
     getAllPostsByUserId,
     deleteUser,
-    getUser
+    getUser,
+    getUsuariosSemUsuarioLogado
 };

@@ -15,6 +15,8 @@ const cadastroValidations = require("../validations/cadastroValidations");
 
 router.get("/", authentication(["usuario", "admin"]),usuariosController.getAll);
 
+router.get("/chat-users", authentication(["usuario", "admin"]),usuariosController.getUsuariosSemUsuarioLogado);
+
 router.get("/:id", authentication(["usuario", "admin"]),usuariosController.getUser);
 
 router.get("/animais/:id", authentication(["usuario", "admin"]),usuariosController.getAllAnimalsByUserId);

@@ -3,8 +3,9 @@ const { QueryTypes } = require("sequelize");
 const { Chat, Usuario, Mensagem, sequelize } = require("../models");
 
 async function addChat(id_usuario, parametros) {
+    console.log(parametros)
     const { nome, descricao, usuarios } = parametros
-
+    console.log(id_usuario)
     usuarios.push(id_usuario)
 
     let usuariosChat = await Usuario.findAll({ where: { id: usuarios } })
@@ -36,10 +37,10 @@ async function addMensagem(id_usuario, id_chat, mensagem) {
 }
 
 async function findMessages(id_chat) {
-    let chat = await Chat.findOne({ where: { id: id_chat } })
+    let chat = await Chat.findOne({ where: { id: id_chat } ,include:"usuario"})
     if (!chat) throw createError(404, "Chat não encontrado!");
     let mensagens = await Mensagem.findAll({ where: { id_chat } })
-    return mensagens
+    return [mensagens,chat]
 }
 
 async function findChats(id_usuario) {
@@ -62,7 +63,7 @@ async function findChats(id_usuario) {
         type:QueryTypes.SELECT
     })
     console.log(chat.map(chats => {chats.id}))
-    chatsDoUsuario = Chat.findAll({where:{
+    chatsDoUsuario = await Chat.findAll({where:{
                                         id: chat.map(chats => chats.id_chat)
                                     },
                                     include: {
@@ -70,8 +71,11 @@ async function findChats(id_usuario) {
                                         as: 'usuario'
                                     }
                                 })
-
-    return chatsDoUsuario;
+    const mensagens = []
+    for (let chat of chatsDoUsuario){
+        mensagens.push(await chat.getMensagems()[-1])
+    }
+    return [chatsDoUsuario,mensagens];
 }
 
 module.exports = {

@@ -2,64 +2,46 @@ import React, { Component, useEffect, useReducer, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { api } from "../../../../service";
 import { ChatBoxEmail } from '../ChatBoxEmail';
+import Select from 'react-select';
+
 import "./styles.css"
 
 export function ChatCriar(props) {
     const [pessoas, setPessoas] = useState([]);
-    const [pessoasBD, setPessoasBD] = useState([]);
     const [show, setShow] = useState(false);
     const [pessoasDoChat, setpessoasDoChat] = useState([]);
-    const [ultimoEl, setUltimoEl] = useState(false);
+    const [nome, setNome] = useState("");
+    const [descricao, setDescricao] = useState("");
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     useEffect(async () => {
         try {
-            const res = (await api.get("/usuarios")).data;
+            const res = (await api.get("/usuarios/chat-users")).data;
+            console.log(res)
             setPessoas(res)
-            setPessoasBD(res.slice())
         } catch (error) {
             console.log(error)
         }
 
     }, [])
 
-    function handleClick(e){
-        let conferirOpcaoSelecionada = e.target.options[e.target.selectedIndex].disabled
-        if (e.target.options.length===2 && ultimoEl===false && !conferirOpcaoSelecionada){
-            console.log("setou")
-            setUltimoEl(true)
-        } else if(ultimoEl){
-            handleChange(e)
-            console.log(e.target.options[0])
-            e.target.options[0].checked = true
-            setUltimoEl(false)
-        }
-    }
-
-    function onClickOption(e){
-        console.log("clicou")
-    }
-
     function handleChange(e){
-        console.log("aaa")
-        setPessoas((pessoasBD) => [...pessoasBD])
-        const novo_chat = [...pessoasDoChat,{id:e.target.value,nome:e.target.options[e.target.selectedIndex].text}]
-        setpessoasDoChat(novo_chat)
-        let index
-        for (let p of novo_chat){
-            index = pessoas.indexOf(pessoasBD.find(pessoa => (pessoa.id === p.id)))
-            if (index!==-1) pessoas.splice(index,1); 
-        }
-        setPessoas((pessoas) => ([...pessoas]))
+        setpessoasDoChat(e)
     }
-    function handleClickExcluir(e){
-        let elementoExcluir = pessoasDoChat.find(pessoa => pessoa.id = e.target.id)
-        let indiceElementoExcluir = pessoasDoChat.indexOf(elementoExcluir)
-        if (indiceElementoExcluir!==-1) pessoasDoChat.splice(indiceElementoExcluir,1)
-        setpessoasDoChat((pessoasDoChat) => ([...pessoasDoChat]))
-        setPessoas([...pessoas,pessoasBD.find(pessoa => pessoa.id == elementoExcluir.id)])
+
+    async function handleSubmit(){
+        const nomeChat = nome?nome:pessoasDoChat[0].nome
+        console.log(pessoasDoChat)
+        const usuarios=pessoasDoChat.map(pessoa => pessoa.id)
+        const send = await api.post("/chats/",{
+            "nome":nomeChat,
+            descricao,
+            usuarios
+        })
+        props.setchats([...props.chats,send.data])
+        handleClose()
     }
 
     return (
@@ -67,34 +49,38 @@ export function ChatCriar(props) {
         <Button variant="primary" onClick={handleShow}>
             +
         </Button>
+
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>Criar Conversa</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <div className="chat__email__input"> 
-                    <select name="pessoa" id="pessoas" onChange={handleChange}>
-                        <option disabled selected value> -- select an option -- </option>
-                        {pessoas?.map(pessoa => <option value={pessoa.id} name={pessoa.name}>{pessoa.email}</option>)}
-                    </select>
+                <Select
+                        isMulti
+                        name="colors"
+                        options={pessoas?.map(pessoa => ({'id':pessoa.id,'value':pessoa.id,'nome':pessoa.nome,'email':pessoa.email,'label':pessoa.email}))}
+                        className="basic-multi-select"
+                        classNamePrefix="select"
+                        onChange={handleChange}
+                    />
                 </div>
                 <div className="chat__email__box">
                     <div className="chat__email__box__inputs">
-                        {(pessoasDoChat.length>2)&&
+                        {(pessoasDoChat.length>1)&&
                         <>
                         <label htmlFor="nome">
                             Nome do Grupo:
                         </label>
-                        <input type="text" name="nome"></input>
+                        <input type="text" name="nome" value={nome} onChange={e => setNome(e.target.value)}></input>
                         <label>
                             Descricao do Grupo:
                         </label>
-                        <input type="text" name="descricao"></input>
+                        <input type="text" name="descricao" value={descricao} onChange={e => setDescricao(e.target.value)}></input>
                         </>
                         }
                     </div>
-                    {pessoasDoChat?.map(pessoa => <ChatBoxEmail email={pessoa.nome} key={pessoa.id} id={pessoa.id} funcaoexcluir={handleClickExcluir}/>)}
-                    <button>Enviar</button>
+                    <button onClick={handleSubmit}>Enviar</button>
                 </div>
             </Modal.Body>
         </Modal>
