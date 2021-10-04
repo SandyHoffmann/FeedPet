@@ -1,0 +1,20 @@
+.chatBox{
+    display: flex;
+    width: 100%;
+}
+
+.image{
+    background-image: url("../../../../assets/icone1.png");
+    background-size: cover;
+    width: 10vw;
+    height: 10vh;
+
+}
+
+.d-flex{
+    align-items: center;
+}
+
+.pchat{
+    margin-left: 2%;
+}
