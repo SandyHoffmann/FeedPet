@@ -2,9 +2,30 @@
     background-color: rgb(250, 250, 250);
     padding: 5% 0% 5% 0%;
     width: 50%;
-
+  
 }
 
 .caixaElemento{
     padding: 0% 2% 0% 2%;
+}
+
+.grandecaixa{
+    display: flex;
+    width: 70%;
+    margin-left: 0%;
+}
+
+
+.caixaimagem {
+    width: 80%;
+    margin-left: 10px;
+    background-color: white;
+}
+
+.bluhrit {
+    filter: blur(3px);
+  -webkit-filter: blur(3px);
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 }

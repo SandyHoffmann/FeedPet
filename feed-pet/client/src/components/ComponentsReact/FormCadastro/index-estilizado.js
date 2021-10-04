@@ -1,6 +1,7 @@
 import React from "react";
 import { api } from "../../../service";
 import { useState, useEffect } from "react";
+import gatokapa from "./gatokapa.jpg";
 
 export function FormCadastroEstilizado(){
     const [nome,setNome] = useState("")
@@ -47,6 +48,8 @@ export function FormCadastroEstilizado(){
 
         return (
             <>
+            <div className="grandecaixa">
+            <div className="caixaimagem"><img src={gatokapa} className="bluhrit"></img></div>
             <div className="container caixa">
                 <form onSubmit={handleSubmit} className="caixaElemento" enctype="multipart/form-data"> 
                 <h1>Cadastre-se</h1>
@@ -70,7 +73,8 @@ export function FormCadastroEstilizado(){
                 <button type="submit" className="btn btn-primary">Enviar</button>
                 </form>   
                 <br/>
-                </div>         
+                </div>      
+               </div>    
             </>
         );
 
