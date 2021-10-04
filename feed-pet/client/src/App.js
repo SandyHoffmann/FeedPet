@@ -107,8 +107,8 @@ function App() {
 						<PaginaAnimal />
 					</Route>
 					<Route path='/animais'>
-						{/* <CorpoPaginaAdicionarAnimal/> */}
-						<Perfilnovo/>
+						<CorpoPaginaAdicionarAnimal/>
+						{/* <Perfilnovo/> */}
 					</Route>
 					<Route path='/editar-perfil'>
 						<TestePerfilUsuario />

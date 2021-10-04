@@ -11,3 +11,23 @@
     color:rgb(66, 66, 66);
     border: 5px double rgb(248, 146, 163);
 }
+.notFoundYet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    color: black;
+    background-color: white;
+    border: 1px double #8fc424;
+
+}
+
+.notFoundYet:hover{
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
+}
+
+.notFoundYet img{
+    width: 30%;
+}
