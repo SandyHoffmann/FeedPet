@@ -94,9 +94,14 @@
 .filtros .radiooptions:first-child{
     border-right: 1px solid white;
 }
-.filtros .radiooptions,.cor{
+.filtros .radiooptions{
     flex-grow: 1;
     margin-bottom: 2%;
+}
+
+.cor{
+    flex-grow: 1;
+
 }
 
 .logo{

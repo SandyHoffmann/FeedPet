@@ -38,7 +38,12 @@ export function ChatCriar(props) {
         }
     }
 
+    function onClickOption(e){
+        console.log("clicou")
+    }
+
     function handleChange(e){
+        console.log("aaa")
         setPessoas((pessoasBD) => [...pessoasBD])
         const novo_chat = [...pessoasDoChat,{id:e.target.value,nome:e.target.options[e.target.selectedIndex].text}]
         setpessoasDoChat(novo_chat)
@@ -68,17 +73,31 @@ export function ChatCriar(props) {
             </Modal.Header>
             <Modal.Body>
                 <div className="chat__email__input"> 
-                    <select name="pessoa" id="pessoas" onChange={handleChange} onClick={handleClick}>
+                    <select name="pessoa" id="pessoas" onChange={handleChange}>
                         <option disabled selected value> -- select an option -- </option>
                         {pessoas?.map(pessoa => <option value={pessoa.id} name={pessoa.name}>{pessoa.email}</option>)}
                     </select>
                 </div>
                 <div className="chat__email__box">
+                    <div className="chat__email__box__inputs">
+                        {(pessoasDoChat.length>2)&&
+                        <>
+                        <label htmlFor="nome">
+                            Nome do Grupo:
+                        </label>
+                        <input type="text" name="nome"></input>
+                        <label>
+                            Descricao do Grupo:
+                        </label>
+                        <input type="text" name="descricao"></input>
+                        </>
+                        }
+                    </div>
                     {pessoasDoChat?.map(pessoa => <ChatBoxEmail email={pessoa.nome} key={pessoa.id} id={pessoa.id} funcaoexcluir={handleClickExcluir}/>)}
+                    <button>Enviar</button>
                 </div>
             </Modal.Body>
         </Modal>
         </>
-
     )
 }

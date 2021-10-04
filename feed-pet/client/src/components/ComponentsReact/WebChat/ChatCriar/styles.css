@@ -12,3 +12,14 @@
     margin-bottom: 5%;
 
 }
+
+.chat__email__box__inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat__email__box__inputs input{
+    margin: 5%;
+}
