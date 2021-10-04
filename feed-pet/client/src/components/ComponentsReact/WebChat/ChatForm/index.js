@@ -1,5 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import { api } from "../../../../service";
+import { BiSearchAlt2 } from 'react-icons/bi';
+
 
 
 export function ChatForm(props) {
@@ -23,8 +25,8 @@ export function ChatForm(props) {
         <>
             < form onSubmit={handleSubmit}>
                 <div className="mensagens__mandar__inputs">
-                    <input type="text" onChange={handleChange} value={msgConteudo}></input>
-                    <button type="submit">Mandar</button>
+                    <input type="text" onChange={handleChange} value={msgConteudo} className="inputUsuario"></input>
+                    <button type="submit"><BiSearchAlt2/></button>
                 </div>
             </form >
         </>

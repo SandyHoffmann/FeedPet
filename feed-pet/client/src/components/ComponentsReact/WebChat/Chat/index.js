@@ -5,6 +5,8 @@ import { ChatBox } from '../ChatBox';
 import { ChatMsg } from '../ChatMsg';
 import { ChatForm } from '../ChatForm';
 import { ChatCriar } from '../ChatCriar';
+import { FaUserCircle } from "react-icons/fa";
+
 const jwt = require('jsonwebtoken');
 
 
@@ -45,9 +47,20 @@ export function Chat(props) {
                         {chats.map(chat => <ChatBox chat={chat} key={chat.id} onClick={handleClick}></ChatBox>)}
                     </div>
                 </div>
+              
                 <div className="mensagens">
+                <div className="texto">
+                        <div className="NomePessoa">
+                            <p>
+                                Nome da Pessoa
+                            </p>
+                        </div>
+                        <div className="icone">
+                            <FaUserCircle size={60} color="white" />
+                        </div>
+                    </div>
                     <div className="mensagens__corpo">
-                        {msg?.map(mensagem => (mensagem.id_usuario === user) ? (<ChatMsg className="direita" mensagem={mensagem} />) : (<ChatMsg className="esquerda" mensagem={mensagem} />))}
+                        {msg?.map(mensagem => (mensagem.id_usuario === user) ? (<ChatMsg className="direita" mensagem={mensagem} key={mensagem.id}/>) : (<ChatMsg className="esquerda" mensagem={mensagem} key={mensagem.id}/>))}
                     </div>
                     <div className="mensagens__mandar">
                         <ChatForm enviar={enviar} setarMsg = {setMsgs} msg = {msg}></ChatForm>

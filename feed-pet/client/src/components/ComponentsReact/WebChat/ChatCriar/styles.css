@@ -1,0 +1,14 @@
+.chat__email__box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat__email__input{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+
+}
