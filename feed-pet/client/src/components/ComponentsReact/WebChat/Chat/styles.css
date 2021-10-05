@@ -22,7 +22,6 @@
 }
 .chat_fp__elemento_cards{
     display: flex;
-    flex-direction: column;
     overflow-y: auto;
     flex-wrap: wrap;
 }

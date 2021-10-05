@@ -24,6 +24,7 @@ export function ChatForm(props) {
                 console.log("entrou")
                 props.setarMsg([...props.msg,enviar.data])
             }
+            setmsgConteudo("")
         } catch (error) {
             console.log(error)
         }

@@ -32,7 +32,6 @@ export function Chat(props) {
                 console.log(socket.auth.userId)
                 console.log(msgData.id_usuario)
                 if (socket.auth.userId !== msgData.id_usuario){
-                    console.log("aqq")
                     setMsgs(msg => [...msg,msgData])
                 }
             })
