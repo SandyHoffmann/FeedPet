@@ -57,7 +57,9 @@ async function findChats(id_usuario) {
         chats
     ON
         chats.id = chat_usuarios.id_chat
-    WHERE usuarios.id = '${id_usuario}';
+    WHERE 
+        usuarios.id = '${id_usuario}'
+    ;
     `,{
         replacements: [id_usuario],
         type:QueryTypes.SELECT
@@ -72,9 +74,13 @@ async function findChats(id_usuario) {
                                     }
                                 })
     const mensagens = []
+    let msg = ""
     for (let chat of chatsDoUsuario){
-        mensagens.push(await chat.getMensagems()[-1])
+        msg = await chat.getMensagems()
+        console.log(msg[msg.length -1])
+        mensagens.push(msg[msg.length -1])
     }
+
     return [chatsDoUsuario,mensagens];
 }
 

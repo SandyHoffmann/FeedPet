@@ -9,6 +9,8 @@ import { FaUserCircle } from "react-icons/fa";
 import { socket } from '../../../../service/chat';
 import {BiArrowBack} from "react-icons/bi";
 const jwt = require('jsonwebtoken');
+const moment = require('moment'); 
+
 
 
 export function Chat(props) {
@@ -21,7 +23,27 @@ export function Chat(props) {
         const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET).sub
         try {
             const res = await api.get("/chats/");
-            setChats(res.data[0])
+            const chats = res.data[0]
+            
+            const ultimasMsg = res.data[1]
+            let lista = []
+            for (let x = 0; x<chats.length; x++){
+                lista.push(Object.assign(chats[x],{ultimaMsg : ultimasMsg[x]?ultimasMsg[x]:{conteudo:"Nenhuma Mensagem"}}))
+            }
+
+            let data
+            lista.sort(function (a, b) {
+                data = a.ultimaMsg.created_at
+                    if (moment(a.ultimaMsg.createdAt) > moment(b.ultimaMsg.createdAt)) {
+                        return 1;
+                    }
+                    if (moment(a.ultimaMsg.created_at).unix() < moment(b.ultimaMsg.created_at).unix()) {
+                        return -1;
+                    }
+                    return 0;
+              });
+
+              setChats(lista)
             setUser(token => token)
             socket.auth = {userId:token}
             socket.connect()
@@ -29,8 +51,6 @@ export function Chat(props) {
             socket.emit("add chats",chatsIds)
             socket.on("nova mensagem",mensagem => {
                 const msgData = mensagem
-                console.log(socket.auth.userId)
-                console.log(msgData.id_usuario)
                 if (socket.auth.userId !== msgData.id_usuario){
                     setMsgs(msg => [...msg,msgData])
                 }
@@ -53,7 +73,6 @@ export function Chat(props) {
             let elementoMsg = document.querySelectorAll('.mensagens')
             elementoMsg[0].className = "mensagens visivel"
         }            
-
     }
 
     function voltarClick(){
@@ -87,6 +106,7 @@ export function Chat(props) {
                         </div>
                 </div>
                     <div className="mensagens__corpo">
+                        {msg.length<1&&<h1>Não há mensagens!</h1>}
                         {msg?.map(mensagem => (mensagem.id_usuario === socket.auth.userId) ? (<ChatMsg className="direita" mensagem={mensagem} key={mensagem.id}/>) : (<ChatMsg className="esquerda" mensagem={mensagem} key={mensagem.id}/>))}
                     </div>
                     <div className="mensagens__mandar">
