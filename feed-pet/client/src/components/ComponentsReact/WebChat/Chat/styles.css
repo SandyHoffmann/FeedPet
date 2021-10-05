@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    flex-wrap: wrap;
 }
 
 .inputUsuario{
@@ -82,7 +83,6 @@
 }
 
 .chatmsg{
-    margin-left: 50%;
     min-width: 20%;
     display: flex;
     justify-content: flex-end;
@@ -92,7 +92,6 @@
 	-webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
 	-moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
 	box-shadow:  9px 7px 5px rgba(50, 50, 50, 0.77);
-    word-break: break-all;
     padding: 2%;
 }
 .direita {
