@@ -17,9 +17,13 @@ export function ChatForm(props) {
         e.preventDefault();
         try {
             const enviar = await api.post(`/chats/mensagem/${props.enviar}`,{conteudo:msgConteudo});
-            console.log(enviar)
             socket.emit("send message",enviar.data)
-
+            console.log(props.user.userId)
+            console.log(enviar.data.id_usuario)
+            if (props.user.userId === enviar.data.id_usuario){
+                console.log("entrou")
+                props.setarMsg([...props.msg,enviar.data])
+            }
         } catch (error) {
             console.log(error)
         }
