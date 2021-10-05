@@ -40,7 +40,8 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 50px;
-    background-color:#8fc424;
+/*   background-color:#8fc424; */
+    /* background-color: blue; */
     color: #fff;
     font-size: 22px;
     border: none;
@@ -66,7 +67,8 @@ body {
 
 .header {
     padding: 13px;
-    background-color:#8fc424 ;
+/*     background-color:#8fc424 ; */
+    /* background-color: blue; */
     border-radius: 5px 5px 0px 0px;
     margin-bottom: 10px;
     color: #fff;
@@ -86,12 +88,14 @@ button {
 
 
 
-.btn,
+/* .btn,
 .btn:focus,
 .btn:hover {
     background-color: blue;
     border: blue;
 }
+    border: blue
+} */
 
 #check {
     display: none; 

@@ -2,6 +2,8 @@ import React, { Component, useEffect, useState } from 'react';
 import { api } from "../../../../service";
 import { BiSearchAlt2 } from 'react-icons/bi';
 
+import { socket } from '../../../../service/chat';
+
 
 
 export function ChatForm(props) {
@@ -15,8 +17,14 @@ export function ChatForm(props) {
         e.preventDefault();
         try {
             const enviar = await api.post(`/chats/mensagem/${props.enviar}`,{conteudo:msgConteudo});
-            console.log(enviar)
-            props.setarMsg([...props.msg,enviar.data])
+            socket.emit("send message",enviar.data)
+            console.log(props.user.userId)
+            console.log(enviar.data.id_usuario)
+            if (props.user.userId === enviar.data.id_usuario){
+                console.log("entrou")
+                props.setarMsg([...props.msg,enviar.data])
+            }
+            setmsgConteudo("")
         } catch (error) {
             console.log(error)
         }

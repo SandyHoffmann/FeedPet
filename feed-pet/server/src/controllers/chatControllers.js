@@ -2,7 +2,7 @@ const { sequelize } = require("../models");
 const chatServices = require("../services/chatServices");
 
 async function createChat(req, res, next) {
-
+    console.log(req.body)
     const transaction = await sequelize.transaction();  
     try {
         const chat = await chatServices.addChat(res.locals.userId,req.body);

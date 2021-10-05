@@ -23,3 +23,7 @@
 .chat__email__box__inputs input{
     margin: 5%;
 }
+
+.basic-multi-select{
+    width: 90%;
+}
