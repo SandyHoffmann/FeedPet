@@ -3,13 +3,7 @@
     width: 100%;
 }
 
-.image{
-    background-image: url("../../../../assets/icone1.png");
-    background-size: cover;
-    width: 100%;
-    height: 5em;
 
-}
 
 .d-flex{
     align-items: center;
@@ -17,4 +11,19 @@
 
 .pchat{
     margin-left: 2%;
+}
+
+.psmall{
+    font-size: 0.8em;
+}
+.flexContato{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.chatHorario{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
 }
