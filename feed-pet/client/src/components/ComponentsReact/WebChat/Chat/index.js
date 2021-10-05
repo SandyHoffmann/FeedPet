@@ -6,7 +6,7 @@ import { ChatMsg } from '../ChatMsg';
 import { ChatForm } from '../ChatForm';
 import { ChatCriar } from '../ChatCriar';
 import { FaUserCircle } from "react-icons/fa";
-
+import { socket } from '../../../../service/chat';
 const jwt = require('jsonwebtoken');
 
 
@@ -16,18 +16,26 @@ export function Chat(props) {
     const [user, setUser] = useState([])
     const [enviar, setEnviar] = useState('')
     const [atualGrupo, setatualGrupo] = useState([])
-
     useEffect(async () => {
         const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
         try {
             const res = await api.get("/chats/");
             setChats(res.data[0])
             setUser(token.sub)
-
+            socket.auth = {userId:token.sub}
+            socket.connect()
+            const chatsIds = res.data[0].map(chat => chat.id)
+            socket.emit("add chats",chatsIds)
+            socket.on("nova mensagem",mensagem => {
+                console.log(mensagem)
+                const msgData = mensagem
+                console.log(msg)
+                setMsgs(msg => [...msg,msgData])
+            })
+            return () => {socket.off("nova mensagem")}
         } catch (error) {
             console.log(error)
         }
-
     }, [])
 
     async function handleClick(msg) {
@@ -36,6 +44,7 @@ export function Chat(props) {
         setMsgs(res.data[0])
         setEnviar(msg.target.id)
         setatualGrupo(res.data[1])
+        socket.emit("send message",res.data[0])
     }
 
 
@@ -63,6 +72,7 @@ export function Chat(props) {
                         </div>
                 </div>
                     <div className="mensagens__corpo">
+                        {console.log(msg?.map(mensagem =>(mensagem)))}
                         {msg?.map(mensagem => (mensagem.id_usuario === user) ? (<ChatMsg className="direita" mensagem={mensagem} key={mensagem.id}/>) : (<ChatMsg className="esquerda" mensagem={mensagem} key={mensagem.id}/>))}
                     </div>
                     <div className="mensagens__mandar">

@@ -2,6 +2,8 @@ import React, { Component, useEffect, useState } from 'react';
 import { api } from "../../../../service";
 import { BiSearchAlt2 } from 'react-icons/bi';
 
+import { socket } from '../../../../service/chat';
+
 
 
 export function ChatForm(props) {
@@ -16,7 +18,8 @@ export function ChatForm(props) {
         try {
             const enviar = await api.post(`/chats/mensagem/${props.enviar}`,{conteudo:msgConteudo});
             console.log(enviar)
-            props.setarMsg([...props.msg,enviar.data])
+            socket.emit("send message",enviar.data)
+
         } catch (error) {
             console.log(error)
         }
