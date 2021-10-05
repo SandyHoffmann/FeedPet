@@ -1,34 +1,46 @@
-
 import "./styles.css";
-export function JanelaChatBot (props){
-    function aparecerTexto(){
-let h1 = document.querySelectorAll(".escondido")
-let h5 = document.querySelectorAll(".Apagado")
-h5[0].className="escondido"
-h5[1].className="escondido"
-h5[2].className="escondido"
+import { useState } from "react";
+import { GrCaretPrevious} from 'react-icons/gr';
+import {GrHelp} from 'react-icons/gr'
+export function JanelaChatBot(props) {
+    const [perguntaSelecionada, setPerguntaSelecionada] = useState(null);
+    const perguntasRespostas = [
+        { pergunta: "Como cadastrar seu animal?", resposta: "resposta1" },
+        { pergunta: "Como cadastrar um animal perdido?", resposta: "resposta 2" },
+        { pergunta: "Como localizar um usuário", resposta: "resposta 3" }
+    ];
 
-h1[0].className="visivel"
+    const respostas = [
+        ""
+    ]
 
-    }
-    return(
-    <div className="chattotal">
-        <input type="checkbox" id="check" />
-            <label className="chat-btn" for="check"> 
-        <i className="fa fa-commenting-o comment"></i> 
-        <i className ="fa fa-close close"></i> 
-        </label>
-        <div className="wrapper">
-            <div className="header">
-                <h6>Você Precisa de Ajuda?</h6>
+    return (
+        <div className="chattotal">
+            <input type="checkbox" id="check" />
+            <label className="chat-btn" for="check">
+                <i className="fa fa-commenting-o comment"></i>
+                <i aria-hidden="true" className="iconeAjuda">
+          <GrHelp  /></i>
+            </label>
+            <div className="wrapper">
+                <div className="header">
+                    <h6>Você Precisa de Ajuda?</h6>
+                </div>
+
+                <div className="text-center p-2"> <span>Perguntas Mais Frequentes</span> </div>
+                <div className="chat-form">
+                
+                   
+                    { 
+                        perguntaSelecionada ?
+                       <> <i aria-hidden="true" className="iconeVoltar" onClick={() => setPerguntaSelecionada(null)}>
+          <GrCaretPrevious />Voltar</i>
+          
+                            <h5>{perguntaSelecionada.resposta}</h5></> :
+                            perguntasRespostas.map(perguntaResposta => <h5 onClick={() => setPerguntaSelecionada(perguntaResposta)}>{perguntaResposta.pergunta}</h5>)
+                    }                    
+                </div>
             </div>
-            <div className="text-center p-2"> <span>Perguntas Mais Frequentes</span> </div>
-            <div className="chat-form"> 
-            <h5 onClick = {aparecerTexto} className= "Apagado">Como cadastrar seu animal?</h5> 
-            <h5 onClick = {aparecerTexto} className= "Apagado">Como encontrar animal perdido?</h5>
-            <h5 onClick = {aparecerTexto} className = "Apagado">Como cadastrar um animal perdido?</h5>
-            <h1 className = "escondido">Teste</h1>
-            </div>  
         </div>
-    </div>
-    )};
+    )
+};
