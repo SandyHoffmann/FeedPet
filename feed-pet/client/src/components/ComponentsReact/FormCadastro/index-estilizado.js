@@ -51,7 +51,7 @@ export function FormCadastroEstilizado(){
             <div className="grandecaixa">
             <div className="caixaimagem"><img src={gatokapa} className="bluhrit"></img></div>
             <div className="container caixa">
-                <form onSubmit={handleSubmit} className="caixaElemento" enctype="multipart/form-data"> 
+                <form onSubmit={handleSubmit} className="caixaElemento  cadastroCaixa" enctype="multipart/form-data"> 
                 <h1>Cadastre-se</h1>
                 <br/>
                 <div className="form-group">
@@ -68,7 +68,7 @@ export function FormCadastroEstilizado(){
                     <label htmlFor="senha">Senha:</label>
                     <input type="text" className="form-cadastro" id="senha" name="senha" aria-describedby="Senha" value={senha} onChange={handleChange} placeholder="Senha"/>
                 </div>
-                <input type="file" name="avatar" class="img" onChange={handleChange}/>
+                <input type="file" name="avatar" className="form-cadastro img inputfile" onChange={handleChange}/>
                 <br/>
                 <button type="submit" className="btn botaoRosa">Enviar</button>
                 </form>   
