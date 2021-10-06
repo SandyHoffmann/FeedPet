@@ -2,7 +2,7 @@ import React from "react";
 import { api } from "../../../service";
 import { useState, useEffect } from "react";
 import gatokapa from "./gatokapa.jpg";
-
+import "./styles.css"
 export function FormCadastroEstilizado(){
     const [nome,setNome] = useState("")
     const [email,setEmail] = useState("")
@@ -56,21 +56,21 @@ export function FormCadastroEstilizado(){
                 <br/>
                 <div className="form-group">
                     <label htmlFor="nome">Nome:</label>
-                    <input type="text" className="form-control" id="nome" name="nome" aria-describedby="Nome" value={nome} onChange={handleChange} placeholder="Nome"/>
+                    <input type="text" className="form-cadastro" id="nome" name="nome" aria-describedby="Nome" value={nome} onChange={handleChange} placeholder="Nome"/>
                 </div>
                 <br/>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
-                    <input type="text" className="form-control" id="email" name="email" aria-describedby="Email" value={email} onChange={handleChange} placeholder="Email"/>
+                    <input type="text" className="form-cadastro" id="email" name="email" aria-describedby="Email" value={email} onChange={handleChange} placeholder="Email"/>
                 </div>
                 <br/>
                 <div className="form-group">
                     <label htmlFor="senha">Senha:</label>
-                    <input type="text" className="form-control" id="senha" name="senha" aria-describedby="Senha" value={senha} onChange={handleChange} placeholder="Senha"/>
+                    <input type="text" className="form-cadastro" id="senha" name="senha" aria-describedby="Senha" value={senha} onChange={handleChange} placeholder="Senha"/>
                 </div>
                 <input type="file" name="avatar" class="img" onChange={handleChange}/>
                 <br/>
-                <button type="submit" className="btn btn-primary">Enviar</button>
+                <button type="submit" className="btn botaoRosa">Enviar</button>
                 </form>   
                 <br/>
                 </div>      

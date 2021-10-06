@@ -5,7 +5,7 @@ import {id,secret} from '../../../../varAmbiente'
 import { Form } from 'react-bootstrap';
 import "./styles.css"
 import { Link } from "react-router-dom";
-import povdogrunning from "./povdogrunning.jpg";
+import povdogrunning from "../../../../assets/gifgato.gif";
 
 const jwt = require('jsonwebtoken');
 
@@ -23,7 +23,16 @@ export class FormLoginEstilizado extends React.Component {
         };
     }
 
-    
+    async componentDidMount() {
+        let menu = document.querySelectorAll(".navbar")
+        let footer = document.querySelectorAll('.footer')
+        let body = document.querySelectorAll('.body')
+
+        menu[0].className += " menuLogin"
+        footer[0].className += " footerLogin"
+        body[0].className += " homeLogin"
+    }
+
     handleChange = e => {
         const value = e.target.value;
         const nome = e.target.name;
@@ -58,18 +67,19 @@ export class FormLoginEstilizado extends React.Component {
                 <div className="form-group">
                     <br/>
                     <label htmlFor="email">Email:</label>
-                    <input type="text" className="form-control" id="email" name="email" aria-describedby="Email" value={this.state.email} onChange={this.handleChange} placeholder="Email"/>
+                    <input type="text" id="email" name="email" aria-describedby="Email" value={this.state.email} onChange={this.handleChange} placeholder="Email"/>
                 </div>
                 <br/>
 
                 <div className="form-group">
                     <label htmlFor="senha">Nome:</label>
-                    <input type="text" className="form-control" id="senha" name="senha" aria-describedby="Senha" value={this.state.senha} onChange={this.handleChange} placeholder="Senha"/>
+                    <input type="text" id="senha" name="senha" aria-describedby="Senha" value={this.state.senha} onChange={this.handleChange} placeholder="Senha"/>
                 </div>
                 <br/>
-
-                <button type="submit" className="btn btn-primary">Enviar</button>
-                <Link to="/cadastro" className="caixaElemento">Cadastre-se</Link>
+                <div className="linksForm">
+                    <button type="submit" className="btn botaoRosa">Enviar</button>
+                    <Link to="/cadastro">Cadastre-se</Link>
+                </div>
                 </form> 
                 <br/>
                 
