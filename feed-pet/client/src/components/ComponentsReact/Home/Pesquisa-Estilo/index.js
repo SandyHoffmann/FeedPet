@@ -22,7 +22,7 @@ export function PesquisaEstilo(props) {
                     <div className="elemento radiooptions">
                         <div className="conjunto">
                             <div className="form-check sim" id="form">
-                                <input className="form-check-input" type="radio" name="status" id="radiotipo1" value="Tem dono" onClick={props.onClick} />
+                                <input className="form-check-input siminput" type="radio" name="status" id="radiotipo1" value="Tem dono" onClick={props.onClick} />
                                 <label className="form-check-label" htmlFor="radiotipo1" className="dono">
                                     Sim
                                 </label>
@@ -31,7 +31,7 @@ export function PesquisaEstilo(props) {
                         </div>
                         <div className="conjunto">
                             <div className="form-check nao" id="form">
-                                <input className="form-check-input" type="radio" name="status" id="radiotipo2" value="Não possui dono" onClick={props.onClick} />
+                                <input className="form-check-input naoinput" type="radio" name="status" id="radiotipo2" value="Não possui dono" onClick={props.onClick} />
                                 <label className="form-check-label" htmlFor="radiotipo2">
                                     Não
                                 </label>
@@ -41,22 +41,22 @@ export function PesquisaEstilo(props) {
                     </div>
                     <div className="elemento radiooptions">
                         <div className="conjunto">
-                            <div className="form-check gato" id="form">
-                                <input className="form-check-input" type="radio" name="tipo_animal" id="exampleRadios1" value="Cachorro" onClick={props.onClick} />
+                            <div className="form-check cachorro" id="form">
+                                <input className="form-check-input doginput" type="radio" name="tipo_animal" id="exampleRadios1" value="Cachorro" onClick={props.onClick} />
                                 <label className="form-check-label" htmlFor="exampleRadios1">
-                                    Gato
-                                </label>
-                            </div>
-                            <p>Gato</p>
-                        </div>
-                        <div className="conjunto">
-                            <div className="form-check cachorro">
-                                <input className="form-check-input" type="radio" name="tipo_animal" id="exampleRadios2" value="Gato" onClick={props.onClick} />
-                                <label className="form-check-label" htmlFor="exampleRadios2">
                                     Cachorro
                                 </label>
                             </div>
                             <p>Cachorro</p>
+                        </div>
+                        <div className="conjunto">
+                            <div className="form-check gato">
+                                <input className="form-check-input catinput" type="radio" name="tipo_animal" id="exampleRadios2" value="Gato" onClick={props.onClick} />
+                                <label className="form-check-label" htmlFor="exampleRadios2">
+                                    Gato
+                                </label>
+                            </div>
+                            <p>Gato</p>
                         </div>
                     </div>
                 </div>
