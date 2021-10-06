@@ -1,29 +1,45 @@
 const { Server } = require("socket.io")
 const io = new Server({cors: {origin: "http://localhost:3001"}})
 
+let users = []
+
 io.on("connection", (socket) => {
-    console.log("user conectado "+socket.handshake.auth.userId)
-    socket.on("disconnect", () => {
-        console.log("user desconectado")
+    // console.log("Usuario conectou: ", 'id: '+ socket.handshake.auth.userId + ' socket:  ' + socket.id);
+    users.push({"id":socket.handshake.auth.userId,"socketId":socket.id})
+    // console.log("Lista total = "+JSON.stringify(users))
+    socket.on("disconnect", () => {      
+        // console.log(socket.id);  
+        users = users.filter(usuario => usuario.socketId !== socket.id)   
+        console.log("Lista Usuarios sem Desconectado: "+ JSON.stringify(users))     
     })
     socket.on("send message", mensagem => {
-        console.log(mensagem.id_chat)
-
-        io.to(`chat:${mensagem.id_chat}`).emit("nova mensagem",mensagem)
+        
+        if (mensagem.id_chat) {
+            console.log('mensagem - ' + JSON.stringify(mensagem))
+            io.to(`chat:${mensagem.id_chat}`).emit("nova mensagem",mensagem)
+        
+        }
     })
 
     socket.on("add chat", (chat,usuarios) => {
-        socket.send("oiii'")
-        // for (let usuario of usuarios){
-        //     io.to(usuario.id).emit("chat",chat)
-        // }
+        let IdSocketUsuario
+        console.log(usuarios)
+        for (let usuario of usuarios){
+            console.log(usuario)
+            IdSocketUsuario = users.find(elemento => elemento.id === usuario)
+            console.log(IdSocketUsuario)
+            if (IdSocketUsuario) io.to(IdSocketUsuario.socketId).emit("chat",chat)
+        }
+        console.log('idChat '+chat.id)
+        socket.join(`chat:${chat.id}`)
+
     })
 
     socket.on("add chats",chatsIds=>{
         chatsIds.forEach(chatId => {
+            console.log("chats Ids - "+ chatId)
             socket.join(`chat:${chatId}`)
         })
-        console.log(socket.rooms)
     })
 
 })
