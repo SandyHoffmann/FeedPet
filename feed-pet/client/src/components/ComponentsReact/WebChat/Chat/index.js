@@ -8,9 +8,11 @@ import { ChatCriar } from '../ChatCriar';
 import { FaUserCircle } from "react-icons/fa";
 import { socket } from '../../../../service/chat';
 import {BiArrowBack} from "react-icons/bi";
+import dogFoto from '../../../../assets/dogchat.gif'
+import { NotFound } from '../../notFound';
+
 const jwt = require('jsonwebtoken');
 const moment = require('moment'); 
-
 
 
 export function Chat(props) {
@@ -33,17 +35,19 @@ export function Chat(props) {
 
             let data
             lista.sort(function (a, b) {
+                console.log(a.ultimaMsg.createdAt)
+                console.log(b.ultimaMsg.createdAt)
                 data = a.ultimaMsg.created_at
                     if (moment(a.ultimaMsg.createdAt) > moment(b.ultimaMsg.createdAt)) {
                         return 1;
                     }
-                    if (moment(a.ultimaMsg.created_at).unix() < moment(b.ultimaMsg.created_at).unix()) {
+                    if (moment(a.ultimaMsg.createdAt) < moment(b.ultimaMsg.createdAt)) {
                         return -1;
                     }
                     return 0;
               });
 
-              setChats(lista)
+            setChats(lista)
             setUser(token => token)
             socket.auth = {userId:token}
             socket.connect()
@@ -55,7 +59,11 @@ export function Chat(props) {
                     setMsgs(msg => [...msg,msgData])
                 }
             })
+            socket.on("chat",chat => {
+                console.log(chat)
+            })
             return () => {socket.off("nova mensagem")}
+
         } catch (error) {
             console.log(error)
         }
@@ -86,9 +94,15 @@ export function Chat(props) {
         <div className="chat_fp_body">
             <div className="chat_fp">
                 <div className="chat_fp__elemento">
-                    <div>            
-                        <ChatCriar pessoa={user} setchats={setChats} chats={chats}/>
-                    </div>
+                <div className="textoCabecalho">
+                        <div className="icone">
+                            <FaUserCircle size={45} color="white" />
+                        </div>
+                        <div>            
+                            <ChatCriar pessoa={user} setchats={setChats} chats={chats}/>
+                        </div>
+                </div>
+
                     <div className="chat_fp__elemento_cards">            
                         {chats.map(chat => <ChatBox chat={chat} key={chat.id} onClick={handleClick}></ChatBox>)}
                     </div>
@@ -106,7 +120,9 @@ export function Chat(props) {
                         </div>
                 </div>
                     <div className="mensagens__corpo">
-                        {msg.length<1&&<h1>Não há mensagens!</h1>}
+                        {msg.length<1&&
+                        <NotFound titulo="Não há mensagens!" img={dogFoto}></NotFound>
+                        }
                         {msg?.map(mensagem => (mensagem.id_usuario === socket.auth.userId) ? (<ChatMsg className="direita" mensagem={mensagem} key={mensagem.id}/>) : (<ChatMsg className="esquerda" mensagem={mensagem} key={mensagem.id}/>))}
                     </div>
                     <div className="mensagens__mandar">

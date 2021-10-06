@@ -6,13 +6,11 @@
 .d-flex{
     align-items: center;
 }
-
-.pchat{
-    margin-left: 2%;
-}
-
-.psmall{
-    font-size: 0.8em;
+.textoCabecalho{
+    display: flex;
+    background-color: greenyellow;
+    justify-content: space-between;
+    padding: 2%;
 }
 .flexContato{
     display: flex;
@@ -23,5 +21,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
+}
+
+.letrasCard{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
 }
