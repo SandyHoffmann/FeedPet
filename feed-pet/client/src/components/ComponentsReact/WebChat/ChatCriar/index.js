@@ -3,6 +3,8 @@ import { Button, Modal } from 'react-bootstrap';
 import { api } from "../../../../service";
 import { ChatBoxEmail } from '../ChatBoxEmail';
 import Select from 'react-select';
+import {RiChatNewLine} from 'react-icons/ri';
+import { socket } from '../../../../service/chat';
 
 import "./styles.css"
 
@@ -41,13 +43,14 @@ export function ChatCriar(props) {
             usuarios
         })
         props.setchats([...props.chats,send.data])
+        socket.emit("add chat",send.data,pessoasDoChat)
         handleClose()
     }
 
     return (
         <>
-        <Button variant="primary" onClick={handleShow}>
-            +
+        <Button variant="light" onClick={handleShow}>
+            <RiChatNewLine></RiChatNewLine>
         </Button>
 
         <Modal show={show} onHide={handleClose}>

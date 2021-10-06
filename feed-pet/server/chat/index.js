@@ -11,6 +11,14 @@ io.on("connection", (socket) => {
 
         io.to(`chat:${mensagem.id_chat}`).emit("nova mensagem",mensagem)
     })
+
+    socket.on("add chat", (chat,usuarios) => {
+        socket.send("oiii'")
+        // for (let usuario of usuarios){
+        //     io.to(usuario.id).emit("chat",chat)
+        // }
+    })
+
     socket.on("add chats",chatsIds=>{
         chatsIds.forEach(chatId => {
             socket.join(`chat:${chatId}`)
