@@ -80,7 +80,7 @@
 }
 .barra-pesquisa{
     width: 100%;
-    background: linear-gradient(0,black, #ff91b2  );
+    background: linear-gradient(0,rgb(255, 148, 214), #ff91b2  );
     /* #ff4880, #ff91b2 */
 }
 .filtros{
@@ -162,7 +162,10 @@
     -webkit-box-shadow: 0px 0px 15px 5px #60ff83; 
     box-shadow: 0px 0px 15px 5px #60ff83;
 }
-
+.radiooptions input:checked + label{
+    -webkit-box-shadow: 0px 0px 15px 5px #60ff83; 
+    box-shadow: 0px 0px 15px 5px #60ff83;
+}
 .conjunto{
     display: flex;
     flex-direction: column;
@@ -174,6 +177,15 @@
 }
 
 
+@media only screen and (max-width: 850px) {
+    .corpoAnimal{
+        flex-wrap: wrap;
+
+    }
+    .MuiPaper-root{
+        width: 50% !important;
+    }
+}
 .radiooptions .gato label{
     background-image: url('../../../../assets/cat.png');
     background-size: 5vh;

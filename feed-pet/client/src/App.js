@@ -122,10 +122,9 @@ function App() {
 					<Route path='/login'>
 						<FormLoginEstilizado />
 					</Route>
-				</Switch>
+					</Switch>
+				<Footer />
 			</Router>
-			<Footer />
-			
 		</Body>
 	);
 }

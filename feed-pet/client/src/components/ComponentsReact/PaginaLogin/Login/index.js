@@ -24,6 +24,7 @@ export class FormLogin extends React.Component {
     }
 
     
+
     handleChange = e => {
         const value = e.target.value;
         const nome = e.target.name;
@@ -67,7 +68,7 @@ export class FormLogin extends React.Component {
                 </div>
                 <br/>
 
-                <button type="submit" className="btn btn-primary">Enviar</button>
+                <button type="submit" className="btn botaoRosa">Enviar</button>
                 </form> 
                 <br/>
                 <Link to="/cadastro" className="caixaElemento">Cadastre-se</Link>
