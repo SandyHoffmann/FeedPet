@@ -42,8 +42,10 @@ export function ChatCriar(props) {
             descricao,
             usuarios
         })
-        props.setchats([...props.chats,send.data])
-        socket.emit("add chat",send.data,pessoasDoChat)
+        let chat = send.data
+        chat = Object.assign(chat,{ultimaMsg:{conteudo: "Nenhuma Mensagem"}})
+        props.setchats([chat,...props.chats])
+        socket.emit("add chat",chat,usuarios)
         handleClose()
     }
 

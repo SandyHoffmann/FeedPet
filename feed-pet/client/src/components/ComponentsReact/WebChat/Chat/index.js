@@ -30,6 +30,7 @@ export function Chat(props) {
             const ultimasMsg = res.data[1]
             let lista = []
             for (let x = 0; x<chats.length; x++){
+                console.log("entrou aqui")
                 lista.push(Object.assign(chats[x],{ultimaMsg : ultimasMsg[x]?ultimasMsg[x]:{conteudo:"Nenhuma Mensagem"}}))
             }
 
@@ -54,15 +55,25 @@ export function Chat(props) {
             const chatsIds = res.data[0].map(chat => chat.id)
             socket.emit("add chats",chatsIds)
             socket.on("nova mensagem",mensagem => {
+                console.log(mensagem)
                 const msgData = mensagem
                 if (socket.auth.userId !== msgData.id_usuario){
                     setMsgs(msg => [...msg,msgData])
                 }
+                let chat = chats.filter(chat => chat.id === mensagem.id_chat)
+                chat = chat[0]
+                console.log("chat encontrado: "+JSON.stringify(chat))
+                let chatCriado = Object.assign(chat, {ultimaMsg:{conteudo:mensagem.conteudo}})
+                let chatsAtualizados = [chatCriado,...chats.filter(chat => chat.id !== mensagem.id_chat)]
+                console.log(chatsAtualizados)
+                setChats(chatsAtualizados)
             })
             socket.on("chat",chat => {
-                console.log(chat)
+                    const chatNovo = chat
+                    setChats(chats => [chatNovo,...chats])
             })
-            return () => {socket.off("nova mensagem")}
+            return () => {socket.off("nova mensagem")
+                        socket.off("chat")}
 
         } catch (error) {
             console.log(error)
