@@ -5,6 +5,7 @@ import {id,secret} from '../../../../varAmbiente'
 import { Form } from 'react-bootstrap';
 import "./styles.css"
 import { Link } from "react-router-dom";
+import povdogrunning from "./povdogrunning.jpg";
 
 const jwt = require('jsonwebtoken');
 
@@ -49,6 +50,8 @@ export class FormLoginEstilizado extends React.Component {
 
         return (
             <>
+        <div className="grandecaixa">
+            <div className="caixaimagem"><img src={povdogrunning} className="bluhrit"></img></div>
             <div className="container caixa">
                 <form onSubmit={this.handleSubmit} className="caixaElemento">
                 <h1>Login</h1>
@@ -66,12 +69,13 @@ export class FormLoginEstilizado extends React.Component {
                 <br/>
 
                 <button type="submit" className="btn btn-primary">Enviar</button>
+                <Link to="/cadastro" className="caixaElemento">Cadastre-se</Link>
                 </form> 
                 <br/>
-                <Link to="/cadastro" className="caixaElemento">Cadastre-se</Link>
+                
 
                 </div>
-
+            </div>
             </>
 
         );

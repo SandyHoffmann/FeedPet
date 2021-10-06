@@ -92,9 +92,7 @@ function App() {
 						<FiltragemHome />
 						{/* <MediaCard/> */}
 					</Route>
-					<Route path='/login'>
-						<FormLoginEstilizado />
-					</Route>
+					
 					<Route path='/cadastro'>
 						<FormCadastroEstilizado />
 					</Route>
@@ -121,9 +119,13 @@ function App() {
 					<Route path='/logoff' component={logoff}>
 					</Route>
 					{/* <Route path="*" component={NotFound} />*/}
+					<Route path='/login'>
+						<FormLoginEstilizado />
+					</Route>
 				</Switch>
 			</Router>
 			<Footer />
+			
 		</Body>
 	);
 }

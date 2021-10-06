@@ -1,24 +1,24 @@
 import React from 'react';
+import { Parallax,  Background } from 'react-parallax';
+
 // import Logbox from '../../App';
 
-import { Box } from '../Box';
-import MediaCard from '../Card/Card';
-import { Example } from '../carrosel/carrosel';
-import Checkbox from '../CheckBox-Icon/CheckBox';
-import Perfilpessoa from '../Userprofile/Userprofile';
+import "./about.css";
 
 
 const About = () => {
 	return (
-	<div >
-	
-	
-	<Perfilpessoa
-	style={{
-		font: "100px"
-	}}
-	
-	/>
+		<div class = "equipe">
+			<Parallax blur={10} bgImage="path/to/image.jpg" bgImageAlt="the cat" strength={200}
+			blur={{ min: -15, max: 15 }}
+			bgImage={require('client\src\components\ComponentsReact\FormCadastro\gatokapa.jpg')}
+			bgImageAlt="the dog"
+			strength={-200}>
+			
+			
+        Content goes here. Parallax height grows with content height.
+		<div style={{ height: '200px' }} />
+    </Parallax>
 		</div>
 	);
 };
