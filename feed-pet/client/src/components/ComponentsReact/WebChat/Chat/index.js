@@ -23,19 +23,19 @@ export function Chat(props) {
     const [atualGrupo, setatualGrupo] = useState([])
     useEffect(async () => {
         const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET).sub
+        let lista = []
         try {
             const res = await api.get("/chats/");
-            const chats = res.data[0]
-            
+            console.log('chats = '+ chats)
+            const chatsNovos = res.data[0]
             const ultimasMsg = res.data[1]
-            let lista = []
-            for (let x = 0; x<chats.length; x++){
+            for (let x = 0; x<chatsNovos.length; x++){
                 console.log("entrou aqui")
-                lista.push(Object.assign(chats[x],{ultimaMsg : ultimasMsg[x]?ultimasMsg[x]:{conteudo:"Nenhuma Mensagem"}}))
+                lista.push(Object.assign(chatsNovos[x],{ultimaMsg : ultimasMsg[x]?ultimasMsg[x]:{conteudo:"Nenhuma Mensagem"}}))
             }
 
             let data
-            lista.sort(function (a, b) {
+            lista = lista.sort(function (a, b) {
                 console.log(a.ultimaMsg.createdAt)
                 console.log(b.ultimaMsg.createdAt)
                 data = a.ultimaMsg.created_at
@@ -48,29 +48,22 @@ export function Chat(props) {
                     return 0;
               });
 
-            setChats(lista)
-            setUser(token => token)
             socket.auth = {userId:token}
             socket.connect()
+            setChats(lista)
+            setUser(token => token)
             const chatsIds = res.data[0].map(chat => chat.id)
             socket.emit("add chats",chatsIds)
             socket.on("nova mensagem",mensagem => {
-                console.log(mensagem)
                 const msgData = mensagem
                 if (socket.auth.userId !== msgData.id_usuario){
                     setMsgs(msg => [...msg,msgData])
                 }
-                let chat = chats.filter(chat => chat.id === mensagem.id_chat)
-                chat = chat[0]
-                console.log("chat encontrado: "+JSON.stringify(chat))
-                let chatCriado = Object.assign(chat, {ultimaMsg:{conteudo:mensagem.conteudo}})
-                let chatsAtualizados = [chatCriado,...chats.filter(chat => chat.id !== mensagem.id_chat)]
-                console.log(chatsAtualizados)
-                setChats(chatsAtualizados)
             })
             socket.on("chat",chat => {
                     const chatNovo = chat
                     setChats(chats => [chatNovo,...chats])
+                    console.log(chats)
             })
             return () => {socket.off("nova mensagem")
                         socket.off("chat")}
@@ -80,7 +73,26 @@ export function Chat(props) {
         }
     }, [])
 
+    useEffect(async () => {
+        let mensagem = msg[msg.length-1]
+        console.log(mensagem)
+        console.log("entrou no use effect")
+        if (mensagem){
+            let chatFiltrado = chats.filter(chat => chat.id === mensagem.id_chat)
+            console.log(chats)
+            if (chatFiltrado.length>0){
+                let chatObjeto = chatFiltrado[0]
+                console.log("chat encontrado: "+JSON.stringify(chatObjeto))
+                let chatCriado = Object.assign(chatObjeto, {ultimaMsg:{conteudo:mensagem.conteudo}})
+                let chatsAtualizados = [chatCriado,...chats.filter(chat => chat.id !== mensagem.id_chat)]
+                setChats(chatsAtualizados)
+            }
+        }
+    },[msg])
+
     async function handleClick(msg) {
+        console.log(chats)
+        console.log(msg.target.id)
         const res = await api.get(`/chats/${msg.target.id}`);
         setMsgs(res.data[0])
         setEnviar(msg.target.id)
@@ -126,7 +138,7 @@ export function Chat(props) {
                             <FaUserCircle size={60} color="white" />
                         </div>
                         <div className="NomePessoa">
-                            {atualGrupo?.usuario?.slice(0,3).map(pessoa => pessoa.id!==user.id&&<p>{pessoa.email}&nbsp;</p>)}
+                            {atualGrupo?.usuario?.slice(0,3).map(pessoa => pessoa.id!==user.id&&<p key={pessoa.id}>{pessoa.email}&nbsp;</p>)}
                             {(atualGrupo?.usuario?.length>3)&&<p>...</p>}
                         </div>
                 </div>
@@ -137,7 +149,7 @@ export function Chat(props) {
                         {msg?.map(mensagem => (mensagem.id_usuario === socket.auth.userId) ? (<ChatMsg className="direita" mensagem={mensagem} key={mensagem.id}/>) : (<ChatMsg className="esquerda" mensagem={mensagem} key={mensagem.id}/>))}
                     </div>
                     <div className="mensagens__mandar">
-                        <ChatForm enviar={enviar} setarMsg = {setMsgs} msg = {msg} user={socket.auth}></ChatForm>
+                        <ChatForm enviar={enviar} setarMsg = {setMsgs} msg = {msg} user={socket.auth} setarChat={setChats} chats={chats}></ChatForm>
                     </div>
                 </div>
             </div>
