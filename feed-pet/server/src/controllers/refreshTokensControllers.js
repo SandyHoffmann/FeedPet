@@ -14,9 +14,9 @@ async function login(req, res, next) {
 
 async function loginGoogle(req, res, next) {
     try {
-        const { token } = req.body;        
-        
-        const tokens = await refreshTokensServices.loginGoogleUser(token);
+        const { googleToken } = req.body;        
+
+        const tokens = await refreshTokensServices.loginGoogleUser(googleToken);
 
         res.json(tokens);
     } catch (error) {

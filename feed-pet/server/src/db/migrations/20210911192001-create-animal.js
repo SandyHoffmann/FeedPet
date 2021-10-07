@@ -39,6 +39,10 @@ module.exports = {
       avatar: {
         type: Sequelize.STRING
       },
+      publico: {
+        type:DataTypes.BOOLEAN,
+        allowNull:false
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

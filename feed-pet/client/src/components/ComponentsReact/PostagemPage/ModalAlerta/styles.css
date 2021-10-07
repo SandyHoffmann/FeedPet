@@ -1,0 +1,48 @@
+#botaoalerta {
+  margin-right: 4px;
+}
+#titulo-modal {
+  font-weight: 600 !important;
+  color: #ff4880;
+}
+body {
+  background-color: #f4b927;
+}
+/* .wrapper {
+   padding-top: 120px;
+   } */
+#card-desaparecido {
+  padding-bottom: 20px !important;
+}
+#cardInteiro{
+  box-shadow:  #ff487fb4;
+}
+.card-img-top {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+.card-body {
+  text-align: center;
+  box-shadow: 0px 15px 15px -8px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+.card-body h6 {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ff4880;
+}
+.card-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 24px;
+}
+.sr-only {
+  font-size: 0px;
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .mx-30 {
+    margin-bottom: 30px;
+  }
+}

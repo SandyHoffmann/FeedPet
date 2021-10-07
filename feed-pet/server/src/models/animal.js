@@ -59,6 +59,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     avatar: {
       type: DataTypes.STRING
+    },
+    publico: {
+      type:DataTypes.BOOLEAN,
+      allowNull:false
     }
   }, {
     sequelize,
