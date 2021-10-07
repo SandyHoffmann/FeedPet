@@ -25,9 +25,7 @@ export function Perfilnovo(props) {
               </a>
             </div>
             <div className="media-body ">
-              <h2 className="media-heading">
-                Usuário da Silva
-              </h2>
+              <h2 className="media-heading">Usuário da Silva</h2>
               <p className="lead" id="texto-sobre">
                 Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod
                 tempor incididunt
@@ -43,78 +41,36 @@ export function Perfilnovo(props) {
                   <li>
                     <a href="#" title="twitter link">
                       <img src={twitter} id="icone-twitter"></img>
-
                     </a>
                   </li>
                   <li>
                     <a href="#" title="instagram link">
                       <img src={instagram} id="icone-instagram"></img>
-
                     </a>
                   </li>
                   <li className="">
                     <a href="#" title="linkedin link">
                       <img src={linkedin} id="icone-linkedin"></img>
-
                     </a>
                   </li>
-                  <li>
-                  </li>
+                  <li></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="row">
-          <div className="col-md-4">
+        <div className="perfilFlex">
+          <div className="sobreMim">
+            {" "}
             <div className="panel">
-              <div className="panel-heading">
-                <span className="panel-icon">
-                  <i className="fa fa-star"></i>
-                </span>
-                <span className="panel-title"> Números do usuário</span>
-              </div>
-              <div className="panel-body pn">
-                <table className="table mbn tc-icon-1 tc-med-2 tc-bold-last">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <span className="fa fa-desktop text-warning"></span>
-                      </td>
-                      <td>Curtidas</td>
-                      <td>
-                        <i className="fa fa-caret-up text-info pr10"></i>367
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span className="fa fa-microphone text-primary"></span>
-                      </td>
-                      <td>Comentários</td>
-                      <td>
-                        <i className="fa fa-caret-down text-danger pr10"></i>145
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span className="fa fa-newspaper-o text-info"></span>
-                      </td>
-                      <td>Animais</td>
-                      <td>
-                        <i className="fa fa-caret-up text-info pr10"></i>5
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div className="panel">
-              <div className="panel-heading">
+              <div className="panel-heading" id="barraPainel">
                 <span className="panel-icon">
                   <i className="fa fa-trophy"></i>
                 </span>
-                <span className="panel-title"> Sobre mim</span>
+                <span className="panel-title" id="tituloPainel">
+                  {" "}
+                  Sobre mim
+                </span>
               </div>
               <div ClassName="texto-sobre-mim" id="sobremim">
                 <p>
@@ -128,77 +84,36 @@ export function Perfilnovo(props) {
                 </p>
               </div>
             </div>
-            <div className="panel">
-              <div className="panel-heading">
-                <span className="panel-icon">
-                  <i className="fa fa-pencil"></i>
-                </span>
-                <span className="panel-title">Sobre mim</span>
-              </div>
-              <div className="panel-body pb5">
-                <h6>Experience</h6>
-
-                <h4>Facebook Internship</h4>
-                <p className="text-muted">
-                  {" "}
-                  University of Missouri, Columbia
-                  <br /> Student Health Center, June 2010 - 2012
-                </p>
-
-                <hr className="short br-lighter"></hr>
-
-                <h6>Education</h6>
-
-                <h4>Bachelor of Science, PhD</h4>
-                <p className="text-muted">
-                  {" "}
-                  University of Missouri, Columbia
-                  <br /> Student Health Center, June 2010 through Aug 2011
-                </p>
-
-                <hr className="short br-lighter"></hr>
-
-                <h6>Accomplishments</h6>
-
-                <h4>Successful Business</h4>
-                <p className="text-muted pb10">
-                  {" "}
-                  University of Missouri, Columbia
-                  <br /> Student Health Center, June 2010 through Aug 2011
-                </p>
-              </div>
-            </div>
           </div>
-          <div className="col-md-8">
-            <div className="tab-block">
- 
-              {/* <div className="tab-content p30"> */}
-                <div id="tab1" className="tab-pane active">
-                  <div className="media">
-
-                    {/* <a className="pull-left" href="#">
-                      {" "}
-                      <img
-                        className="media-object mn thumbnail mw50"
-                        src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                        alt="..."
-                      />{" "}
-                    </a> */}{" "}
-                  <div className="panel">
-                    <div className="panel-heading">
-                      <span className="panel-icon">
-                        <i className="fa fa-star"></i>
-                      </span>
-                      <span className="panel-title"> Tutora de 3 animais</span>
-                    </div>
-                    <div className="media-body" id="caixaanimais">
-                      {/* <h5 className="media-heading mb20">
+          <div className="animais">
+            <div className="panel">
+              <div className="panel-heading" id="barraPainel">
+                <span className="panel-icon">
+                  <i className="fa fa-star"></i>
+                </span>
+                <span className="panel-title" id="tituloPainel">
+                  {" "}
+                  Tutora de 3 animais
+                </span>
+              </div>
+              <div className="media-body" id="caixaanimais">
+                {/* <h5 className="media-heading mb20">
                         <p>Tutora de 3 animais</p>
                       </h5> */}
-                      <img src={gatinho} className="mw140 mr25 mb20 foto-animal"></img>
-                      <img src={gatinho} className="mw140 mr25 mb20 foto-animal"></img>
-                      <img src={gatinho} className="mw140 mr25 mb20 foto-animal"></img>
-                      {/* <div className="media-links">
+
+                <img
+                  src={gatinho}
+                  className="mw140 mr25 mb20 foto-animal"
+                ></img>
+                <img
+                  src={gatinho}
+                  className="mw140 mr25 mb20 foto-animal"
+                ></img>
+                <img
+                  src={gatinho}
+                  className="mw140 mr25 mb20 foto-animal"
+                ></img>
+                {/* <div className="media-links">
                         <span className="text-light fs12 mr10">
                           <span className="fa fa-thumbs-o-up text-primary mr5"></span>{" "}
                           Like{" "}
@@ -304,14 +219,6 @@ export function Perfilnovo(props) {
                           Comment{" "}
                         </span>
                       </div> */}
-                    </div>
-                  </div>
-                  </div>
-                {/* </div> */}
-         
-                <div id="tab2" className="tab-pane"></div>
-                <div id="tab3" className="tab-pane"></div>
-                <div id="tab4" className="tab-pane"></div>
               </div>
             </div>
           </div>

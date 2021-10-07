@@ -5,8 +5,10 @@ import { DropdownButton, Dropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import imgdog from "../../assets/doguinho.jpg";
 import { AiOutlineAlert } from 'react-icons/ai';
-import alerta from '../../assets/alerta.png';
+
 import menu from '../../assets/menu-nav.png';
+import { ModalAlerta } from "../ComponentsReact/PostagemPage/ModalAlerta";
+import { ModalGerarAlerta } from "../ComponentsReact/PostagemPage/ModalGerarAlerta";
 const jwt = require('jsonwebtoken');
 
 
@@ -56,8 +58,8 @@ export function Menu(props) {
             <a className="text-reset me-3" href="#">
               <i className="fas fa-shopping-cart"></i>
             </a>
-            <button type="button" class="btn btn-danger" id="botaoalerta">{ <img src={alerta}></img>}</button>
-
+            <ModalAlerta/>
+            <ModalGerarAlerta/>
             <DropdownButton
               id="dropdown"
               className="botaopesquisa"
