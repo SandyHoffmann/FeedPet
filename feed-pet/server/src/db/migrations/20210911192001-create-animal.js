@@ -36,6 +36,9 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull:false
       },
+      avatar: {
+        type: Sequelize.STRING
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE
