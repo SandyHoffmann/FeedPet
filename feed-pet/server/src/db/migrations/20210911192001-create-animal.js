@@ -36,6 +36,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull:false
       },
+      publico: {
+        type:DataTypes.BOOLEAN,
+        allowNull:false
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

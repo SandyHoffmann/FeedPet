@@ -6,6 +6,7 @@ import { Form } from 'react-bootstrap';
 import "./styles.css"
 import { Link } from "react-router-dom";
 import povdogrunning from "../../../../assets/gifgato.gif";
+import GoogleLogin from 'react-google-login';
 
 const jwt = require('jsonwebtoken');
 
@@ -13,6 +14,34 @@ const initialState = {
     email:"",
     senha:""
 }
+
+const responseGoogle = async (response) => {
+    console.log(response);
+    const googleToken = response.tokenId;
+
+    try {
+        const res = await fetch("http://localhost:3000/auth/login-google", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ googleToken })
+        });
+
+
+        if (res.ok) {
+            const { accessToken, refreshToken } = await res.json();
+
+            localStorage.setItem("access-token", accessToken);
+            localStorage.setItem("refresh-token", refreshToken);
+            
+        } else {
+            alert("Aconteceu algum erro ao fazer o login");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+  }
 
 export class FormLoginEstilizado extends React.Component {
     constructor(props) {
@@ -78,6 +107,16 @@ export class FormLoginEstilizado extends React.Component {
                 <br/>
                 <div className="linksForm">
                     <button type="submit" className="btn botaoRosa">Enviar</button>
+                    <GoogleLogin
+                        clientId="735612450237-p38rp9eb8og9btudna89bl3c4k2pnag7.apps.googleusercontent.com"
+                        render={renderProps => (
+                            <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Login Google</button>
+                        )}
+                        buttonText="Login"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                    />
                     <Link to="/cadastro">Cadastre-se</Link>
                 </div>
                 </form> 
@@ -87,7 +126,7 @@ export class FormLoginEstilizado extends React.Component {
                 </div>
             </div>
             </>
-
+        
         );
     }
 }

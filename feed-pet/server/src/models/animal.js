@@ -56,6 +56,10 @@ module.exports = (sequelize, DataTypes) => {
     status: {
       type:DataTypes.STRING,
       allowNull:false
+    },
+    publico: {
+      type:DataTypes.BOOLEAN,
+      allowNull:false
     }
   }, {
     sequelize,
