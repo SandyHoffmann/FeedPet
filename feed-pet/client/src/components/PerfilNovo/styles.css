@@ -27,13 +27,6 @@ body {
 .panel{
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
 }
-#barraPainel{
-  background-color: #ff487fd7;
-}
-#tituloPainel{
-  font-weight: 700;
-  color: white;
-}
 #texto-sobre{
   font-weight: 700;
   color: #555555;

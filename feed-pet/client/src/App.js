@@ -30,6 +30,7 @@ import { Perfilnovo } from './components/PerfilNovo';
 import Perfilpessoa from './components/Userprofile/Userprofile';
 import { FormCadastroEstilizado } from './components/ComponentsReact/FormCadastro/index-estilizado';
 import { FormLoginEstilizado } from './components/ComponentsReact/PaginaLogin/Login/index-estilizado';
+import { Chat } from './components/ComponentsReact/WebChat/Chat';
 
 
 
@@ -82,6 +83,9 @@ function App() {
 					<Route path="/caixa-mensagem" component={CaixaMensagem} />
 					<Route path='/teste' component={About}>
 					</Route>
+					<Route path='/chat'>
+						<Chat></Chat>
+					</Route>
 					<Route path='/' exact>
 						<FiltragemHome />
 						{/* <MediaCard/> */}
@@ -97,8 +101,7 @@ function App() {
 					</Route>
 					<Route path='/postagens'>
 						{/* <FeedInicio/> */}
-						<CorpoPaginaPostagem /> 
-
+						<CorpoPaginaPostagem />
 					</Route>
 					<Route path='/perfil/:id' >
 						<PaginaAnimal />

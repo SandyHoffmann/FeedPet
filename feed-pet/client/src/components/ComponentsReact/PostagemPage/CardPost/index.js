@@ -24,7 +24,6 @@ export function PostagemCard(props) {
           <div className="timeline-icon">
             <a href="javascript:;">&nbsp;</a>
           </div>
-
           <div className="timeline-body">
             <div className="timeline-header">
               <span className="userimage">
@@ -92,15 +91,5 @@ export function PostagemCard(props) {
         </ul>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-    
     </div>
   )};

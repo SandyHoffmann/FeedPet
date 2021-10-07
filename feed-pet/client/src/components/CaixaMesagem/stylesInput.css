@@ -1,13 +1,54 @@
+
+
+
+
 .inputMensagem{
     border: none;
-    width: 500px;
+    width: 340px;
     height: 40px;
-    background-color:#f4f2ef ;
-    margin-bottom: 40px;
+    background-color:#f4f2ef ;    
     border-radius: 14px;
+    margin-left: 10px;
 }
-.nome {
-    background-color:#f4f2ef ;
+.textoAviso {
+    border: 5px solid;
+    border-color:#ff4880 ;
+    border-radius:10px ;
     text-align: center;
     margin-top: 10px;
+    font-size: 10px;
+    margin-left: 60px;
+    margin-right: 5px;
+
+    
+		-webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+		-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+		box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
+}
+.texto1{
+    border: 5px solid;
+    border-color:#8fc424;
+    border-radius:10px ;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 10px;
+    margin-right: 60px;
+    margin-left: 5px;
+    margin-top: 20px;
+
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+		-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+		box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
+
+}
+.LupaProcurra{    
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    margin-top:5px;
+  
+}
+.LupaProcurra .LupaMessagem{
+    width: 100px;
+    font-size:35px;
 }

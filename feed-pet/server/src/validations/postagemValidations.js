@@ -22,6 +22,7 @@ module.exports = {
             next();
         }
     ],
+    // fazer ainda
     delete: [
         body("nome")
             .isLength({ min: 4 })

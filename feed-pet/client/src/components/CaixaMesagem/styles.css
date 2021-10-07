@@ -1,3 +1,9 @@
+
+
+.ConteinerMaior{
+background-color:#f4f2ef ;
+margin-top: 40px;
+}
 .container-caixa-mensagem {
   
     width: 60%;    
@@ -9,22 +15,58 @@
 }
 
 .inputUsuario{
+    
     margin: auto;
 }
 
 .conteudo {
-    padding: 0 20px;
-    background-color: white;
+    padding: 0px;
+    background-color:white;
     border-radius: 14px;
-}
-
-.cards {
+    
     
 }
+
+.conteiner {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
 .cards .inputUsuario{
-margin-left: 100px;
-width: 300px;
+margin-left: 175px;
+width: 250px;
 height: 40px;
-background-color:#f4f2ef ;
+background-color:white ;
+border-radius: 8px;
 border: none;
+display: flex;
+}
+.Lupa{
+    position: relative;
+    top:48px;
+left: 143px;
+    
+width: 100px;
+height: 100px;
+font-size:35px;
+}
+
+.ScrollCard{
+    max-height: 70vh;
+    overflow-y: auto;
+    margin-top: 5px;
+    
+    margin-left: 130px; 
+}
+
+
+
+
+
+@media (max-width: 600px)
+{
+ .container-caixa-mensagem{
+     display: flex;
+     flex-direction: column;
+ }
 }
