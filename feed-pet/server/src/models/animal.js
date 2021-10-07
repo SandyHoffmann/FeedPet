@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         }
         })
         this.hasOne(models.Agenda, { foreignKey: "id_animal", as: "agenda" });
-
+        this.hasOne(models.Alerta, { foreignKey: "id_animal", as: "alerta" });
     }
   };
   Animal.init({
