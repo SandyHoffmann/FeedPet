@@ -1,19 +1,38 @@
 body {
   margin-top: 20px;
   background: rgb(255, 253, 253);
+
+}.perfilFlex{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+.sobreMim{
+  flex: 1;
+  padding-right: 2%;
+}
+.animais{
+  flex: 2;
 }
 #bordaheading {
   margin-top: 20px;
   background-color: #fff;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
 }
-#bordaheading h2{
+/* #bordaheading h2{
   color: #8fc424;
   font-weight: 1000;
   align-items: center;
-}
+} */
 .panel{
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
+}
+#barraPainel{
+  background-color: #ff487fd7;
+}
+#tituloPainel{
+  font-weight: 700;
+  color: white;
 }
 #texto-sobre{
   font-weight: 700;
@@ -47,9 +66,6 @@ body {
   padding:  0px !important;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
 }
-.foto-animal{
-  background-image: ;
-}
 #caixaanimais{
   padding: 15px !important;
   align-content: center !important;
@@ -64,29 +80,29 @@ body {
 .page-tabs {
   margin: -25px -20px 30px;
   padding: 15px 25px 0;
-  border-bottom: 1px solid #ddd;
+  /* border-bottom: 1px solid #ddd; */
   background: #fffefe;
 }
 .page-tabs .nav-tabs {
   border-bottom: 0;
 }
-.page-tabs .nav-tabs > li > a {
+/* .page-tabs .nav-tabs > li > a {
   color: #aaa;
   padding: 10px 20px;
-}
-.page-tabs .nav-tabs > li:hover > a,
+} */
+/* .page-tabs .nav-tabs > li:hover > a,
 .page-tabs .nav-tabs > li:focus > a {
   border-color: #ddd;
-}
-.page-tabs .nav-tabs > li.active > a,
+} */
+/* .page-tabs .nav-tabs > li.active > a,
 .page-tabs .nav-tabs > li.active > a:hover,
 .page-tabs .nav-tabs > li.active > a:focus {
   color: #666;
   font-weight: 600;
   background-color: #eee;
   border-bottom-color: transparent;
-}
-@media (max-width: 800px) {
+} */
+/* @media (max-width: 800px) {
   .page-tabs {
     padding: 25px 20px 0;
   }
@@ -107,12 +123,12 @@ body {
   .page-tabs .nav-tabs > li.active > a:focus {
     border-bottom-color: #ddd;
   }
-}
+} */
 .panel {
   position: relative;
-  margin-bottom: 27px;
+  /* margin-bottom: 27px; */
   background-color: #ffffff;
-  border-radius: 3px;
+  border-radius: 7px;
 }
 .panel.panel-transparent {
   background: none;
@@ -209,7 +225,7 @@ body {
   margin-top: 9px;
   height: 22px;
 }
-.panel-heading .widget-menu .progress {
+/* .panel-heading .widget-menu .progress {
   margin-top: 11px;
   margin-bottom: 0;
 }
@@ -422,7 +438,7 @@ body {
 .panel > .table-bordered,
 .panel > .table-responsive > .table-bordered {
   border: 0;
-}
+} */
 .panel > .table-bordered > thead > tr > th:first-child,
 .panel > .table-responsive > .table-bordered > thead > tr > th:first-child,
 .panel > .table-bordered > tbody > tr > th:first-child,
@@ -584,11 +600,11 @@ body {
       Tabs
     ================================================= */
 /* Tabs Wrapper */
-.tab-block {
+/* .tab-block {
   position: relative;
-}
+} */
 /* Tabs Content */
-.tab-block .tab-content {
+/* .tab-block .tab-content {
   overflow: auto;
   position: relative;
   z-index: 10;
@@ -596,20 +612,20 @@ body {
   padding: 16px 12px;
   border: 1px solid #e2e2e2;
   background-color: #fff;
-}
+} */
 /*===============================================
       Tab Navigation
     ================================================= */
-.tab-block .nav-tabs {
+/* .tab-block .nav-tabs {
   position: relative;
   border: 0;
 }
-/* nav tab item */
+nav tab item
 .tab-block .nav-tabs > li {
   float: left;
   margin-bottom: -1px;
 }
-/* nav tab link */
+nav tab link
 .tab-block .nav-tabs > li > a {
   z-index: 9;
   position: relative;
@@ -625,11 +641,11 @@ body {
 .tab-block .nav-tabs > li:first-child > a {
   margin-left: 0;
 }
-/* nav tab link:hover */
+nav tab link:hover
 .tab-block .nav-tabs > li > a:hover {
   background-color: #f4f4f4;
 }
-/* nav tab active link:focus:hover */
+nav tab active link:focus:hover
 .tab-block .nav-tabs > li.active > a,
 .tab-block .nav-tabs > li.active > a:hover,
 .tab-block .nav-tabs > li.active > a:focus {
@@ -640,30 +656,30 @@ body {
   background: #fff;
   border-color: #e2e2e2;
   border-bottom: 1px solid #fff;
-}
+} */
 /*===============================================
       Tab Navigation - Tabs Left
     ================================================= */
-.tabs-left {
+/* .tabs-left {
   float: left;
-}
+} */
 /* nav tab item */
-.tabs-left > li {
+/* .tabs-left > li {
   float: none;
   margin: 0 -1px -1px 0;
-}
+} */
 /* nav tab item link */
-.tabs-left > li > a {
+/* .tabs-left > li > a {
   padding: 14px 16px;
   color: #777;
   font-weight: 600;
   border: 1px solid transparent;
   border-color: #ddd;
   background: #fafafa;
-}
+} */
 /* nav tab link:hover */
 /* nav tab active link:focus:hover */
-.tab-block .tabs-left > li.active > a,
+/* .tab-block .tabs-left > li.active > a,
 .tab-block .tabs-left > li.active > a:hover,
 .tab-block .tabs-left > li.active > a:focus {
   color: #555;
@@ -672,30 +688,30 @@ body {
   position: relative;
   z-index: 12;
   background: #fff;
-}
+} */
 /*===============================================
       Tab Navigation - Tabs Right
     ================================================= */
-.tabs-right {
+/* .tabs-right {
   float: right;
-}
+} */
 /* nav tab item */
-.tabs-right > li {
+/* .tabs-right > li {
   float: none;
   margin: 0 0 -1px -1px;
-}
+} */
 /* nav tab item link */
-.tabs-right > li > a {
+/* .tabs-right > li > a {
   padding: 14px 16px;
   color: #777;
   font-weight: 600;
   border: 1px solid transparent;
   border-color: #ddd;
   background: #fafafa;
-}
+} */
 /* nav tab link:hover */
 /* nav tab active link:focus:hover */
-.tab-block .tabs-right > li.active > a,
+/* .tab-block .tabs-right > li.active > a,
 .tab-block .tabs-right > li.active > a:hover,
 .tab-block .tabs-right > li.active > a:focus {
   color: #555;
@@ -704,19 +720,19 @@ body {
   position: relative;
   z-index: 12;
   background: #fff;
-}
+} */
 /*===============================================
       Tab Navigation - Tabs Right
     ================================================= */
-.tabs-below {
+/* .tabs-below {
   position: relative;
-}
-/* nav tab item */
+} */
+/* nav tab item
 .tabs-below > li {
   float: left;
   margin-top: -1px;
-}
-/* nav tab item link */
+} */
+/* nav tab item link
 .tabs-below > li > a {
   position: relative;
   z-index: 9;
@@ -726,9 +742,9 @@ body {
   font-weight: 600;
   border: 1px solid #ddd;
   background: #fafafa;
-}
-/* nav tab link:hover */
-/* nav tab active link:focus:hover */
+} */
+/* nav tab link:hover
+nav tab active link:focus:hover
 .tab-block .tabs-below > li.active > a,
 .tab-block .tabs-below > li.active > a:hover,
 .tab-block .tabs-below > li.active > a:focus {
@@ -739,4 +755,4 @@ body {
   background: #fff;
   border-color: #ddd;
   border-top: 1px solid #fff;
-}
+} */
