@@ -36,6 +36,9 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull:false
       },
+      avatar: {
+        type: Sequelize.STRING
+      },
       publico: {
         type:DataTypes.BOOLEAN,
         allowNull:false

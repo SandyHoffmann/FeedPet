@@ -35,8 +35,9 @@ async function createUsuario(usuario) {
     });
 
     if (usuarioJaExiste) throw new createError(409, "Usuário já existe!");
-
-    const usuarioCriado =  await Usuario.create(usuario);
+    const { nome, email, senha, avatar } = usuario;
+    console.log(avatar)
+    const usuarioCriado =  await Usuario.create({ nome, email, senha, avatar:avatar.originalname });
     return usuarioCriado
 }
 

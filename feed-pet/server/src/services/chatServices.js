@@ -16,7 +16,15 @@ async function addChat(id_usuario, parametros) {
 
     await chat.addUsuario(usuariosChat)
 
-    return chat
+    const chatFinal = await Chat.findOne({where:{
+                                            id: chat.id
+                                            },
+                                            include: {
+                                                model: Usuario,
+                                                as: 'usuario'
+                                            }
+                                        })
+    return chatFinal
 }
 
 async function addMensagem(id_usuario, id_chat, mensagem) {

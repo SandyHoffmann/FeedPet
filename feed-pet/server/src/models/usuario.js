@@ -72,6 +72,9 @@ module.exports = (sequelize, DataTypes) => {
         this.setDataValue("senha", bcrypt.hashSync(senha, 10));
       }
     },
+    avatar: {
+      type: DataTypes.STRING
+    },
     cargo: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -6,18 +6,17 @@ let users = []
 io.on("connection", (socket) => {
     // console.log("Usuario conectou: ", 'id: '+ socket.handshake.auth.userId + ' socket:  ' + socket.id);
     users.push({"id":socket.handshake.auth.userId,"socketId":socket.id})
-    console.log("Lista total = "+JSON.stringify(users))
+    // console.log("Lista total = "+JSON.stringify(users))
     socket.on("disconnect", () => {      
         // console.log(socket.id);  
         users = users.filter(usuario => usuario.socketId !== socket.id)   
         console.log("Lista Usuarios sem Desconectado: "+ JSON.stringify(users))     
     })
     socket.on("send message", mensagem => {
-        
+        console.log(mensagem)
         if (mensagem.id_chat) {
             console.log('mensagem - ' + JSON.stringify(mensagem))
             io.to(`chat:${mensagem.id_chat}`).emit("nova mensagem",mensagem)
-        
         }
     })
 
@@ -32,7 +31,12 @@ io.on("connection", (socket) => {
         }
         console.log('idChat '+chat.id)
         socket.join(`chat:${chat.id}`)
+        console.log(socket.rooms)
+    })
 
+    socket.on("userAdd chat", (chatId) => {
+        socket.join(`chat:${chatId}`)
+        console.log("entrou no chat ae")
     })
 
     socket.on("add chats",chatsIds=>{
