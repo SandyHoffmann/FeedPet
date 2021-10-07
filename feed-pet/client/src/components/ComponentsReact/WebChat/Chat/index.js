@@ -30,7 +30,6 @@ export function Chat(props) {
             const chatsNovos = res.data[0]
             const ultimasMsg = res.data[1]
             for (let x = 0; x<chatsNovos.length; x++){
-                console.log("entrou aqui")
                 lista.push(Object.assign(chatsNovos[x],{ultimaMsg : ultimasMsg[x]?ultimasMsg[x]:{conteudo:"Nenhuma Mensagem"}}))
             }
 
@@ -55,15 +54,17 @@ export function Chat(props) {
             const chatsIds = res.data[0].map(chat => chat.id)
             socket.emit("add chats",chatsIds)
             socket.on("nova mensagem",mensagem => {
+                console.log("nova mensagem")
                 const msgData = mensagem
                 if (socket.auth.userId !== msgData.id_usuario){
+                    console.log("entrou aqui no nova mensagem")
                     setMsgs(msg => [...msg,msgData])
                 }
             })
             socket.on("chat",chat => {
                     const chatNovo = chat
                     setChats(chats => [chatNovo,...chats])
-                    console.log(chats)
+                    socket.emit("userAdd chat",chat.id)
             })
             return () => {socket.off("nova mensagem")
                         socket.off("chat")}
@@ -75,7 +76,6 @@ export function Chat(props) {
 
     useEffect(async () => {
         let mensagem = msg[msg.length-1]
-        console.log(mensagem)
         console.log("entrou no use effect")
         if (mensagem){
             let chatFiltrado = chats.filter(chat => chat.id === mensagem.id_chat)
@@ -91,8 +91,7 @@ export function Chat(props) {
     },[msg])
 
     async function handleClick(msg) {
-        console.log(chats)
-        console.log(msg.target.id)
+
         const res = await api.get(`/chats/${msg.target.id}`);
         setMsgs(res.data[0])
         setEnviar(msg.target.id)
