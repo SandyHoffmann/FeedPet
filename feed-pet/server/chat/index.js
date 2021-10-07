@@ -6,7 +6,7 @@ let users = []
 io.on("connection", (socket) => {
     // console.log("Usuario conectou: ", 'id: '+ socket.handshake.auth.userId + ' socket:  ' + socket.id);
     users.push({"id":socket.handshake.auth.userId,"socketId":socket.id})
-    // console.log("Lista total = "+JSON.stringify(users))
+    console.log("Lista total = "+JSON.stringify(users))
     socket.on("disconnect", () => {      
         // console.log(socket.id);  
         users = users.filter(usuario => usuario.socketId !== socket.id)   
