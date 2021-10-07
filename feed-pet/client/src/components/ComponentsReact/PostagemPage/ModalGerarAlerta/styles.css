@@ -1,0 +1,48 @@
+#fotoCarousel {
+  width: 25em;
+  height: 30em;
+}
+#carouselAnimaisPessoa {
+  max-height: 30em;
+  max-width: 25em;
+  padding-right: 20px;
+}
+.modalFlex {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+.areaInputs {
+  flex: 2;
+}
+#fotocarousel {
+  flex: 1;
+}
+.formularioInteiro input[type="password"] {
+  letter-spacing: 0.3em;
+}
+
+.formularioInteiro input,
+.formularioInteiro textarea {
+  background: none;
+  color: pink;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  border: none;
+  border-radius: 0;
+  border-bottom: 3px solid pink;
+  border-image: linear-gradient(
+    to right,
+    rgba(255, 107, 222, 1),
+    rgba(191, 122, 221, 1),
+    rgba(154, 52, 255, 1)
+  );
+  border-image-slice: 1;
+}
+
+.formularioInteiro input:active,
+input:focus {
+  border-color: pink !important;
+}
+
