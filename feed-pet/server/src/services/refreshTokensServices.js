@@ -64,6 +64,7 @@ async function loginGoogleUser(token) {
     const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
     const client = new OAuth2Client(CLIENT_ID);
 
+
     try {
         const ticket = await client.verifyIdToken({
             idToken: token,
@@ -79,8 +80,8 @@ async function loginGoogleUser(token) {
                 email: payload.email
             },
             defaults: {
-                name: payload.name,
-                password: randomBytes(16).toString("hex"),
+                nome: payload.name,
+                senha: randomBytes(16).toString("hex"),
                 avatar: payload.picture
             }
         });
