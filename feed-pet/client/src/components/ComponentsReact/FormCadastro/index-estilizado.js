@@ -2,6 +2,7 @@ import React from "react";
 import { api } from "../../../service";
 import { useState, useEffect } from "react";
 import gatokapa from "./gatokapa.jpg";
+import { VerificarErros } from "../../../errorHandling";
 import "./styles.css"
 export function FormCadastroEstilizado(){
     const [nome,setNome] = useState("")
@@ -42,7 +43,9 @@ export function FormCadastroEstilizado(){
             setImagem("")   
             window.location.replace("/login");    
         } catch (error) {
-            console.log(error)
+            let erros = error.response.data
+            console.log(erros)
+            VerificarErros(erros)
         }
     }
 
@@ -54,21 +57,22 @@ export function FormCadastroEstilizado(){
                 <form onSubmit={handleSubmit} className="caixaElemento  cadastroCaixa" enctype="multipart/form-data"> 
                 <h1>Cadastre-se</h1>
                 <br/>
-                <div className="form-group">
+                <div className="form-group nome-err form-err">
                     <label htmlFor="nome">Nome:</label>
                     <input type="text" className="form-cadastro" id="nome" name="nome" aria-describedby="Nome" value={nome} onChange={handleChange} placeholder="Nome"/>
                 </div>
                 <br/>
-                <div className="form-group">
+                <div className="form-group email-err form-err">
                     <label htmlFor="email">Email:</label>
-                    <input type="text" className="form-cadastro" id="email" name="email" aria-describedby="Email" value={email} onChange={handleChange} placeholder="Email"/>
+                    <input type="text" className="form-cadastro" id="email" name="email" aria-describedby="Email" value={email} onChange={handleChange} placeholder="Email" />
                 </div>
                 <br/>
-                <div className="form-group">
+                <div className="form-group senha-err form-err">
                     <label htmlFor="senha">Senha:</label>
-                    <input type="text" className="form-cadastro" id="senha" name="senha" aria-describedby="Senha" value={senha} onChange={handleChange} placeholder="Senha"/>
+                    <input type="text" className="form-cadastro" id="senha" name="senha" aria-describedby="Senha" value={senha} onChange={handleChange} placeholder="Senha" />
                 </div>
-                <input type="file" name="avatar" className="form-cadastro img inputfile" onChange={handleChange}/>
+                <input type="file" name="avatar" className="form-cadastro img inputfile" onChange={handleChange} />
+                <span className="avatar-err form-err"></span>
                 <br/>
                 <button type="submit" className="btn botaoRosa">Enviar</button>
                 </form>   

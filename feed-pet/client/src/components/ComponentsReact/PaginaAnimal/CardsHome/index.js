@@ -14,7 +14,7 @@ export function Cardhometeste(props) {
                     <img src={gif} className="gifNotFoundYet"></img>
                     <h1>Ainda não há postagens!</h1>
                 </div>}
-                 {card.map(card => <CardTesteReact id={card.id} key={card.id} nome={card.nome} raca={card.raca}></CardTesteReact>)}
+                 {card.map(card => <CardTesteReact id={card.id} key={card.id} nome={card.nome} raca={card.raca} imagem = {card.avatar}></CardTesteReact>)}
             </div>
         );
     

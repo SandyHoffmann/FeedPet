@@ -1,16 +1,25 @@
 export function VerificarErros(erros){
     let inputs = document.querySelectorAll('.form-err')
     for (let input of inputs){
-        let pExistentes = input.querySelector('p')
-        if (pExistentes) input.removeChild(pExistentes)
+        let pExistentes = input.querySelectorAll('p')
+        if (pExistentes) {
+            for (let p of pExistentes){
+                input.removeChild(p)
+
+            }
+        }
     }
 
     for (let err of erros.errors){
+        console.log(err.param)
         let elementoAdc = document.querySelector('.'+err.param+'-err')
-        let p = document.createElement("p")
-        p.innerHTML = err.msg
-        p.className = 'err'
-        elementoAdc.appendChild(p)
+        if (elementoAdc){
+            console.log("encontrou")
+            let p = document.createElement("p")
+            p.innerHTML = err.msg
+            p.className = 'err'
+            elementoAdc.appendChild(p)
+        }
     }
 
 }

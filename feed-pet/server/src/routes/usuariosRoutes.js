@@ -8,6 +8,7 @@ const postagensController = require("../controllers/postagensControllers");
 const enderecosController = require("../controllers/enderecosControllers");
 const authentication = require("../middlewares/authMiddleware");
 const upload = require("../middlewares/multer")
+
 const postagemValidations = require("../validations/postagemValidations");
 const cadastroValidations = require("../validations/cadastroValidations");
 
@@ -23,7 +24,7 @@ router.get("/animais/:id", authentication(["usuario", "admin"]),usuariosControll
 
 router.get("/postagens/:id", authentication(["usuario", "admin"]),usuariosController.getAllPostsByUserId);
 // cadastroValidations.post,
-router.post("/", upload.single('avatar'),  usuariosController.create);
+router.post("/", upload.single('avatar'), cadastroValidations.post, usuariosController.create);
 
 router.delete("/:id", authentication(["admin"]),usuariosController.deleteUser);
 
