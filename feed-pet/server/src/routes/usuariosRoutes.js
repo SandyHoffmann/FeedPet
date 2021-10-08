@@ -24,7 +24,7 @@ router.get("/animais/:id", authentication(["usuario", "admin"]),usuariosControll
 
 router.get("/postagens/:id", authentication(["usuario", "admin"]),usuariosController.getAllPostsByUserId);
 // cadastroValidations.post,
-router.post("/", upload.single('avatar'), cadastroValidations.post, usuariosController.create);
+router.post("/", upload.single('avatar'), usuariosController.create);
 
 router.delete("/:id", authentication(["admin"]),usuariosController.deleteUser);
 

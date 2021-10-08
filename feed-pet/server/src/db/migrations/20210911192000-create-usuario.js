@@ -27,6 +27,9 @@ module.exports = {
       avatar: {
               type: Sequelize.STRING
         },
+        keyS3: {
+          type: Sequelize.STRING,    
+        },
       cargo: {
               type:Sequelize.STRING,
               allowNull:false,
