@@ -57,19 +57,20 @@ export class FormAnimal extends React.Component {
         try {
             e.preventDefault();
             const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
-            let formData = new FormData();
-            formData.append("avatar",this.state.avatar);
-            let animalFormado = {nome:this.state.nome,
-                                raca:this.state.raca,
-                                porte:this.state.porte,
-                                cor:this.state.cor,
-                                tipo_animal:this.state.tipo_animal,
-                                status:this.state.status,
-                                sexo:this.state.sexo,
-                                publico:this.state.publico,
-                                avatar:formData}
+            let formData = new FormData(e.target);
+            console.log(formData)
+            
+            // let animalFormado = {nome:this.state.nome,
+            //                     raca:this.state.raca,
+            //                     porte:this.state.porte,
+            //                     cor:this.state.cor,
+            //                     tipo_animal:this.state.tipo_animal,
+            //                     status:this.state.status,
+            //                     sexo:this.state.sexo,
+            //                     publico:this.state.publico,
+            //                     avatar:formData}
             const animal = await api.post(`/usuarios/animais/${token.sub}`, 
-                animalFormado, {
+            formData, {
                     headers: {
                         "Content-Type": `multipart/form-data;boundary=${formData._boundary}`,
                         }
@@ -175,13 +176,13 @@ export class FormAnimal extends React.Component {
                 <input type="file" name="avatar" className="form-cadastro img inputfile" onChange={this.handleChange}/>
                 <br/>
                 <div className="form-check" id="form">
-                    <input className="form-check-input" type="radio" name="publico" id="radiotipo1" value={true} onChange={this.handleChange}/>
+                    <input className="form-check-input" type="radio" name="publico" id="radiotipo1" value={1} onChange={this.handleChange}/>
                     <label className="form-check-label" htmlFor="radiotipo1">
                         Publico
                     </label>
                 </div>
                 <div className="form-check" id="form">
-                    <input className="form-check-input" type="radio" name="publico" id="radiotipo2" value={false} onChange={this.handleChange}/>
+                    <input className="form-check-input" type="radio" name="publico" id="radiotipo2" value={0} onChange={this.handleChange}/>
                     <label className="form-check-label" htmlFor="radiotipo2">
                         Privado
                     </label>

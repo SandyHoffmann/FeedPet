@@ -35,9 +35,8 @@ async function deleteAnimal(req, res, next) {
 async function criarParaUsuario(req, res, next) {
     console.log('aeeeeeeeeeeeee')
     console.log(req.body)
-
     try {        
-        let animal = req.body[1]
+        let animal = req.body
         let avatar = "dogdefault.jpg"
         if (animal.tipo_animal == 'gato'){
             avatar = "catdefault.jpg"

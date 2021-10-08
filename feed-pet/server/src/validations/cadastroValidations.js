@@ -7,6 +7,7 @@ module.exports = {
             .withMessage(`Nome com comprimento Invalido - min: 4, max: 20`),
         body("email")
             .isLength({ min: 10, max: 40 })
+            .withMessage("Comprimento Invalido")
             .isEmail()
             .withMessage("Email Invalido"),
         body("senha")

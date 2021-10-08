@@ -21,8 +21,14 @@ async function createAnimalparaUsuario(id, novoAnimal,avatar) {
     const usuario = await Usuario.findOne({ where: { id:id } });
     if (!usuario) throw createError(404, "Usuário não encontrado!");    
 
-    const { nome, raca, cor, porte, sexo, tipo_animal, status,publico} = novoAnimal;
+    const { nome, cor, porte, sexo, tipo_animal, status,publico} = novoAnimal;
     
+    let raca = novoAnimal.raca
+    if (tipo_animal === 'Cachorro'){
+        raca = raca[0]
+    } else{
+        raca = raca[1]
+    }
     const animal = await Animal.create({
         nome,raca,cor,porte,tipo_animal,status,sexo,publico,avatar
     })
