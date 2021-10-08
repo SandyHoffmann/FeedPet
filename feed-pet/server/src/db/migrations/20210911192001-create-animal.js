@@ -40,7 +40,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       publico: {
-        type:DataTypes.BOOLEAN,
+        type:Sequelize.BOOLEAN,
         allowNull:false
       },
       created_at: {
