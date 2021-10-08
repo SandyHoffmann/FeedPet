@@ -19,7 +19,7 @@ export function Perfilnovo(props) {
         <div className="perfilFlex">
           <div className="panel totalperfil" id="bordaheading">
             <div className="informacoesUsuario">
-              <div className="fotoUsuario">
+              <div className="fotoUsuario ">
                 <a href="#">
                   <img
                     className="media-object mw150"
