@@ -17,16 +17,14 @@ async function getEspecific(id) {
 
 }
 
-async function createAnimalparaUsuario(id, novoAnimal) {
-    console.log(id)
+async function createAnimalparaUsuario(id, novoAnimal,avatar) {
     const usuario = await Usuario.findOne({ where: { id:id } });
-    console.log(usuario)
     if (!usuario) throw createError(404, "Usuário não encontrado!");    
 
-    const { nome, raca, cor, porte, sexo, tipo_animal, status } = novoAnimal;
+    const { nome, raca, cor, porte, sexo, tipo_animal, status,publico} = novoAnimal;
     
     const animal = await Animal.create({
-        nome,raca,cor,porte,tipo_animal,status,sexo
+        nome,raca,cor,porte,tipo_animal,status,sexo,publico,avatar
     })
 
     await usuario.addAnimal(animal);
@@ -34,6 +32,7 @@ async function createAnimalparaUsuario(id, novoAnimal) {
     await Agenda.create({
         id_animal:animal.id
     })
+    console.log(animal)
 
     return animal;
 }

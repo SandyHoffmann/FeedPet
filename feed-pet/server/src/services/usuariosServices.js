@@ -27,17 +27,15 @@ async function deleteUsuario(id) {
       });
 }
 
-async function createUsuario(usuario) {
+async function createUsuario(usuario,avatar) {
     const usuarioJaExiste = await Usuario.findOne({
         where: {
             email: usuario.email
         }
     });
-
     if (usuarioJaExiste) throw new createError(409, "Usuário já existe!");
-    const { nome, email, senha, avatar } = usuario;
-    console.log(avatar)
-    const usuarioCriado =  await Usuario.create({ nome, email, senha, avatar:avatar.originalname });
+    const { nome, email, senha } = usuario;
+    const usuarioCriado =  await Usuario.create({ nome, email, senha, avatar:avatar });
     return usuarioCriado
 }
 

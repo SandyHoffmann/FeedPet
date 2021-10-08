@@ -1,3 +1,4 @@
+const { ExcluirFoto } = require("../middlewares/removeFoto");
 const usuariosServices = require("../services/usuariosServices");
 
 async function deleteUser(req, res, next) {
@@ -43,11 +44,19 @@ async function getAll(req, res, next) {
 async function create(req, res, next) {
     try {
         const usuario = req.body;
-        const novoUsuario = await usuariosServices.createUsuario(usuario);
-        console.log(req.body)
+        let avatar = "default.png"
+        if (req.file?.filename){
+            console.log("qaaaaaaaaaaaa")
+            avatar = req.file.filename
+        }
+        
+        const novoUsuario = await usuariosServices.createUsuario(usuario,avatar);
         res.status(201).json(novoUsuario);
     } catch (err) {
         console.log(err.message);
+        if (req.file?.filename){
+            ExcluirFoto(req.file?.filename)
+        }
         next(err);
     }
 }
