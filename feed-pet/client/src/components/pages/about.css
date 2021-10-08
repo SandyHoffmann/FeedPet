@@ -1,5 +1,59 @@
+.equipe {        
+    background-color: green;
+    position: relative;    
+    height: 100%;    
+}
+
+.membro {
+    position: fixed;
+    align-self: flex-start;
+    width: 50%;
+    height: 100%;   
+}
+
+.dordecabeça {
+    width: 100%;
+    height: 100%;
+}
 
 .equipe1 {
     width: 100%;
-    height: 500px;
+    height: 100%;
+    padding-top: 105px;
+}
+
+.geral {
+    height: 100%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 5px solid purple;
+}
+ 
+
+
+
+.divteste {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    width: 100%;
+    height: 100%;
+    background-color:#f5ecdc;
+}
+
+.texto{
+    display: flex;
+    background-color: lightgoldenrodyellow;
+    align-self: flex-end;
+    height: 50%;
+    width: 30%;
+    margin-right: 110px;
+    margin-top: 150px;
+
+}
+.divteste1 {
+    width: 100%;
+    height: 100%;
+    align-content: right;
+    background-color: yellow;
 }

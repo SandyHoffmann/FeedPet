@@ -2,6 +2,6 @@
   background-color: #f5ecdc;
   background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png%22");
   padding-top: 0.5%;
-
-
+  display: flex;
+  flex-direction: column;
 }
