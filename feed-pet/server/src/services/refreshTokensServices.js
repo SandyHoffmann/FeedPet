@@ -1,10 +1,24 @@
-// const { OAuth2Client } = require('google-auth-library');
-// const { randomBytes } = require("crypto");
+const { OAuth2Client } = require('google-auth-library');
+const { randomBytes } = require("crypto");
 const createHttpError = require("http-errors");
 const jwt = require("jsonwebtoken");
 const ms = require("ms");
 const { Usuario, RefreshToken } = require("../models"); 
 require("dotenv").config();
+
+async function verifyTokenGoogle(googleToken) {
+    const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+    const client = new OAuth2Client(CLIENT_ID);
+
+
+        const ticket = await client.verifyIdToken({
+            idToken: googleToken,
+            audience: CLIENT_ID,
+        });
+
+        return ticket.getPayload(); 
+   
+}
 
 async function criarRefreshToken(sub, cargo) {
     const refreshTokenExpiration = Date.now() + ms(process.env.REFRESH_TOKEN_EXPIRATION);    
@@ -46,40 +60,41 @@ function criarAccessToken(sub, cargo) {
     return token;
 }
 
-// async function loginGoogle(token) {
-//     const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-//     const client = new OAuth2Client(CLIENT_ID);
+async function loginGoogleUser(token) {
+    const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+    const client = new OAuth2Client(CLIENT_ID);
 
-//     try {
-//         const ticket = await client.verifyIdToken({
-//             idToken: token,
-//             audience: CLIENT_ID,
-//         });
+
+    try {
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: CLIENT_ID,
+        });
     
-//         const payload = ticket.getPayload();      
+        const payload = ticket.getPayload();      
         
-//         console.log(payload);
+        console.log(payload);
 
-//         const [ user ] = await User.findOrCreate({
-//             where: {
-//                 email: payload.email
-//             },
-//             defaults: {
-//                 name: payload.name,
-//                 password: randomBytes(16).toString("hex"),
-//                 avatar: payload.picture
-//             }
-//         });
+        const [ user ] = await Usuario.findOrCreate({
+            where: {
+                email: payload.email
+            },
+            defaults: {
+                nome: payload.name,
+                senha: randomBytes(16).toString("hex"),
+                avatar: payload.picture
+            }
+        });
 
-//         const accessToken = await criarAccessToken(user.id);
-//         const refreshToken = await criarRefreshToken(user.id);
+        const accessToken = criarAccessToken(user.id);
+        const refreshToken = await criarRefreshToken(user.id);
 
-//         return { accessToken, refreshToken };
-//     } catch (err) {
-//         console.log(err);
-//         throw new createHttpError(401, "Invalid Google Token");
-//     }   
-// }
+        return { accessToken, refreshToken };
+    } catch (err) {
+        console.log(err);
+        throw new createHttpError(401, "Invalid Google Token");
+    }   
+}
 
 async function loginUserCredentials(userCredeentials) {
     const { email, password } = userCredeentials;
@@ -122,8 +137,9 @@ async function refreshTokens(refreshToken) {
 }
 
 module.exports = {
-    // loginGoogle,
+    loginGoogleUser,
     loginUserCredentials,
     refreshTokens,
-    criarRefreshToken
+    criarRefreshToken,
+    verifyTokenGoogle
 };

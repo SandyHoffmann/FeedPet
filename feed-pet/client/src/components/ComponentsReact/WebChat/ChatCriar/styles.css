@@ -1,0 +1,29 @@
+.chat__email__box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat__email__input{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+
+}
+
+.chat__email__box__inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat__email__box__inputs input{
+    margin: 5%;
+}
+
+.basic-multi-select{
+    width: 90%;
+}

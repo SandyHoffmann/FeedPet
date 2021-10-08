@@ -3,8 +3,9 @@ const { QueryTypes } = require("sequelize");
 const { Chat, Usuario, Mensagem, sequelize } = require("../models");
 
 async function addChat(id_usuario, parametros) {
+    console.log(parametros)
     const { nome, descricao, usuarios } = parametros
-
+    console.log(id_usuario)
     usuarios.push(id_usuario)
 
     let usuariosChat = await Usuario.findAll({ where: { id: usuarios } })
@@ -15,7 +16,15 @@ async function addChat(id_usuario, parametros) {
 
     await chat.addUsuario(usuariosChat)
 
-    return chat
+    const chatFinal = await Chat.findOne({where:{
+                                            id: chat.id
+                                            },
+                                            include: {
+                                                model: Usuario,
+                                                as: 'usuario'
+                                            }
+                                        })
+    return chatFinal
 }
 
 async function addMensagem(id_usuario, id_chat, mensagem) {
@@ -36,10 +45,10 @@ async function addMensagem(id_usuario, id_chat, mensagem) {
 }
 
 async function findMessages(id_chat) {
-    let chat = await Chat.findOne({ where: { id: id_chat } })
+    let chat = await Chat.findOne({ where: { id: id_chat } ,include:"usuario"})
     if (!chat) throw createError(404, "Chat não encontrado!");
     let mensagens = await Mensagem.findAll({ where: { id_chat } })
-    return mensagens
+    return [mensagens,chat]
 }
 
 async function findChats(id_usuario) {
@@ -56,13 +65,15 @@ async function findChats(id_usuario) {
         chats
     ON
         chats.id = chat_usuarios.id_chat
-    WHERE usuarios.id = '${id_usuario}';
+    WHERE 
+        usuarios.id = '${id_usuario}'
+    ;
     `,{
         replacements: [id_usuario],
         type:QueryTypes.SELECT
     })
     console.log(chat.map(chats => {chats.id}))
-    chatsDoUsuario = Chat.findAll({where:{
+    chatsDoUsuario = await Chat.findAll({where:{
                                         id: chat.map(chats => chats.id_chat)
                                     },
                                     include: {
@@ -70,8 +81,15 @@ async function findChats(id_usuario) {
                                         as: 'usuario'
                                     }
                                 })
+    const mensagens = []
+    let msg = ""
+    for (let chat of chatsDoUsuario){
+        msg = await chat.getMensagems()
+        console.log(msg[msg.length -1])
+        mensagens.push(msg[msg.length -1])
+    }
 
-    return chatsDoUsuario;
+    return [chatsDoUsuario,mensagens];
 }
 
 module.exports = {

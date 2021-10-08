@@ -12,18 +12,18 @@ async function login(req, res, next) {
     }
 }
 
-// async function loginGoogle(req, res, next) {
-//     try {
-//         const { googleToken } = req.body;
+async function loginGoogle(req, res, next) {
+    try {
+        const { googleToken } = req.body;        
 
-//         const tokens = await refreshTokensServices.loginGoogle(googleToken);        
+        const tokens = await refreshTokensServices.loginGoogleUser(googleToken);
 
-//         res.json(tokens);
-//     } catch (error) {
-//         console.log(error);
-//         next(error);
-//     }
-// }
+        res.json(tokens);
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
 
 async function refresh(req, res, next) {
     try {
@@ -40,6 +40,6 @@ async function refresh(req, res, next) {
 
 module.exports = {
     login,
-    // loginGoogle,
+    loginGoogle,
     refresh
 }

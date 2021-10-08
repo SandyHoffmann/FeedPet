@@ -24,6 +24,9 @@ module.exports = {
                 this.setDataValue("senha", bcrypt.hashSync(senha, 10));
               }
           },
+      avatar: {
+              type: Sequelize.STRING
+        },
       cargo: {
               type:Sequelize.STRING,
               allowNull:false,

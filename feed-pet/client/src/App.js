@@ -21,6 +21,8 @@ import { TestePerfilUsuario } from './components/TestePerfilUsuario';
 import { CaixaComentarios } from './components/CaixaComentarios';
 import { FiltragemHome } from './components/ComponentsReact/Home/Tabela';
 import { CaixaMensagem } from './components/CaixaMesagem';
+import {ChatBot} from './components/ChatBot';
+import {sideBarLateral} from './components/SideBarLateral';
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Login } from './components/LoginRegister/Login';
@@ -80,6 +82,8 @@ function App() {
 			<Router>
 				<Menu />
 				<Switch>
+					<Route path ="/sideBarLateral" component= {sideBarLateral}/>
+					<Route path ="/ChatBot" component={ChatBot}/>
 					<Route path="/caixa-mensagem" component={CaixaMensagem} />
 					<Route path='/teste' component={About}>
 					</Route>
@@ -90,9 +94,7 @@ function App() {
 						<FiltragemHome />
 						{/* <MediaCard/> */}
 					</Route>
-					<Route path='/login'>
-						<FormLoginEstilizado />
-					</Route>
+					
 					<Route path='/cadastro'>
 						<FormCadastroEstilizado />
 					</Route>
@@ -107,8 +109,8 @@ function App() {
 						<PaginaAnimal />
 					</Route>
 					<Route path='/animais'>
-						{/* <CorpoPaginaAdicionarAnimal/> */}
-						<Perfilnovo/>
+						<CorpoPaginaAdicionarAnimal/>
+						{/* <Perfilnovo/> */}
 					</Route>
 					<Route path='/editar-perfil'>
 						<TestePerfilUsuario />
@@ -119,9 +121,12 @@ function App() {
 					<Route path='/logoff' component={logoff}>
 					</Route>
 					{/* <Route path="*" component={NotFound} />*/}
-				</Switch>
+					<Route path='/login'>
+						<FormLoginEstilizado />
+					</Route>
+					</Switch>
+				<Footer />
 			</Router>
-			<Footer />
 		</Body>
 	);
 }

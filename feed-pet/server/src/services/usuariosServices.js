@@ -1,9 +1,21 @@
 const createError = require("http-errors");
 const { Usuario,Postagem, } = require("../models");
+const { Op } = require("sequelize");
 
 async function getUsuarios() {    
     return await Usuario.findAll();    
 }
+
+
+async function getUsuariosSemUsuarioLogado(usuario_logado) {    
+    return await Usuario.findAll(
+        {where:{
+            [Op.not]:{id:[usuario_logado]}
+        }
+    }
+    );    
+}
+
 async function getUsuario(id) {
     return await Usuario.findOne({
         where:{id:id}
@@ -15,16 +27,15 @@ async function deleteUsuario(id) {
       });
 }
 
-async function createUsuario(usuario) {
+async function createUsuario(usuario,avatar) {
     const usuarioJaExiste = await Usuario.findOne({
         where: {
             email: usuario.email
         }
     });
-
     if (usuarioJaExiste) throw new createError(409, "Usuário já existe!");
-
-    const usuarioCriado =  await Usuario.create(usuario);
+    const { nome, email, senha } = usuario;
+    const usuarioCriado =  await Usuario.create({ nome, email, senha, avatar:avatar });
     return usuarioCriado
 }
 
@@ -49,5 +60,6 @@ module.exports = {
     acharAnimaisUsuario,
     acharPostagensUsuario,
     deleteUsuario,
-    getUsuario
+    getUsuario,
+    getUsuariosSemUsuarioLogado
 }

@@ -5,6 +5,8 @@ import {id,secret} from '../../../../varAmbiente'
 import { Form } from 'react-bootstrap';
 import "./styles.css"
 import { Link } from "react-router-dom";
+import povdogrunning from "../../../../assets/gifgato.gif";
+import GoogleLogin from 'react-google-login';
 
 const jwt = require('jsonwebtoken');
 
@@ -12,6 +14,34 @@ const initialState = {
     email:"",
     senha:""
 }
+
+const responseGoogle = async (response) => {
+    console.log(response);
+    const googleToken = response.tokenId;
+
+    try {
+        const res = await fetch("http://localhost:3000/auth/login-google", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ googleToken })
+        });
+
+
+        if (res.ok) {
+            const { accessToken, refreshToken } = await res.json();
+
+            localStorage.setItem("access-token", accessToken);
+            localStorage.setItem("refresh-token", refreshToken);
+            
+        } else {
+            alert("Aconteceu algum erro ao fazer o login");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+  }
 
 export class FormLoginEstilizado extends React.Component {
     constructor(props) {
@@ -22,7 +52,16 @@ export class FormLoginEstilizado extends React.Component {
         };
     }
 
-    
+    async componentDidMount() {
+        let menu = document.querySelectorAll(".navbar")
+        let footer = document.querySelectorAll('.footer')
+        let body = document.querySelectorAll('.body')
+
+        menu[0].className += " menuLogin"
+        footer[0].className += " footerLogin"
+        body[0].className += " homeLogin"
+    }
+
     handleChange = e => {
         const value = e.target.value;
         const nome = e.target.name;
@@ -49,31 +88,45 @@ export class FormLoginEstilizado extends React.Component {
 
         return (
             <>
+        <div className="grandecaixa">
+            <div className="caixaimagem"><img src={povdogrunning} className="bluhrit"></img></div>
             <div className="container caixa">
                 <form onSubmit={this.handleSubmit} className="caixaElemento">
                 <h1>Login</h1>
                 <div className="form-group">
                     <br/>
                     <label htmlFor="email">Email:</label>
-                    <input type="text" className="form-control" id="email" name="email" aria-describedby="Email" value={this.state.email} onChange={this.handleChange} placeholder="Email"/>
+                    <input type="text" id="email" name="email" aria-describedby="Email" value={this.state.email} onChange={this.handleChange} placeholder="Email"/>
                 </div>
                 <br/>
 
                 <div className="form-group">
                     <label htmlFor="senha">Nome:</label>
-                    <input type="text" className="form-control" id="senha" name="senha" aria-describedby="Senha" value={this.state.senha} onChange={this.handleChange} placeholder="Senha"/>
+                    <input type="text" id="senha" name="senha" aria-describedby="Senha" value={this.state.senha} onChange={this.handleChange} placeholder="Senha"/>
                 </div>
                 <br/>
-
-                <button type="submit" className="btn btn-primary">Enviar</button>
+                <div className="linksForm">
+                    <button type="submit" className="btn botaoRosa">Enviar</button>
+                    <GoogleLogin
+                        clientId="735612450237-p38rp9eb8og9btudna89bl3c4k2pnag7.apps.googleusercontent.com"
+                        render={renderProps => (
+                            <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Login Google</button>
+                        )}
+                        buttonText="Login"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                    />
+                    <Link to="/cadastro">Cadastre-se</Link>
+                </div>
                 </form> 
                 <br/>
-                <Link to="/cadastro" className="caixaElemento">Cadastre-se</Link>
+                
 
                 </div>
-
+            </div>
             </>
-
+        
         );
     }
 }

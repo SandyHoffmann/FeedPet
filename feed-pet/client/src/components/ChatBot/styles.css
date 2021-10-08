@@ -1,16 +1,17 @@
 body {
-    background-color: #eee
+    background-color: #eee;
+    
 }
 
 .chat-btn {
     position: absolute;
     right: 14px;
     bottom: 30px;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .chat-btn .close {
-    display: none
+    display: none;
 }
 
 .chat-btn i {
@@ -20,16 +21,16 @@ body {
 #check:checked~.chat-btn i {
     display: block;
     pointer-events: auto;
-    transform: rotate(180deg)
+    transform: rotate(180deg);
 }
 
 #check:checked~.chat-btn .comment {
-    display: none
+    display: none;
 }
 
 .chat-btn i {
     font-size: 22px;
-    color: #fff !important
+    color: #fff; 
 }
 
 .chat-btn {
@@ -39,21 +40,25 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 50px;
-    background-color: blue;
+  background-color:#8fc424; 
+    
     color: #fff;
     font-size: 22px;
-    border: none
+    border: none;
+   
 }
 
 .wrapper {
     position: absolute;
     right: 20px;
     bottom: 100px;
-    width: 300px;
+    width: 350px;
     background-color: #fff;
     border-radius: 5px;
     opacity: 0;
-    transition: all 0.4s
+    transition: all 0.4s;
+    border: 3px solid;
+    border-color:#ff4880 ;
 }
 
 #check:checked~.wrapper {
@@ -62,38 +67,45 @@ body {
 
 .header {
     padding: 13px;
-    background-color: blue;
+     background-color:#8fc424 ; 
+
     border-radius: 5px 5px 0px 0px;
     margin-bottom: 10px;
-    color: #fff
+    color: #fff;
 }
 
 .chat-form {
-    padding: 15px
+    padding: 15px;
 }
-
+.chat-form h5 {
+    font-size: 15px;
+}
 .chat-form input,
 textarea,
 button {
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 
-.chat-form textarea {
-    resize: none
-}
 
-.form-control:focus,
-.btn:focus {
-    box-shadow: none
-}
 
-.btn,
-.btn:focus,
-.btn:hover {
-    background-color: blue;
-    border: blue
+ .btn1,
+.btn1:focus,
+.btn1:hover {
+    background-color:#8fc424;
+    border: #8fc424;
 }
 
 #check {
-    display: none !important
+    display: none; 
+}
+.escondido{
+    opacity: 0;
+    display: none;
+}
+.visivel{
+    opacity: 1;
+    display: block;
+}
+.iconeAjuda{
+    color: white;
 }

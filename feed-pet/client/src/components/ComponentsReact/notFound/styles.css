@@ -1,0 +1,11 @@
+.corpoNotFound{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 5%;
+    font-weight: bolder;
+}
+
+.corpoNotFound img{
+    width: 100%;
+}

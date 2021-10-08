@@ -33,13 +33,22 @@ async function deleteAnimal(req, res, next) {
 }
 
 async function criarParaUsuario(req, res, next) {
-    console.log(res.locals)
+    console.log('aeeeeeeeeeeeee')
+    console.log(req.body)
     try {        
-        const animais = await animaisServices.createAnimalparaUsuario(res.locals.userId, req.body)
+        let animal = req.body
+        let avatar = "dogdefault.jpg"
+        if (animal.tipo_animal == 'gato'){
+            avatar = "catdefault.jpg"
+        }
+        if (req.file?.filename){
+            avatar = req.file.filename
+        }
+        const animais = await animaisServices.createAnimalparaUsuario(res.locals.userId, animal,avatar)
 
         res.status(201).json(animais);
     } catch (err) {
-        console.log(err);
+
         next(err);
     }
 }

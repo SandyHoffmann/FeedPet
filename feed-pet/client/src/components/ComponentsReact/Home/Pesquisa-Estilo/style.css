@@ -4,22 +4,104 @@
     width: 100%;
     padding: 1%;
 }
+.caixaPesquisa{
+    padding: 5%;
+}
+.filtros select{
+    background-color: rgb(255, 249, 238);
+
+}
+
+.form-personalizado{
+    background-color: transparent !important;
+    border-left: 3px !important;
+    border-right: 3px !important;
+    border-color: white !important;
+    color: white !important;
+    text-align: center;
+    font-weight: bold !important;
+}
+
+.form-personalizado:focus{
+    background-color: white !important;
+    color: black !important;
+
+}
+
+.select{
+    align-self: flex-end;
+    flex: auto;
+    text-align: center;
+
+}
+
+.select:first-child{
+    margin-right: 5%;
+}
+
+.barra-pesquisa__opcoes{
+    display: flex;
+    flex-direction: column;
+}
+
+.filtros_footer{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+
+.filtros select:hover{
+    background-color: rgb(255, 238, 251);
+}
+
+
+.filtros select:focus{
+    -webkit-box-shadow: 0px 0px 15px 5px #60ff83; 
+    box-shadow: 0px 0px 15px 5px #60ff83;
+}
+
+
+
+.filtros option{
+    background-color: rgb(255, 211, 244);
+}
+
+
+
+.filtros option:hover{
+    background-color: pink !important;
+    box-shadow: 0 0 10px 100px #ffddfd inset;
+}
+
 .hidden{
     display: none;
     opacity: 0;
+    border: 0;
 }
 .barra-pesquisa{
-    height: 300px;
-    padding: 5%;
     width: 100%;
-    background: linear-gradient(0, #ff719b, #ff91b2 );
+    background: linear-gradient(0,rgb(255, 148, 214), #ff91b2  );
     /* #ff4880, #ff91b2 */
 }
 .filtros{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     flex-wrap: wrap;
+    padding:0% 5% 0% 5%;
+
+}
+.filtros .radiooptions:first-child{
+    border-right: 1px solid white;
+}
+.filtros .radiooptions{
+    flex-grow: 1;
+    margin-bottom: 2%;
+}
+
+.cor{
+    flex-grow: 1;
+
 }
 
 .logo{
@@ -28,6 +110,122 @@
     top: 66px;
 }
 
+.radiooptions{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+.radiooptions:after{
+    content: "";
+    clear: both;
+}
+
+.radiooptions .form-check{
+    border: 1px solid #ccc;
+    border-radius: 100%;
+    height: 7vh;
+    position: relative;
+    width: 7vh;
+}
+
+.radiooptions .form-check{
+    border: 1px solid #ccc;
+    border-radius: 100%;
+    float: left;
+    height: 8vh;
+    position: relative;
+    width: 8vh;
+}
+
+.radiooptions .form-check label{
+    background: #fff no-repeat center center;
+    bottom: 1px;
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    left: 1px;
+    position: absolute;
+    right: 1px;
+    top: -1px;
+    white-space: nowrap;
+    border-radius: 100%;
+
+}
+
+.radiooptions .form-check input{
+    opacity: 0;
+}
+
+
+.radiooptions input:checked + label{
+    -webkit-box-shadow: 0px 0px 15px 5px #ffffff; 
+    box-shadow: 0px 0px 15px 5px #ffffff;
+    background: #8FC424 no-repeat center center;
+}
+
+.radiooptions .naoinput:checked + label{
+    background-image: url('../../../../assets/dog-seating-ativo.png');
+    background-size: 5vh;
+}
+
+.radiooptions .siminput:checked + label{
+    background-image: url('../../../../assets/dog-with-belt-walking-with-a-man-ativo.png');
+    background-size: 5vh;
+}
+
+.radiooptions .doginput:checked + label{
+    background-image: url('../../../../assets/dog-ativo.png');
+    background-size: 5vh;
+}
+
+.radiooptions .catinput:checked + label{
+    background-image: url('../../../../assets/cat-ativo.png');
+    background-size: 5vh;
+}
+.conjunto{
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+
+}
+
+
+@media only screen and (max-width: 850px) {
+    .corpoAnimal{
+        flex-wrap: wrap;
+
+    }
+    .MuiPaper-root{
+        width: 50% !important;
+    }
+}
+.radiooptions .gato label{
+    background-image: url('../../../../assets/cat.png');
+    background-size: 5vh;
+}
+.radiooptions .cachorro label{
+    background-image: url('../../../../assets/dog.png');
+    background-size: 6vh;
+}
+.radiooptions .sim label{
+    background-image: url('../../../../assets/dog-with-belt-walking-with-a-man.png');
+    background-size: 5vh;
+
+}
+.radiooptions .nao label{
+    background-image: url('../../../../assets/dog-seating.png');
+    background-size: 5vh;
+}
+
+
+.form-check{
+    padding-left: 3em;
+}
 .stars{
     position: relative;
     width: 3px;

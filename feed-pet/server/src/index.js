@@ -17,6 +17,7 @@ const enderecosRoutes = require("./routes/enderecoRoutes");
 const agendasRoutes = require("./routes/agendasRoutes");
 const authRoutes = require("./routes/authRoutes");
 const chatsRoutes = require("./routes/chatsRoutes");
+const alertasRoutes = require("./routes/alertasRoutes");
 
 const PORT = process.env.PORT || 3000;
 
@@ -33,6 +34,7 @@ app.use("/enderecos", enderecosRoutes);
 app.use("/agendas", agendasRoutes);
 app.use("/auth", authRoutes);
 app.use("/chats", chatsRoutes);
+app.use("/alertas", alertasRoutes);
 
 
 

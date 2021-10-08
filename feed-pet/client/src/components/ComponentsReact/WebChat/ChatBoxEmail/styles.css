@@ -1,0 +1,12 @@
+.msg__email{
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    border: 1px solid black;
+    width: 80%;
+    justify-self: center;
+}
+.msg__email p{
+    display: inline;
+    margin: 0px;
+}

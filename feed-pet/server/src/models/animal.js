@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         }
         })
         this.hasOne(models.Agenda, { foreignKey: "id_animal", as: "agenda" });
-
+        this.hasOne(models.Alerta, { foreignKey: "id_animal", as: "alerta" });
     }
   };
   Animal.init({
@@ -55,6 +55,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     status: {
       type:DataTypes.STRING,
+      allowNull:false
+    },
+    avatar: {
+      type: DataTypes.STRING
+    },
+    publico: {
+      type:DataTypes.BOOLEAN,
       allowNull:false
     }
   }, {

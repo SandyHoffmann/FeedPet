@@ -8,11 +8,13 @@ const jwt = require('jsonwebtoken');
 const initialState = {
     nome:"",
     raca:"",
-    porte:"",
+    porte:"Médio",
     cor:"Branco",
     tipo_animal:"",
     status:"",
-    sexo:""
+    sexo:"",
+    avatar:"",
+    publico:true
 }
 
 export class FormAnimal extends React.Component {
@@ -21,11 +23,13 @@ export class FormAnimal extends React.Component {
         this.state = {
             nome:"",
             raca:"",
-            porte:"",
+            porte:"Médio",
             cor:"Branco",
             tipo_animal:"",
             status:"",
-            sexo:""
+            sexo:"",
+            avatar:"",
+            publico:true
         };
     }
 
@@ -53,21 +57,30 @@ export class FormAnimal extends React.Component {
         try {
             e.preventDefault();
             const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
-            const animal = await api.post(`/usuarios/animais/${token.sub}`,
-                {"nome":this.state.nome,
-                    "cor": this.state.cor,
-                    "porte":"grande",
-                    "status": this.state.status,
-                    "tipo_animal":this.state.tipo_animal,
-                    "raca": this.state.raca,
-                    "sexo":this.state.sexo
-                }
-            )
+            let formData = new FormData(e.target);
+            console.log(formData)
+            
+            // let animalFormado = {nome:this.state.nome,
+            //                     raca:this.state.raca,
+            //                     porte:this.state.porte,
+            //                     cor:this.state.cor,
+            //                     tipo_animal:this.state.tipo_animal,
+            //                     status:this.state.status,
+            //                     sexo:this.state.sexo,
+            //                     publico:this.state.publico,
+            //                     avatar:formData}
+            const animal = await api.post(`/usuarios/animais/${token.sub}`, 
+            formData, {
+                    headers: {
+                        "Content-Type": `multipart/form-data;boundary=${formData._boundary}`,
+                        }
+                });
+            console.log(animal.data)
             this.props.setarCard(animal.data)
             this.setState({...initialState})
             this.props.fecharForm()
         } catch (error) {
-            console.log(this.state)
+            console.log(error)
         }
     }
 
@@ -122,7 +135,14 @@ export class FormAnimal extends React.Component {
                         Gato
                     </label>
                 </div>
-                
+                <div className="form-group" className="Porte">
+                    <label htmlFor="porte">Selecione o Porte</label>
+                    <select className="form-control" id="porte" name="porte" onChange={this.handleChange} value={this.state.porte}>
+                        <option>Médio</option>
+                        <option>Grande</option>
+                        <option>Pequeno</option>
+                    </select>
+                </div>          
                 <div className="form-group" className={this.state.tipo_animal=="Cachorro" || "hidden"}>
                     <label htmlFor="raca">Selecione a Raça</label>
                     <select className="form-control" id="raca" name="raca" onChange={this.handleChange} value={this.state.raca}>
@@ -153,6 +173,20 @@ export class FormAnimal extends React.Component {
                         <option>Caramelo</option>
                     </select>
                 </div>          
+                <input type="file" name="avatar" className="form-cadastro img inputfile" onChange={this.handleChange}/>
+                <br/>
+                <div className="form-check" id="form">
+                    <input className="form-check-input" type="radio" name="publico" id="radiotipo1" value={1} onChange={this.handleChange}/>
+                    <label className="form-check-label" htmlFor="radiotipo1">
+                        Publico
+                    </label>
+                </div>
+                <div className="form-check" id="form">
+                    <input className="form-check-input" type="radio" name="publico" id="radiotipo2" value={0} onChange={this.handleChange}/>
+                    <label className="form-check-label" htmlFor="radiotipo2">
+                        Privado
+                    </label>
+                </div>
                 <button type="submit" className="btn btn-primary">Enviar</button>
                 </form>            
             </>
