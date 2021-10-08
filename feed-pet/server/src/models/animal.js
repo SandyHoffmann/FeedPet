@@ -60,6 +60,9 @@ module.exports = (sequelize, DataTypes) => {
     avatar: {
       type: DataTypes.STRING
     },
+    keyS3: {
+      type: DataTypes.STRING,    
+    },
     publico: {
       type:DataTypes.BOOLEAN,
       allowNull:false
@@ -67,7 +70,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Animal',
-    tableName: 'animais'
+    tableName: 'animais',
+    // hooks: {
+    //   beforeDestroy: async (animal) => {
+
+    //   }
+    // }
   });
   return Animal;
 };
