@@ -81,8 +81,10 @@ async function loginGoogleUser(token) {
             },
             defaults: {
                 nome: payload.name,
+                email: payload.email,
                 senha: randomBytes(16).toString("hex"),
-                avatar: payload.picture
+                avatar: payload.picture,
+                cargo: "usuario"
             }
         });
 
