@@ -18,7 +18,7 @@ const initialState = {
 const responseGoogle = async (response) => {
     console.log(response);
     const googleToken = response.tokenId;
-
+    
     try {
         const res = await fetch("http://localhost:3000/auth/login-google", {
             method: "POST",
@@ -35,6 +35,7 @@ const responseGoogle = async (response) => {
             localStorage.setItem("access-token", accessToken);
             localStorage.setItem("refresh-token", refreshToken);
             
+            window.location.replace("/")
         } else {
             alert("Aconteceu algum erro ao fazer o login");
         }

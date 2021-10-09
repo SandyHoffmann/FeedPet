@@ -20,6 +20,11 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       },
+      concluido: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      },
       id_animal: {
         type: Sequelize.UUID,
         allowNull:false,
