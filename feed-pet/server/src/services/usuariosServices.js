@@ -39,6 +39,15 @@ async function createUsuario(usuario,avatar) {
     return usuarioCriado
 }
 
+async function editarUsuario(id, usuario) {
+    const usuarioExiste = await Usuario.findOne({ where: { id:id } });
+    if (!usuarioExiste) throw createError(404, "Usuário não encontrado!");
+    usuarioExiste.senha = usuario.senha
+    usuarioExiste.nome = usuario.nome
+    usuarioExiste.telefone = usuario.telefone
+    await usuarioExiste.save();
+}
+
 async function acharAnimaisUsuario(id) {
     const usuario = await Usuario.findOne({ where: { id:id } });
     if (!usuario) throw createError(404, "Usuário não encontrado!");
@@ -61,5 +70,6 @@ module.exports = {
     acharPostagensUsuario,
     deleteUsuario,
     getUsuario,
-    getUsuariosSemUsuarioLogado
+    getUsuariosSemUsuarioLogado,
+    editarUsuario
 }
