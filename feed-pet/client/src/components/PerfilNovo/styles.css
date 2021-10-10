@@ -15,6 +15,7 @@ body {
   flex-direction: column;
   flex: 1;
 justify-content: center;
+
 }
 #bordaheading {
   flex: 1;
@@ -44,6 +45,14 @@ justify-content: center;
 #texto-sobre {
   font-weight: 700;
   color: #555555;
+/* <<<<<<< Michelle
+=======
+  width: 50%;
+  padding-left: 2em;
+}
+.fotoUsuario{
+  /* align-self: center; */
+  padding-left: 2em;
 }
 .totalperfil{
   display: flex;

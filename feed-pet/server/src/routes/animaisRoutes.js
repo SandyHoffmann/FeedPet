@@ -10,6 +10,7 @@ router.get("/", authentication(["usuario", "admin"]), animaisController.getAll);
 router.get("/geral/:id", authentication(["usuario", "admin"]), animaisController.getEspecific);
 router.get("/:id", authentication(["usuario", "admin"]), animaisController.getAllByAnimalId);
 router.delete("/:id", authentication(["usuario", "admin"]), animaisController.deleteAnimal);
+router.put("/:id", authentication(["usuario", "admin"]), animaisController.editAnimal);
 
 module.exports = router;
 

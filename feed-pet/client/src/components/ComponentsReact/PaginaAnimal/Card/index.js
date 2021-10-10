@@ -38,7 +38,7 @@ export function CardTesteReact(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={img}
+          image={props.imagem}
           title={props.nome}
         />
         <CardContent>

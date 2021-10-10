@@ -1,5 +1,5 @@
 import "./stylesprincipal.css"
-import { SideBarLateralDireita } from "./sideBarLateralDireita"
+
 import {Cards} from "./cards"
 export function sideBarLateral() {
     return (
@@ -7,7 +7,7 @@ export function sideBarLateral() {
             <Cards/>
             <Cards/>
             <Cards/>
-            <SideBarLateralDireita />
+            
            
             
 

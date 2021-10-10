@@ -1,7 +1,30 @@
 .CardPrincipal{
-    width: 250px;
+    width: 150px;
     margin-top: 20px;
+    margin-left: 5px;
+    margin-bottom: 20px;
     
 }
 .Texto{
-    font-size: 10px;}
+    font-size: 8px;
+}
+.imagemCard{
+    width: 80px;
+    height: 80px;
+ 
+}
+.titulo{
+
+   font-size: 13px; 
+}
+.iconeLike{
+    background-color: #ff4880;
+    border-radius: 4px;
+    text-align: left;
+    padding-left: 5px;
+}
+.iconeLike .numeroLike{
+   color: white;
+    float: right;
+    margin-right: 50px;
+}

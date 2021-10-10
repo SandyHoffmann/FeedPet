@@ -10,7 +10,7 @@ const { Usuario } = require("./src/models");
 
         console.log(`Admin com o email: ${email} e senha: ${senha} foi criado`);
     } catch (error) {
-        console.log("Unable to create admin user");
+        console.log("Unable to cresate admin user");
         console.log(error);
     }
 })();

@@ -32,19 +32,31 @@ async function deleteAnimal(req, res, next) {
     }
 }
 
+async function editAnimal(req, res, next) {
+    try {
+        const animalEditado = await animaisServices.editarAnimal(req.params.id, req.body);
+        res.json(animalEditado);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
 async function criarParaUsuario(req, res, next) {
-    console.log('aeeeeeeeeeeeee')
     console.log(req.body)
     try {        
         let animal = req.body
-        let avatar = "dogdefault.jpg"
-        if (animal.tipo_animal == 'gato'){
-            avatar = "catdefault.jpg"
+        let avatar = "https://feedpet.s3.amazonaws.com/dogdefault.jpg"
+        if (animal.tipo_animal == 'Gato'){
+            avatar = "https://feedpet.s3.amazonaws.com/catdefault.jpg"
         }
-        if (req.file?.filename){
-            avatar = req.file.filename
+        let key
+        console.log(req.file)
+        if (req.file){
+            avatar = req.file.location
+            key = req.file.key
         }
-        const animais = await animaisServices.createAnimalparaUsuario(res.locals.userId, animal,avatar)
+        const animais = await animaisServices.createAnimalparaUsuario(res.locals.userId, animal,avatar,key)
 
         res.status(201).json(animais);
     } catch (err) {
@@ -68,5 +80,6 @@ module.exports = {
     criarParaUsuario,
     getAllByAnimalId,
     deleteAnimal,
-    getEspecific
+    getEspecific,
+    editAnimal
 }

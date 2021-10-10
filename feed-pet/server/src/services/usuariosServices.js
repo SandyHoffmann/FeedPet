@@ -27,7 +27,7 @@ async function deleteUsuario(id) {
       });
 }
 
-async function createUsuario(usuario,avatar) {
+async function createUsuario(usuario,avatar,key) {
     const usuarioJaExiste = await Usuario.findOne({
         where: {
             email: usuario.email
@@ -35,8 +35,17 @@ async function createUsuario(usuario,avatar) {
     });
     if (usuarioJaExiste) throw new createError(409, "Usuário já existe!");
     const { nome, email, senha } = usuario;
-    const usuarioCriado =  await Usuario.create({ nome, email, senha, avatar:avatar });
+    const usuarioCriado =  await Usuario.create({ nome, email, senha, avatar:avatar,keyS3:key });
     return usuarioCriado
+}
+
+async function editarUsuario(id, usuario) {
+    const usuarioExiste = await Usuario.findOne({ where: { id:id } });
+    if (!usuarioExiste) throw createError(404, "Usuário não encontrado!");
+    usuarioExiste.senha = usuario.senha
+    usuarioExiste.nome = usuario.nome
+    usuarioExiste.telefone = usuario.telefone
+    await usuarioExiste.save();
 }
 
 async function acharAnimaisUsuario(id) {
@@ -61,5 +70,6 @@ module.exports = {
     acharPostagensUsuario,
     deleteUsuario,
     getUsuario,
-    getUsuariosSemUsuarioLogado
+    getUsuariosSemUsuarioLogado,
+    editarUsuario
 }

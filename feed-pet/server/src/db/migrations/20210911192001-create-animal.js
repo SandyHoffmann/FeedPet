@@ -1,4 +1,7 @@
 'use strict';
+
+const { sequelize } = require("../../models");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('animais', {
@@ -36,8 +39,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull:false
       },
+      idade: {
+        type: Sequelize.STRING,
+        allowNull:false
+      },
       avatar: {
         type: Sequelize.STRING
+      },
+      key_s3: {
+        type: Sequelize.STRING,    
       },
       publico: {
         type:Sequelize.BOOLEAN,

@@ -9,6 +9,7 @@ import { AiOutlineAlert } from 'react-icons/ai';
 import menu from '../../assets/menu-nav.png';
 import { ModalAlerta } from "../ComponentsReact/PostagemPage/ModalAlerta";
 import { ModalGerarAlerta } from "../ComponentsReact/PostagemPage/ModalGerarAlerta";
+import { ModalGerarAlertaMenu } from "../ComponentsReact/AlertaAnimal/ModalGerarAlerta";
 const jwt = require('jsonwebtoken');
 
 
@@ -47,7 +48,7 @@ export function Menu(props) {
               <i className="fas fa-shopping-cart"></i>
             </a>
             <ModalAlerta/>
-            <ModalGerarAlerta/>
+            <ModalGerarAlertaMenu/>
             <DropdownButton
               id="dropdown"
               className="botaopesquisa"

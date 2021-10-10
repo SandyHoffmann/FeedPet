@@ -20,6 +20,7 @@ export function Perfilnovo(props) {
           <div className="panel totalperfil" id="bordaheading">
             <div className="informacoesUsuario">
               <div className="fotoUsuario ">
+
                 <a href="#">
                   <img
                     className="media-object mw150"
@@ -36,6 +37,7 @@ export function Perfilnovo(props) {
                 </p>
                 <p className="conquistas">
                   3 animais cadastrados
+
                 </p>
                 <div className="media-links">
                   <ul className="list-inline list-unstyled" id="lista">

@@ -57,8 +57,15 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull:false
     },
+    idade: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
     avatar: {
       type: DataTypes.STRING
+    },
+    keyS3: {
+      type: DataTypes.STRING,    
     },
     publico: {
       type:DataTypes.BOOLEAN,
@@ -67,7 +74,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Animal',
-    tableName: 'animais'
+    tableName: 'animais',
+    // hooks: {
+    //   beforeDestroy: async (animal) => {
+
+    //   }
+    // }
   });
   return Animal;
 };

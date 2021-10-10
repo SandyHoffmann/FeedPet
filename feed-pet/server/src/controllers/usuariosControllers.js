@@ -3,8 +3,18 @@ const usuariosServices = require("../services/usuariosServices");
 
 async function deleteUser(req, res, next) {
     try {
-        const usuarioDeleteado = await usuariosServices.deleteUsuario(req.params.id);
-        res.json(usuarioDeleteado);
+        const usuarioDeletado = await usuariosServices.deleteUsuario(req.params.id);
+        res.json(usuarioDeletado);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
+async function editUser(req, res, next) {
+    try {
+        const usuarioEditado = await usuariosServices.editarUsuario(req.params.id, req.body);
+        res.json(usuarioEditado);
     } catch (err) {
         console.log(err);
         next(err);
@@ -44,19 +54,21 @@ async function getAll(req, res, next) {
 async function create(req, res, next) {
     try {
         const usuario = req.body;
-        let avatar = "default.png"
-        if (req.file?.filename){
-            console.log("qaaaaaaaaaaaa")
-            avatar = req.file.filename
+        let avatar = "https://feedpet.s3.amazonaws.com/default.jpg"
+        let key=""
+        if (req.file){
+            avatar = req.file.location
+            key = req.file.key
+
         }
         
-        const novoUsuario = await usuariosServices.createUsuario(usuario,avatar);
+        const novoUsuario = await usuariosServices.createUsuario(usuario,avatar,key);
         res.status(201).json(novoUsuario);
     } catch (err) {
         console.log(err.message);
-        if (req.file?.filename){
-            ExcluirFoto(req.file?.filename)
-        }
+        // if (req.file?.filename){
+        //     ExcluirFoto(req.file?.filename)
+        // }
         next(err);
     }
 }
@@ -88,5 +100,6 @@ module.exports = {
     getAllPostsByUserId,
     deleteUser,
     getUser,
-    getUsuariosSemUsuarioLogado
+    getUsuariosSemUsuarioLogado,
+    editUser
 };

@@ -18,7 +18,7 @@ const initialState = {
 const responseGoogle = async (response) => {
     console.log(response);
     const googleToken = response.tokenId;
-
+    
     try {
         const res = await fetch("http://localhost:3000/auth/login-google", {
             method: "POST",
@@ -35,6 +35,7 @@ const responseGoogle = async (response) => {
             localStorage.setItem("access-token", accessToken);
             localStorage.setItem("refresh-token", refreshToken);
             
+            window.location.replace("/")
         } else {
             alert("Aconteceu algum erro ao fazer o login");
         }
@@ -88,19 +89,20 @@ export class FormLoginEstilizado extends React.Component {
 
         return (
             <>
+            {/* colocar validações */}
         <div className="grandecaixa">
             <div className="caixaimagem"><img src={povdogrunning} className="bluhrit"></img></div>
             <div className="container caixa">
                 <form onSubmit={this.handleSubmit} className="caixaElemento">
                 <h1>Login</h1>
-                <div className="form-group">
+                <div className="form-group form-err">
                     <br/>
                     <label htmlFor="email">Email:</label>
                     <input type="text" id="email" name="email" aria-describedby="Email" value={this.state.email} onChange={this.handleChange} placeholder="Email"/>
                 </div>
                 <br/>
 
-                <div className="form-group">
+                <div className="form-group form-err">
                     <label htmlFor="senha">Nome:</label>
                     <input type="text" id="senha" name="senha" aria-describedby="Senha" value={this.state.senha} onChange={this.handleChange} placeholder="Senha"/>
                 </div>

@@ -94,7 +94,7 @@ export function PaginaAnimal(props) {
         </div>
         <div class="col-md-6">
           <div class="about-avatar">
-            <img id="perfilcachorro" src={informacoes.tipo_animal=="Cachorro" && imgsrd || imggato} />
+            <img id="perfilcachorro" src={informacoes.avatar} />
           </div>
         </div>
       </div>

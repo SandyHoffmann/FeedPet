@@ -17,11 +17,11 @@ async function getEspecific(id) {
 
 }
 
-async function createAnimalparaUsuario(id, novoAnimal,avatar) {
+async function createAnimalparaUsuario(id, novoAnimal,avatar,key) {
     const usuario = await Usuario.findOne({ where: { id:id } });
     if (!usuario) throw createError(404, "Usuário não encontrado!");    
 
-    const { nome, cor, porte, sexo, tipo_animal, status,publico} = novoAnimal;
+    const { nome, cor, porte, sexo, tipo_animal, status,publico,idade} = novoAnimal;
     
     let raca = novoAnimal.raca
     if (tipo_animal === 'Cachorro'){
@@ -30,7 +30,7 @@ async function createAnimalparaUsuario(id, novoAnimal,avatar) {
         raca = raca[1]
     }
     const animal = await Animal.create({
-        nome,raca,cor,porte,tipo_animal,status,sexo,publico,avatar
+        nome,raca,cor,porte,tipo_animal,status,sexo,publico,avatar,keyS3:key,idade
     })
 
     await usuario.addAnimal(animal);
@@ -43,6 +43,19 @@ async function createAnimalparaUsuario(id, novoAnimal,avatar) {
     return animal;
 }
 
+async function editarAnimal(id, animal) {
+    const animalExiste = await Animal.findOne({ where: { id:id } });
+    if (!animalExiste) throw createError(404, "Usuário não encontrado!");
+    animalExiste.nome = animal.nome
+    animalExiste.raca = animal.raca
+    animalExiste.sexo = animal.sexo
+    animalExiste.cor = animal.cor
+    animalExiste.porte = animal.porte
+    animalExiste.status = animal.status
+    animalExiste.idade = animal.idade
+    animalExiste.avatar = animal.avatar
+    await animalExiste.save();
+}
 
 async function acharUsuariosAnimal(id) {
     const animal = await Animal.findOne({ where: { id:id } });
@@ -56,5 +69,6 @@ module.exports = {
     acharUsuariosAnimal,
     getAnimais,
     deleteAnimal,
-    getEspecific
+    getEspecific,
+    editarAnimal
 }
