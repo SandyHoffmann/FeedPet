@@ -12,7 +12,8 @@ async function createAlertaparaAnimal(id_animal, novoAlerta) {
     const alerta = await Alerta.create({
         descricao,local,dataDesaparecimento,id_animal:id_animal
     })
-    
+    animal.status="Desaparecido"
+    animal.save()
     return alerta;
 }
 

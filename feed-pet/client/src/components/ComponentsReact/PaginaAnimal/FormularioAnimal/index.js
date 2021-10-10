@@ -76,9 +76,19 @@ export class FormAnimal extends React.Component {
                         }
                 });
             console.log(animal.data)
-            this.props.setarCard(animal.data)
+
+            if (this.props.alertaAnimal){
+                this.props.cardAlerta([animal.data,...this.props.animaisAlerta])
+                let div = document.querySelectorAll(".voltaranimalalerta")
+                let divVisivel = document.querySelectorAll(".modalalertaanimalform")
+                div[0].className = "voltaranimalalerta invisivelAlerta"
+                divVisivel[0].className = "modalalertaanimalform visivelAlerta"
+            } else{
+                this.props.fecharForm()
+                this.props.setarCard(animal.data)
+            }
             this.setState({...initialState})
-            this.props.fecharForm()
+
         } catch (error) {
             console.log(error)
         }
