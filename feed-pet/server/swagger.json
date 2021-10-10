@@ -291,7 +291,89 @@
                         "description": "Usuário não encontrado"
                     }
                 }
-            }
+            },
+            "put": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Edita um usuário",
+                "requestBody": {
+                    "description": "Usuário a ser editado",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "password",
+                                    "telefone"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "description": "Nome do usuário"
+                                    },
+                                    "senha": {
+                                        "type": "string",
+                                        "description": "Senha do usuário"
+                                    },
+                                    "telefone": {
+                                        "type": "string",
+                                        "description": "Endereço do usuário"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "ID do usuário"
+                                        },
+                                        "nome": {
+                                            "type": "string",
+                                            "description": "Nome do usuário"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "description": "Email do usuário"
+                                        },
+                                        "telefone": {
+                                            "type": "string",
+                                            "description": "Endereço do usuário"
+                                        },
+                                        "cpf": {
+                                            "type": "string",
+                                            "description": "CPF do usuário"
+                                        },
+                                        "data_nascimento": {
+                                            "type": "string",
+                                            "description": "Data de nascimento"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "description": "Data de criação"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "description": "Data de atualização"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }  
         },
         "/usuarios/animais/{id}": {
             "post": {
@@ -976,7 +1058,130 @@
                         "description": "Ok"
                     }
                 }
-            }
+            },
+            "put": {
+                "tags": [
+                    "Animais"
+                ],
+                "summary": "Edita um animal",
+                "requestBody": {
+                    "description": "Animal a ser editado",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "raca",
+                                    "sexo",
+                                    "cor",
+                                    "porte",
+                                    "status",
+                                    "idade",
+                                    "avatar"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                            "type": "string",
+                                            "description": "Nome do animal"
+                                        },
+                                        "raca": {
+                                            "type": "string",
+                                            "description": "Raça do animal"
+                                        },
+                                        "sexo": {
+                                            "type": "string",
+                                            "description": "Sexo do animal"
+                                        },
+                                        "cor": {
+                                            "type": "string",
+                                            "description": "Cor do animal"
+                                        },
+                                        "porte": {
+                                            "type": "string",
+                                            "description": "Porte do animal"
+                                        },
+                                        "idade": {
+                                            "type": "string",
+                                            "description": "Idade do animal"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "description": "Tem dono?"
+                                        },
+                                        "avatar": {
+                                            "type": "string",
+                                            "description": "Foto do animal"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "ID do animal"
+                                        },
+                                        "nome": {
+                                            "type": "string",
+                                            "description": "Nome do animal"
+                                        },
+                                        "sexo": {
+                                            "type": "string",
+                                            "description": "Sexo do animal"
+                                        },
+                                        "raca": {
+                                            "type": "string",
+                                            "description": "Raça do animal"
+                                        },
+                                        "cor": {
+                                            "type": "string",
+                                            "description": "Cor do animal"
+                                        },
+                                        "porte": {
+                                            "type": "string",
+                                            "description": "Porte do animal"
+                                        },
+                                        "idade": {
+                                            "type": "string",
+                                            "description": "Idade do animal"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "description": "Tem dono?"
+                                        },
+                                        "avatar": {
+                                            "type": "string",
+                                            "description": "Foto do animal"
+                                        },
+                                        "createdAt": {
+                                            "type": "string",
+                                            "description": "Data de criação"
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "description": "Data de atualização"
+                                        },
+                                        "id_usuario": {
+                                            "type": "string",
+                                            "description": "ID do usuário"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }  
         },
         "/auth/login": {
             "post": {
@@ -1458,6 +1663,56 @@
                                         "createdAt": {
                                             "type": "string",
                                             "description": "Data de criação do comentario"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/login-google": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login do usuário com google",
+                "requestBody": {
+                    "description": "Google Token",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "googleToken"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "googleToken": {
+                                        "type": "string",
+                                        "description": "Token do Google"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "accessToken": {
+                                            "type": "string",
+                                            "description": "AccessToken"
+                                        },
+                                        "refreshToken": {
+                                            "type": "string",
+                                            "description": "RefreshToken"
                                         }
                                     }
                                 }

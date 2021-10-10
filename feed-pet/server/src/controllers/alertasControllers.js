@@ -11,6 +11,28 @@ async function criarParaAnimal(req, res, next) {
     }
 }
 
+async function editAlerta(req, res, next) {
+    try {
+        const alertaEditado = await alertasServices.editarAlerta(req.params.id, req.body);
+        res.json(alertaEditado);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
+async function getAllAlertasByEndereco(req, res, next) {
+    try {
+        const alertas = await alertasServices.getAlertasByEndereco(user_id);
+
+        res.json(alertas);
+
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
 async function getAll(req, res, next) {    
     try {
         const alertas = await alertasServices.getAlertas();
@@ -25,5 +47,7 @@ async function getAll(req, res, next) {
 
 module.exports = {
     criarParaAnimal,
-    getAll
+    getAll,
+    editAlerta,
+    getAllAlertasByEndereco
 }

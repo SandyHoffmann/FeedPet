@@ -14,10 +14,6 @@ module.exports = (permissions) => {
         try {
             const payload = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);                        
 
-            if (!permissions.includes(payload.cargo)) {
-                next(createHttpError(403, "You don't have permission"));    
-            }              
-
             res.locals.userId = payload.sub;
             
             next();
