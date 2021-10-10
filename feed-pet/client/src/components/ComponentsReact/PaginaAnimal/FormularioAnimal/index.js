@@ -14,6 +14,7 @@ const initialState = {
     status:"",
     sexo:"",
     avatar:"",
+    idade:"",
     publico:true
 }
 
@@ -29,7 +30,8 @@ export class FormAnimal extends React.Component {
             status:"",
             sexo:"",
             avatar:"",
-            publico:true
+            publico:true,
+            idade:""
         };
     }
 
@@ -76,9 +78,19 @@ export class FormAnimal extends React.Component {
                         }
                 });
             console.log(animal.data)
-            this.props.setarCard(animal.data)
+
+            if (this.props.alertaAnimal){
+                this.props.cardAlerta([animal.data,...this.props.animaisAlerta])
+                let div = document.querySelectorAll(".voltaranimalalerta")
+                let divVisivel = document.querySelectorAll(".modalalertaanimalform")
+                div[0].className = "voltaranimalalerta invisivelAlerta"
+                divVisivel[0].className = "modalalertaanimalform visivelAlerta"
+            } else{
+                this.props.fecharForm()
+                this.props.setarCard(animal.data)
+            }
             this.setState({...initialState})
-            this.props.fecharForm()
+
         } catch (error) {
             console.log(error)
         }
@@ -94,6 +106,10 @@ export class FormAnimal extends React.Component {
                 <div className="form-group">
                     <label htmlFor="nome">Nome:</label>
                     <input type="text" className="form-control" id="nome" name="nome" aria-describedby="Nome" value={this.state.nome} onChange={this.handleChange} placeholder="Nome do Animal"/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="idade">Idade:</label>
+                    <input type="text" className="form-control" id="idade" name="idade" aria-describedby="Idade" value={this.state.idade} onChange={this.handleChange} placeholder="Idade do Animal"/>
                 </div>
                 <label htmlFor="form">Tem dono?</label>
                 <div className="form-check" id="form">
