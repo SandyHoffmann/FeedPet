@@ -36,9 +36,9 @@ async function criarParaUsuario(req, res, next) {
     console.log(req.body)
     try {        
         let animal = req.body
-        let avatar = "dogdefault.jpg"
-        if (animal.tipo_animal == 'gato'){
-            avatar = "catdefault.jpg"
+        let avatar = "https://feedpet.s3.amazonaws.com/dogdefault.jpg"
+        if (animal.tipo_animal == 'Gato'){
+            avatar = "https://feedpet.s3.amazonaws.com/catdefault.jpg"
         }
         let key
         console.log(req.file)

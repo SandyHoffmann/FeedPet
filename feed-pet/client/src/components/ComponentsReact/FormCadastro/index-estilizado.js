@@ -29,7 +29,7 @@ export function FormCadastroEstilizado(){
         try {
             e.preventDefault();
             const formData = new FormData(e.target);
-
+            console.log(formData)
             const res = await api.post(`/usuarios/`, 
                                 formData, {
                                     headers: {
@@ -45,7 +45,7 @@ export function FormCadastroEstilizado(){
         } catch (error) {
             let erros = error.response.data
             console.log(erros)
-            VerificarErros(erros)
+            // VerificarErros(erros)
         }
     }
 
