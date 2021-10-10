@@ -17,7 +17,7 @@ async function getEspecific(id) {
 
 }
 
-async function createAnimalparaUsuario(id, novoAnimal,avatar) {
+async function createAnimalparaUsuario(id, novoAnimal,avatar,key) {
     const usuario = await Usuario.findOne({ where: { id:id } });
     if (!usuario) throw createError(404, "Usuário não encontrado!");    
 
@@ -30,7 +30,7 @@ async function createAnimalparaUsuario(id, novoAnimal,avatar) {
         raca = raca[1]
     }
     const animal = await Animal.create({
-        nome,raca,cor,porte,tipo_animal,status,sexo,publico,avatar
+        nome,raca,cor,porte,tipo_animal,status,sexo,publico,avatar,keyS3:key
     })
 
     await usuario.addAnimal(animal);

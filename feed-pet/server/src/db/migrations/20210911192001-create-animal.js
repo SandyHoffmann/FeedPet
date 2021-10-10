@@ -46,6 +46,9 @@ module.exports = {
       avatar: {
         type: Sequelize.STRING
       },
+      key_s3: {
+        type: Sequelize.STRING,    
+      },
       publico: {
         type:Sequelize.BOOLEAN,
         allowNull:false

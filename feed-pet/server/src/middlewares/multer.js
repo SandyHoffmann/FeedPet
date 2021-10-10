@@ -1,16 +1,54 @@
-const multer  = require('multer');
+const multer = require("multer");
+const path = require("path");
+const { randomBytes } = require("crypto");
+const multerS3 = require("multer-s3");
+const aws = require("aws-sdk");
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './uploads')
+const storages = {
+    local: multer.diskStorage({
+        destination: (req, file, cb) => {
+            cb(null, path.resolve(__dirname, "..", "..", "uploads"));
+        },
+        filename: (req, file, cb) => {
+            randomBytes(16, (err, buf) => {
+                if (err) throw err;
+
+                const fileName = `${buf.toString("hex")}-${file.originalname}`;
+
+                cb(null, fileName);
+            });
+        }
+    }),
+    s3: multerS3({
+        s3: new aws.S3(),
+        bucket: process.env.BUCKET_NAME,
+        contentType: multerS3.AUTO_CONTENT_TYPE,
+        acl: "public-read",
+        key: (req, file, cb) => {
+            randomBytes(16, (err, hash) => {
+                if (err) cb(err);
+
+                const fileName = `${hash.toString("hex")}-${file.originalname}`;
+
+                cb(null, fileName);
+            });
+        }
+    })
+}
+
+module.exports = multer({         
+    fileFilter: (req, file, cb) => {
+        const allowedMimes = [
+            "image/png",
+            "image/jpg",
+            "image/jpeg"
+        ];
+
+        if (allowedMimes.includes(file.mimetype)) {
+            cb(null, true);
+        } else {
+            cb(new Error("Invalid file type"));
+        }
     },
-    filename: function (req, file, cb) {
-    console.log(file)
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-      cb(null, file.fieldname + '-' + uniqueSuffix + '.' + file.originalname)
-    }
-  })
-
-const upload = multer({ storage: storage })
-
-module.exports = upload
+    storage: storages[process.env.STORAGE_TYPE]
+});

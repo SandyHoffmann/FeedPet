@@ -32,12 +32,7 @@
   border: none;
   border-radius: 0;
   border-bottom: 3px solid pink;
-  border-image: linear-gradient(
-    to right,
-    rgba(255, 107, 222, 1),
-    rgba(191, 122, 221, 1),
-    rgba(154, 52, 255, 1)
-  );
+  border-image: linear-gradient(42deg, rgba(255,72,128,1) 19%, rgba(104,6,130,1) 100%);
   border-image-slice: 1;
 }
 

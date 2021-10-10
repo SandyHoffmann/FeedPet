@@ -43,7 +43,6 @@ async function editAnimal(req, res, next) {
 }
 
 async function criarParaUsuario(req, res, next) {
-    console.log('aeeeeeeeeeeeee')
     console.log(req.body)
     try {        
         let animal = req.body
@@ -51,10 +50,13 @@ async function criarParaUsuario(req, res, next) {
         if (animal.tipo_animal == 'gato'){
             avatar = "catdefault.jpg"
         }
-        if (req.file?.filename){
-            avatar = req.file.filename
+        let key
+        console.log(req.file)
+        if (req.file){
+            avatar = req.file.location
+            key = req.file.key
         }
-        const animais = await animaisServices.createAnimalparaUsuario(res.locals.userId, animal,avatar)
+        const animais = await animaisServices.createAnimalparaUsuario(res.locals.userId, animal,avatar,key)
 
         res.status(201).json(animais);
     } catch (err) {
