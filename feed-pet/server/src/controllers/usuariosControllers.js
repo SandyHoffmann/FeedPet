@@ -54,18 +54,21 @@ async function getAll(req, res, next) {
 async function create(req, res, next) {
     try {
         const usuario = req.body;
-        let avatar = "default.png"
-        if (req.file?.filename){
-            avatar = req.file.filename
+        let avatar = "https://feedpet.s3.amazonaws.com/default.jpg"
+        let key=""
+        if (req.file){
+            avatar = req.file.location
+            key = req.file.key
+
         }
         
-        const novoUsuario = await usuariosServices.createUsuario(usuario,avatar);
+        const novoUsuario = await usuariosServices.createUsuario(usuario,avatar,key);
         res.status(201).json(novoUsuario);
     } catch (err) {
         console.log(err.message);
-        if (req.file?.filename){
-            ExcluirFoto(req.file?.filename)
-        }
+        // if (req.file?.filename){
+        //     ExcluirFoto(req.file?.filename)
+        // }
         next(err);
     }
 }

@@ -43,7 +43,7 @@ export function PaginaPerfil(props) {
 
               <div className="profile-header-content">
                 <div className="profile-header-img">
-                  <img src={imgdog} alt=""></img>
+                  <img src={informacoes.avatar} alt=""></img>
                 </div>
 
                 <div className="profile-header-info">
