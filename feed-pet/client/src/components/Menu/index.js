@@ -20,18 +20,6 @@ export function Menu(props) {
     <>
       <nav className="navbar navbar-expand-lg navbar-light menu">
         <div className="container-fluid">
-          {/* <button
-            className="navbar-toggler"
-            type="button"
-            data-mdb-toggle="collapse"
-            data-mdb-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i className="fas fa-bars"></i>
-          </button> */}
-
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <a className="navbar-brand mt-2 mt-lg-0" href="#">
               <img src={img} height="60" alt="10" loading="lazy" id="imagemlogo" />

@@ -34,6 +34,9 @@ export function Perfilnovo(props) {
                   Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod
                   tempor incididunt
                 </p>
+                <p className="conquistas">
+                  3 animais cadastrados
+                </p>
                 <div className="media-links">
                   <ul className="list-inline list-unstyled" id="lista">
                     <li>
