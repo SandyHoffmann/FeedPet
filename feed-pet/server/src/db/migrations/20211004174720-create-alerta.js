@@ -21,7 +21,7 @@ module.exports = {
         allowNull: false
       },
       concluido: {
-        type: DataTypes.BOOLEAN,
+        type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false
       },

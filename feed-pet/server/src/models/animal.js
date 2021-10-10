@@ -57,6 +57,10 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull:false
     },
+    idade: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
     avatar: {
       type: DataTypes.STRING
     },

@@ -32,6 +32,16 @@ async function deleteAnimal(req, res, next) {
     }
 }
 
+async function editAnimal(req, res, next) {
+    try {
+        const animalEditado = await animaisServices.editarAnimal(req.params.id, req.body);
+        res.json(animalEditado);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
 async function criarParaUsuario(req, res, next) {
     console.log('aeeeeeeeeeeeee')
     console.log(req.body)
@@ -68,5 +78,6 @@ module.exports = {
     criarParaUsuario,
     getAllByAnimalId,
     deleteAnimal,
-    getEspecific
+    getEspecific,
+    editAnimal
 }

@@ -3,8 +3,18 @@ const usuariosServices = require("../services/usuariosServices");
 
 async function deleteUser(req, res, next) {
     try {
-        const usuarioDeleteado = await usuariosServices.deleteUsuario(req.params.id);
-        res.json(usuarioDeleteado);
+        const usuarioDeletado = await usuariosServices.deleteUsuario(req.params.id);
+        res.json(usuarioDeletado);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
+async function editUser(req, res, next) {
+    try {
+        const usuarioEditado = await usuariosServices.editarUsuario(req.params.id, req.body);
+        res.json(usuarioEditado);
     } catch (err) {
         console.log(err);
         next(err);
@@ -46,7 +56,6 @@ async function create(req, res, next) {
         const usuario = req.body;
         let avatar = "default.png"
         if (req.file?.filename){
-            console.log("qaaaaaaaaaaaa")
             avatar = req.file.filename
         }
         
@@ -88,5 +97,6 @@ module.exports = {
     getAllPostsByUserId,
     deleteUser,
     getUser,
-    getUsuariosSemUsuarioLogado
+    getUsuariosSemUsuarioLogado,
+    editUser
 };

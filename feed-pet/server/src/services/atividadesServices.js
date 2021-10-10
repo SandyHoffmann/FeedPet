@@ -18,6 +18,12 @@ async function createAtividadeparaAgenda(id, id_usuario, atividade) {
     return atividadeCriada;
 }
 
+async function deleteAtividade(id) {
+    return await Atividade.destroy({
+        where: { id:id} 
+      });
+}
+
 async function listarAtividades(id){
     const agenda = await Agenda.findOne({ where: { id:id } });
 
@@ -34,5 +40,6 @@ async function listarAtividades(id){
 
 module.exports = {
     createAtividadeparaAgenda,
-    listarAtividades
+    listarAtividades,
+    deleteAtividade
 }
