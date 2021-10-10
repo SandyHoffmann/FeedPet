@@ -1,5 +1,5 @@
 body {
-  margin-top: 20px;
+  margin-top: 25px;
   background: rgb(255, 253, 253);
 }
 .perfilFlex {
@@ -8,15 +8,14 @@ body {
 }
 .areaTexto {
   background-color: transparent;
-  height: 100%;
+
 }
 .informacoesUsuario{
   display: flex;
   flex-direction: column;
   flex: 1;
-}
-.media-heading{
-  padding-left: 2em;
+justify-content: center;
+
 }
 #bordaheading {
   flex: 1;
@@ -46,6 +45,8 @@ body {
 #texto-sobre {
   font-weight: 700;
   color: #555555;
+/* <<<<<<< Michelle
+=======
   width: 50%;
   padding-left: 2em;
 }

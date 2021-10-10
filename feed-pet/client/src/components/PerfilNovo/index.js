@@ -19,7 +19,8 @@ export function Perfilnovo(props) {
         <div className="perfilFlex">
           <div className="panel totalperfil" id="bordaheading">
             <div className="informacoesUsuario">
-              <div className="fotoUsuario">
+              <div className="fotoUsuario ">
+
                 <a href="#">
                   <img
                     className="media-object mw150"
@@ -33,6 +34,10 @@ export function Perfilnovo(props) {
                 <p className="lead" id="texto-sobre">
                   Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod
                   tempor incididunt
+                </p>
+                <p className="conquistas">
+                  3 animais cadastrados
+
                 </p>
                 <div className="media-links">
                   <ul className="list-inline list-unstyled" id="lista">

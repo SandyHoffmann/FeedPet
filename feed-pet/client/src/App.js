@@ -99,7 +99,7 @@ function App() {
 						<FormCadastroEstilizado />
 					</Route>
 					<Route path='/perfil-usuario/:id'>
-						<PaginaPerfil />
+						<Perfilnovo />
 					</Route>
 					<Route path='/postagens'>
 						{/* <FeedInicio/> */}
