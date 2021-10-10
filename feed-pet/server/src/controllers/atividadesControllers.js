@@ -19,7 +19,18 @@ async function listarAtividades(req, res, next) {
         next(err);
     }
 }
+
+async function deleteAtividade(req, res, next) {
+    try {
+        const atividadeDeletado = await atividadesServices.deleteAtividade(req.params.id);
+        res.json(atividadeDeletado);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
 module.exports = {
     createAtividade,
-    listarAtividades
+    listarAtividades,
+    deleteAtividade
 }

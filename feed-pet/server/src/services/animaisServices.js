@@ -43,6 +43,19 @@ async function createAnimalparaUsuario(id, novoAnimal,avatar,key) {
     return animal;
 }
 
+async function editarAnimal(id, animal) {
+    const animalExiste = await Animal.findOne({ where: { id:id } });
+    if (!animalExiste) throw createError(404, "Usuário não encontrado!");
+    animalExiste.nome = animal.nome
+    animalExiste.raca = animal.raca
+    animalExiste.sexo = animal.sexo
+    animalExiste.cor = animal.cor
+    animalExiste.porte = animal.porte
+    animalExiste.status = animal.status
+    animalExiste.idade = animal.idade
+    animalExiste.avatar = animal.avatar
+    await animalExiste.save();
+}
 
 async function acharUsuariosAnimal(id) {
     const animal = await Animal.findOne({ where: { id:id } });
@@ -56,5 +69,6 @@ module.exports = {
     acharUsuariosAnimal,
     getAnimais,
     deleteAnimal,
-    getEspecific
+    getEspecific,
+    editarAnimal
 }
