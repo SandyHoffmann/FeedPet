@@ -45,7 +45,7 @@ export function FormCadastroEstilizado(){
         } catch (error) {
             let erros = error.response.data
             console.log(erros)
-            // VerificarErros(erros)
+            VerificarErros(erros)
         }
     }
 

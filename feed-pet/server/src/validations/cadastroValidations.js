@@ -14,7 +14,7 @@ module.exports = {
             .isLength({ min: 6, max: 20 })
             .withMessage("Senha Invalida - min: 6, max: 20"),
         body().custom(body => {
-                const keys = ['nome', 'email','senha','avatar'];
+                const keys = ['nome', 'email','senha'];
                 return Object.keys(body).every(key => keys.includes(key));
             }).withMessage('Parâmetros extras enviados'),
         (req, res, next) => {

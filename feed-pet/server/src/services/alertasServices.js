@@ -36,7 +36,7 @@ async function concluirAlerta(id_alerta,id_animal) {
     await alertaExiste.save();
     console.log(alertaExiste)
     const animal = await Animal.findOne({ where: { id:id_animal } });
-    animal.status="Tem Dono"
+    animal.status="Tem dono"
     await animal.save()
     return animal
 }
@@ -55,7 +55,7 @@ async function getAlertas() {
 
 async function getAlerta(id_animal){
     return await Alerta.findOne({where: {
-        id_animal:id_animal    }});    
+        id_animal:id_animal,concluido:false}});    
 
 }
 module.exports = {

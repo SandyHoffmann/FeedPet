@@ -22,7 +22,7 @@ export function PaginaAnimal(props) {
   const [desaparecido, setDesaparecido] = useState([])
   const [usuario, setUsuario] = useState([])
   const { id } = useParams();
-
+  console.log(id)
   useEffect(async () => {
     try {
       const res = await api.get(`/animais/geral/${id}`);
@@ -38,7 +38,7 @@ export function PaginaAnimal(props) {
     } catch (error) {
       console.log(error)
     }
-  }, [])
+  }, id)
   async function AnimalEncontrado(){
     const res = await api.put(`/alertas/${desaparecido.id}/${id}`);
     setInformacoes(res.data)
@@ -85,7 +85,7 @@ export function PaginaAnimal(props) {
           </>
             }
             <div className="escondido">
-            <Alert variant="success" dismissible>
+            <Alert variant="success">
               <Alert.Heading>Esperamos que tudo tenha se resolvido!</Alert.Heading>
               <p>
                 Conte com a feedPet para ajudar seus animais!

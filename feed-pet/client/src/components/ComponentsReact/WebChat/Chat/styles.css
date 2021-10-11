@@ -191,23 +191,50 @@
         width: 3em;
         height: 3em;
     }
-    .visivel{
-        opacity: 1;
-        display: flex;
-        width: 90%;
-        -webkit-box-shadow: 0 0 1em rgba(50, 50, 50, 0.77);
-        -moz-box-shadow: 0 0 1em rgba(50, 50, 50, 0.77);
-        box-shadow: 0 0 1em rgba(50, 50, 50, 0.77);
-    
-    }
-    .invisivel{
-        display: none;
-        opacity: 0;
-    }
+
+
     .voltar{
         opacity: 1;
         display: block;
     }.psmall{
         font-size: 0.6em;
     }
+    
+.visivel{
+    opacity: 1;
+    display: flex;
+    width: 90%;
+    -webkit-box-shadow: 0 0 1em rgba(50, 50, 50, 0.77);
+    -moz-box-shadow: 0 0 1em rgba(50, 50, 50, 0.77);
+    box-shadow: 0 0 1em rgba(50, 50, 50, 0.77);
+
+}
   }
+
+.invisivel{
+    display: none;
+    opacity: 0;
+}
+
+.visivelMenu{
+    opacity: 1;
+    display: block;
+
+}
+.menuvisivelchat{
+    width: 100%;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+}
+
+.chatmensagensfp{
+    box-shadow: none;
+
+}
+
+.chatmensagensfp .chat_fp__elemento{
+    border: none;
+
+}

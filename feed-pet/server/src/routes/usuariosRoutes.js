@@ -20,7 +20,7 @@ router.get("/:id", authentication(["usuario", "admin"]),usuariosController.getUs
 router.get("/animais/:id", authentication(["usuario", "admin"]),usuariosController.getAllAnimalsByUserId);
 router.get("/postagens/:id", authentication(["usuario", "admin"]),usuariosController.getAllPostsByUserId);
 // cadastroValidations.post,
-router.post("/", upload.single('avatar'), usuariosController.create);
+router.post("/", upload.single('avatar'), cadastroValidations.post, usuariosController.create);
 
 router.delete("/:id", authentication(["admin"]),usuariosController.deleteUser);
 router.post("/animais/:id", upload.single('avatar'), authentication(["usuario", "admin"]), animaisController.criarParaUsuario);
