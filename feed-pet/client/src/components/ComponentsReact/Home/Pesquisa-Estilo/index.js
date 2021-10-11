@@ -38,6 +38,15 @@ export function PesquisaEstilo(props) {
                             </div>
                             <p>Não Tem Dono</p>
                         </div>
+                        <div className="conjunto">
+                            <div className="form-check desaparecidoFiltro" id="form">
+                                <input className="form-check-input desaparecidoinput" type="radio" name="status" id="desaparecido" value="Desaparecido" onClick={props.onClick} />
+                                <label className="form-check-label" htmlFor="desaparecido">
+                                    Desaparecido
+                                </label>
+                            </div>
+                            <p>Desaparecido</p>
+                        </div>
                     </div>
                     <div className="elemento radiooptions">
                         <div className="conjunto">
@@ -59,19 +68,39 @@ export function PesquisaEstilo(props) {
                             <p>Gato</p>
                         </div>
                     </div>
+                    <div className="elemento radiooptions">
+                        <div className="conjunto">
+                            <div className="form-check macho" id="form">
+                                <input className="form-check-input machoinput" type="radio" name="sexo" id="macho" value="macho" onClick={props.onClick} />
+                                <label className="form-check-label" htmlFor="macho" >
+                                    Macho
+                                </label>
+                            </div>
+                            <p>Macho</p>
+                        </div>
+                        <div className="conjunto">
+                            <div className="form-check femea" id="form">
+                                <input className="form-check-input femeainput" type="radio" name="sexo" id="fêmea" value="fêmea" onClick={props.onClick} />
+                                <label className="form-check-label" htmlFor="fêmea">
+                                    Fêmea
+                                </label>
+                            </div>
+                            <p>Fêmea</p>
+                        </div>
+                    </div>
                 </div>
                 <div className="filtros_footer">
 
-                    <div className="elemento select">
+                    <div className="elemento select inputsFiltro">
                         <div className="form-group form-personalizado" className={`select ${(props.tipo_animal == "Cachorro" || "hidden")}`}>
                             <label htmlFor="raca">Selecione a Raça
-                            <select className="form-control form-personalizado" id="raca" name="raca" onChange={props.onChangeOption}>
-                                <option>Pit Bull</option>
-                                <option>Pastor Alemão</option>
-                                <option>Pincher</option>
-                                <option>Pitbull</option>
-                                <option>Vira Lata</option>
-                            </select>
+                                <select className="form-control form-personalizado" id="raca" name="raca" onChange={props.onChangeOption}>
+                                    <option>Pit Bull</option>
+                                    <option>Pastor Alemão</option>
+                                    <option>Pincher</option>
+                                    <option>Pitbull</option>
+                                    <option>Vira Lata</option>
+                                </select>
                             </label>
                         </div>
                         <div className="form-group form-personalizado" className={`select ${(props.tipo_animal == "Gato" || "hidden")}`}>
@@ -84,17 +113,27 @@ export function PesquisaEstilo(props) {
                                 <option>Vira Lata</option>
                             </select>
                         </div>
-                    </div>
-                    <div className="elemento select cor">
-                        <div className="form-group form-personalizado">
-                            <label htmlFor="raca">Selecione a Cor</label>
-                            <select className="form-control selectRaca form-personalizado" id="cor" name="cor" onChange={props.onChangeOption}>
-                                <option>Branco</option>
-                                <option>Preto</option>
-                                <option>Alaranjado</option>
-                                <option>Tricolor</option>
-                                <option>Caramelo</option>
-                            </select>
+                        <div className="elemento select cor">
+                            <div className="form-group form-personalizado">
+                                <label htmlFor="raca">Selecione a Cor</label>
+                                <select className="form-control selectRaca form-personalizado" id="cor" name="cor" onChange={props.onChangeOption}>
+                                    <option>Branco</option>
+                                    <option>Preto</option>
+                                    <option>Alaranjado</option>
+                                    <option>Tricolor</option>
+                                    <option>Caramelo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="elemento select porte">
+                            <div className="form-group form-personalizado">
+                                <label htmlFor="raca">Selecione o Porte</label>
+                                <select className="form-control selectPorte form-personalizado" id="porte" name="porte" onChange={props.onChangeOption}>
+                                    <option>Médio</option>
+                                    <option>Grande</option>
+                                    <option>Pequeno</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

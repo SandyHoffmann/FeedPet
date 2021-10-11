@@ -91,7 +91,7 @@
     padding:0% 5% 0% 5%;
 
 }
-.filtros .radiooptions:first-child{
+.filtros .radiooptions:not(:last-child) {
     border-right: 1px solid white;
 }
 .filtros .radiooptions{
@@ -102,6 +102,10 @@
 .cor{
     flex-grow: 1;
 
+}
+
+.inputsFiltro{
+    display: flex;
 }
 
 .logo{
@@ -162,13 +166,19 @@
 .radiooptions input:checked + label{
     -webkit-box-shadow: 0px 0px 15px 5px #ffffff; 
     box-shadow: 0px 0px 15px 5px #ffffff;
-    background: #8FC424 no-repeat center center;
+    
+}
+.radiooptions .desaparecidoinput:checked + label{
+    background-image: url('../../../../assets/fundoopcoes.png');
+    background-size: cover;
 }
 
 .radiooptions .naoinput:checked + label{
     background-image: url('../../../../assets/dog-seating-ativo.png');
     background-size: 5vh;
 }
+
+
 
 .radiooptions .siminput:checked + label{
     background-image: url('../../../../assets/dog-with-belt-walking-with-a-man-ativo.png');
@@ -222,7 +232,10 @@
     background-size: 5vh;
 }
 
-
+.radiooptions .desaparecidoFiltro label{
+    background-image: url('../../../../assets/missing.png');
+    background-size: cover;
+}
 .form-check{
     padding-left: 3em;
 }

@@ -19,7 +19,7 @@ export function FiltragemHome(props) {
             const informacao = res.data;
             setCard(informacao.reverse())
             setFiltros(
-                { raca: "", tipo_animal: "", status: "", cor: "" }
+                { raca: "", tipo_animal: "", status: "", cor: "", sexo:"", porte:""}
             )
             setCardFiltrada(informacao.reverse())
         } catch (error) {

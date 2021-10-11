@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 import Overlay from "react-overlays/esm/Overlay";
 import { RiChatHeartLine } from "react-icons/ri"
 import { ChatBox } from "../../WebChat/ChatBox";
+import { Chat } from "../../WebChat/Chat";
+import { GiVibratingBall } from "react-icons/gi"
+
+const jwt = require('jsonwebtoken');
 
 export function ModalChat(props) {
   const [show, setShow] = useState(false);
@@ -13,24 +17,39 @@ export function ModalChat(props) {
 
   useEffect(async () => {
     setShow(!show);
-    try {
-      const res = await api.get("/chats/");
-      let chats = res.data[0]
-      setChats(chats)
-    } catch (error) {
-      console.log(error)
+    const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+    if (token?.sub){
+      try {
+        const res = await api.get("/chats/");
+        let chats = res.data[0]
+        setChats(chats)
+      } catch (error) {
+        console.log(error)
+      }
     }
-  },[]);
+   
+  },[])
 
+  function handleClick(e){
+    let alerta = document.querySelectorAll(".chatMenu")
+    alerta[0].className = "chatMenu invisivel"
+
+  }
   return (
     <>
-      <Dropdown className="menuNotificacao">
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
+      <Dropdown className="menuNotificacao" onClick={handleClick}>
+        <Dropdown.Toggle variant="success" id="dropdown-basic" className="menuchaticon">
           <RiChatHeartLine size='30' />
+          <div className="chatMenu invisivel">
+              <GiVibratingBall color="red" size='20'></GiVibratingBall>
+          </div>
         </Dropdown.Toggle>
 
-        <Dropdown.Menu size='50' >
-          {chats.map(chat => <ChatBox chat={chat} key={chat.id} ></ChatBox>)}
+        <Dropdown.Menu>
+          <Dropdown.Item>
+            {(chats.length<1)&&<p>Não há mensagens Ainda!</p>}
+          </Dropdown.Item>
+          {<Chat estado="menu"/>}
 
         </Dropdown.Menu>
       </Dropdown>

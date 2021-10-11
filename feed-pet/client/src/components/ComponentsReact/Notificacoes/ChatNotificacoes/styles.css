@@ -8,6 +8,8 @@
 
 .menuNotificacao .dropdown-menu{
   width: 40vh;
+  height: 40vh;
+  overflow-y: auto;
 }
 /* .wrapper {
    padding-top: 120px;
@@ -46,4 +48,9 @@
   .mx-30 {
     margin-bottom: 30px;
   }
+}
+
+.menuchaticon{
+  display: flex !important;
+  flex-direction: row;
 }

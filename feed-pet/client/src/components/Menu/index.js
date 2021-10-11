@@ -12,13 +12,20 @@ import { ModalGerarAlerta } from "../ComponentsReact/PostagemPage/ModalGerarAler
 import { ModalGerarAlertaMenu } from "../ComponentsReact/AlertaAnimal/ModalGerarAlerta";
 import { ModalAlertaMenu } from "../ComponentsReact/AlertaAnimal/ModalAlerta";
 import { ModalChat } from "../ComponentsReact/Notificacoes/ChatNotificacoes";
+import { useEffect, useState } from "react";
 const jwt = require('jsonwebtoken');
 
 
 // ${token.sub}
 export function Menu(props) {
   const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
-
+  const [pagAtual,setpagAtual] = useState('')
+  useEffect(async () => {
+    let local = window.location.href
+    let pag = local.split('http://localhost:3001/');
+    console.log(pag)
+    setpagAtual(pag[1])
+  },[])
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light menu">
@@ -31,7 +38,7 @@ export function Menu(props) {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item"><NavLink exact to="/" activeClassName="selected" className="nav-link" id="teste">Home</NavLink></li>
                 <li className="nav-item"><NavLink to="/postagens" activeClassName="selected" className="nav-link" id="teste">Postagens</NavLink></li>
-                <li className="nav-item"><NavLink to="/chat" activeClassName="selected" className="nav-link" id="teste">Chats</NavLink></li>
+                <li className="nav-item"><NavLink to="/chat" activeClassName="selected" className="nav-link" id="teste" onClick={e => setpagAtual('chat')}>Chats</NavLink></li>
 
               </ul>
             </div>
@@ -41,9 +48,11 @@ export function Menu(props) {
             <a className="text-reset me-3" href="#">
               <i className="fas fa-shopping-cart"></i>
             </a>
+            {pagAtual!="chat"&&
+            <ModalChat/>
+          }
             <ModalAlertaMenu/>
             <ModalGerarAlertaMenu/>
-            <ModalChat/>
             <DropdownButton
               id="dropdown"
               className="botaopesquisa"

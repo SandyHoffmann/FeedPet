@@ -60,11 +60,21 @@ export function Chat(props) {
                     console.log("entrou aqui no nova mensagem")
                     setMsgs(msg => [...msg,msgData])
                 }
+                if(props.estado==="menu"){
+                    let alerta = document.querySelectorAll(".chatMenu")
+                    alerta[0].className = "chatMenu visivelMenu"
+
+                }
             })
             socket.on("chat",chat => {
                     const chatNovo = chat
                     setChats(chats => [chatNovo,...chats])
                     socket.emit("userAdd chat",chat.id)
+                    if(props.estado==="menu"){
+                        let alerta = document.querySelectorAll(".chatMenu")
+                        alerta[0].className = "chatMenu visivelMenu"
+
+                    }
             })
             return () => {socket.off("nova mensagem")
                         socket.off("chat")}
@@ -111,12 +121,16 @@ export function Chat(props) {
         let elementoMsg = document.querySelectorAll('.mensagens')
         elementoMsg[0].className = "mensagens invisivel"
     }
+    function menuChatClick(){
+        window.location.replace("/chat");    
+
+    }
 
     return (
         <div className="chat_fp_body">
-            <div className="chat_fp">
-                <div className="chat_fp__elemento">
-                <div className="textoCabecalho">
+            <div className={(props.estado=="menu")&&"chat_fp chatmensagensfp"||"chat_fp"}>
+                <div className={(props.estado=="menu")&&"chat_fp__elemento visivel menuvisivelchat"||"chat_fp__elemento"}>
+                <div className={(props.estado=="menu")&&"textoCabecalho invisivel"||"textoCabecalho"}>
                         <div className="icone">
                             <FaUserCircle size={45} color="white" />
                         </div>
@@ -126,11 +140,11 @@ export function Chat(props) {
                 </div>
 
                     <div className="chat_fp__elemento_cards">            
-                        {chats.map(chat => <ChatBox chat={chat} key={chat.id} onClick={handleClick}></ChatBox>)}
+                        {chats.map(chat => <ChatBox chat={chat} key={chat.id} onClick={props.estado=="menu"&&menuChatClick||handleClick}></ChatBox>)}
                     </div>
                 </div>
               
-                <div className="mensagens">
+                <div className={(props.estado=="menu")&&"mensagens invisivel"||"mensagens"}>
                 <div className="texto">
                         <i><BiArrowBack size="30" color="white" onClick={voltarClick} className="voltar"></BiArrowBack></i>
                         <div className="icone">

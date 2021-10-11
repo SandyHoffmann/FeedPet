@@ -21,8 +21,8 @@ export function ModalGerarAlertaMenu(props) {
   const [local, setLocal] = useState("");
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  useEffect(async () => {
+  const handleShow = async () => {
+    setShow(true)
     try {
       const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
       const res = await api.get(`/usuarios/animais/${token.sub || 'undefined'}`);
@@ -33,7 +33,8 @@ export function ModalGerarAlertaMenu(props) {
     } catch (error) {
       console.log(error)
     }
-  }, [])
+  };
+
 
   async function handleSubmit(e){
     try {
@@ -49,6 +50,7 @@ export function ModalGerarAlertaMenu(props) {
           setLocal("")
           setCidade("")
           setShow(false)
+          window.location.replace("/");    
         } else{
           alert("Selecione um animal, ou crie um!")
         }
