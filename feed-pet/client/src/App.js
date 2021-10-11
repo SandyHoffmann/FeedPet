@@ -19,6 +19,7 @@ import About from './components/pages/about';
 import { TestePerfilUsuario } from './components/TestePerfilUsuario';
 // import {Conteiner} from './components/CaixaComentarios/Conteiner'
 import { CaixaComentarios } from './components/CaixaComentarios';
+import {PaginaNoticias} from './components/PaginaNoticias'
 import { FiltragemHome } from './components/ComponentsReact/Home/Tabela';
 import { CaixaMensagem } from './components/CaixaMesagem';
 import {ChatBot} from './components/ChatBot';
@@ -83,6 +84,7 @@ function App() {
 			<Router>
 				<Menu />
 				<Switch>
+					<Route path = "/PaginaNoticias" component = {PaginaNoticias}/>
 					<Route path ="/sideBarLateral" component= {sideBarLateral}/>
 					<Route path ="/ChatBot" component={ChatBot}/>
 					<Route path="/caixa-mensagem" component={CaixaMensagem} />
