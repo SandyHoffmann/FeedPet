@@ -48,7 +48,7 @@ body {
    
 }
 
-.wrapper {
+.wrapperChat {
     position: absolute;
     right: 20px;
     bottom: 100px;
@@ -61,7 +61,7 @@ body {
     border-color:#ff4880 ;
 }
 
-#check:checked~.wrapper {
+#check:checked~.wrapperChat {
     opacity: 1
 }
 

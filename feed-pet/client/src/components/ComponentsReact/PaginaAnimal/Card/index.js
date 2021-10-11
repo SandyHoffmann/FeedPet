@@ -10,7 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import {MdWarning} from 'react-icons/md'
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -42,6 +42,7 @@ export function CardTesteReact(props) {
           title={props.nome}
         />
         <CardContent>
+          {props.status==='Desaparecido'&&<p className="desaparecido"><MdWarning color="white"/> Desaparecido!</p>}
           <Typography gutterBottom variant="h5" component="h2">
             {props.nome}
           </Typography>

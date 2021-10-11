@@ -11,7 +11,7 @@ async function deleteAnimal(id) {
       });
 }
 async function getEspecific(id) {
-    const animal = await Animal.findOne({ where: { id:id } });
+    const animal = await Animal.findOne({ where: { id:id },include:"usuario"});
     if (!animal) throw createError(404, "Animal não encontrado!");    
     return animal;
 

@@ -7,7 +7,7 @@ import { Carousel } from "react-bootstrap";
 import { SliderAnimal } from "../SliderAnimal";
 import DateTimePicker from 'react-datetime-picker';
 import { FormAnimal } from "../../PaginaAnimal/FormularioAnimal";
-
+import img from "../../../../assets/naoachado.jpg"
 const jwt = require('jsonwebtoken');
 
 export function ModalGerarAlertaMenu(props) {
@@ -15,6 +15,8 @@ export function ModalGerarAlertaMenu(props) {
   const [animais, setAnimais] = useState([]);
   const [id_animal, setIdAnimal] = useState("");
   const [descricao, setDescricao] = useState("");
+  const [cidade, setCidade] = useState("");
+
   const [data_desaparecimento, setDataDesaparecimento] = useState(new Date());
   const [local, setLocal] = useState("");
 
@@ -38,13 +40,14 @@ export function ModalGerarAlertaMenu(props) {
         e.preventDefault();
         if (id_animal.length>0){
           const res = await api.post(`/alertas/${id_animal}`, 
-                              {descricao,dataDesaparecimento:data_desaparecimento,local}
+                              {descricao,dataDesaparecimento:data_desaparecimento,local,cidade}
                               );
           console.log(res.data)
           setIdAnimal("")
           setDescricao("")
           setDataDesaparecimento(new Date())
           setLocal("")
+          setCidade("")
           setShow(false)
         } else{
           alert("Selecione um animal, ou crie um!")
@@ -93,6 +96,21 @@ export function ModalGerarAlertaMenu(props) {
 
             <div className="sliderAnimal">
               <Carousel id="carouselAnimaisPessoa" interval={null} variant="dark">
+                {animais.length===0&&
+                  <Carousel.Item>
+                    <div className="divImgCarrosel">
+                      <img
+                        className="carouselAnimal"
+                        id="fotoCarousel"
+                        src={img}
+                        alt="First slide"
+                      />
+                    </div>
+                    <Carousel.Caption>
+                      <h3>Animal não achado</h3>
+                      <p>Cadastre um por favor!</p>
+                    </Carousel.Caption>
+                  </Carousel.Item>}
                 {animais.map(animal => {
                   return <Carousel.Item id={animal.id}>
                     <div className="divImgCarrosel">
@@ -125,7 +143,8 @@ export function ModalGerarAlertaMenu(props) {
                     <div className="formularioInteiro">
                       <label htmlFor="local"></label>
                       <input type="text" name="local" placeholder="Local do Desaparecimento" onChange={e => { setLocal(e.target.value) }} value={local} />
-                      <label htmlFor="email"></label>
+                      <label htmlFor="cidade"></label>
+                      <input type="text" name="cidade" placeholder="Cidade do Desaparecimento" onChange={e => { setCidade(e.target.value) }} value={cidade} />
 
                       <label htmlFor="descricao"></label>
                       <textarea type="textarea" name="descricao" placeholder="Descricao" onChange={e => { setDescricao(e.target.value) }} value={descricao} />

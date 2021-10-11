@@ -20,6 +20,10 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       },
+      cidade: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       concluido: {
         type: Sequelize.BOOLEAN,
         allowNull: false,

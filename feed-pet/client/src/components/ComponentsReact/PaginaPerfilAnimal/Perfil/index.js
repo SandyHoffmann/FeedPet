@@ -3,7 +3,7 @@ import imgpost from "../../../../assets/icone1.png";
 import imgdog from "../../../../assets/doguinho.jpg"
 import { useState, useEffect } from "react";
 import { api } from "../../../../service";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AgendaAnimal } from "../Agenda";
 import { FormularioAgenda } from "../FormularioAgenda";
 import imgsrd from "../../../../assets/srd.jpg";
@@ -12,23 +12,39 @@ import food from "../../../../assets/food-bowl.png";
 import bed from "../../../../assets/pet-bed.png";
 import local from "../../../../assets/local.png";
 import imggato from "../../../../assets/gato.jpg";
+import { Alert } from "react-bootstrap";
+const jwt = require('jsonwebtoken');
+
 
 
 export function PaginaAnimal(props) {
   const [informacoes, setInformacoes] = useState([])
+  const [desaparecido, setDesaparecido] = useState([])
+  const [usuario, setUsuario] = useState([])
   const { id } = useParams();
+
   useEffect(async () => {
     try {
       const res = await api.get(`/animais/geral/${id}`);
       const informacao = res.data;
       console.log(informacao)
       setInformacoes(informacao)
-
+      if (informacao.status==="Desaparecido"){
+        const desaparecido = await api.get(`/alertas/${id}`);
+        setDesaparecido(desaparecido.data)
+      }
+      const token = jwt.decode(localStorage.getItem("access-token"),process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+      setUsuario(token.sub)
     } catch (error) {
       console.log(error)
     }
   }, [])
-
+  async function AnimalEncontrado(){
+    const res = await api.put(`/alertas/${desaparecido.id}/${id}`);
+    setInformacoes(res.data)
+    let div=document.querySelectorAll(".escondido")
+    div[0].className=""
+  }
   return (
     <>
     <section class="section about-section gray-bg" id="about">
@@ -52,6 +68,30 @@ export function PaginaAnimal(props) {
                             lar amoroso pra chamar de seu!
                           </p>
                 </>)}
+            {(informacoes.status==="Desaparecido")&&
+            <>
+            <div className="animalDesaparecido">
+              <h1>Animal Desaparecido!</h1>
+              <h2>{desaparecido?.descricao}</h2>  
+              <p>{desaparecido?.local}</p>
+              <hr></hr>
+              <p>Você viu esse bichano? Entre em contato com
+              <Link to={`/perfil-usuario/${informacoes.usuario[0].id}`} activeClassName="selected" className="link-drop"> {informacoes.usuario[0].nome} </Link>
+              para ajuda-lo com informacoes!
+              </p>
+              {(informacoes.usuario[0].id===usuario)&&<button className="btn botaoVerde" onClick={AnimalEncontrado}>Marcar como Encontrado</button>}
+            </div>
+            
+          </>
+            }
+            <div className="escondido">
+            <Alert variant="success" dismissible>
+              <Alert.Heading>Esperamos que tudo tenha se resolvido!</Alert.Heading>
+              <p>
+                Conte com a feedPet para ajudar seus animais!
+              </p>
+            </Alert>
+            </div>
             <div class="row about-list" id="lista">
               <div class="col-md-6">
                 <div class="small">

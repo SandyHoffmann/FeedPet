@@ -22,7 +22,7 @@ export function JanelaChatBot(props) {
                 <i aria-hidden="true" className="iconeAjuda">
           <GrHelp  /></i>
             </label>
-            <div className="wrapper">
+            <div className="wrapperChat">
                 <div className="header">
                     <h6>Você Precisa de Ajuda?</h6>
                 </div>
