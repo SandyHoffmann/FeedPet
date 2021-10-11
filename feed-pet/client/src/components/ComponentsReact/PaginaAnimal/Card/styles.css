@@ -2,3 +2,10 @@
     color:rgb(66, 66, 66);
     border: 5px double rgb(248, 146, 163);
 }
+
+.desaparecido{
+    color: white;
+    background-color: rgba(255, 0, 0, 0.774);
+    padding: 3%;
+    border-radius: 5px;
+}

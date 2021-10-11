@@ -7,6 +7,22 @@
     margin: 2em 5em;
     position:relative;
 }
+.animalDesaparecido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: rgba(255, 0, 55, 0.5);
+    padding: 3%;
+    border-radius: 5px;
+
+}
+
+.botaoVerde{
+    color: white;
+    background-color: rgb(184, 250, 53);
+
+}
 .gray-bg {
     background-color: #ffff;
 }

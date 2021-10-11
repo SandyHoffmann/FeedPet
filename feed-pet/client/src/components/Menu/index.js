@@ -10,6 +10,8 @@ import menu from '../../assets/menu-nav.png';
 import { ModalAlerta } from "../ComponentsReact/PostagemPage/ModalAlerta";
 import { ModalGerarAlerta } from "../ComponentsReact/PostagemPage/ModalGerarAlerta";
 import { ModalGerarAlertaMenu } from "../ComponentsReact/AlertaAnimal/ModalGerarAlerta";
+import { ModalAlertaMenu } from "../ComponentsReact/AlertaAnimal/ModalAlerta";
+import { ModalChat } from "../ComponentsReact/Notificacoes/ChatNotificacoes";
 const jwt = require('jsonwebtoken');
 
 
@@ -29,16 +31,8 @@ export function Menu(props) {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item"><NavLink exact to="/" activeClassName="selected" className="nav-link" id="teste">Home</NavLink></li>
                 <li className="nav-item"><NavLink to="/postagens" activeClassName="selected" className="nav-link" id="teste">Postagens</NavLink></li>
-                <li className="nav-item">
-                  <a className="nav-link" id="teste" href="#">
-                    Menu
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" id="teste" href="#">
-                   Pesquisa de usúario
-                  </a>
-                </li>
+                <li className="nav-item"><NavLink to="/chat" activeClassName="selected" className="nav-link" id="teste">Chats</NavLink></li>
+
               </ul>
             </div>
           </div>
@@ -47,8 +41,9 @@ export function Menu(props) {
             <a className="text-reset me-3" href="#">
               <i className="fas fa-shopping-cart"></i>
             </a>
-            <ModalAlerta/>
+            <ModalAlertaMenu/>
             <ModalGerarAlertaMenu/>
+            <ModalChat/>
             <DropdownButton
               id="dropdown"
               className="botaopesquisa"
