@@ -1,4 +1,6 @@
 import React from "react";
+import iconLocal from "../../../assets/local.png"
+
 import {
   GoogleMap,
   useLoadScript,
@@ -27,18 +29,15 @@ const mapContainerStyle = {
   width: "100vw",
 };
 const options = {
-  styles: mapStyles,
-  disableDefaultUI: true,
-  zoomControl: true,
 };
 const center = {
-  lat: 43.6532,
-  lng: -79.3832,
+  lat: -26.9187,
+  lng: -49.066,
 };
 
 export function MapaInterativo() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyCYLE7ZwYp-aAG5hG2Gp5tzep0IW38OuZ0",
     libraries,
   });
   const [markers, setMarkers] = React.useState([]);
@@ -82,7 +81,7 @@ export function MapaInterativo() {
         onClick={onMapClick}
         onLoad={onMapLoad}
       >
-        {markers.map((marker) => (
+        {markers.map((  marker) => (
           <Marker
             key={`${marker.lat}-${marker.lng}`}
             position={{ lat: marker.lat, lng: marker.lng }}
@@ -90,7 +89,7 @@ export function MapaInterativo() {
               setSelected(marker);
             }}
             icon={{
-              url: `../../../assets/cat-ativo.png`,
+              url: iconLocal,  
               origin: new window.google.maps.Point(0, 0),
               anchor: new window.google.maps.Point(15, 15),
               scaledSize: new window.google.maps.Size(30, 30),
@@ -122,7 +121,7 @@ function Locate({ panTo }) {
   return (
     <button
       className="locate"
-      onClick={() => {
+      onLoad={() => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             panTo({
@@ -134,7 +133,7 @@ function Locate({ panTo }) {
         );
       }}
     >
-      <img src="../../../assets/local.png" alt="compass" />
+      <img src="iconCompass" alt="compass" />
     </button>
   );
 }
