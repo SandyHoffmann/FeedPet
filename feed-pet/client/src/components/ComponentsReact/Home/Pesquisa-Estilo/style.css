@@ -6,6 +6,8 @@
 }
 .caixaPesquisa{
     padding: 5%;
+    position: relative;
+
 }
 .filtros select{
     background-color: rgb(255, 249, 238);
@@ -42,12 +44,15 @@
 .barra-pesquisa__opcoes{
     display: flex;
     flex-direction: column;
+
 }
 
 .filtros_footer{
     display: flex;
     flex-direction: row;
     align-self: center;
+    position: relative;
+
 }
 
 .filtros select:hover{
@@ -80,7 +85,8 @@
 }
 .barra-pesquisa{
     width: 100%;
-    background: linear-gradient(0,rgb(255, 148, 214), #ff91b2  );
+    background-color: #ff4880;
+    /* background: linear-gradient(0,#ff4880,#b073d8  ); */
     /* #ff4880, #ff91b2 */
 }
 .filtros{
@@ -89,6 +95,7 @@
     /* justify-content: space-around; */
     flex-wrap: wrap;
     padding:0% 5% 0% 5%;
+    position: relative;
 
 }
 .filtros .radiooptions:not(:last-child) {
@@ -175,24 +182,33 @@
 
 .radiooptions .naoinput:checked + label{
     background-image: url('../../../../assets/dog-seating-ativo.png');
-    background-size: 5vh;
+    background-size: cover;
+}
+
+.radiooptions .femeainput:checked + label{
+    background-image: url('../../../../assets/femea-ativo.png');
+    background-size: cover;
+}
+.radiooptions .machoinput:checked + label{
+    background-image: url('../../../../assets/macho-ativo.png');
+    background-size: cover;
 }
 
 
 
 .radiooptions .siminput:checked + label{
     background-image: url('../../../../assets/dog-with-belt-walking-with-a-man-ativo.png');
-    background-size: 5vh;
+    background-size: cover;
 }
 
 .radiooptions .doginput:checked + label{
     background-image: url('../../../../assets/dog-ativo.png');
-    background-size: 5vh;
+    background-size: cover;
 }
 
 .radiooptions .catinput:checked + label{
     background-image: url('../../../../assets/cat-ativo.png');
-    background-size: 5vh;
+    background-size: cover;
 }
 .conjunto{
     display: flex;
@@ -216,20 +232,30 @@
 }
 .radiooptions .gato label{
     background-image: url('../../../../assets/cat.png');
-    background-size: 5vh;
+    background-size: cover;
 }
 .radiooptions .cachorro label{
     background-image: url('../../../../assets/dog.png');
-    background-size: 6vh;
+    background-size: cover;
 }
 .radiooptions .sim label{
     background-image: url('../../../../assets/dog-with-belt-walking-with-a-man.png');
-    background-size: 5vh;
+    background-size: cover;
 
 }
 .radiooptions .nao label{
     background-image: url('../../../../assets/dog-seating.png');
-    background-size: 5vh;
+    background-size: cover;
+}
+
+.radiooptions .macho label{
+    background-image: url('../../../../assets/macho.png');
+    background-size: cover;
+
+}
+.radiooptions .femea label{
+    background-image: url('../../../../assets/femea.png');
+    background-size: cover;
 }
 
 .radiooptions .desaparecidoFiltro label{
@@ -240,48 +266,30 @@
     padding-left: 3em;
 }
 .stars{
-    position: relative;
     width: 3px;
+    display: none;
     height: 3px;
     border-radius: 50%;
-    box-shadow: 50px 30px white,
-    120px 80px  white,
-    90px 200px white,
-    280px 300px white,
-    230px 130px white,
-    170px 50px white,
-    130px 100px white,
-    0px 80px  white,
-    20px 150px  white,
-    370px 150px  white,
-    550px 180px  white,
-    750px 160px  white,
-    620px 100px  white,
-    720px 95px  white,
-    900px 120px  white,
-    850px 230px  white,
-    950px 200px  white,
-    1050px 150px  white,
-    1150px 100px  white,
-    1150px 200px  white,
-    1250px 130px  white,
-    1350px 200px  white,
-    1450px 220px  white,
-    1490px 180px  white,
-    1590px 150px  white,
-    1490px 90px  white,
-    220px  200px white,
-    700px  250px white,
-    800px  350px white,
-    700px  70px white,
-    600px  60px white,
-    500px  70px white,
-   
-    220px  200px white;
-    
+    background-image:url('../../../../assets/cat.png');
+    width: 100%;
+    background-repeat: repeat;
+    height: 40vh;
+
     animation: anim-stars 10s linear infinite;
   }
-  
+  #sky{
+      top: auto !important;
+      height: 60% !important; 
+      z-index: 0 !important;
+  }
+  @keyframes anim-stars {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-300px);
+    }
+}
   .stars::after{
     content: " ";
     position: absolute;
@@ -403,12 +411,3 @@
     320px  200px white;
   }
   
-  
-  @keyframes anim-stars {
-      from {
-          transform: translateY(0px);
-      }
-      to {
-          transform: translateY(-300px);
-      }
-  }
