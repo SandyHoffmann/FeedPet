@@ -3,7 +3,10 @@ import "./style.css"
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import logo from "./logo.png";
-
+import Sky from 'react-sky';
+import imagem from '../../../../assets/fundo2.png'
+import imagem2 from '../../../../assets/fundo3.png'
+import imagem3 from '../../../../assets/fundo4.png'
 
 export function PesquisaEstilo(props) {
 
@@ -11,9 +14,20 @@ export function PesquisaEstilo(props) {
 
 
         <div className="barra-pesquisa">
+        <Sky
+          images={{
+            /* FORMAT AS FOLLOWS */
+            0: imagem, /* You can pass as many images as you want */
+            1:imagem2,
+            2:imagem3
+            }}
+            how={200} /* Pass the number of images Sky will render chosing randomly */
+            time={40} /* time of animation */
+            size={'50px'} /* size of the rendered images */
+            background={'#ff4880'} /* color of background */
+        />          
 
-            <div class="stars" ></div>
-            <div class="stars2" ></div>
+           
             <div className="caixaPesquisa">
                 <input type="text" value={props.texto} className="Pesquisa" onChange={props.onChange} name="filterText"></input>
             </div>
