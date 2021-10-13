@@ -153,7 +153,7 @@ export function PaginaAnimal(props) {
                  
               </div>
               <div class="row about-list animalEditar invisivel">
-                    <EdicaoAnimal informacao = {informacoes} dono={dono}/>
+                    <EdicaoAnimal informacao={informacoes} dono={dono} setinfo={setInformacoes}/>
               </div>  
             </div>
             </div>
