@@ -48,3 +48,27 @@
   font-style: normal;
   color: rgb(0, 0, 0);
 }
+
+@media only screen and (max-width: 990px) {
+  .navItensColapse{
+    justify-content:center !important;
+    flex-direction: column;
+    align-items: center;
+  }
+  .collapse:not(.show){
+    display: flex !important;
+    flex-direction: column;
+  }
+}
+
+
+
+.collapse:not(.show) .me-auto{
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around;
+}
+
+.collapse:not(.show) .nav-item{
+  padding: 3%;
+}

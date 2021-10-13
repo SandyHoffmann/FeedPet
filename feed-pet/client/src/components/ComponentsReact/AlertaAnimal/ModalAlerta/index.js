@@ -1,6 +1,6 @@
 import { Modal, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import alerta from "../../../../assets/alerta.png";
+import alerta from "../../../../assets/menualertas.png";
 import "./styles.css";
 import dogcard from "../../../../assets/dogito.jpeg";
 import { api } from "../../../../service";
@@ -41,11 +41,10 @@ export function ModalAlertaMenu(props) {
     <>
       <Button
         classNameName="btn btn-danger"
-        id="botaoalerta"
         onClick={handleShow}
       >
         {" "}
-        <img src={alerta}></img>
+        <img src={alerta} className="imagemmenu"></img>
       </Button>
       <Modal show={show} onHide={handleClose} data-toggle="modal" size="lg">
         <Modal.Header closeButton>
@@ -89,22 +88,7 @@ export function ModalAlertaMenu(props) {
                     </a>
                   </li>
                   <li class="page-item">
-                    <a class="page-link" href="#">
-                      1
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">
-                      2
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">
-                      3
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" aria-label="Próximo" onClick={e => setPag(pag => pag+1)}>
+                    <a class="page-link" aria-label="Próximo" onClick={e => (pag*(animais.length/3)<animais.length)&&setPag(pag => pag+1)}>
                       <span aria-hidden="true">&raquo;</span>
                       <span class="sr-only">Próximo</span>
                     </a>

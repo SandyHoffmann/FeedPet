@@ -21,7 +21,6 @@ export function ChatCriar(props) {
     useEffect(async () => {
         try {
             const res = (await api.get("/usuarios/chat-users")).data;
-            console.log(res)
             setPessoas(res)
         } catch (error) {
             console.log(error)
@@ -31,23 +30,40 @@ export function ChatCriar(props) {
 
     function handleChange(e){
         setpessoasDoChat(e)
+        
     }
 
     async function handleSubmit(){
         const nomeChat = nome?nome:pessoasDoChat[0].nome
-        console.log(pessoasDoChat)
-        const usuarios=pessoasDoChat.map(pessoa => pessoa.id)
-        const send = await api.post("/chats/",{
-            "nome":nomeChat,
-            descricao,
-            usuarios
-        })
-        let chat = send.data
-        chat = Object.assign(chat,{ultimaMsg:{conteudo: "Nenhuma Mensagem"}})
-        let chats = props.chats
-        props.setchats(chats => {return [chat,...chats]})
-        socket.emit("add chat",chat,usuarios)
-        handleClose()
+        let verificar = true
+        console.log(pessoasDoChat[0].id)
+        if (!nome){
+            props.chats.filter(
+                chat => chat.usuario.length ==2 &&
+                chat.usuario.map(
+                    usuarioChat => usuarioChat.id == pessoasDoChat[0].id &&
+                                    (verificar = false)
+                )
+            )
+        }
+        if (verificar){
+            console.log(pessoasDoChat)
+            const usuarios=pessoasDoChat.map(pessoa => pessoa.id)
+            const send = await api.post("/chats/",{
+                "nome":nomeChat,
+                descricao,
+                usuarios
+            })
+            let chat = send.data
+            chat = Object.assign(chat,{ultimaMsg:{conteudo: "Nenhuma Mensagem"}})
+            let chats = props.chats
+            props.setchats(chats => {return [chat,...chats]})
+            socket.emit("add chat",chat,usuarios)
+            handleClose()
+        } else{
+            alert("Você ja tem uma conversa com este usuario!")
+            handleClose()
+        }
     }
 
     return (
