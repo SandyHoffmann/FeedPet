@@ -1,7 +1,8 @@
 const createError = require("http-errors");
-const { Alerta, Animal,Usuario } = require("../models");
+const { Alerta, Animal, Usuario, Endereco } = require("../models");
 
-async function createAlertaparaAnimal(id_animal, novoAlerta, user_id) {
+async function createAlertaparaAnimal(user_id, id_animal, novoAlerta) {
+
     const animal = await Animal.findOne({ where: { id:id_animal } });
     if (!animal) throw createError(404, "Animal não encontrado!");    
 
@@ -45,7 +46,7 @@ async function concluirAlerta(id_alerta,id_animal) {
 async function getAlertasByEndereco(user_id) {
     const usuario = await Usuario.findOne({ where: {id:user_id} });
     if (!usuario) throw createError(404, "Usuário não encontrado!");
-    const endereco = await endereco.findOne({ where: {id:usuario.endereco_id}})
+    const endereco = await Endereco.findOne({ where: {id:usuario.endereco_id}})
     return await Alerta.findAll({ where: {cidade:endereco.cidade} })
 }
 
