@@ -1,6 +1,4 @@
-#botaoalerta {
-  margin-right: 4px;
-}
+
 #titulo-modal {
   font-weight: 600 !important;
   color: #ff4880;
@@ -53,4 +51,7 @@
 .menuchaticon{
   display: flex !important;
   flex-direction: row;
+  height: 100%;
+  background-color: #680682 !important;
+
 }

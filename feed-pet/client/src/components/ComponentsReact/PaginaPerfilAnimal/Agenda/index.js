@@ -6,6 +6,8 @@ import imgpost from "../../../../assets/icone1.png";
 import "./styles.css"
 import { Link } from "react-router-dom";
 
+const moment = require('moment'); 
+
 const jwt = require('jsonwebtoken');
 
 export function AgendaAnimal(props) {
@@ -16,6 +18,7 @@ export function AgendaAnimal(props) {
     const { id } = useParams();
     console.log(id)
 
+    moment.locale('pt-br');
 
     useEffect(async () => {
         try {
@@ -43,9 +46,10 @@ export function AgendaAnimal(props) {
             <li><div className="novaAtividade"><FormularioAgenda atividade_feita={agenda.id} setarAtividade={setInformacoesAtiv} atividades={informacoes} /></div></li>
             {informacoes.map(tarefa =>
                 <li key={tarefa.id}>
+                
                     <div className="timeline-time">
-                        <span className="date">today</span>
-                        <span className="time">07:20</span>
+                        <span className="date">{moment(tarefa.createdAt).format('DD-MM')}</span>
+                        <span className="time">{moment(tarefa.createdAt).format('HH:mm')}</span>
                     </div>
 
                     <div className="timeline-icon">
@@ -55,7 +59,7 @@ export function AgendaAnimal(props) {
                     <div className="timeline-body">
                         <div className="timeline-header">
                             <span className="userimage">
-                                <img src={imgpost} alt=""></img>
+                                <img src={tarefa.usuario.avatar} alt=""></img>
                             </span>
                             <Link to={`/perfil-usuario/${tarefa.usuario.id}`}><span className="username">{tarefa.usuario.nome}</span></Link>
                         </div>

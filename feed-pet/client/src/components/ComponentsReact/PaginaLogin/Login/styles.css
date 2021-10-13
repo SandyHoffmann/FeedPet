@@ -79,7 +79,6 @@ input[type="password"] {
 }
 
 .grandecaixa input:active,input:focus{
-
     border-color: pink !important;
 }
 

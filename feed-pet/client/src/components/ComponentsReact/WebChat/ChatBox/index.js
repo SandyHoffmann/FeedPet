@@ -9,7 +9,9 @@ export function ChatBox(props) {
         <div className="chatBox">
             <div className="container cardsContainer">
                 <div className="msgCards">
-                <div className="image " >
+                <div className="image" >
+                    <img src={props.chat.usuario[0].avatar}/>
+        {console.log(props.chat.usuario[0].avatar)}
                 </div>
                     <div className="flexContato">
                         <div className="flexContato__user">

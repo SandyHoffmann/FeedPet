@@ -41,7 +41,6 @@
   justify-items: center;
 }
 .botaoalertanimal{
-  margin-top: 5%;
   width: 100%;
 }
 .formularioInteiro input,
@@ -121,7 +120,10 @@ input:focus {
   background-image: url('../../../../assets/cat-ativo.png');
   background-size: 5vh;
 }
+.botaoalertagerar{
+  background-color:#ff4880 !important;
 
+}
 .animalerta input + label{
   background-image: url('../../../../assets/cat.png');
   background-size: 5vh;

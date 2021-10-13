@@ -30,7 +30,7 @@
   padding-bottom: 1em;
 }
 #perfilcachorro {
-    width: 100%;
+    width: 15em;
     height: 15em;
     background: #ffffff;
 
@@ -46,12 +46,33 @@
   width: 100%;
   padding: 12px;
 }
+.avatarFoto{
+    display: flex;
+    margin-right: 5%;
+}
+
+.animalEditar{
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+}
+.centralizarBotao{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+#boxsobrefotos{
+    display: flex;
+}
 .about-text h3 {
   font-size: 35px;
   font-weight: 700;
   margin: 0 0 6px;
 }
-
+.perfilCabecalho{
+    width: 100%;
+}
 /* @media (max-width: 767px) {
   .about-text h3 {
     font-size: 35px;
@@ -74,7 +95,12 @@
   font-weight: 600;
   color: #680682;
 }
-
+.about-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 .about-list {
   padding-top: 10px;
 }

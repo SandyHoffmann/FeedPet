@@ -77,8 +77,7 @@ export function ModalGerarAlertaMenu(props) {
   return (
     <>
       <Button
-        classNameName="btn btn-danger"
-        id="botaogeraralerta"
+        className="btn botaoalertagerar"
         onClick={handleShow}
       >
         {" "}
