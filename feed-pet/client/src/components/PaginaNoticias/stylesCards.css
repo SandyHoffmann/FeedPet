@@ -1,0 +1,22 @@
+.Cards{
+   
+    
+    display: flex;
+   
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.div{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.cardPoistion{
+    min-width: 600px;
+    
+    margin: auto;
+}
+
+.tamanhoTexto{
+    font-size: 12px;
+}
