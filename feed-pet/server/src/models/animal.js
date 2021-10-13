@@ -66,11 +66,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     keyS3: {
       type: DataTypes.STRING,    
-    },
-    publico: {
-      type:DataTypes.BOOLEAN,
-      allowNull:false
     }
+    
   }, {
     sequelize,
     modelName: 'Animal',
