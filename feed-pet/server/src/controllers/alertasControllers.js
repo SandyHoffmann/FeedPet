@@ -2,7 +2,8 @@ const alertasServices = require("../services/alertasServices");
 
 async function criarParaAnimal(req, res, next) {
     try {        
-        const alertas = await alertasServices.createAlertaparaAnimal(req.params.id_animal, req.body, res.locals.userId)
+        console.log(req.body)
+        const alertas = await alertasServices.createAlertaparaAnimal(res.locals.userId, req.params.id_animal, req.body  )
         res.status(201).json(alertas);
     } catch (err) {
         console.log(err);

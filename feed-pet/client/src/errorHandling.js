@@ -8,7 +8,8 @@ export function VerificarErros(erros){
 
             }
         }
-    }
+    }   
+    console.log(erros)
 
     for (let err of erros.errors){
         console.log(err.param)

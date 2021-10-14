@@ -11,6 +11,7 @@ import {BiArrowBack} from "react-icons/bi";
 import dogFoto from '../../../../assets/dogchat.gif'
 import { NotFound } from '../../notFound';
 
+
 const jwt = require('jsonwebtoken');
 const moment = require('moment'); 
 
@@ -61,8 +62,11 @@ export function Chat(props) {
                     setMsgs(msg => [...msg,msgData])
                 }
                 if(props.estado==="menu"){
+                    console.log("menu")
                     let alerta = document.querySelectorAll(".chatMenu")
-                    alerta[0].className = "chatMenu visivelMenu"
+                    if (alerta.length>0){
+                        alerta[0].className = "chatMenu visivelMenu"
+                    }
 
                 }
             })
@@ -109,17 +113,17 @@ export function Chat(props) {
         socket.emit("send message",res.data[0])
         if (window.innerWidth<850){
             let elementoChat = document.querySelectorAll('.chat_fp__elemento')
-            elementoChat[0].className = "chat_fp__elemento invisivel"
+            elementoChat[0].className = "chat_fp__elemento invisivelChat"
             let elementoMsg = document.querySelectorAll('.mensagens')
             elementoMsg[0].className = "mensagens visivel"
-        }            
+        } 
     }
 
     function voltarClick(){
         let elementoChat = document.querySelectorAll('.chat_fp__elemento')
         elementoChat[0].className = "chat_fp__elemento visivel"
         let elementoMsg = document.querySelectorAll('.mensagens')
-        elementoMsg[0].className = "mensagens invisivel"
+        elementoMsg[0].className = "mensagens invisivelChat"
     }
     function menuChatClick(){
         window.location.replace("/chat");    
@@ -162,7 +166,7 @@ export function Chat(props) {
                         {msg?.map(mensagem => (mensagem.id_usuario === socket.auth.userId) ? (<ChatMsg className="direita" mensagem={mensagem} key={mensagem.id}/>) : (<ChatMsg className="esquerda" mensagem={mensagem} key={mensagem.id}/>))}
                     </div>
                     <div className="mensagens__mandar">
-                        <ChatForm enviar={enviar} setarMsg = {setMsgs} msg = {msg} user={socket.auth} setarChat={setChats} chats={chats}></ChatForm>
+                        <ChatForm enviar={enviar} setarMsg = {setMsgs} msg = {msg} user={socket.auth} setarChat={setChats} chats={chats} name="conteudo"></ChatForm>
                     </div>
                 </div>
             </div>

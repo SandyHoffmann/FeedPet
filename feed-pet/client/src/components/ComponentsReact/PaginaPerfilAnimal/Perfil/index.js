@@ -1,7 +1,7 @@
 import "./styles.css";
 import imgpost from "../../../../assets/icone1.png";
 import imgdog from "../../../../assets/doguinho.jpg"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { api } from "../../../../service";
 import { Link, useParams } from "react-router-dom";
 import { AgendaAnimal } from "../Agenda";
@@ -12,8 +12,11 @@ import food from "../../../../assets/food-bowl.png";
 import bed from "../../../../assets/pet-bed.png";
 import local from "../../../../assets/local.png";
 import imggato from "../../../../assets/gato.jpg";
-import { Alert } from "react-bootstrap";
+import { Alert, Popover } from "react-bootstrap";
 import { EdicaoAnimal } from "../Edicao";
+import { AiOutlineEdit } from "react-icons/ai";
+import ReactTooltip from "react-tooltip";
+
 const jwt = require('jsonwebtoken');
 const moment = require('moment'); 
 
@@ -25,7 +28,7 @@ export function PaginaAnimal(props) {
   const [desaparecido, setDesaparecido] = useState([])
   const [usuario, setUsuario] = useState([])
   const [dono, setDono] = useState([])
-
+  const editando = useRef(false)
   const { id } = useParams();
   console.log(id)
   useEffect(async () => {
@@ -51,28 +54,69 @@ export function PaginaAnimal(props) {
     let div = document.querySelectorAll(".escondido")
     div[0].className = ""
   }
-  function editar(){
-    let div = document.querySelectorAll(".animalEditar")
-    div[0].className = "row about-list animalEditar"
-    let divInvisivel = document.querySelectorAll("#lista")
-    divInvisivel[0].className = "row about-list invisivel"
+  function editar(e){
+    if (editando.current == false){
+      let div = document.querySelectorAll(".animalEditar")
+      div[0].className = "row about-list animalEditar"
+      let divInvisivel = document.querySelectorAll("#lista")
+      divInvisivel[0].className = "row about-list invisivel"
+      editando.current = true
+      let divWarn = document.querySelectorAll(".editar")
 
+    } else{
+      let div = document.querySelectorAll(".animalEditar")
+      div[0].className = "row about-list animalEditar invisivel"
+      let divInvisivel = document.querySelectorAll("#lista")
+      divInvisivel[0].className = "row about-list"
+      editando.current = false
+    }
   }
+
+
   return (
     <>
       <section class="section about-section gray-bg" id="about">
         <div className="container bodyDog" id="cabecalho">
             <div id="sobreanimal">
-              {(usuario === dono.id)&&<button onClick={editar}>Editar</button>}
               <div class="about-text go-to">
                 <div class="avatarFoto">
                   <div class="about-avatar">
+                    <div>
                     <img id="perfilcachorro" src={informacoes.avatar} />
+                    </div>
+                    <div className="escondido">
+                    <Alert variant="success">
+                      <Alert.Heading>Esperamos que tudo tenha se resolvido!</Alert.Heading>
+                      <p>
+                        Conte com a feedPet para ajudar seus animais!
+                      </p>
+                    </Alert>
+                    </div>
+                    {(informacoes.status === "Desaparecido") &&
+                  <>
+                    <div className="animalDesaparecido" data-tip data-for="registerTip">
+                      <h2>Animal Desaparecido!</h2>
+                      
+                      <p>Você viu esse bichano? Entre em contato com
+                        <Link to={`/perfil-usuario/${informacoes.usuario[0].id}`} activeClassName="selected" className="link-drop"> {informacoes.usuario[0].nome} </Link>
+                        para ajuda-lo com informacoes!
+                      </p>
+                      <ReactTooltip id="registerTip" place="top" effect="solid" backgroundColor="white" textColor="black">
+                        <p>Descrição - {desaparecido.descricao}</p>
+                        <p>Local - {desaparecido.local}</p>
+                      </ReactTooltip>
+                      {(informacoes.usuario[0].id === usuario) && <button className="btn" onClick={AnimalEncontrado}>Marcar como Encontrado</button>}
+                    </div>
+                  </>
+                }
                   </div>
                 </div>
-                <div>
-                <h3 class="dark-color">{informacoes.nome}</h3>
-                {((informacoes.tipo_animal == "Cachorro") && (
+                <div className="corpoPerfilAnimal">
+                <div className="flexDiv">
+                  <h3 class="dark-color">{informacoes.nome}</h3>
+                {(usuario === dono.id)&&<button onClick={editar} className="btn editar">Editar <AiOutlineEdit/> </button>}
+                </div>
+                {/* {((informacoes.tipo_animal == "Cachorro") && (
                   <>
                     <h6 class="theme-color lead">Um doguinho muito amoroso!</h6>
                     <p>
@@ -86,31 +130,9 @@ export function PaginaAnimal(props) {
                     Calmo, dócil com crianças e outros animais. Está procurando um
                     lar amoroso pra chamar de seu!
                   </p>
-                </>)}
-                {(informacoes.status === "Desaparecido") &&
-                  <>
-                    <div className="animalDesaparecido">
-                      <h1>Animal Desaparecido!</h1>
-                      <h2>{desaparecido?.descricao}</h2>
-                      <p>{desaparecido?.local}</p>
-                      <hr></hr>
-                      <p>Você viu esse bichano? Entre em contato com
-                        <Link to={`/perfil-usuario/${informacoes.usuario[0].id}`} activeClassName="selected" className="link-drop"> {informacoes.usuario[0].nome} </Link>
-                        para ajuda-lo com informacoes!
-                      </p>
-                      {(informacoes.usuario[0].id === usuario) && <button className="btn botaoVerde" onClick={AnimalEncontrado}>Marcar como Encontrado</button>}
-                    </div>
-
-                  </>
-                }
-                <div className="escondido">
-                  <Alert variant="success">
-                    <Alert.Heading>Esperamos que tudo tenha se resolvido!</Alert.Heading>
-                    <p>
-                      Conte com a feedPet para ajudar seus animais!
-                    </p>
-                  </Alert>
-                </div>
+                </>)} */}
+               
+               
                 <div class="row about-list" id="lista">
                   <div class="col-md-6">
                     <div class="small">
