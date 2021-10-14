@@ -216,6 +216,10 @@
     box-shadow: 0 0 1em rgba(50, 50, 50, 0.77);
 
 }
+.invisivelChat{
+    display: none !important;
+    opacity: 0;
+}
   }
 
 .invisivel{
