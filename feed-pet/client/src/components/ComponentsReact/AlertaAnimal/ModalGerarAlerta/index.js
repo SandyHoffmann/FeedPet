@@ -8,7 +8,9 @@ import { SliderAnimal } from "../SliderAnimal";
 import DateTimePicker from 'react-datetime-picker';
 import { FormAnimal } from "../../PaginaAnimal/FormularioAnimal";
 import img from "../../../../assets/naoachado.jpg"
+import { MapaInterativo } from "../../GoogleMaps";
 const jwt = require('jsonwebtoken');
+
 
 export function ModalGerarAlertaMenu(props) {
   const [show, setShow] = useState(false);
@@ -143,7 +145,7 @@ export function ModalGerarAlertaMenu(props) {
                   <form onSubmit={handleSubmit}>
                     <div className="formularioInteiro">
                       <label htmlFor="local"></label>
-                      <input type="text" name="local" placeholder="Local do Desaparecimento" onChange={e => { setLocal(e.target.value) }} value={local} />
+                      <MapaInterativo funcao={setLocal}/>
                       <label htmlFor="cidade"></label>
                       <input type="text" name="cidade" placeholder="Cidade do Desaparecimento" onChange={e => { setCidade(e.target.value) }} value={cidade} />
 

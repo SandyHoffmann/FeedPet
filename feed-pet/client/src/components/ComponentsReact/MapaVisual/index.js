@@ -25,12 +25,12 @@ const center = {
   lng: -49.066,
 };
 
-export function MapaInterativo(props) {
+export function MapaVisual(props) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   });
-  const [marker, setMarker] = React.useState([]);
+  const [markers, setMarkers] = React.useState([]);
   const [selected, setSelected] = React.useState(null);
 
   React.useEffect(async () => {
@@ -42,9 +42,15 @@ export function MapaInterativo(props) {
         if (res.ok) {
             const alertas = await res.json();
             for (let alerta of alertas) {
-              const { local } = alerta
-              const { lat, lgn } = local.split("");
-              console.log(`${lat} ${lgn}`);
+              let marker = {};
+              const { local } = alerta;
+              const [lat,lng] = local.split(" ");
+              marker = {
+                lat: lat,
+                lng: lng,
+                time: "teste",
+              };
+              markers.push(marker)
             }
             console.log(alertas)
         }
@@ -55,28 +61,10 @@ export function MapaInterativo(props) {
       // Atribuir ao vetor de markers a localização
     }, []);
 
-    React.useEffect(async () => {
-      props.funcao(marker);
-    }, [marker]);
-
-  const onMapClick = React.useCallback((e) => {
-    setMarker(() => 
-      ({
-        lat: e.latLng.lat(),
-        lng: e.latLng.lng(),
-        time: new Date(),
-      }),
-    );
-  }, []);
-
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
+    console.log(markers)
     mapRef.current = map;
-  }, []);
-
-  const panTo = React.useCallback(({ lat, lng }) => {
-    mapRef.current.panTo({ lat, lng });
-    mapRef.current.setZoom(14);
   }, []);
 
   if (loadError) return "Error";
@@ -95,11 +83,9 @@ export function MapaInterativo(props) {
         center={center}
         options={options}
         onLoad={onMapLoad}
-        onClick={onMapClick}
       >
-        {marker && (
+        {markers.map((marker) => (
           <Marker
-            draggable
             key={`${marker.lat}-${marker.lng}`}
             position={{ lat: marker.lat, lng: marker.lng }}
             onClick={() => {              
@@ -113,7 +99,7 @@ export function MapaInterativo(props) {
               scaledSize: new window.google.maps.Size(30, 30),
             }}
           />
-        )}
+        ))}
 
         {selected ? (
           <InfoWindow            
