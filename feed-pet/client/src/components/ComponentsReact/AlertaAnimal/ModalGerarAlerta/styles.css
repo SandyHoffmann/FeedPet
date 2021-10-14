@@ -21,6 +21,8 @@
   flex-wrap: wrap;
   height: 100%;
 }
+
+
 .avisoalerta{
   display: inline;
   word-break: break-all;
@@ -136,6 +138,10 @@ input:focus {
   }
   .MuiPaper-root{
       width: 50% !important;
+  }
+  
+  .sliderAnimal{
+    width: 90%;
   }
 }
 

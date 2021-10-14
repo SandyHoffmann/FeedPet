@@ -46,11 +46,11 @@ export function MapaVisual(props) {
               const { local } = alerta;
               const [lat,lng] = local.split(" ");
               marker = {
-                lat: lat,
-                lng: lng,
+                lat: +lat,
+                lng: +lng,
                 time: "teste",
               };
-              markers.push(marker)
+              setMarkers([marker])
             }
             console.log(alertas)
         }
