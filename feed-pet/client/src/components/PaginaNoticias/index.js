@@ -11,7 +11,7 @@ export function PaginaNoticias() {
         { id: 2, titulo: "card 02", subtitulo: "subtitulo card 02", mensagem: "Mensagem card 02" }
     ]);
 
-    const [noticiasCards, setNot]
+    // const [noticiasCards, setNot]
 
     useEffect(() => {
         const cardsFormatados = cards.slice();

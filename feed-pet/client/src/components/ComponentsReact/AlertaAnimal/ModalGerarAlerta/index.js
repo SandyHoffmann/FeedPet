@@ -144,8 +144,10 @@ export function ModalGerarAlertaMenu(props) {
                 <div className="areaInputs">
                   <form onSubmit={handleSubmit}>
                     <div className="formularioInteiro">
+                      <div>
                       <label htmlFor="local"></label>
                       <MapaInterativo funcao={setLocal}/>
+                      </div>
                       <label htmlFor="cidade"></label>
                       <input type="text" name="cidade" placeholder="Cidade do Desaparecimento" onChange={e => { setCidade(e.target.value) }} value={cidade} />
 
