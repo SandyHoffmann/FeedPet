@@ -5,22 +5,16 @@ import React from 'react';
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBBtn } from 'mdb-react-ui-kit';
 import { max } from 'moment';
 
-export  function CardsLateral() {
+export  function CardsLateral({ titulo, subtitulo, onClick }) {
   return (
-    <MDBCard className= "cardLateral">
+    <MDBCard className= "cardLateral" onClick={onClick}>
       <MDBCardImage className ="imagemCard"   src='https://mdbcdn.b-cdn.net/img/new/standard/nature/184.jpg' position='top' alt='...' />
       <MDBCardBody>
-        <MDBCardTitle className = "titulo">Comentários</MDBCardTitle>
+        <MDBCardTitle className = "titulo">{titulo}</MDBCardTitle>
         <MDBCardText className= "Texto">
-          Some quick example text to build on the card title and make up the bulk of the card's content.
+          {subtitulo}
         </MDBCardText>
-        <div className = "iconeLike">
-          <MdThumbUp
-        size={15}
-         color="white"
-         /> 
-         <div className = "numeroLike">1</div>
-         </div>
+        
        
       </MDBCardBody>
     </MDBCard>
