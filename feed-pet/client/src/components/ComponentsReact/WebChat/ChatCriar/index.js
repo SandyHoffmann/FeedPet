@@ -35,9 +35,10 @@ export function ChatCriar(props) {
 
     async function handleSubmit() {
         try {
-            const nomeChat = nome && pessoasDoChat.length<2 ? pessoasDoChat[0].nome : nome
+            const nomeChat = pessoasDoChat.length<2 ? pessoasDoChat[0].nome : nome
+            console.log(nomeChat)
             let verificar = true
-            console.log(pessoasDoChat[0].id)
+            console.log(pessoasDoChat)
             if (!nome) {
                 if (pessoasDoChat.length<2){
                     console.log(props.chats)

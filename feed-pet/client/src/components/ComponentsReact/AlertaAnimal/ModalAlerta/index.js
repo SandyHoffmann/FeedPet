@@ -5,7 +5,8 @@ import "./styles.css";
 import dogcard from "../../../../assets/dogito.jpeg";
 import { api } from "../../../../service";
 import { Link } from "react-router-dom";
-
+import { NotFound } from "../../notFound";
+import img from "../../../../assets/dogalerta.gif";
 export function ModalAlertaMenu(props) {
   const [show, setShow] = useState(false);
   const [animais, setAnimais] = useState([]);
@@ -56,6 +57,7 @@ export function ModalAlertaMenu(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        {animais.length===0 && <NotFound titulo="Não há animais perdidos na sua região" img={img}/> }
         {Agrupar(animais,pag).map(petList => 
          <div className="wrapper">
          <div className="container">

@@ -44,7 +44,7 @@ async function createAnimalparaUsuario(id, novoAnimal,avatar,key) {
 }
 
 async function editarAnimal(id, animal, avatar, key) {
-    const animalExiste = await Animal.findOne({ where: { id:id } });
+    const animalExiste = await Animal.findOne({ where: { id:id },include:"usuario" });
     if (!animalExiste) throw createError(404, "Animal não encontrado!");
     let valores = Object.entries(animal)
     console.log(valores)
