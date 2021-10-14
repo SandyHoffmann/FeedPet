@@ -5,26 +5,43 @@ body {
 .perfilFlex {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 .areaTexto {
   background-color: transparent;
-
 }
-.informacoesUsuario{
+.informacoesUsuario {
   display: flex;
   flex-direction: column;
   flex: 1;
-justify-content: center;
-
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
 }
+
+.iconesPerfil{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 #bordaheading {
   flex: 1;
   margin-top: 20px;
   background-color: #fff;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   margin-right: 3em;
-  padding: 10px;
+  padding: 10px 10px 10px 30px;
   height: 70vh;
+  width: 80%;
+}
+.media-heading{
+  color: #ff4880;
+  font-weight: 700;
+  padding: 5px;
 }
 .panel {
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
@@ -32,62 +49,47 @@ justify-content: center;
 .mw140 {
   max-width: 140px !important;
 }
-.mr25 {
+/* .mr25 {
   margin-right: 25px !important;
-}
+} */
 .mb20 {
   margin-bottom: 20px !important;
 }
-.mw150{
+.mw150 {
   width: 15em;
   border-radius: 3px;
 }
 #texto-sobre {
   font-weight: 700;
-  color: #555555;
-/* <<<<<<< Michelle
-=======
-  width: 50%;
-  padding-left: 2em;
+  color: #6b6b6b;
+  align-content: center;
+  margin: 1em 3em;
+
 }
 .fotoUsuario{
-  /* align-self: center; */
-  padding-left: 2em;
+ align-self: center;
 }
-.totalperfil{
+.totalperfil {
   display: flex;
-
 }
 #caixaanimais {
   flex: 1;
 }
 .page-heading {
   padding: 30px 40px !important;
-  margin: -25px -20px 25px;
+  /* margin: -25px -20px 25px; */
   background-color: #f2f2f2;
 }
-/* .panel {
-  position: relative;
-  background-color: #ffffff;
-  border-radius: 3px;
-  height: 100%;
-}
- .panel-heading {
-  height: 52px;
-  line-height: 49px;
-  letter-spacing: 0.2px;
-  color: #ffffff;
-  font-size: 15px;
+.counter-perfil-pessoa {
+  padding: 20px 15px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 40px #ff487f93;
+  margin-right: 30px !important;
   font-weight: 600;
-  padding: 0 8px;
-  margin-top: 20px;
-  background: #ff487fc7;
-  border: 1px solid #a7a7a7;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
-}  */
-#lista li {
-  display: inline-block;
-  margin: 1%;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
 }
+
 

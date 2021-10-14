@@ -49,10 +49,6 @@ module.exports = {
       key_s3: {
         type: Sequelize.STRING,    
       },
-      publico: {
-        type:Sequelize.BOOLEAN,
-        allowNull:false
-      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE
