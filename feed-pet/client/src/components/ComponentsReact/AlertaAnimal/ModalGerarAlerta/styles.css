@@ -4,8 +4,7 @@
 }
 #carouselAnimaisPessoa {
   max-height: 30em;
-  max-width: 25em;
-  padding-right: 20px;
+  max-width: 30em;
   color: black;
 }
 
@@ -74,11 +73,18 @@ input:focus {
 .modalalertaanimalform{
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
+  text-align: center;
 }
+input:focus-visible{
+outline: none;}
 
-
+textarea:focus-visible{
+  outline: none;}
+.passarPag{
+  width: 20%;
+}
 .animalerta:after{
   content: "";
   clear: both;

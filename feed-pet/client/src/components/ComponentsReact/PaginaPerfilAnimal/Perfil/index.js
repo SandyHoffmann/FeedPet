@@ -98,14 +98,14 @@ export function PaginaAnimal(props) {
                       <h2>Animal Desaparecido!</h2>
                       
                       <p>Você viu esse bichano? Entre em contato com
-                        <Link to={`/perfil-usuario/${informacoes.usuario[0].id}`} activeClassName="selected" className="link-drop"> {informacoes.usuario[0].nome} </Link>
+                        <Link to={`/perfil-usuario/${informacoes?.usuario[0].id}`} activeClassName="selected" className="link-drop"> {informacoes?.usuario[0].nome} </Link>
                         para ajuda-lo com informacoes!
                       </p>
                       <ReactTooltip id="registerTip" place="top" effect="solid" backgroundColor="white" textColor="black">
                         <p>Descrição - {desaparecido.descricao}</p>
                         <p>Local - {desaparecido.local}</p>
                       </ReactTooltip>
-                      {(informacoes.usuario[0].id === usuario) && <button className="btn" onClick={AnimalEncontrado}>Marcar como Encontrado</button>}
+                      {(informacoes?.usuario[0].id === usuario) && <button className="btn" onClick={AnimalEncontrado}>Marcar como Encontrado</button>}
                     </div>
                   </>
                 }
