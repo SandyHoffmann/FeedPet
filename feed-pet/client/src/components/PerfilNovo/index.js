@@ -1,16 +1,14 @@
-import imgsrd from "../../assets/srd.jpg";
 import perfil from "../../assets/amyperfil.jpg";
 import "./styles.css";
-import facebook from "../../assets/facebook.png";
-import twitter from "../../assets/twitter.png";
-import instagram from "../../assets/instagram.png";
-import linkedin from "../../assets/linkedin.png";
-import gatinho from "../../assets/gatinho.jpeg";
 import imgperfil from "../../assets/srd.jpg";
 import imgpost from "../../assets/dogito.jpeg";
 import { Carousel } from "react-bootstrap";
 import dogcard from "../../assets/dogito.jpeg";
 import gato from "../../assets/gatinho.jpeg";
+import tutor from "../../assets/tutor.png";
+import bed from "../../assets/pet-bed.png";
+import ajudou from "../../assets/ajudou.png";
+import local from "../../assets/local.png";
 
 export function Perfilnovo(props) {
   return (
@@ -20,7 +18,6 @@ export function Perfilnovo(props) {
           <div className="panel totalperfil" id="bordaheading">
             <div className="informacoesUsuario">
               <div className="fotoUsuario ">
-
                 <a href="#">
                   <img
                     className="media-object mw150"
@@ -35,37 +32,50 @@ export function Perfilnovo(props) {
                   Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod
                   tempor incididunt
                 </p>
-                <p className="conquistas">
-                  3 animais cadastrados
-
-                </p>
-                <div className="media-links">
-                  <ul className="list-inline list-unstyled" id="lista">
-                    <li>
-                      <a href="#" title="facebook link">
-                        <img src={facebook} id="icone-facebook"></img>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" title="twitter link">
-                        <img src={twitter} id="icone-twitter"></img>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" title="instagram link">
-                        <img src={instagram} id="icone-instagram"></img>
-                      </a>
-                    </li>
-                    <li className="">
-                      <a href="#" title="linkedin link">
-                        <img src={linkedin} id="icone-linkedin"></img>
-                      </a>
-                    </li>
-                    <li></li>
-                  </ul>
+                <div class="counter counter-perfil-pessoa" >
+                  {/* <div class="row"> */}
+                    <div class="iconesPerfil">
+                      <div>
+                        <h6
+                          class="count h2"
+                          id="icones"
+                          data-to="500"
+                          data-speed="500"
+                        >
+                          <img src={ajudou}></img>
+                        </h6>
+                        <p class="m-0px font-w-600">Ajudou 5 animais</p>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="count-data text-center">
+                        <h6
+                          class="count h2"
+                          id="icones"
+                          data-to="850"
+                          data-speed="850"
+                        >
+                          <img src={tutor}></img>
+                        </h6>
+                        <p class="m-0px font-w-600">Tutor de 3 animais</p>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="count-data text-center">
+                        <h6
+                          class="count h2"
+                          id="icones"
+                          data-to="190"
+                          data-speed="190"
+                        >
+                          <img src={local}></img>
+                        </h6>
+                        <p class="m-0px font-w-600">Mora em Timbó</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
             <div className="animais">
               <div className="sliderAnimal">
                 <Carousel id="carouselAnimaisPessoa">
