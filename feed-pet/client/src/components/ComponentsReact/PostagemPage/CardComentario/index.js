@@ -1,5 +1,4 @@
 import "./styles.css"
-import img from "../../../../assets/olho.jpg";
 import { Link } from "react-router-dom";
 
 export function CardComentario(props) {

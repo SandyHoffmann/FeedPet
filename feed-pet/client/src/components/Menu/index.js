@@ -1,14 +1,6 @@
-import img from "../../assets/logofinalhome.png";
 import "./styles.css";
-import { CgMenuGridO } from "react-icons/cg";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import imgdog from "../../assets/doguinho.jpg";
-import { AiOutlineAlert } from 'react-icons/ai';
-
-import menu from '../../assets/menu-nav.png';
-import { ModalAlerta } from "../ComponentsReact/PostagemPage/ModalAlerta";
-import { ModalGerarAlerta } from "../ComponentsReact/PostagemPage/ModalGerarAlerta";
 import { ModalGerarAlertaMenu } from "../ComponentsReact/AlertaAnimal/ModalGerarAlerta";
 import { ModalAlertaMenu } from "../ComponentsReact/AlertaAnimal/ModalAlerta";
 import { ModalChat } from "../ComponentsReact/Notificacoes/ChatNotificacoes";
@@ -32,7 +24,7 @@ export function Menu(props) {
         <div className="container-fluid navItensColapse">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <a className="navbar-brand mt-2 mt-lg-0" href="#">
-              <img src={img} height="60" alt="10" loading="lazy" id="imagemlogo" />
+              <img src='https://i.imgur.com/rsUpwDc.png' height="60" alt="10" loading="lazy" id="imagemlogo" />
             </a>
             <div class="nav-fill">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -56,7 +48,7 @@ export function Menu(props) {
               id="dropdown"
               className="botaopesquisa"
               prefixes={{ btn: "botaopesquisa" }}
-              title={<img src={menu} className="lupa" ></img>}
+              title={<img src='https://i.imgur.com/Pm6cTZh.png' className="lupa" ></img>}
               variant="flat"
             >              
               <Dropdown.Item><li><NavLink to="/perfil" activeClassName="selected" className="link-drop" onClick={e => setpagAtual('perfil')}>Perfil</NavLink></li></Dropdown.Item>

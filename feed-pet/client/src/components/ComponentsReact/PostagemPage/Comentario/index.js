@@ -1,6 +1,5 @@
 import { api } from "../../../../service";
 import React from "react";
-import img from "../../../../assets/olho.jpg";
 import { CardComentario } from "../CardComentario";
 const jwt = require('jsonwebtoken');
 
@@ -69,7 +68,7 @@ export class ComentarioPost extends React.Component {
         return (
             <>
                 <div className="user">
-                    <img src={img}></img>
+                    <img src='https://i.imgur.com/16GoOln.png'></img>
                 </div>
                     <form onSubmit={this.handleSubmit}>
                         <div className="input-group">

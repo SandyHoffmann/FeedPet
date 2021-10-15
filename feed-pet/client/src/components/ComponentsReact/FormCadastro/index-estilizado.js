@@ -1,7 +1,6 @@
 import React from "react";
 import { api } from "../../../service";
 import { useState, useEffect } from "react";
-import gatokapa from "./gatokapa.jpg";
 import { VerificarErros } from "../../../errorHandling";
 import "./styles.css"
 export function FormCadastroEstilizado(){
@@ -52,7 +51,7 @@ export function FormCadastroEstilizado(){
         return (
             <>
             <div className="grandecaixa">
-            <div className="caixaimagem"><img src={gatokapa} className="bluhrit"></img></div>
+            <div className="caixaimagem"><img src='https://i.imgur.com/gJYqv2B.jpg' className="bluhrit"></img></div>
             <div className="container caixa">
                 <form onSubmit={handleSubmit} className="caixaElemento  cadastroCaixa" enctype="multipart/form-data"> 
                 <h1>Cadastre-se</h1>

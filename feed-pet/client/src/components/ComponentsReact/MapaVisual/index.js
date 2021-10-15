@@ -1,6 +1,4 @@
 import React from "react";
-import caoIcon from "../../../assets/caoicon.png"
-import catIcon from "../../../assets/cat.png"
 import Button from '@material-ui/core/Button';
 import "./styles.css";
 import {
@@ -87,10 +85,10 @@ export function MapaVisual(props) {
 
   function catOrDog(tipo_animal){
       if (tipo_animal==="Cachorro") {
-        return caoIcon
+        return 'https://i.imgur.com/cF0FVK0.png'
       }
       else {
-        return catIcon
+        return 'https://i.imgur.com/16GoOln.png'
       }
   }
   return (

@@ -5,7 +5,6 @@ import {id,secret} from '../../../../varAmbiente'
 import { Form } from 'react-bootstrap';
 import "./styles.css"
 import { Link } from "react-router-dom";
-import povdogrunning from "../../../../assets/gifgato.gif";
 import GoogleLogin from 'react-google-login';
 
 const jwt = require('jsonwebtoken');
@@ -91,7 +90,7 @@ export class FormLoginEstilizado extends React.Component {
             <>
             {/* colocar validações */}
         <div className="grandecaixa">
-            <div className="caixaimagem"><img src={povdogrunning} className="bluhrit"></img></div>
+            <div className="caixaimagem"><img src='https://i.imgur.com/Gfs47Nr.gifv' className="bluhrit"></img></div>
             <div className="container caixa">
                 <form onSubmit={this.handleSubmit} className="caixaElemento">
                 <h1>Login</h1>

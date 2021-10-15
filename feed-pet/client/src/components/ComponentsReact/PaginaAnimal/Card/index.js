@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import img from "../../../../assets/olho.jpg";
 import "./styles.css";
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';

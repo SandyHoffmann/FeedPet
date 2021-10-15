@@ -1,13 +1,11 @@
 import { Modal, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import alerta from "../../../../assets/alerta.png";
 import "./styles.css";
 import { api } from "../../../../service";
 import { Carousel } from "react-bootstrap";
 import { SliderAnimal } from "../SliderAnimal";
 import DateTimePicker from 'react-datetime-picker';
 import { FormAnimal } from "../../PaginaAnimal/FormularioAnimal";
-import img from "../../../../assets/naoachado.jpg"
 import { MapaInterativo } from "../../GoogleMaps";
 import { IoMdArrowRoundBack } from "react-icons/io"
 
@@ -102,7 +100,7 @@ export function ModalGerarAlertaMenu(props) {
         onClick={handleShow}
       >
         {" "}
-        <img src={alerta}></img>
+        <img src='https://i.imgur.com/5td7uzO.png'></img>
       </Button>
       <Modal show={show} onHide={handleClose} data-toggle="modal" size="lg">
         <Modal.Header closeButton>
@@ -124,7 +122,7 @@ export function ModalGerarAlertaMenu(props) {
                       <img
                         className="carouselAnimal"
                         id="fotoCarousel"
-                        src={img}
+                        src='https://i.imgur.com/FVp8SzH.jpg'
                         alt="First slide"
                       />
                     </div>
