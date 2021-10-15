@@ -24,6 +24,7 @@ export function Chat(props) {
     const [user, setUser] = useState([])
     const [enviar, setEnviar] = useState('')
     const [atualGrupo, setatualGrupo] = useState([])
+    const cores = ["bdf1ff","ffbdfd","ffbdca","c8f4d5","bde0ff","fdbfe7","ddecd0","ceb0f1","c9f3f0","a4c6c4"]
     useEffect(async () => {
         const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET).sub
         let lista = []
@@ -62,6 +63,8 @@ export function Chat(props) {
                 if (socket.auth.userId !== msgData.id_usuario){
                     console.log("entrou aqui no nova mensagem")
                     setMsgs(msg => [...msg,msgData])
+                    let elementoMsg = document.querySelectorAll('.mensagens__corpo')
+                    elementoMsg[0]?.scroll(0,document.body.scrollHeight)
                 }
                 if(props.estado==="menu"){
                     console.log("menu")
@@ -113,12 +116,19 @@ export function Chat(props) {
         setEnviar(msg.target.id)
         setatualGrupo(res.data[1])
         socket.emit("send message",res.data[0])
+        let elementoMsg = document.querySelectorAll('.mensagens__corpo')
+        elementoMsg[0]?.scroll(0,document.body.scrollHeight)
         if (window.innerWidth<850){
             let elementoChat = document.querySelectorAll('.chat_fp__elemento')
             elementoChat[0].className = "chat_fp__elemento invisivelChat"
             let elementoMsg = document.querySelectorAll('.mensagens')
             elementoMsg[0].className = "mensagens visivel"
-        } 
+        } else{
+            let elementoChat = document.querySelectorAll('.chat_fp__elemento')
+            elementoChat[0].className = "chat_fp__elemento"
+            let elementoMsg = document.querySelectorAll('.mensagens')
+            elementoMsg[0].className = "mensagens"
+        }
     }
 
     function voltarClick(){
@@ -161,12 +171,16 @@ export function Chat(props) {
                             {(atualGrupo?.usuario?.length>3)&&<p>...</p>}
                         </div>
                 </div>
-                    <div className="mensagens__corpo">
-                        {msg.length<1&&enviar&&
+                {msg.length<1&&enviar&&
                         <NotFound titulo="Não há mensagens!" img={dogFoto}></NotFound>||!enviar&&
-                        <NotFound titulo="Inicie uma conversa!" img={dogFotoMsg}></NotFound>}
-                        {msg?.map(mensagem => (mensagem.id_usuario === socket.auth.userId) ? (<ChatMsg className="direita" mensagem={mensagem} key={mensagem.id}/>) : (<ChatMsg className="esquerda" mensagem={mensagem} key={mensagem.id}/>))}
-                    </div>
+                        <NotFound titulo="Inicie uma conversa!" img={dogFotoMsg}></NotFound>
+                        ||<><div className="mensagens__corpo">
+                        {atualGrupo?.usuario?.length<=2 &&
+                            msg?.map(mensagem => (mensagem.id_usuario === socket.auth.userId) 
+                            ? (<ChatMsg className="direita" mensagem={mensagem} key={mensagem.id}/>) : (<ChatMsg className="esquerda" mensagem={mensagem} key={mensagem.id}/>))
+                            || msg?.map((mensagem,indice) => (mensagem.id_usuario === socket.auth.userId) 
+                            ? (<ChatMsg className="direita" mensagem={mensagem} key={mensagem.id}/>) : (<ChatMsg className={'esquerda'+` ${cores[atualGrupo.usuario?.findIndex(usuario => usuario.id===mensagem.id_usuario)]}`} mensagem={mensagem} key={mensagem.id}  nome={atualGrupo.usuario?.filter(usuario => usuario.id===mensagem.id_usuario)[0].nome}/>))}
+                    </div></>}
                     <div className="mensagens__mandar">
                         {enviar&&<ChatForm enviar={enviar} setarMsg = {setMsgs} msg = {msg} user={socket.auth} setarChat={setChats} chats={chats} name="conteudo"></ChatForm>}
                     </div>

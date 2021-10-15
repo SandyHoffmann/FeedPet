@@ -1,6 +1,8 @@
 import "./styles.css";
 import imgpost from "../../../../assets/icone1.png";
-import imgdog from "../../../../assets/doguinho.jpg"
+import imgdog from "../../../../assets/doguinho.jpg";
+import img from "../../../../assets/naoachado.jpg"
+
 import { useState, useEffect } from "react";
 import { api } from "../../../../service";
 import {useParams} from "react-router-dom";
