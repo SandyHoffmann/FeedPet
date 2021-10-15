@@ -1,0 +1,28 @@
+.corpoEdicaoPessoa{
+    display: flex;
+}
+.pessoaEditar{
+    align-items: center;
+    justify-content: center;
+}
+.conjuntoaEditarPessoa{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pessoaEditar input,
+.pessoaEditar textarea {
+  background: none;
+  color: pink;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  border: none;
+  border-radius: 0;
+  border-bottom: 3px solid pink;
+  border-image: linear-gradient(42deg, rgba(255,72,128,1) 19%, rgba(104,6,130,1) 100%);
+  border-image-slice: 1;
+  width: 100%;
+
+}

@@ -112,3 +112,6 @@ body {
     height: 15em;
 }
 }
+.pessoaEditar{
+  display: flex;
+}

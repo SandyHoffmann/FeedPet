@@ -1,37 +1,92 @@
-import perfil from "../../assets/amyperfil.jpg";
 import "./styles.css";
-import imgperfil from "../../assets/srd.jpg";
-import imgpost from "../../assets/dogito.jpeg";
+import imgperfil from "../../../assets/srd.jpg";
+import imgpost from "../../../assets/dogito.jpeg";
 import { Carousel } from "react-bootstrap";
-import dogcard from "../../assets/dogito.jpeg";
-import gato from "../../assets/gatinho.jpeg";
-import tutor from "../../assets/tutor.png";
-import bed from "../../assets/pet-bed.png";
-import ajudou from "../../assets/ajudou.png";
-import local from "../../assets/local.png";
+import dogcard from "../../../assets/dogito.jpeg";
+import gato from "../../../assets/gatinho.jpeg";
+import tutor from "../../../assets/tutor.png";
+import ajudou from "../../../assets/ajudou.png";
+import local from "../../../assets/local.png";
+import { useState, useEffect, useRef } from "react";
+import {Link, useParams} from "react-router-dom";
+import { api } from "../../../service";
+import img from "../../../assets/naoachado.jpg"
+import { AiOutlineEdit } from "react-icons/ai";
+import { EdicaoPessoa } from "./EdicaoPessoa";
 
-export function Perfilnovo(props) {
+const jwt = require('jsonwebtoken');
+
+export function PaginaPerfilAtualizado(props) {
+  const [informacoes, setInformacoes] = useState([])
+  const [animais, setAnimal] = useState([])
+  const [usuario, setUsuario] = useState([])
+  const {id} = useParams();
+  const editando = useRef(false)
+
+  useEffect(() => {
+    async function fetchUserData() {
+      try {
+        const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
+        if (!token){
+          // window.location.replace("/login");
+        }
+        setUsuario(token.sub)
+        const res = await api.get(`/usuarios/${id}`);
+        let animais = await api.get(`/usuarios/animais/${id || 'undefined'}`);
+
+        const informacao = res.data;
+        setInformacoes(informacao)
+        setAnimal(animais.data)
+      } catch (error) {
+        console.log(error)
+      }
+    };
+    fetchUserData();
+  }, id)
+
+  function editar(e){
+    if (editando.current == false){
+      let div = document.querySelectorAll(".pessoaEditar")
+      div[0].className = "pessoaEditar"
+      let divInvisivel = document.querySelectorAll(".UsuarioDados")
+      divInvisivel[0].className = "UsuarioDados invisivel"
+      editando.current = true
+
+    } else{
+      let div = document.querySelectorAll(".pessoaEditar")
+      div[0].className = "pessoaEditar invisivel"
+      let divInvisivel = document.querySelectorAll(".UsuarioDados")
+      divInvisivel[0].className = "UsuarioDados"
+      editando.current = false
+    }
+  }
+
   return (
     <>
       <section id="container-total" className="container">
         <div className="perfilFlex">
           <div className="panel totalperfil" id="bordaheading">
             <div className="informacoesUsuario">
+            {(usuario === informacoes.id)&&<button onClick={editar} className="btn editar">Editar <AiOutlineEdit/> </button>}
               <div className="fotoUsuario ">
                 <a href="#">
                   <img
                     className="media-object mw150"
-                    src={perfil}
+                    src={informacoes.avatar}
                     alt="..."
                   ></img>
                 </a>
               </div>
               <div className="media-body ">
-                <h2 className="media-heading">Usuário da Silva</h2>
-                <p className="lead" id="texto-sobre">
-                  Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod
-                  tempor incididunt
-                </p>
+                <div className="UsuarioDados">
+                  <h2 className="media-heading">{informacoes.nome}</h2>
+                  <p className="lead" id="texto-sobre">
+                    {informacoes.descricao?informacoes.descricao:"Escreva uma Descrição no Editar!"}
+                  </p>
+                </div>
+                <div class="pessoaEditar invisivel">
+                    <EdicaoPessoa informacao={informacoes} setinfo={setInformacoes}/>
+                </div>  
                 <div class="counter counter-perfil-pessoa" >
                   {/* <div class="row"> */}
                     <div class="iconesPerfil">
@@ -78,54 +133,41 @@ export function Perfilnovo(props) {
               </div>
             <div className="animais animaisPerfil">
               <div className="sliderAnimalPerfil">
-                <Carousel id="carouselAnimaisPessoa">
-                  <Carousel.Item>
-                    <img
-                      className="carouselAnimal"
-                      id="fotoCarousel"
-                      src={dogcard}
-                      alt="First slide"
-                    />
-                    <Carousel.Caption>
-                      <h3>1 slide label</h3>
-                      <p>
-                        Nulla vitae elit libero, a pharetra augue mollis
-                        interdum.
-                      </p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      className="carouselAnimal"
-                      id="fotoCarousel"
-                      src={gato}
-                      alt="Second slide"
-                    />
+            
+<Carousel id="carouselAnimaisPessoa" interval={null} variant="dark">
+          {animais.length===0&&
+            <Carousel.Item>
+              <div className="divImgCarrosel">
+                <img
+                  className="carouselAnimal"
+                  id="fotoCarousel"
+                  src={img}
+                  alt="First slide"
+                />
+              </div>
+              <Carousel.Caption>
+                <h3>O usuario ainda não possui animais!</h3>
+              </Carousel.Caption>
+            </Carousel.Item>}
+          {animais.map(animal => {
+            return <Carousel.Item id={animal.id}>
+              <div className="divImgCarrosel">
+                <img
+                  className="carouselAnimal"
+                  id="fotoCarousel"
+                  src={animal.avatar}
+                  alt="First slide"
+                />
+              </div>
+              <Carousel.Caption>
+                <h3>{animal.nome}</h3>
+                <Link to={`/perfil/${animal.id}`} id={animal.id} activeClassName="selected" className="link-drop">Perfil</Link>
+              
+              </Carousel.Caption>
+            </Carousel.Item>
 
-                    <Carousel.Caption>
-                      <h3>2 slide label</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      className="carouselAnimal"
-                      id="fotoCarousel"
-                      src={dogcard}
-                      alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                      <h3>3 slide label</h3>
-                      <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl
-                        consectetur.
-                      </p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                </Carousel>
+          })}
+        </Carousel>
               </div>
             </div>
           </div>

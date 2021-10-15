@@ -44,6 +44,14 @@
 .botaoalertanimal{
   width: 100%;
 }
+.primeiraPagAlerta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.irBotao{
+  width: 100%;
+}
 .formularioInteiro input,
 .formularioInteiro textarea {
   background: none;
@@ -67,7 +75,7 @@
 
 .formularioInteiro input:active,
 input:focus {
-  border-color: pink !important;
+  border-color: rgb(255, 137, 182) !important;
 }
 
 .modalalertaanimalform{

@@ -26,7 +26,7 @@ router.delete("/:id", authentication(["admin"]),usuariosController.deleteUser);
 router.post("/animais/:id", upload.single('avatar'), authentication(["usuario", "admin"]), animaisController.criarParaUsuario);
 router.post("/postagens", postagemValidations.post, authentication(["usuario", "admin"]), postagensController.criarPostagem);
 router.post("/enderecos/:id_user", authentication(["usuario", "admin"]),enderecosController.defineEndereco);
-router.put("/:id", authentication(["usuario", "admin"]),usuariosController.editUser);
+router.put("/:id", upload.single('avatar'), authentication(["usuario", "admin"]),usuariosController.editUser);
 
 
 module.exports = router;

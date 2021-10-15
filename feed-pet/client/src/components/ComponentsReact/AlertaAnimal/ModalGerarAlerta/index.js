@@ -84,13 +84,13 @@ export function ModalGerarAlertaMenu(props) {
     if (valor === 'ir'){
       let pagVisivel = document.querySelectorAll(".descricaoAlerta")
       pagVisivel[0].className = "corpoModal descricaoAlerta"
-      let pagInvisivel = document.querySelectorAll(".sliderAnimal")
-      pagInvisivel[0].className = "sliderAnimal invisivel"  
+      let pagInvisivel = document.querySelectorAll(".primeiraPagAlerta")
+      pagInvisivel[0].className = "primeiraPagAlerta invisivel"  
     } else{
       let pagVisivel = document.querySelectorAll(".descricaoAlerta")
       pagVisivel[0].className = "corpoModal descricaoAlerta invisivel"
-      let pagInvisivel = document.querySelectorAll(".sliderAnimal")
-      pagInvisivel[0].className = "sliderAnimal"
+      let pagInvisivel = document.querySelectorAll(".primeiraPagAlerta")
+      pagInvisivel[0].className = "primeiraPagAlerta"
     }
 
      
@@ -115,7 +115,7 @@ export function ModalGerarAlertaMenu(props) {
         </Modal.Header>
         <Modal.Body>
           <div className="modalalertaanimalform">
-          <div>
+          <div className="primeiraPagAlerta">
             <div className="sliderAnimal">
               <Carousel id="carouselAnimaisPessoa" interval={null} variant="dark">
                 {animais.length===0&&
@@ -168,8 +168,9 @@ export function ModalGerarAlertaMenu(props) {
             <div className="corpoModal descricaoAlerta invisivel">
      
               <div className="modalFlex">
-              <button className="btn botaoRosa botaoalertanimal passarPag" onClick={e => {passarPag('voltar')}}><IoMdArrowRoundBack/> Voltar</button>
-
+                <div>
+              <button className="btn botaoRosa botaoalertanimal passarPag irBotao" onClick={e => {passarPag('voltar')}}><IoMdArrowRoundBack/> Voltar</button>
+              </div>
                 <div className="areaInputs">
                   <form onSubmit={handleSubmit}>
                     <div className="formularioInteiro">
