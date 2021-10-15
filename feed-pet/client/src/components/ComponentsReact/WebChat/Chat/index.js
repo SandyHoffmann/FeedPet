@@ -8,8 +8,6 @@ import { ChatCriar } from '../ChatCriar';
 import { FaUserCircle } from "react-icons/fa";
 import { socket } from '../../../../service/chat';
 import {BiArrowBack} from "react-icons/bi";
-import dogFoto from '../../../../assets/dogchat.gif'
-import dogFotoMsg from '../../../../assets/dogchatMsg.gif'
 
 import { NotFound } from '../../notFound';
 
@@ -172,8 +170,8 @@ export function Chat(props) {
                         </div>
                 </div>
                 {msg.length<1&&enviar&&
-                        <NotFound titulo="Não há mensagens!" img={dogFoto}></NotFound>||!enviar&&
-                        <NotFound titulo="Inicie uma conversa!" img={dogFotoMsg}></NotFound>
+                        <NotFound titulo="Não há mensagens!" img='https://i.imgur.com/dOkrC9k.gif'></NotFound>||!enviar&&
+                        <NotFound titulo="Inicie uma conversa!" img='https://i.imgur.com/FWzzjmZ.gif'></NotFound>
                         ||<><div className="mensagens__corpo">
                         {atualGrupo?.usuario?.length<=2 &&
                             msg?.map(mensagem => (mensagem.id_usuario === socket.auth.userId) 

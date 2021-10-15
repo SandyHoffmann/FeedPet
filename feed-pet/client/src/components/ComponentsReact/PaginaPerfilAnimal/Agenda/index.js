@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { api } from "../../../../service";
 import { useParams } from "react-router-dom";
 import { FormularioAgenda } from "../FormularioAgenda";
-import imgpost from "../../../../assets/icone1.png";
 import "./styles.css"
 import { Link } from "react-router-dom";
 

@@ -1,6 +1,5 @@
 import { Modal, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import alerta from "../../../../assets/menualertas.png";
 import "./styles.css";
 import dogcard from "../../../../assets/dogito.jpeg";
 import { api } from "../../../../service";
@@ -45,7 +44,7 @@ export function ModalAlertaMenu(props) {
         onClick={handleShow}
       >
         {" "}
-        <img src={alerta} className="imagemmenu"></img>
+        <img src='https://i.imgur.com/UqhtYBz.png' className="imagemmenu"></img>
       </Button>
       <Modal show={show} onHide={handleClose} data-toggle="modal" size="lg">
         <Modal.Header closeButton>

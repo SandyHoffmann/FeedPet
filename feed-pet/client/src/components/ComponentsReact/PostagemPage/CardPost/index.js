@@ -1,11 +1,8 @@
-import img from "../../../../assets/olho.jpg";
 import { LikesButtons } from "../Curtida";
 import "../../../PaginaAnimal/styles.css";
 import "./styles.css";
 import { ComentarioPost } from "../Comentario";
 import { Link } from "react-router-dom";
-import imgpost from "../../../../assets/icone1.png";
-import imgperfil from "../../../../assets/amyperfil.jpg";
 import "./styles.css";
 
 export function PostagemCard(props) {
@@ -27,7 +24,7 @@ export function PostagemCard(props) {
           <div className="timeline-body">
             <div className="timeline-header">
               <span className="userimage">
-                <img src={img} alt=""></img>
+                <img src='https://i.imgur.com/16GoOln.png' alt=""></img>
               </span>
               <Link className="teste-link" to={`/perfil-usuario/${props.id_usuario}`}>
                 <span className="username">{props.usuario.nome}</span>

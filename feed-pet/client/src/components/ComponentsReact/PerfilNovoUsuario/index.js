@@ -1,16 +1,8 @@
 import "./styles.css";
-import imgperfil from "../../../assets/srd.jpg";
-import imgpost from "../../../assets/dogito.jpeg";
 import { Carousel } from "react-bootstrap";
-import dogcard from "../../../assets/dogito.jpeg";
-import gato from "../../../assets/gatinho.jpeg";
-import tutor from "../../../assets/tutor.png";
-import ajudou from "../../../assets/ajudou.png";
-import local from "../../../assets/local.png";
 import { useState, useEffect, useRef } from "react";
 import {Link, useParams} from "react-router-dom";
 import { api } from "../../../service";
-import img from "../../../assets/naoachado.jpg"
 import { AiOutlineEdit } from "react-icons/ai";
 import { EdicaoPessoa } from "./EdicaoPessoa";
 
@@ -97,7 +89,7 @@ export function PaginaPerfilAtualizado(props) {
                           data-to="500"
                           data-speed="500"
                         >
-                          <img src={ajudou}></img>
+                          <img src='https://i.imgur.com/9wYz4GH.png'></img>
                         </h6>
                         <p class="m-0px font-w-600">Ajudou 5 animais</p>
                       </div>
@@ -110,7 +102,7 @@ export function PaginaPerfilAtualizado(props) {
                           data-to="850"
                           data-speed="850"
                         >
-                          <img src={tutor}></img>
+                          <img src='https://i.imgur.com/YFQQsA5.png'></img>
                         </h6>
                         <p class="m-0px font-w-600">Tutor de 3 animais</p>
                       </div>
@@ -123,7 +115,7 @@ export function PaginaPerfilAtualizado(props) {
                           data-to="190"
                           data-speed="190"
                         >
-                          <img src={local}></img>
+                          <img src='https://i.imgur.com/7UuTzkO.png'></img>
                         </h6>
                         <p class="m-0px font-w-600">Mora em Timbó</p>
                       </div>
@@ -141,7 +133,7 @@ export function PaginaPerfilAtualizado(props) {
                 <img
                   className="carouselAnimal"
                   id="fotoCarousel"
-                  src={img}
+                  src='https://i.imgur.com/FVp8SzH.jpg'
                   alt="First slide"
                 />
               </div>
@@ -189,7 +181,7 @@ export function PaginaPerfilAtualizado(props) {
                   <div className="timeline-body">
                     <div className="timeline-header">
                       <span className="userimage">
-                        <img src={imgperfil} alt=""></img>
+                        <img src='https://i.imgur.com/3zx63DT.jpg' alt=""></img>
                       </span>
                       <span className="username">Amy</span>
                       <span className="pull-right text-muted">18 Views</span>
@@ -245,7 +237,7 @@ export function PaginaPerfilAtualizado(props) {
                     </div>
                     <div className="timeline-comment-box">
                       <div className="user">
-                        <img src={imgpost}></img>
+                        <img src='https://i.imgur.com/6GVpIpK.jpg'></img>
                       </div>
                       <div className="input">
                         <form action="">
@@ -282,7 +274,7 @@ export function PaginaPerfilAtualizado(props) {
                   <div className="timeline-body">
                     <div className="timeline-header">
                       <span className="userimage">
-                        <img src={imgperfil} alt=""></img>
+                        <img src='https://i.imgur.com/3zx63DT.jpg'alt=""></img>
                       </span>
                       <span className="username">Amy</span>
                       {/* <span className="pull-right text-muted">82 Views</span> */}
@@ -317,7 +309,7 @@ export function PaginaPerfilAtualizado(props) {
                     </div>
                     <div className="timeline-comment-box">
                       <div className="user">
-                        <img src={imgpost}></img>
+                        <img src='https://i.imgur.com/6GVpIpK.jpg'></img>
                       </div>
                       <div className="input">
                         <form action="">
@@ -355,7 +347,7 @@ export function PaginaPerfilAtualizado(props) {
                   <div className="timeline-body">
                     <div className="timeline-header">
                       <span className="userimage">
-                        <img src={imgperfil} alt=""></img>
+                        <img src='https://i.imgur.com/3zx63DT.jpg' alt=""></img>
                       </span>
                       <span className="username">Amy</span>
                       {/* <span className="pull-right text-muted">
@@ -399,7 +391,7 @@ export function PaginaPerfilAtualizado(props) {
                     </div>
                     <div className="timeline-comment-box">
                       <div className="user">
-                        <img src={imgpost}></img>
+                        <img src='https://i.imgur.com/6GVpIpK.jpg'></img>
                       </div>
                       <div className="input">
                         <form action="">
@@ -440,7 +432,7 @@ export function PaginaPerfilAtualizado(props) {
                   <div className="timeline-body">
                     <div className="timeline-header">
                       <span className="userimage">
-                        <img src={imgperfil} alt=""></img>
+                        <img src='https://i.imgur.com/3zx63DT.jpg'alt=""></img>
                       </span>
                       <span className="username">Amy</span>
                       {/* <span className="pull-right text-muted">
@@ -495,7 +487,7 @@ export function PaginaPerfilAtualizado(props) {
                     </div>
                     <div className="timeline-comment-box">
                       <div className="user">
-                        <img src={imgpost}></img>
+                        <img src='https://i.imgur.com/6GVpIpK.jpg'></img>
                       </div>
                       <div className="input">
                         <form action="">

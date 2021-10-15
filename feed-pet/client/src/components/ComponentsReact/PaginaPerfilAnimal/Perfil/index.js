@@ -1,17 +1,8 @@
 import "./styles.css";
-import imgpost from "../../../../assets/icone1.png";
-import imgdog from "../../../../assets/doguinho.jpg"
 import { useState, useEffect, useRef } from "react";
 import { api } from "../../../../service";
 import { Link, useParams } from "react-router-dom";
 import { AgendaAnimal } from "../Agenda";
-import { FormularioAgenda } from "../FormularioAgenda";
-import imgsrd from "../../../../assets/srd.jpg";
-import love from "../../../../assets/likeredondo.png";
-import food from "../../../../assets/food-bowl.png";
-import bed from "../../../../assets/pet-bed.png";
-import local from "../../../../assets/local.png";
-import imggato from "../../../../assets/gato.jpg";
 import { Alert, Popover } from "react-bootstrap";
 import { EdicaoAnimal } from "../Edicao";
 import { AiOutlineEdit } from "react-icons/ai";
@@ -186,7 +177,7 @@ export function PaginaAnimal(props) {
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
                   <h6 class="count h2" id="icones" data-to="500" data-speed="500">
-                    <img src={love}></img>
+                    <img src='https://i.imgur.com/qNhgLfw.png'></img>
                   </h6>
                   <p class="m-0px font-w-600">100 likes</p>
                 </div>
@@ -194,7 +185,7 @@ export function PaginaAnimal(props) {
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
                   <h6 class="count h2" id="icones" data-to="150" data-speed="150">
-                    <img src={food}></img>
+                    <img src='https://i.imgur.com/02MPWUK.png'></img>
                   </h6>
                   <p class="m-0px font-w-600">Alimentado 7x</p>
                 </div>
@@ -202,7 +193,7 @@ export function PaginaAnimal(props) {
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
                   <h6 class="count h2" id="icones" data-to="850" data-speed="850">
-                    <img src={bed}></img>
+                    <img src='https://i.imgur.com/9NbLHB6.png'></img>
                   </h6>
                   <p class="m-0px font-w-600">Dormiu em 5 locais</p>
                 </div>
@@ -210,7 +201,7 @@ export function PaginaAnimal(props) {
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
                   <h6 class="count h2" id="icones" data-to="190" data-speed="190">
-                    <img src={local}></img>
+                    <img src='https://i.imgur.com/7UuTzkO.png'></img>
                   </h6>
                   <p class="m-0px font-w-600">Visto em Timbó</p>
                 </div>
