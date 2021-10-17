@@ -4,8 +4,7 @@
 }
 #carouselAnimaisPessoa {
   max-height: 30em;
-  max-width: 25em;
-  padding-right: 20px;
+  max-width: 30em;
   color: black;
 }
 
@@ -21,6 +20,8 @@
   flex-wrap: wrap;
   height: 100%;
 }
+
+
 .avisoalerta{
   display: inline;
   word-break: break-all;
@@ -41,6 +42,14 @@
   justify-items: center;
 }
 .botaoalertanimal{
+  width: 100%;
+}
+.primeiraPagAlerta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.irBotao{
   width: 100%;
 }
 .formularioInteiro input,
@@ -66,17 +75,24 @@
 
 .formularioInteiro input:active,
 input:focus {
-  border-color: pink !important;
+  border-color: rgb(255, 137, 182) !important;
 }
 
 .modalalertaanimalform{
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
+  text-align: center;
 }
+input:focus-visible{
+outline: none;}
 
-
+textarea:focus-visible{
+  outline: none;}
+.passarPag{
+  width: 20%;
+}
 .animalerta:after{
   content: "";
   clear: both;
@@ -136,6 +152,10 @@ input:focus {
   }
   .MuiPaper-root{
       width: 50% !important;
+  }
+  
+  .sliderAnimal{
+    width: 90%;
   }
 }
 

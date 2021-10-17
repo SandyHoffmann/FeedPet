@@ -32,7 +32,7 @@ async function getUser(accessToken) {
         return user;
     } catch (err) {
         console.log(err);
-        return;
+        return err;
     }
 }
 
@@ -41,6 +41,7 @@ async function signIn(email, password) {
         const res = await api.post("/auth/login", { email, password});
         console.log(res)
         saveTokens(res.data.accessToken, res.data.refreshToken);        
+
         
     } catch (err) {
         console.log(err);

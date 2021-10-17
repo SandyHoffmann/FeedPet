@@ -277,7 +277,6 @@
     animation: anim-stars 10s linear infinite;
   }
   #sky{
-      top: auto !important;
       height: 60% !important; 
       z-index: 0 !important;
   }

@@ -67,6 +67,7 @@ module.exports = (sequelize, DataTypes) => {
     keyS3: {
       type: DataTypes.STRING,    
     }
+    
   }, {
     sequelize,
     modelName: 'Animal',

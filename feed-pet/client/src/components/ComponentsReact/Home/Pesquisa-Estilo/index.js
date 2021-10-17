@@ -2,11 +2,7 @@ import React from "react";
 import "./style.css"
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import logo from "./logo.png";
 import Sky from 'react-sky';
-import imagem from '../../../../assets/fundo2.png'
-import imagem2 from '../../../../assets/fundo3.png'
-import imagem3 from '../../../../assets/fundo4.png'
 
 export function PesquisaEstilo(props) {
 
@@ -17,9 +13,9 @@ export function PesquisaEstilo(props) {
         <Sky
           images={{
             /* FORMAT AS FOLLOWS */
-            0: imagem, /* You can pass as many images as you want */
-            1:imagem2,
-            2:imagem3
+            0: 'https://i.imgur.com/hLs9qfg.png', /* You can pass as many images as you want */
+            1:'https://i.imgur.com/qLMG2lP.png',
+            2:'https://i.imgur.com/tc5FFP3.png'
             }}
             how={200} /* Pass the number of images Sky will render chosing randomly */
             time={40} /* time of animation */

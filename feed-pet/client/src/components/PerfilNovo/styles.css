@@ -35,9 +35,9 @@ body {
   background-color: #fff;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
   margin-right: 3em;
-  padding: 10px 10px 10px 10px;
-  height: 70vh;
+  padding: 10px 10px 10px 30px;
   width: 80%;
+  flex-wrap: wrap;
 }
 .media-heading{
   color: #ff4880;
@@ -94,3 +94,22 @@ body {
 }
 
 
+@media only screen and (max-width: 900px) {
+  .animaisPerfil{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .sliderAnimalPerfil{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+@media only screen and (max-width: 500px) {
+  #fotoCarousel {
+    width: 15em;
+    height: 15em;
+}
+}

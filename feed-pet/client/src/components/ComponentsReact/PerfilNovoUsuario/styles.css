@@ -1,0 +1,117 @@
+body {
+  margin-top: 25px;
+  background: rgb(255, 253, 253);
+}
+.perfilFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.areaTexto {
+  background-color: transparent;
+}
+.informacoesUsuario {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+}
+
+.iconesPerfil{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#bordaheading {
+  flex: 1;
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  margin-right: 3em;
+  padding: 10px 10px 10px 30px;
+  width: 80%;
+  flex-wrap: wrap;
+}
+.media-heading{
+  color: #ff4880;
+  font-weight: 700;
+  padding: 5px;
+}
+.panel {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
+}
+.mw140 {
+  max-width: 140px !important;
+}
+/* .mr25 {
+  margin-right: 25px !important;
+} */
+.mb20 {
+  margin-bottom: 20px !important;
+}
+.mw150 {
+  width: 15em;
+  border-radius: 3px;
+}
+#texto-sobre {
+  font-weight: 700;
+  color: #6b6b6b;
+  align-content: center;
+  margin: 1em 3em;
+
+}
+.fotoUsuario{
+ align-self: center;
+}
+.totalperfil {
+  display: flex;
+}
+#caixaanimais {
+  flex: 1;
+}
+.page-heading {
+  padding: 30px 40px !important;
+  /* margin: -25px -20px 25px; */
+  background-color: #f2f2f2;
+}
+.counter-perfil-pessoa {
+  padding: 20px 15px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 40px #ff487f93;
+  margin-right: 30px !important;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+@media only screen and (max-width: 900px) {
+  .animaisPerfil{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .sliderAnimalPerfil{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+@media only screen and (max-width: 500px) {
+  #fotoCarousel {
+    width: 15em;
+    height: 15em;
+}
+}
+.pessoaEditar{
+  display: flex;
+}

@@ -5,4 +5,14 @@
 
 .err{
     color: red;
+    -webkit-animation: fadeOut 2s ease-in-out;
+    -moz-animation: fadeOut 2s ease-in-out;
+    -o-animation: fadeOut 2s ease-in-out;
+    animation: fadeOut 2s ease-in-out;
+    animation-fill-mode: forwards;
 }
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+    }

@@ -34,8 +34,16 @@ async function deleteAnimal(req, res, next) {
 
 async function editAnimal(req, res, next) {
     try {
-        const animalEditado = await animaisServices.editarAnimal(req.params.id, req.body);
-        res.json(animalEditado);
+        console.log(req.body)
+        let avatar
+        let key
+        if (req.file){
+            avatar = req.file.location
+            key = req.file.key
+        }
+        const animalEditado = await animaisServices.editarAnimal(req.params.id, req.body, avatar, key);
+        res.status(201).json(animalEditado);
+
     } catch (err) {
         console.log(err);
         next(err);

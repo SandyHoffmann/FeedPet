@@ -14,10 +14,10 @@ const cadastroValidations = require("../validations/cadastroValidations");
 
 //fazer validators
 
-router.get("/", authentication(["usuario", "admin"]),usuariosController.getAll);
+router.get("/", usuariosController.getAll);
 router.get("/chat-users", authentication(["usuario", "admin"]),usuariosController.getUsuariosSemUsuarioLogado);
-router.get("/:id", authentication(["usuario", "admin"]),usuariosController.getUser);
-router.get("/animais/:id", authentication(["usuario", "admin"]),usuariosController.getAllAnimalsByUserId);
+router.get("/:id", usuariosController.getUser);
+router.get("/animais/:id", usuariosController.getAllAnimalsByUserId);
 router.get("/postagens/:id", authentication(["usuario", "admin"]),usuariosController.getAllPostsByUserId);
 // cadastroValidations.post,
 router.post("/", upload.single('avatar'), cadastroValidations.post, usuariosController.create);
@@ -26,7 +26,7 @@ router.delete("/:id", authentication(["admin"]),usuariosController.deleteUser);
 router.post("/animais/:id", upload.single('avatar'), authentication(["usuario", "admin"]), animaisController.criarParaUsuario);
 router.post("/postagens", postagemValidations.post, authentication(["usuario", "admin"]), postagensController.criarPostagem);
 router.post("/enderecos/:id_user", authentication(["usuario", "admin"]),enderecosController.defineEndereco);
-router.put("/:id", authentication(["usuario", "admin"]),usuariosController.editUser);
+router.put("/:id", upload.single('avatar'), authentication(["usuario", "admin"]),usuariosController.editUser);
 
 
 module.exports = router;

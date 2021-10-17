@@ -8,8 +8,12 @@ export const api = axios.create({
 
 api.interceptors.request.use(config => {
     const accessToken = authServices.getAccessToken();
+    console.log(window.location)
     if (accessToken) {
       config.headers.Authorization = `Bearer ${accessToken}`;
+    }
+    if(config.url === '/animais'){
+      return config
     }
     return config;
 });
@@ -18,9 +22,14 @@ api.interceptors.response.use(function (response) {
     return response;
   }, async function (error) {
       const originalRequest = error.config;
-      const loginUrl = `/auth/login`;
-      const refreshTokenUrl = "http://localhost:3000/auth/refreshToken";    
-      if (error.response.status === 401 && originalRequest.url !== refreshTokenUrl && error.request.responseURL !== loginUrl) {      
+      const loginUrl = `http://localhost:3000/auth/login`;
+      const homeUrl = `http://localhost:3000/animais`;
+      // alert(error.request.responseURL)
+      const refreshTokenUrl = "http://localhost:3000/auth/refreshToken";  
+      if (error.response.status === 401 
+        && originalRequest.url !== refreshTokenUrl
+        && error.request.responseURL !== loginUrl
+        && error.request.responseURL !== homeUrl) {      
         await authServices.refreshToken();     
         window.location.replace("/login"); 
         return api(originalRequest);

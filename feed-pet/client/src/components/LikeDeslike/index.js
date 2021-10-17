@@ -2,7 +2,7 @@ import './styles.css';
 import React, {Component} from 'react';
 import { MdThumbDown,MdThumbUp } from 'react-icons/md';
 
- function LikeDeslike() {
+ function LikeDeslike(props) {
    return (
      <>
      

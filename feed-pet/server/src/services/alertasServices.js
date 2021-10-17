@@ -12,8 +12,9 @@ async function createAlertaparaAnimal(user_id, id_animal, novoAlerta) {
     // const endereco = await Endereco.findOne({ where: { id:usuario.endereco_id } });
     // if (!endereco) throw createError(404, "Endereço não encontrado!");    
 
-    const { descricao,local,dataDesaparecimento,cidade } = novoAlerta;
-    
+    let { descricao,local,dataDesaparecimento,cidade } = novoAlerta;
+    const { lat, lng } = local;
+    local = `${lat} ${lng}`  
     const alerta = await Alerta.create({
         descricao,local,dataDesaparecimento,id_animal:id_animal,cidade:cidade
     })

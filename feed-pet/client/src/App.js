@@ -34,7 +34,9 @@ import Perfilpessoa from './components/Userprofile/Userprofile';
 import { FormCadastroEstilizado } from './components/ComponentsReact/FormCadastro/index-estilizado';
 import { FormLoginEstilizado } from './components/ComponentsReact/PaginaLogin/Login/index-estilizado';
 import { Chat } from './components/ComponentsReact/WebChat/Chat';
-import { MapaInterativo } from './components/ComponentsReact/GoogleMaps';
+import { MapaVisual } from './components/ComponentsReact/MapaVisual';
+import { PaginaPerfilAtualizado } from './components/ComponentsReact/PerfilNovoUsuario';
+
 
 
 
@@ -89,7 +91,7 @@ function App() {
 					<Route path ="/ChatBot" component={ChatBot}/>
 					<Route path="/caixa-mensagem" component={CaixaMensagem} />
 					<Route path='/teste' component={About}/>
-					<Route path='/mapa' component={MapaInterativo}/>
+					<Route path='/mapa' component={MapaVisual}/>
 					<Route path='/chat'>
 						<Chat></Chat>
 					</Route>
@@ -102,7 +104,7 @@ function App() {
 						<FormCadastroEstilizado />
 					</Route>
 					<Route path='/perfil-usuario/:id'>
-						<Perfilnovo />
+						<PaginaPerfilAtualizado />
 					</Route>
 					<Route path='/postagens'>
 						{/* <FeedInicio/> */}
