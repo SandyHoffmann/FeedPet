@@ -42,7 +42,12 @@ export function AgendaAnimal(props) {
     }
     return (
         <>
-            <li><div className="novaAtividade"><FormularioAgenda atividade_feita={agenda.id} setarAtividade={setInformacoesAtiv} atividades={informacoes} /></div></li>
+        {usuario.length>0&&
+                <div className="novaAtividade">
+                    <FormularioAgenda atividade_feita={agenda.id} setarAtividade={setInformacoesAtiv} atividades={informacoes} />
+                </div>
+           
+            }
             {informacoes.map(tarefa =>
                 <li key={tarefa.id}>
                 
@@ -84,7 +89,7 @@ export function AgendaAnimal(props) {
                         </div>
                     </div>
                 </li>)}
-
+            
         </>
 
     )

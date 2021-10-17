@@ -7,6 +7,9 @@
     margin: 2em 5em;
     position:relative;
 }
+.aviso{
+    text-align: center;
+    }
 .animalDesaparecido{
     display: flex;
     flex-direction: column;

@@ -10,7 +10,9 @@
     overflow-y: hidden;
 
 }
-
+.loginbotao{
+    width: 100%;
+}
 .caixaElemento{
     padding: 10%;
     background-color: white;

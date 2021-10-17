@@ -34,13 +34,13 @@ export class FormLogin extends React.Component {
     }
     
     handleSubmit = async e => {
+        e.preventDefault();
         try {
-            e.preventDefault();
             // let token = jwt.decode(localStorage.getItem("token"),secret).sub
             // console.log(token)
             await authServices.signIn(this.state.email,this.state.senha)
             this.setState({...initialState})
-            window.location.replace("/");    
+            // window.location.replace("/");    
 
         } catch (error) {
             let erros = error.response.data
@@ -68,7 +68,7 @@ export class FormLogin extends React.Component {
                 </div>
                 <br/>
 
-                <button type="submit" className="btn botaoRosa">Enviar</button>
+                <button className="btn botaoRosa">Enviar</button>
                 </form> 
                 <br/>
                 <Link to="/cadastro" className="caixaElemento">Cadastre-se</Link>
