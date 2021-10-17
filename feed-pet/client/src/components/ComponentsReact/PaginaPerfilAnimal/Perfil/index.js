@@ -216,6 +216,9 @@ export function PaginaAnimal(props) {
             <div className="profile-content">
               <div className="tab-content p-0">
                 <div className="tab-pane fade active show" id="profile-post">
+                {usuario.length<1&&<div className="novaAtividade aviso"><p>Usuario não logado, para interagir com a agenda faça o 
+                <Link to={`/login`} activeClassName="selected" className="link-drop"> Login!</Link>
+                  </p></div>}
                   <ul className="timeline">
                     <AgendaAnimal />
                   </ul>

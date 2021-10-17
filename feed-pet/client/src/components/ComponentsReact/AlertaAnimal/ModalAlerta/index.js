@@ -6,14 +6,17 @@ import { api } from "../../../../service";
 import { Link } from "react-router-dom";
 import { NotFound } from "../../notFound";
 import img from "../../../../assets/dogalerta.gif";
+const jwt = require('jsonwebtoken');
+
 export function ModalAlertaMenu(props) {
   const [show, setShow] = useState(false);
   const [animais, setAnimais] = useState([]);
   const [pag, setPag] = useState(1)
-
+  let token = ""
   const handleClose = () => setShow(false);
   const handleShow = async () => {
     setShow(true)
+    token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)?.sub
     try {
       const res = await api.get(`/alertas/`);
       let animal = res.data.filter(alerta => alerta.concluido == false)
@@ -96,7 +99,7 @@ export function ModalAlertaMenu(props) {
                   </li>
                 </ul>
               </nav>
-         
+         {!token&&<div className="lembrete"><p>Se logue para cadastrar um animal perdido!</p></div>}
         </Modal.Body>
       </Modal>
     </>

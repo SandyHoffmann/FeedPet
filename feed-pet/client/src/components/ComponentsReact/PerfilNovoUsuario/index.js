@@ -19,10 +19,7 @@ export function PaginaPerfilAtualizado(props) {
     async function fetchUserData() {
       try {
         const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
-        if (!token){
-          // window.location.replace("/login");
-        }
-        setUsuario(token.sub)
+        setUsuario(token?.sub)
         const res = await api.get(`/usuarios/${id}`);
         let animais = await api.get(`/usuarios/animais/${id || 'undefined'}`);
 

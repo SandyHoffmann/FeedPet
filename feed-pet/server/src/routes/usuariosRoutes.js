@@ -14,10 +14,10 @@ const cadastroValidations = require("../validations/cadastroValidations");
 
 //fazer validators
 
-router.get("/", authentication(["usuario", "admin"]),usuariosController.getAll);
+router.get("/", usuariosController.getAll);
 router.get("/chat-users", authentication(["usuario", "admin"]),usuariosController.getUsuariosSemUsuarioLogado);
-router.get("/:id", authentication(["usuario", "admin"]),usuariosController.getUser);
-router.get("/animais/:id", authentication(["usuario", "admin"]),usuariosController.getAllAnimalsByUserId);
+router.get("/:id", usuariosController.getUser);
+router.get("/animais/:id", usuariosController.getAllAnimalsByUserId);
 router.get("/postagens/:id", authentication(["usuario", "admin"]),usuariosController.getAllPostsByUserId);
 // cadastroValidations.post,
 router.post("/", upload.single('avatar'), cadastroValidations.post, usuariosController.create);
