@@ -13,7 +13,14 @@ async function deleteUser(req, res, next) {
 
 async function editUser(req, res, next) {
     try {
-        const usuarioEditado = await usuariosServices.editarUsuario(req.params.id, req.body);
+        console.log(req.body)
+        let avatar
+        let key
+        if (req.file){
+            avatar = req.file.location
+            key = req.file.key
+        }
+        const usuarioEditado = await usuariosServices.editarUsuario(req.params.id, req.body, avatar, key);
         res.json(usuarioEditado);
     } catch (err) {
         console.log(err);

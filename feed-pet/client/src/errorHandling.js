@@ -1,5 +1,6 @@
 export function VerificarErros(erros){
     let inputs = document.querySelectorAll('.form-err')
+    if (inputs){
     for (let input of inputs){
         let pExistentes = input.querySelectorAll('p')
         if (pExistentes) {
@@ -8,7 +9,9 @@ export function VerificarErros(erros){
 
             }
         }
-    }
+    }   
+}
+    console.log(erros)
 
     for (let err of erros.errors){
         console.log(err.param)

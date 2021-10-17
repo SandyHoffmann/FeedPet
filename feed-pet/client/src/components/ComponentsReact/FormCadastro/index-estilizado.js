@@ -1,7 +1,6 @@
 import React from "react";
 import { api } from "../../../service";
 import { useState, useEffect } from "react";
-import gatokapa from "./gatokapa.jpg";
 import { VerificarErros } from "../../../errorHandling";
 import "./styles.css"
 export function FormCadastroEstilizado(){
@@ -44,15 +43,19 @@ export function FormCadastroEstilizado(){
             window.location.replace("/login");    
         } catch (error) {
             let erros = error.response.data
-            console.log(erros)
-            VerificarErros(erros)
+            
+            if (typeof erros === 'object'){
+                VerificarErros(erros)
+            } else{
+                VerificarErros({errors:[{param:'cadastro',msg:'Já existe um usuario com esse e-mail!'}]})
+            }
         }
     }
 
         return (
             <>
             <div className="grandecaixa">
-            <div className="caixaimagem"><img src={gatokapa} className="bluhrit"></img></div>
+            <div className="caixaimagem"><img src='https://i.imgur.com/gJYqv2B.jpg' className="bluhrit"></img></div>
             <div className="container caixa">
                 <form onSubmit={handleSubmit} className="caixaElemento  cadastroCaixa" enctype="multipart/form-data"> 
                 <h1>Cadastre-se</h1>
@@ -72,7 +75,7 @@ export function FormCadastroEstilizado(){
                     <input type="text" className="form-cadastro" id="senha" name="senha" aria-describedby="Senha" value={senha} onChange={handleChange} placeholder="Senha" />
                 </div>
                 <input type="file" name="avatar" className="form-cadastro img inputfile" onChange={handleChange} />
-                <span className="avatar-err form-err"></span>
+                <span className="avatar-err form-err cadastro-err"></span>
                 <br/>
                 <button type="submit" className="btn botaoRosa">Enviar</button>
                 </form>   

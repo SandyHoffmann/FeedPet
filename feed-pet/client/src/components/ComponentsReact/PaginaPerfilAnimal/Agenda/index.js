@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { api } from "../../../../service";
 import { useParams } from "react-router-dom";
 import { FormularioAgenda } from "../FormularioAgenda";
-import imgpost from "../../../../assets/icone1.png";
 import "./styles.css"
 import { Link } from "react-router-dom";
 
@@ -26,7 +25,8 @@ export function AgendaAnimal(props) {
             const agenda = await api.get(`/agendas/${id}`);
             const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
             const usuarioLogado = await api.get(`/usuarios/${token.sub}`);  
-            setUsuario(usuarioLogado.data)      
+            setUsuario(()=>[usuarioLogado.data])
+            console.log(usuario)      
             setAgenda(agenda.data[0])
             setInformacoes(agenda.data[1].reverse())
         } catch (error) {
@@ -43,7 +43,12 @@ export function AgendaAnimal(props) {
     }
     return (
         <>
-            <li><div className="novaAtividade"><FormularioAgenda atividade_feita={agenda.id} setarAtividade={setInformacoesAtiv} atividades={informacoes} /></div></li>
+        {usuario.length>0&&
+                <div className="novaAtividade">
+                    <FormularioAgenda atividade_feita={agenda.id} setarAtividade={setInformacoesAtiv} atividades={informacoes} />
+                </div>
+           
+            }
             {informacoes.map(tarefa =>
                 <li key={tarefa.id}>
                 
@@ -85,7 +90,7 @@ export function AgendaAnimal(props) {
                         </div>
                     </div>
                 </li>)}
-
+            
         </>
 
     )

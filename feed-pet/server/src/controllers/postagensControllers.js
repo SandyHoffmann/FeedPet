@@ -74,6 +74,26 @@ async function getComentariosPostagem(req, res, next) {
     }
 }
 
+async function deletePostagem(req, res, next) {
+    try {
+        const postagemDeleteada = await postagensServices.deletePost(req.params.id);
+        res.json(postagemDeletada);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
+async function deleteComentario(req, res, next) {
+    try {
+        const comentarioDeletado = await comentariosServices.deleteComent(req.params.id);
+        res.json(comentarioDeletado);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
+
 module.exports = {
     criarPostagem,
     getAll,
@@ -81,5 +101,7 @@ module.exports = {
     createComentario,
     getComentariosPostagem,
     createCurtida,
-    getAllCurtidas
+    getAllCurtidas,
+    deletePostagem,
+    deleteComentario
 }

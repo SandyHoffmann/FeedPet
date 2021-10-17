@@ -1,9 +1,9 @@
 import React, { Component, useEffect, useState } from 'react';
 import { api } from "../../../../service";
 import { BiSearchAlt2 } from 'react-icons/bi';
-
 import { socket } from '../../../../service/chat';
-
+import { Formik } from 'formik';
+import { VerificarErros } from "../../../../errorHandling";
 
 
 export function ChatForm(props) {
@@ -37,18 +37,29 @@ export function ChatForm(props) {
                 console.log("entrou no chat form")
             }
             setmsgConteudo("")
+            let erros = document.querySelectorAll(".form-err")
+            erros[0].innerHTML=""
         } catch (error) {
+            if (error.response){
+                let erros = error.response.data
+                console.log(erros)
+                VerificarErros(erros)
+            }
             console.log(error)
         }
     }
     return (
         <>
-            < form onSubmit={handleSubmit}>
-                <div className="mensagens__mandar__inputs">
-                    <input type="text" onChange={handleChange} value={msgConteudo} className="inputUsuario"></input>
+         <div className="conteudo-err form-err flexDiv">
+            </div>
+            <form onSubmit={handleSubmit}>
+                <div className="mensagens__mandar__inputs conteudo-err form-err">
+                    <input type="text" onChange={handleChange} value={msgConteudo} className="inputUsuario" name="conteudo"></input>
                     <button type="submit"><BiSearchAlt2/></button>
                 </div>
+               
             </form >
+
         </>
     )
 }

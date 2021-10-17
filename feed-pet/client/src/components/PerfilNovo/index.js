@@ -76,8 +76,8 @@ export function Perfilnovo(props) {
                   </div>
                 </div>
               </div>
-            <div className="animais">
-              <div className="sliderAnimal">
+            <div className="animais animaisPerfil">
+              <div className="sliderAnimalPerfil">
                 <Carousel id="carouselAnimaisPessoa">
                   <Carousel.Item>
                     <img

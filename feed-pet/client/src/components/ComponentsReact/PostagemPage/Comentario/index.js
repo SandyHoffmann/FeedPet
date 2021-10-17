@@ -1,6 +1,5 @@
 import { api } from "../../../../service";
 import React from "react";
-import img from "../../../../assets/olho.jpg";
 import { CardComentario } from "../CardComentario";
 const jwt = require('jsonwebtoken');
 
@@ -21,8 +20,11 @@ export class ComentarioPost extends React.Component {
             const res = await api.get(`/postagens/${this.props.id_postagem}/comentarios`);
             const comentario = res.data.reverse();
             const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
-            const usuarioLogado = await api.get(`/usuarios/${token.sub}`);        
-            this.setState({usuario:usuarioLogado.data})
+            if (token){
+                const usuarioLogado = await api.get(`/usuarios/${token?.sub}`);        
+                this.setState({usuario:usuarioLogado.data})
+            }
+          
             this.setState({comentarios:comentario})
 
         } catch (error) {
@@ -68,9 +70,10 @@ export class ComentarioPost extends React.Component {
     render() {
         return (
             <>
-                <div className="user">
-                    <img src={img}></img>
+            {this.state.usuario&&<><div className="user">
+                    <img src={this.state.usuario.avatar}></img>
                 </div>
+                
                     <form onSubmit={this.handleSubmit}>
                         <div className="input-group">
                             <input
@@ -90,9 +93,9 @@ export class ComentarioPost extends React.Component {
                                 </button>
                             </span>
                         </div>
-                    </form>
+                    </form></>||<p>Faça login para interagir com os posts!</p>}
                     <div>
-                      {this.state.comentarios.map(coment => <CardComentario key={coment.id} conteudo={coment.conteudo} usuario={coment.usuario}></CardComentario>)}
+                      {this.state.comentarios.map(coment => <CardComentario key={coment.id} comentario={coment} conteudo={coment.conteudo} usuario={coment.usuario}></CardComentario>)}
                 </div>
             </>
 

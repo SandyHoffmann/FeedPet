@@ -7,17 +7,36 @@
     margin: 2em 5em;
     position:relative;
 }
+.aviso{
+    text-align: center;
+    }
 .animalDesaparecido{
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
-    background-color: rgba(255, 0, 55, 0.5);
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 50, 94, 0.5);
     padding: 3%;
     border-radius: 5px;
+    text-align: center;
+    height: 50%;
 
 }
-
+.flexDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.animalEditar{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0px !important;
+}
+.sexoedicao{
+    display: flex;
+    align-items: center;
+}
 .botaoVerde{
     color: white;
     background-color: rgb(184, 250, 53);
@@ -49,8 +68,12 @@
 .avatarFoto{
     display: flex;
     margin-right: 5%;
+    flex: 1;
+    flex-direction: row-reverse;
 }
-
+.corpoPerfilAnimal{
+    flex: 2;
+}
 .animalEditar{
     flex-direction: row;
     display: flex;
@@ -61,7 +84,9 @@
     align-items: center;
     align-content: center;
     justify-content: center;
+    padding-top: 5%;
 }
+
 #boxsobrefotos{
     display: flex;
 }
@@ -179,7 +204,19 @@ mark {
 .profile-header .profile-header-tab {
     position: relative
 }
+@media only screen and (max-width: 900px) {
 
+    .about-avatar{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+   .gray-bg{
+       margin: 0px !important;
+   }
+}
 .b-minus-1,
 .b-minus-10,
 .b-minus-2,

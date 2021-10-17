@@ -28,7 +28,15 @@ async function acharComentariosPost(id_postagem) {
     return comentarios;
 }
 
+async function deleteComent(id) {
+    return await Comentario.destroy({
+        where: { id:id} 
+      });
+}
+
+
 module.exports = {
     createComentario,
-    acharComentariosPost
+    acharComentariosPost,
+    deleteComent
 }

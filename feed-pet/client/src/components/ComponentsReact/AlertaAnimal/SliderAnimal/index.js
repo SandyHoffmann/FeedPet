@@ -1,5 +1,3 @@
-import dogcard from "../../../../assets/dogito.jpeg";
-import gato from "../../../../assets/gatinho.jpeg";
 import { Carousel } from "react-bootstrap";
 
 export function SliderAnimal(props) {
