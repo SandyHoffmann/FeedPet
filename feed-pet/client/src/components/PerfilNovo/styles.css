@@ -20,6 +20,7 @@ body {
   align-items: center;
   text-align: center;
   width: 80%;
+  padding: 30px 40px 30px 30px;
 }
 
 .iconesPerfil{
@@ -32,7 +33,7 @@ body {
   flex: 1;
   margin-top: 20px;
   background-color: #fff;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.603);
   margin-right: 3em;
   padding: 10px 10px 10px 30px;
   width: 80%;
@@ -71,6 +72,7 @@ body {
 }
 .totalperfil {
   display: flex;
+  border-radius: 3px;
 }
 #caixaanimais {
   flex: 1;
@@ -84,8 +86,7 @@ body {
   padding: 20px 15px;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 0 40px #ff487f93;
-  margin-right: 30px !important;
+  box-shadow: 0 0 40px #ff487fde;
   font-weight: 600;
   margin: 0;
   display: flex;

@@ -382,10 +382,7 @@ export function Perfilnovo(props) {
                     </div>
                   </div>
                 </li>
-                <li>
-                  <div className="hoverWrapper">
-                    Show Div 1<div id="hoverShow1"></div>
-                  </div>
+                <li> 
                   <div className="timeline-time">
                     <span className="date">10 Julho 2021</span>
                     <span className="time">20:43</span>

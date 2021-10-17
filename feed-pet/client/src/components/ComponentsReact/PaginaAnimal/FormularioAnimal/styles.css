@@ -21,7 +21,8 @@
     border: none;
     border-radius: 0;
     border-bottom: 3px solid pink;
-    border-image: linear-gradient(to right, rgba(255,107,222,1) ,rgba(191,122,221,1), rgba(154,52,255,1));
+    /* border-image: linear-gradient(to right, rgba(255,107,222,1) ,rgba(191,122,221,1), rgba(154,52,255,1)); */
+    border-image: radial-gradient(circle, rgba(255,72,128,1) 42%, rgba(104,6,130,1) 100%);
     border-image-slice: 1;
 }
 
@@ -65,7 +66,7 @@
 }
 
 .radiooptionsAnimalForm .form-check{
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     border-radius: 100%;
     height: 7vh;
     position: relative;
@@ -73,7 +74,7 @@
 }
 
 .radiooptionsAnimalForm .form-check{
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     border-radius: 100%;
     float: left;
     height: 8vh;
@@ -101,73 +102,76 @@
 }
 
 
-.radiooptionsAnimalForm input:checked + label{
+/* .radiooptionsAnimalForm input:checked + label{
     -webkit-box-shadow: 0px 0px 15px 5px #ffffff; 
     box-shadow: 0px 0px 15px 5px #ffffff;
     
+} */
+.radiooptionsAnimalForm input:checked + label{
+    -webkit-box-shadow: 0px 0px 10px 3px #ff487fc0; 
+    box-shadow: 0px 0px 10px 3px #ff487fc0;
 }
 
 .radiooptionsAnimalForm .cao label{
-    background-image: url('../../../../assets/caoicon.png');
+    background-image: url(https://i.imgur.com/3bqxcS1.png);
     background-size: cover;
 }
 
 .radiooptionsAnimalForm .cao input:checked + label{
-    background-image: url('../../../../assets/caoicon-ativo.png');
+    background-image: url(https://i.imgur.com/jAT0KxA.png);
     background-size: cover;
 }
 
 .radiooptionsAnimalForm .gato label{
-    background-image: url('../../../../assets/gatoicon.png');
+    background-image: url(https://i.imgur.com/tldds0b.png);
     background-size: cover;
 }
 
 .radiooptionsAnimalForm .gato input:checked + label{
-    background-image: url('../../../../assets/gatoicon-ativo.png');
+    background-image: url(https://i.imgur.com/JFwTgTv.png);
     background-size: cover;
 }
 
 .radiooptionsAnimalForm .sim label{
-    background-image: url('../../../../assets/temdono-icon.png');
+    background-image: url(https://i.imgur.com/ZTrj4t3.png);
     background-size: cover;
 }
 
 .radiooptionsAnimalForm .sim input:checked + label{
-    background-image: url('../../../../assets/temdono-icon-ativo.png');
+    background-image: url(https://i.imgur.com/iU7mJQA.png);
     background-size: cover;
 }
 
 
 .radiooptionsAnimalForm .nao label{
-    background-image: url('../../../../assets/naotemdono-icon.png');
+    background-image: url(https://i.imgur.com/SExCzss.png);
     background-size: cover;
 }
 
 .radiooptionsAnimalForm .nao input:checked + label{
-    background-image: url('../../../../assets/naotemdono-icon-ativo.png');
+    background-image: url(https://i.imgur.com/p3DOPxB.png);
     background-size: cover;
 }
 
 .radiooptionsAnimalForm .macho label{
-    background-image: url('../../../../assets/masculine.png');
+    background-image: url(https://i.imgur.com/q4sjFCU.png);
     background-size: cover;
 }
 
 .radiooptionsAnimalForm .macho input:checked + label{
-    background-image: url('../../../../assets/masculine-ativo.png');
+    background-image: url(https://i.imgur.com/3d3WRcl.png);
     background-size: cover;
 }
 
 .radiooptionsAnimalForm .femea label{
-    background-image: url('../../../../assets/femenine.png');
+    background-image: url(https://i.imgur.com/lhqDTgx.png);
     background-size: cover;
 }
 
 .radiooptionsAnimalForm .femea input:checked + label{
-    background-image: url('../../../../assets/femenine-ativo.png');
+    background-image: url(https://i.imgur.com/StXg6a3.png);
     background-size: cover;
 }
-
 .colunaAnimalForm{
     display: flex;
     flex-direction: row;
@@ -185,11 +189,11 @@
 }
 
 .botaocentralizado button{
-    background-color:#ff4880;
+    background-color:#680682;
     color: white;
 }
 
 .botaocentralizado button:hover{
-    background-color:#e01e58;
+    background-color:#680682;
     color: white;
 }
