@@ -6,7 +6,7 @@ import { MdThumbDown,MdThumbUp } from 'react-icons/md';
    return (
      <>
      
-     <button type="submit" className ="botaoUp" onClick={props.onClickBotao}>
+     <button type="submit" className ={"botaoUp "+props.ativo} onClick={props.onClickBotao}>
        
        <MdThumbUp
         size={30}
