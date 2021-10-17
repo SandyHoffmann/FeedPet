@@ -18,6 +18,7 @@
 }
 .alerta {
     background-color: #ff4880;
+    margin-right: 2px !important;
 }
 .botaopesquisa {
   background-color: #8fc424;

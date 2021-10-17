@@ -29,7 +29,6 @@
     color: black !important;
 
 }
-
 .select{
     align-self: flex-end;
     flex: auto;
@@ -134,7 +133,7 @@
 }
 
 .radiooptions .form-check{
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     border-radius: 100%;
     height: 7vh;
     position: relative;
@@ -142,7 +141,7 @@
 }
 
 .radiooptions .form-check{
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     border-radius: 100%;
     float: left;
     height: 8vh;
@@ -176,38 +175,38 @@
     
 }
 .radiooptions .desaparecidoinput:checked + label{
-    background-image: url('../../../../assets/fundoopcoes.png');
+    background-image: url(https://i.imgur.com/0xIk2Ew.png);
     background-size: cover;
 }
 
 .radiooptions .naoinput:checked + label{
-    background-image: url('../../../../assets/dog-seating-ativo.png');
+    background-image: url(https://i.imgur.com/p3DOPxB.png);
     background-size: cover;
 }
 
 .radiooptions .femeainput:checked + label{
-    background-image: url('../../../../assets/femea-ativo.png');
+    background-image: url(https://i.imgur.com/StXg6a3.png);
     background-size: cover;
 }
 .radiooptions .machoinput:checked + label{
-    background-image: url('../../../../assets/macho-ativo.png');
+    background-image: url(https://i.imgur.com/3d3WRcl.png);
     background-size: cover;
 }
 
 
 
 .radiooptions .siminput:checked + label{
-    background-image: url('../../../../assets/dog-with-belt-walking-with-a-man-ativo.png');
+    background-image: url(https://i.imgur.com/iU7mJQA.png);
     background-size: cover;
 }
 
 .radiooptions .doginput:checked + label{
-    background-image: url('../../../../assets/dog-ativo.png');
+    background-image: url(https://i.imgur.com/jAT0KxA.png);
     background-size: cover;
 }
 
 .radiooptions .catinput:checked + label{
-    background-image: url('../../../../assets/cat-ativo.png');
+    background-image: url(https://i.imgur.com/JFwTgTv.png);
     background-size: cover;
 }
 .conjunto{
@@ -231,35 +230,35 @@
     }
 }
 .radiooptions .gato label{
-    background-image: url('../../../../assets/cat.png');
+    background-image: url(https://i.imgur.com/tldds0b.png);
     background-size: cover;
 }
 .radiooptions .cachorro label{
-    background-image: url('../../../../assets/dog.png');
+    background-image: url(https://i.imgur.com/3bqxcS1.png);
     background-size: cover;
 }
 .radiooptions .sim label{
-    background-image: url('../../../../assets/dog-with-belt-walking-with-a-man.png');
+    background-image: url(https://i.imgur.com/ZTrj4t3.png);
     background-size: cover;
 
 }
 .radiooptions .nao label{
-    background-image: url('../../../../assets/dog-seating.png');
+    background-image: url(https://i.imgur.com/SExCzss.png);
     background-size: cover;
 }
 
 .radiooptions .macho label{
-    background-image: url('../../../../assets/macho.png');
+    background-image: url(https://i.imgur.com/q4sjFCU.png);
     background-size: cover;
 
 }
 .radiooptions .femea label{
-    background-image: url('../../../../assets/femea.png');
+    background-image: url(https://i.imgur.com/lhqDTgx.png);
     background-size: cover;
 }
 
 .radiooptions .desaparecidoFiltro label{
-    background-image: url('../../../../assets/missing.png');
+    background-image: url(https://i.imgur.com/dWQBmQ9.png);
     background-size: cover;
 }
 .form-check{
