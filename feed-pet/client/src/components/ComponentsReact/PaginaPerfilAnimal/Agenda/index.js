@@ -25,7 +25,8 @@ export function AgendaAnimal(props) {
             const agenda = await api.get(`/agendas/${id}`);
             const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
             const usuarioLogado = await api.get(`/usuarios/${token.sub}`);  
-            setUsuario(usuarioLogado.data)      
+            setUsuario(()=>[usuarioLogado.data])
+            console.log(usuario)      
             setAgenda(agenda.data[0])
             setInformacoes(agenda.data[1].reverse())
         } catch (error) {

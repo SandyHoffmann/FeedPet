@@ -1,7 +1,15 @@
 import "./styles.css"
 import { Link } from "react-router-dom";
+const moment = require('moment'); 
+
 
 export function CardComentario(props) {
+    moment.locale('pt-br');
+
+    let data = props.coment?.createdAt
+
+    let tempo = moment(data).format('HH:mm:ss DD-MM')
+
     return (
         <>
             {/* <div className="card p-3">
@@ -21,11 +29,11 @@ export function CardComentario(props) {
             </div> */}
             <div className="card p-3">
                 <div className="cardComentario">
-                    <div className="card">
-                        <img src="https://i.imgur.com/hczKIze.jpg" width="30" className="imgComentario" />
+                    <div className="imgcomentaario">
+                        <img src={props.usuario.avatar} width="30" className="imgComentario" />
+                        <Link to={`/perfil-usuario/${props.usuario.id}`}><span>{props.usuario.nome}</span></Link>
                     </div>
-                    <Link to={`/perfil-usuario/${props.usuario.id}`}><span>{props.usuario.nome}</span></Link>
-                    <small>2 days ago</small>
+                    <small>{tempo}</small>
 
                 </div>
                 <div className="comentario">
