@@ -1,19 +1,22 @@
 import { Modal, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import alerta from "../../../../assets/menualertas.png";
 import "./styles.css";
 import dogcard from "../../../../assets/dogito.jpeg";
 import { api } from "../../../../service";
 import { Link } from "react-router-dom";
+import { NotFound } from "../../notFound";
+import img from "../../../../assets/dogalerta.gif";
+const jwt = require('jsonwebtoken');
 
 export function ModalAlertaMenu(props) {
   const [show, setShow] = useState(false);
   const [animais, setAnimais] = useState([]);
   const [pag, setPag] = useState(1)
-
+  let token = ""
   const handleClose = () => setShow(false);
   const handleShow = async () => {
     setShow(true)
+    token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)?.sub
     try {
       const res = await api.get(`/alertas/`);
       let animal = res.data.filter(alerta => alerta.concluido == false)
@@ -44,7 +47,7 @@ export function ModalAlertaMenu(props) {
         onClick={handleShow}
       >
         {" "}
-        <img src={alerta} className="imagemmenu"></img>
+        <img src='https://i.imgur.com/UqhtYBz.png' className="imagemmenu"></img>
       </Button>
       <Modal show={show} onHide={handleClose} data-toggle="modal" size="lg">
         <Modal.Header closeButton>
@@ -56,6 +59,7 @@ export function ModalAlertaMenu(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        {animais.length===0 && <NotFound titulo="Não há animais perdidos na sua região" img={img}/> }
         {Agrupar(animais,pag).map(petList => 
          <div className="wrapper">
          <div className="container">
@@ -95,7 +99,7 @@ export function ModalAlertaMenu(props) {
                   </li>
                 </ul>
               </nav>
-         
+         {!token&&<div className="lembrete"><p>Se logue para cadastrar um animal perdido!</p></div>}
         </Modal.Body>
       </Modal>
     </>

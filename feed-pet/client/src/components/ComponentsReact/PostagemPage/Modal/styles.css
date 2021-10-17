@@ -1,0 +1,19 @@
+.divformPost{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    width: 65%;
+    margin: 3%;
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 0 0 1em rgb(0 0 0 / 60%);
+
+}
+
+.botaopost{
+    width: 100%;
+    background-color: rgba(255, 72, 127, 0.486) !important;
+}
+
+.botaopost:hover{
+    background-color: rgba(255, 72, 127, 0.8);  
+}

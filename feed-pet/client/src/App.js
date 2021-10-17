@@ -35,6 +35,7 @@ import { FormCadastroEstilizado } from './components/ComponentsReact/FormCadastr
 import { FormLoginEstilizado } from './components/ComponentsReact/PaginaLogin/Login/index-estilizado';
 import { Chat } from './components/ComponentsReact/WebChat/Chat';
 import { MapaVisual } from './components/ComponentsReact/MapaVisual';
+import { PaginaPerfilAtualizado } from './components/ComponentsReact/PerfilNovoUsuario';
 
 
 
@@ -103,7 +104,7 @@ function App() {
 						<FormCadastroEstilizado />
 					</Route>
 					<Route path='/perfil-usuario/:id'>
-						<Perfilnovo />
+						<PaginaPerfilAtualizado />
 					</Route>
 					<Route path='/postagens'>
 						{/* <FeedInicio/> */}

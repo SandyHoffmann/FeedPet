@@ -72,3 +72,10 @@ textarea{
 .react-datetime-picker__inputGroup{
   font-weight: bold;
 }
+
+.lembrete{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: rgba(143, 196, 36, 0.5);
+}

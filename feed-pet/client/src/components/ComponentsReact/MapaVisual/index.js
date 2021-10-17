@@ -1,6 +1,6 @@
 import React from "react";
-import iconLocal from "../../../assets/local.png"
-
+import Button from '@material-ui/core/Button';
+import "./styles.css";
 import {
   GoogleMap,
   useLoadScript,
@@ -10,11 +10,12 @@ import {
 import { formatRelative } from "date-fns";
 
 import "@reach/combobox/styles.css";
+import { Link } from "react-router-dom";
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  height: "50vh",
-  width: "50vw",
+  height: "100vh",
+  width: "100vw",
 };
 const options = {
   disableDefaultUI: true,
@@ -41,17 +42,25 @@ export function MapaVisual(props) {
 
         if (res.ok) {
             const alertas = await res.json();
+            let lista = []
             for (let alerta of alertas) {
+              const { tipo_animal, nome, avatar } = alerta.animal;
               let marker = {};
               const { local } = alerta;
               const [lat,lng] = local.split(" ");
               marker = {
-                lat: lat,
-                lng: lng,
-                time: "teste",
+                nome: nome,
+                avatar: avatar,
+                id_animal: alerta.id_animal,
+                lat: +lat,
+                lng: +lng,
+                time: alerta.dataDesaparecimento,
+                tipo: tipo_animal
               };
-              markers.push(marker)
+              console.log(tipo_animal)
+              lista.push(marker)
             }
+            setMarkers(lista)
             console.log(alertas)
         }
     } catch (error) {
@@ -74,6 +83,14 @@ export function MapaVisual(props) {
   // const { lat, lng } selected.getPosition();
   // `${lat} ${lng}`  
 
+  function catOrDog(tipo_animal){
+      if (tipo_animal==="Cachorro") {
+        return 'https://i.imgur.com/cF0FVK0.png'
+      }
+      else {
+        return 'https://i.imgur.com/16GoOln.png'
+      }
+  }
   return (
     <div>
       <GoogleMap
@@ -93,7 +110,7 @@ export function MapaVisual(props) {
             }}
 
             icon={{
-              url: iconLocal,  
+              url: catOrDog(marker.tipo),  
               origin: new window.google.maps.Point(0, 0),
               anchor: new window.google.maps.Point(15, 15),
               scaledSize: new window.google.maps.Size(30, 30),
@@ -109,10 +126,15 @@ export function MapaVisual(props) {
             }}
           >
             <div>
-              <h2>
-                Alert
-              </h2>
-              <p>Spotted {formatRelative(selected.time, new Date())}</p>
+            <div class="animalAvatar"><h2>
+                {selected.nome}</h2>
+              <img src={selected.avatar} /></div>
+              <p>
+                Desapareceu as {selected.time}</p>
+                
+                <Button size="small" color="primary">
+                <Link to={`/perfil/${selected.id_animal}`} id={selected.id_animal} activeClassName="selected" className="link-drop">Perfil do animal</Link>
+                </Button>
             </div>
           </InfoWindow>
         ) : null}

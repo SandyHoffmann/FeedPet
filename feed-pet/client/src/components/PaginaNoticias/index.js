@@ -50,6 +50,7 @@ export function PaginaNoticias() {
 
     const [cardsNoticias, setCardsNoticias] = useState([]);
 
+
     useEffect(() => {
         console.log(currentCard)
         const cardsFormatados = cards.slice();

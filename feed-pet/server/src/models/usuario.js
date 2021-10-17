@@ -75,6 +75,9 @@ module.exports = (sequelize, DataTypes) => {
     avatar: {
       type: DataTypes.STRING
     },
+    descricao: {
+      type: DataTypes.STRING
+    },
     cargo: {
       type: DataTypes.STRING,
       allowNull: false,

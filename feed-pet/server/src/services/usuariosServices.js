@@ -39,13 +39,27 @@ async function createUsuario(usuario,avatar,key) {
     return usuarioCriado
 }
 
-async function editarUsuario(id, usuario) {
+async function editarUsuario(id, usuario,avatar,key) {
     const usuarioExiste = await Usuario.findOne({ where: { id:id } });
     if (!usuarioExiste) throw createError(404, "Usuário não encontrado!");
-    usuarioExiste.senha = usuario.senha
-    usuarioExiste.nome = usuario.nome
-    usuarioExiste.telefone = usuario.telefone
+    let valores = Object.entries(usuario)
+    console.log(valores)
+    for (let valor of valores){
+        if (usuarioExiste[valor[0]] !== valor[1] && valor[1].length>0){
+            usuarioExiste[valor[0]] = valor[1]
+            console.log(valor[1] + " " + usuarioExiste[valor[0]])
+        }
+    }
+    if (avatar){
+        usuarioExiste.avatar = avatar
+        usuarioExiste.keyS3 = key
+    }
+
+    // usuarioExiste.senha = usuario.senha
+    // usuarioExiste.nome = usuario.nome
+    // usuarioExiste.telefone = usuario.telefone
     await usuarioExiste.save();
+    return usuarioExiste
 }
 
 async function acharAnimaisUsuario(id) {

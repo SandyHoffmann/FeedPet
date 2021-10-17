@@ -1,14 +1,14 @@
 import { Modal, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import alerta from "../../../../assets/alerta.png";
 import "./styles.css";
 import { api } from "../../../../service";
 import { Carousel } from "react-bootstrap";
 import { SliderAnimal } from "../SliderAnimal";
 import DateTimePicker from 'react-datetime-picker';
 import { FormAnimal } from "../../PaginaAnimal/FormularioAnimal";
-import img from "../../../../assets/naoachado.jpg"
 import { MapaInterativo } from "../../GoogleMaps";
+import { IoMdArrowRoundBack } from "react-icons/io"
+
 const jwt = require('jsonwebtoken');
 
 
@@ -75,7 +75,24 @@ export function ModalGerarAlertaMenu(props) {
         div[0].className = "voltaranimalalerta invisivelAlerta"
         divVisivel[0].className = "modalalertaanimalform visivelAlerta"
       }
+
+
 }
+  function passarPag(valor){
+    if (valor === 'ir'){
+      let pagVisivel = document.querySelectorAll(".descricaoAlerta")
+      pagVisivel[0].className = "corpoModal descricaoAlerta"
+      let pagInvisivel = document.querySelectorAll(".primeiraPagAlerta")
+      pagInvisivel[0].className = "primeiraPagAlerta invisivel"  
+    } else{
+      let pagVisivel = document.querySelectorAll(".descricaoAlerta")
+      pagVisivel[0].className = "corpoModal descricaoAlerta invisivel"
+      let pagInvisivel = document.querySelectorAll(".primeiraPagAlerta")
+      pagInvisivel[0].className = "primeiraPagAlerta"
+    }
+
+     
+  }
   return (
     <>
       <Button
@@ -83,7 +100,7 @@ export function ModalGerarAlertaMenu(props) {
         onClick={handleShow}
       >
         {" "}
-        <img src={alerta}></img>
+        <img src='https://i.imgur.com/5td7uzO.png'></img>
       </Button>
       <Modal show={show} onHide={handleClose} data-toggle="modal" size="lg">
         <Modal.Header closeButton>
@@ -96,7 +113,7 @@ export function ModalGerarAlertaMenu(props) {
         </Modal.Header>
         <Modal.Body>
           <div className="modalalertaanimalform">
-
+          <div className="primeiraPagAlerta">
             <div className="sliderAnimal">
               <Carousel id="carouselAnimaisPessoa" interval={null} variant="dark">
                 {animais.length===0&&
@@ -105,7 +122,7 @@ export function ModalGerarAlertaMenu(props) {
                       <img
                         className="carouselAnimal"
                         id="fotoCarousel"
-                        src={img}
+                        src='https://i.imgur.com/FVp8SzH.jpg'
                         alt="First slide"
                       />
                     </div>
@@ -137,15 +154,28 @@ export function ModalGerarAlertaMenu(props) {
 
                 })}
               </Carousel>
-            </div>
-            <div className="corpoModal">
-              <div className="modalFlex">
+              <br/>
+            <button className="btn botaoRosa botaoalertanimal" onClick={e => {passarPag('ir')}}>Proximo</button>
+            <br/>
+                  <p className="avisoalerta">Ainda não possui um animal registrado?<br /> <a href="#" name = "irParaFormAnimal" onClick={handleClick}>Clique aqui</a> para fazer um rapidamente!</p>
 
+            </div>
+
+            </div>
+       
+            <div className="corpoModal descricaoAlerta invisivel">
+     
+              <div className="modalFlex">
+                <div>
+              <button className="btn botaoRosa botaoalertanimal passarPag irBotao" onClick={e => {passarPag('voltar')}}><IoMdArrowRoundBack/> Voltar</button>
+              </div>
                 <div className="areaInputs">
                   <form onSubmit={handleSubmit}>
                     <div className="formularioInteiro">
-                      <label htmlFor="local"></label>
+                      <div>
+                      <label htmlFor="local">Escolha o Local</label>
                       <MapaInterativo funcao={setLocal}/>
+                      </div>
                       <label htmlFor="cidade"></label>
                       <input type="text" name="cidade" placeholder="Cidade do Desaparecimento" onChange={e => { setCidade(e.target.value) }} value={cidade} />
 
@@ -160,8 +190,6 @@ export function ModalGerarAlertaMenu(props) {
 
                   </form>
 
-                  <br />
-                  <p className="avisoalerta">Ainda não possui um animal registrado?<br /> <a href="#" name = "irParaFormAnimal" onClick={handleClick}>Clique aqui</a> para fazer um rapidamente!</p>
 
                 </div>
               </div>

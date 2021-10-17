@@ -14,7 +14,7 @@ import "@reach/combobox/styles.css";
 const libraries = ["places"];
 const mapContainerStyle = {
   height: "50vh",
-  width: "50vw",
+  width: "50vh",
 };
 const options = {
   disableDefaultUI: true,
@@ -74,11 +74,6 @@ export function MapaInterativo(props) {
     mapRef.current = map;
   }, []);
 
-  const panTo = React.useCallback(({ lat, lng }) => {
-    mapRef.current.panTo({ lat, lng });
-    mapRef.current.setZoom(14);
-  }, []);
-
   if (loadError) return "Error";
   if (!isLoaded) return "Loading...";
 
@@ -99,7 +94,6 @@ export function MapaInterativo(props) {
       >
         {marker && (
           <Marker
-            draggable
             key={`${marker.lat}-${marker.lng}`}
             position={{ lat: marker.lat, lng: marker.lng }}
             onClick={() => {              
@@ -115,21 +109,6 @@ export function MapaInterativo(props) {
           />
         )}
 
-        {selected ? (
-          <InfoWindow            
-            position={{ lat: selected.lat, lng: selected.lng }}
-            onCloseClick={() => {
-              setSelected(null);
-            }}
-          >
-            <div>
-              <h2>
-                Alert
-              </h2>
-              <p>Spotted {formatRelative(selected.time, new Date())}</p>
-            </div>
-          </InfoWindow>
-        ) : null}
       </GoogleMap>
     </div>
   );

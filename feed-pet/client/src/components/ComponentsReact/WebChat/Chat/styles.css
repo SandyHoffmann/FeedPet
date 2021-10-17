@@ -47,9 +47,8 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    background-image: url('../../../../assets/sprinkles.png');
     background-color: white;
-
+    justify-content: space-between;
 }
 
 .mensagens__corpo{
@@ -103,7 +102,7 @@
 	box-shadow:  9px 7px 5px rgba(50, 50, 50, 0.77);
     padding: 2%;
     background-color: white;
-
+    margin-bottom: 0px;
 }
 .direita {
     border-color:#ff4880 ;
@@ -113,6 +112,46 @@
     border-color:#8fc424;
 }
 
+.bdf1ff{
+    border-color:#bdf1ff;
+
+}
+.ffbdfd{
+    border-color:#ffbdfd;
+
+}
+.ffbdca{
+    border-color:#ffbdca;
+
+}
+.c8f4d5{
+    border-color:#c8f4d5;
+
+}
+.bde0ff{
+    border-color:#bde0ff;
+
+}
+.fdbfe7{
+    border-color:#fdbfe7;
+
+}
+.ddecd0{
+    border-color:#ddecd0;
+
+}
+.ceb0f1{
+    border-color:#ceb0f1;
+
+}
+.c9f3f0{
+    border-color:#c9f3f0;
+
+}
+.a4c6c4{
+    border-color:#a4c6c4;
+
+}
 .texto{
     grid-column: span 2;
     background-color: #ff4880 ;
@@ -129,7 +168,6 @@
     padding: 1%,1%,1%,1%;
 }
 .image{
-    background-image: url("../../../../assets/icone1.png");
     background-size: cover;
     width: 4em;
     height: 4em;
@@ -214,7 +252,6 @@
     -webkit-box-shadow: 0 0 1em rgba(50, 50, 50, 0.77);
     -moz-box-shadow: 0 0 1em rgba(50, 50, 50, 0.77);
     box-shadow: 0 0 1em rgba(50, 50, 50, 0.77);
-
 }
 .invisivelChat{
     display: none !important;
