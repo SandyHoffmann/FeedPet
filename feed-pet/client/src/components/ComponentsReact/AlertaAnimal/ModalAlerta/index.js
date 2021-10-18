@@ -69,7 +69,7 @@ export function ModalAlertaMenu(props) {
                    <img src={pet.animal.avatar} className="card-img-top" alt="..." />
                    <div className="card-body" id="descricaocard">
                      <h5 className="card-title">{pet.animal.nome}</h5>
-                     <h6>SRD</h6>
+                     {/* <h6>SRD</h6> */}
                      <p className="card-text">{pet.descricao}</p>
 
                 <Link to={`/perfil/${pet.animal.id}`} id={pet.animal.id} activeClassName="selected" className="link-drop" onClick={e => {setShow(false);}}>Perfil</Link>
@@ -99,7 +99,7 @@ export function ModalAlertaMenu(props) {
                   </li>
                 </ul>
               </nav>
-         {!token&&<div className="lembrete"><p>Se logue para cadastrar um animal perdido!</p></div>}
+         {!token&&<div className="lembrete"><p>Faça login para poder cadastrar um animal perdido!</p></div>}
         </Modal.Body>
       </Modal>
     </>

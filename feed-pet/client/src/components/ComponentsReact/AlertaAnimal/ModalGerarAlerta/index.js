@@ -54,7 +54,7 @@ export function ModalGerarAlertaMenu(props) {
           setShow(false)
           window.location.replace("/");    
         } else{
-          alert("Selecione um animal, ou crie um!")
+          alert("Selecione um animal ou crie um!")
         }
     } catch (error) {
         let erros = error.response.data
@@ -127,8 +127,8 @@ export function ModalGerarAlertaMenu(props) {
                       />
                     </div>
                     <Carousel.Caption>
-                      <h3>Animal não achado</h3>
-                      <p>Cadastre um por favor!</p>
+                      <h3>Animal não encontrado</h3>
+                      <p>Cadastre o animal por favor!</p>
                     </Carousel.Caption>
                   </Carousel.Item>}
                 {animais.map(animal => {
@@ -177,10 +177,10 @@ export function ModalGerarAlertaMenu(props) {
                       <MapaInterativo funcao={setLocal}/>
                       </div>
                       <label htmlFor="cidade"></label>
-                      <input type="text" name="cidade" placeholder="Cidade do Desaparecimento" onChange={e => { setCidade(e.target.value) }} value={cidade} />
+                      <input type="text" name="cidade" placeholder="Cidade do desaparecimento" onChange={e => { setCidade(e.target.value) }} value={cidade} />
 
                       <label htmlFor="descricao"></label>
-                      <textarea type="textarea" name="descricao" placeholder="Descricao" onChange={e => { setDescricao(e.target.value) }} value={descricao} />
+                      <textarea type="textarea" name="descricao" placeholder="Descrição. Ex: 'Estava de roupa azul, usava um laço rosa'" onChange={e => { setDescricao(e.target.value) }} value={descricao} />
                     </div>
                     <DateTimePicker
                       onChange={setDataDesaparecimento}
