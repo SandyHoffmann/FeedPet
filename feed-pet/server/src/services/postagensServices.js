@@ -48,6 +48,12 @@ async function acharUsuarioPostagem(id) {
     return await donoPostagem;
 }
 
+async function deletePost(id) {
+    return await Postagem.destroy({
+        where: { id:id} 
+      });
+}
+
 module.exports = {
     createPostagem,
     getPostagem,
