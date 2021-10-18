@@ -50,6 +50,7 @@ body {
 
 .wrapperChat {
     position: fixed;
+    display: none;
     right: 20px;
     bottom: 100px;
     width: 350px;
@@ -62,7 +63,9 @@ body {
 }
 
 #check:checked~.wrapperChat {
-    opacity: 1
+    opacity: 1;
+    display: block;
+
 }
 
 .header {
