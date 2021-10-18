@@ -10,18 +10,18 @@ export function PesquisaEstilo(props) {
 
 
         <div className="barra-pesquisa">
-        <Sky
+       {/* <Sky
           images={{
-            /* FORMAT AS FOLLOWS */
-            0: 'https://i.imgur.com/hLs9qfg.png', /* You can pass as many images as you want */
+
+            0: 'https://i.imgur.com/hLs9qfg.png',
             1:'https://i.imgur.com/qLMG2lP.png',
             2:'https://i.imgur.com/tc5FFP3.png'
-            }}
-            how={200} /* Pass the number of images Sky will render chosing randomly */
-            time={40} /* time of animation */
-            size={'50px'} /* size of the rendered images */
-            background={'#ff4880'} /* color of background */
-        />          
+            }} */}
+            {/* how={200} 
+            time={40} 
+            size={'50px'} 
+            background={'#ff4880'} 
+        />           */}
 
            
             <div className="caixaPesquisa">
@@ -37,7 +37,7 @@ export function PesquisaEstilo(props) {
                                     Sim
                                 </label>
                             </div>
-                            <p>Tem Dono</p>
+                            <p>Tem dono</p>
                         </div>
                         <div className="conjunto">
                             <div className="form-check nao" id="form">
@@ -46,7 +46,7 @@ export function PesquisaEstilo(props) {
                                     Não
                                 </label>
                             </div>
-                            <p>Não Tem Dono</p>
+                            <p>Não tem dono</p>
                         </div>
                         <div className="conjunto">
                             <div className="form-check desaparecidoFiltro" id="form">
