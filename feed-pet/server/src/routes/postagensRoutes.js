@@ -13,7 +13,7 @@ router.delete("/:id",authentication(["usuario", "admin"]),postagensController.de
 router.get("/:id_post/comentarios", postagensController.getComentariosPostagem);
 router.post("/:id_post/comentarios", authentication(["usuario", "admin"]), postagensController.createComentario);
 router.post("/:id_post/curtidas", authentication(["usuario", "admin"]), postagensController.createCurtida);
-router.delete("/:id", authentication(["usuario", "admin"]), postagensController.deletePostagem);
+// router.delete("/:id", authentication(["usuario", "admin"]), postagensController.deletePostagem);
 router.delete("/:id/comentarios", authentication(["usuario", "admin"]), postagensController.deleteComentario);
 
 module.exports = router;

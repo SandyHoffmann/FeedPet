@@ -5,6 +5,7 @@ import { ModalGerarAlertaMenu } from "../ComponentsReact/AlertaAnimal/ModalGerar
 import { ModalAlertaMenu } from "../ComponentsReact/AlertaAnimal/ModalAlerta";
 import { ModalChat } from "../ComponentsReact/Notificacoes/ChatNotificacoes";
 import { useEffect, useState } from "react";
+import { MapaInterativo } from "../ComponentsReact/GoogleMaps";
 const jwt = require('jsonwebtoken');
 
 
@@ -27,10 +28,12 @@ export function Menu(props) {
               <img src='https://i.imgur.com/rsUpwDc.png' height="60" alt="10" loading="lazy" id="imagemlogo" />
             </a>
             <div class="nav-fill">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <ul className="navbar-nav mb-2 mb-lg-0">
                 <li className="nav-item"><NavLink exact to="/" activeClassName="selected" className="nav-link" id="teste" onClick={e => setpagAtual('home')}>Home</NavLink></li>
-                <li className="nav-item"><NavLink to="/postagens" activeClassName="selected" className="nav-link" id="teste" onClick={e => setpagAtual('postagens')}>Postagens</NavLink></li>
+                <li className="nav-item"><NavLink to="/postagens" activeClassName="selected" className="nav-link" id="teste" onClick={e => setpagAtual('postagens')}>Feed</NavLink></li>
                 {token && <li className="nav-item"><NavLink to="/chat" activeClassName="selected" className="nav-link" id="teste" onClick={e => setpagAtual('chat')}>Chats</NavLink></li>}
+                <li className="nav-item"><NavLink exact to="/mapa" activeClassName="selected" className="nav-link"  id="teste" onClick={e => setpagAtual('mapa')}>Mapa</NavLink></li>
+                <li className="nav-item"><NavLink exact to="/PaginaNoticias" activeClassName="selected" className="nav-link"  id="teste" onClick={e => setpagAtual('noticias')}>Noticias</NavLink></li>
 
               </ul>
             </div>
@@ -47,7 +50,7 @@ export function Menu(props) {
             }
           <div className="d-flex align-items-center">
 
-
+            
             <ModalAlertaMenu />
             {token &&
             <ModalGerarAlertaMenu />
@@ -63,10 +66,8 @@ export function Menu(props) {
                 title={<img src='https://i.imgur.com/Pm6cTZh.png' className="lupa" ></img>}
                 variant="flat"
               >
-                <Dropdown.Item><li><NavLink to="/perfil" activeClassName="selected" className="link-drop" onClick={e => setpagAtual('perfil')}>Perfil</NavLink></li></Dropdown.Item>
                 <Dropdown.Item><li><NavLink to={`/perfil-usuario/${token?.sub}`} activeClassName="selected" className="link-drop" onClick={e => setpagAtual('perfil-usuario')}>Perfil-Usuario</NavLink></li></Dropdown.Item>
                 <Dropdown.Item><li><NavLink to="/animais" activeClassName="selected" className="link-drop" onClick={e => setpagAtual('animais')}>Meus Animais</NavLink></li></Dropdown.Item>
-                <Dropdown.Item><li><NavLink to="/editar-perfil" activeClassName="selected" className="link-drop" onClick={e => setpagAtual('editar')}>Editar Perfil</NavLink></li></Dropdown.Item>
                 <Dropdown.Item>
                   <NavLink to="/logoff" activeClassName="selected" className="link-drop">
                     Log Out

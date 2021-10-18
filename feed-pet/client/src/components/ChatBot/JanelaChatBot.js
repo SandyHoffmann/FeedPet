@@ -5,9 +5,8 @@ import {GrHelp} from 'react-icons/gr'
 export function JanelaChatBot(props) {
     const [perguntaSelecionada, setPerguntaSelecionada] = useState(null);
     const perguntasRespostas = [
-        { pergunta: "Como cadastrar seu animal?", resposta: "resposta1" },
-        { pergunta: "Como cadastrar um animal perdido?", resposta: "resposta 2" },
-        { pergunta: "Como localizar um usuário", resposta: "resposta 3" }
+        { pergunta: "Como cadastrar seu animal?", resposta: "Vá ate o menu de meus animais, lá tem a opção para o cadastro!" },
+        { pergunta: "Como cadastrar um animal perdido?", resposta: "Clique no botao de alerta no menu, escolha um animal para cadastrar, e ponha isso no mapa, seu animal aparecera como perdido!" },
     ];
 
     const respostas = [

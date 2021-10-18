@@ -135,7 +135,7 @@ export function PaginaAnimal(props) {
                       </p>
                       <ReactTooltip id="registerTip" place="top" effect="solid" backgroundColor="white" textColor="black">
                         <p>Descrição - {desaparecido.descricao}</p>
-                        <p>Local - {desaparecido.local}</p>
+                        <p>Local - {desaparecido.cidade}</p>
                       </ReactTooltip>
                       {(informacoes?.usuario[0].id === usuario) && <button className="btn" onClick={AnimalEncontrado}>Marcar como Encontrado</button>}
                     </div>

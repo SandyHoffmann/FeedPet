@@ -62,7 +62,7 @@ export class FormLoginEstilizado extends React.Component {
         let body = document.querySelectorAll('.body')
 
         menu[0].className += " menuLogin"
-        footer[0].className += " footerLogin"
+        // footer[0].className += " footerLogin"
         body[0].className += " homeLogin"
     }
 
