@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import GoogleLogin from 'react-google-login';
 import { VerificarErros } from "../../../../errorHandling";
 import GoogleButton from 'react-google-button'
+import Sky from 'react-sky';
+      
 
 const jwt = require('jsonwebtoken');
 

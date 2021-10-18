@@ -49,7 +49,8 @@ export function AgendaAnimal(props) {
                 </div>
            
             }
-            {informacoes.map(tarefa =>
+            {informacoes.map(tarefa => {let tastList = tarefa.atividade_feita.split("/separar/") ; 
+             return(
                 <li key={tarefa.id}>
                 
                     <div className="timeline-time">
@@ -69,9 +70,9 @@ export function AgendaAnimal(props) {
                             <Link to={`/perfil-usuario/${tarefa.usuario.id}`}><span className="username">{tarefa.usuario.nome}</span></Link>
                         </div>
                         <div className="timeline-content">
-                            <p>
-                                {tarefa.atividade_feita}
-                            </p>
+                            <ul>
+                                {tastList.map(task => {return <p>{task}</p>})}
+                            </ul>
                         </div>
                         <div className="timeline-likes">
 
@@ -89,7 +90,7 @@ export function AgendaAnimal(props) {
                         <div className="timeline-footer">
                         </div>
                     </div>
-                </li>)}
+                </li>)})}
             
         </>
 

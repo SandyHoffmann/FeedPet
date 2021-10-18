@@ -6,6 +6,9 @@ import { AgendaAnimal } from "../Agenda";
 import { Alert, Popover } from "react-bootstrap";
 import { EdicaoAnimal } from "../Edicao";
 import { AiOutlineEdit } from "react-icons/ai";
+import { FiDelete } from "react-icons/fi";
+import swal from 'sweetalert';
+
 import ReactTooltip from "react-tooltip";
 
 const jwt = require('jsonwebtoken');
@@ -17,6 +20,7 @@ const moment = require('moment');
 export function PaginaAnimal(props) {
   const [informacoes, setInformacoes] = useState([])
   const [desaparecido, setDesaparecido] = useState([])
+  const [dados,setDados] = useState([])
   const [usuario, setUsuario] = useState([])
   const [dono, setDono] = useState([])
   const editando = useRef(false)
@@ -35,6 +39,22 @@ export function PaginaAnimal(props) {
       }
       const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
       setUsuario(token.sub)
+      const agenda = await api.get(`/agendas/${id}`);
+      let dados = agenda.data[1].map(atividade => atividade.atividade_feita.split("/separar/"))
+      let lista = {"comida":0,"dormir":0}
+      if (dados){
+        for (let d of dados){
+          for(let e of d){
+            if (e == "Dei Ração"){
+              lista.comida+=1
+            } if (e == "Dormiu aqui"){
+              lista.dormir+=1
+            }
+          }
+         
+        }
+      }
+      setDados(lista)
     } catch (error) {
       console.log(error)
     }
@@ -63,6 +83,27 @@ export function PaginaAnimal(props) {
     }
   }
 
+  async function excluir(e){
+    swal({
+      title: "Você tem certeza?",
+      text: "Seu animal sera deletado permanentemente!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then(async (willDelete) => {
+      if (willDelete) {
+        let deletar=await api.delete(`/animais/${id}`);
+        swal("Animal deletado com sucesso!", {
+          icon: "success",
+        }).then(()=>
+        window.location.replace("/")
+        );
+      } else {
+        swal("Ok, não deletamos seu animal!");
+      }
+    });
+  }
 
   return (
     <>
@@ -105,7 +146,10 @@ export function PaginaAnimal(props) {
                 <div className="corpoPerfilAnimal">
                 <div className="flexDiv">
                   <h3 class="dark-color">{informacoes.nome}</h3>
-                {(usuario === dono.id)&&<button onClick={editar} className="btn editar">Editar <AiOutlineEdit/> </button>}
+                {(usuario === dono.id)&&<>
+                <button onClick={editar} className="btn editar">Editar <AiOutlineEdit/> </button>
+                <button onClick={excluir} className="btn editar excluir">Excluir <FiDelete color="red"/> </button>
+                </>}
                 </div>
                 {/* {((informacoes.tipo_animal == "Cachorro") && (
                   <>
@@ -165,9 +209,11 @@ export function PaginaAnimal(props) {
                   </div>
                  
               </div>
+              {usuario===dono.id&&
               <div class="row about-list animalEditar invisivel">
                     <EdicaoAnimal informacao={informacoes} dono={dono} setinfo={setInformacoes}/>
               </div>  
+              }
             </div>
             </div>
 
@@ -187,7 +233,7 @@ export function PaginaAnimal(props) {
                   <h6 class="count h2" id="icones" data-to="150" data-speed="150">
                     <img src='https://i.imgur.com/02MPWUK.png'></img>
                   </h6>
-                  <p class="m-0px font-w-600">Alimentado 7x</p>
+                  <p class="m-0px font-w-600">Alimentado {dados.comida}x</p>
                 </div>
               </div>
               <div class="col-6 col-lg-3">
@@ -195,7 +241,7 @@ export function PaginaAnimal(props) {
                   <h6 class="count h2" id="icones" data-to="850" data-speed="850">
                     <img src='https://i.imgur.com/9NbLHB6.png'></img>
                   </h6>
-                  <p class="m-0px font-w-600">Dormiu em 5 locais</p>
+                  <p class="m-0px font-w-600">Dormiu em {dados.dormir} locais</p>
                 </div>
               </div>
               <div class="col-6 col-lg-3">

@@ -7,6 +7,12 @@
     margin: 2em 5em;
     position:relative;
 }
+.excluir{
+    color: red;
+}
+.swal-text{
+    font-weight: bolder;
+}
 .aviso{
     text-align: center;
     }
