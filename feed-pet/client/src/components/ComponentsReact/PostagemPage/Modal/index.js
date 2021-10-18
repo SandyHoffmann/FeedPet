@@ -23,7 +23,7 @@ export function ModalPostagem(props) {
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Formulario</Modal.Title>
+            <Modal.Title>Cadastrar Postagem</Modal.Title>
           </Modal.Header>
           <Modal.Body><FormPostagem setarPost={props.setarPost} fecharForm={handleClose}/></Modal.Body>
         </Modal>

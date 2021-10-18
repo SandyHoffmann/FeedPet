@@ -45,6 +45,14 @@ export class CorpoPaginaPostagem extends React.Component {
         });
     }
 
+    removePost = postagens => {
+        this.setState({
+            postagem: 
+                postagens
+            
+        });
+    }
+
     render() {
         const postagens = this.state.postagem
         return (
@@ -79,7 +87,7 @@ export class CorpoPaginaPostagem extends React.Component {
                                     }
 
                                     <li>
-                                        {postagens.map(post => <PostagemCard key={post.id} id_post={post.id} post={post} usuario={post.usuario} id_usuario={post.user_id} titulo={post.titulo} conteudo={post.conteudo} usuario_logado={this.state.usuario.id}></PostagemCard>)}
+                                        {postagens.map(post => <PostagemCard key={post.id} id_post={post.id} post={post} usuario={post.usuario} id_usuario={post.user_id} titulo={post.titulo} conteudo={post.conteudo} usuario_logado={this.state.usuario.id} setarPost={this.removePost} posts={postagens}></PostagemCard>)}
                                     </li>
                                 </ul>
                             </div>
