@@ -17,11 +17,11 @@
     padding: 10%;
     background-color: white;
     border: 3px solid pink;
-    border-image: linear-gradient(to right, rgba(255,107,222,1) ,rgba(191,122,221,1), rgba(154,52,255,1));
+    border-image: radial-gradient(circle, rgba(255,72,128,1) 57%, rgba(104,6,130,1) 100%);
     border-image-slice: 1;
-    -webkit-box-shadow: 0 0 1em rgba(255,107,222,1);
-    -moz-box-shadow: 0 0 1em rgba(255,107,222,1);
-    box-shadow: 0 0 1em rgba(255,107,222,1);
+    -webkit-box-shadow: 0 0 2em #ff487fce;
+    -moz-box-shadow: 0 0 2em #ff487fce;
+    box-shadow: 0 0 2em #ff487fce;
 
 }
 
@@ -37,7 +37,7 @@
 .caixaimagem {
     width: 100%;
     margin-left: 10px;
-    background-color: rgba(255,107,222,1);
+    /* background-color: rgba(255,107,222,1); */
     top: 0px;
     justify-content: space-between;
 }
@@ -67,14 +67,15 @@
     display: flex;
 }
 .bluhrit {
-    filter: blur(3px);
-    filter: grayscale(80%);
-  -webkit-filter: blur(3px);
-  -webkit-filter: grayscale(80%);
+    /* filter: blur(3px);
+    filter: grayscale(80%); */
+  /* -webkit-filter: blur(3px);
+  -webkit-filter: grayscale(80%); */
 
   background-size: cover;
-  height: 100%;
+  height: 120%;
   width: 100%;
+  padding-left: 2em;
 }
 
 .footerLogin{
@@ -96,23 +97,24 @@ input[type="password"] {
 .grandecaixa input,
 .grandecaixa textarea {
     background: none;
-    color: pink;
+    color: #ff4880;
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
     border: none;
-    border-radius: 0;
-    border-bottom: 3px solid pink;
-    border-image: linear-gradient(to right, rgba(255,107,222,1) ,rgba(191,122,221,1), rgba(154,52,255,1));
+    border-bottom: 3px solid #ff4880;
+    border-image:  #ff4880;
     border-image-slice: 1;
 }
 
 .grandecaixa input:active,input:focus{
-    border-color: pink !important;
+    border-color: #ff4880 !important;
 }
 
 .botaoRosa{
-    background-color: hotpink !important;
+    background-color: #ff4880 !important;
+    color: #ffff !important;
+    font-weight: 600 !important;
 }
 .linksForm{
     display: flex;
@@ -120,7 +122,8 @@ input[type="password"] {
     align-items: center;
 }
 .linksForm a{
-    color: hotpink;
+    color: #ff4880;
+    text-decoration:none;
 
 }
 .linksForm a:hover{
