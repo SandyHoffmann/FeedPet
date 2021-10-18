@@ -52,10 +52,16 @@
 .irBotao{
   width: 100%;
 }
+.botaoRosa{
+  background-color:#ff4880 !important;
+}
+.botaoalertanimal{
+  background-color: #ff4880 !important;
+}
 .formularioInteiro input,
 .formularioInteiro textarea {
   background: none;
-  color: pink;
+  color: #ff4880;
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   display: block;
@@ -100,7 +106,7 @@ textarea:focus-visible{
 
 
 .animalerta{
-  border: 1px solid #ccc;
+  border: 0px solid #ccc;
   border-radius: 100%;
   float: left;
   height: 8vh;
@@ -125,24 +131,27 @@ textarea:focus-visible{
 .animalerta input{
   opacity: 0;
 }
-
-
+.animalerta input + label{
+-webkit-box-shadow: 0px 0px 15px 5px #ff4880; 
+box-shadow: 0px 0px 15px 5px #ff4880;
+}
 .animalerta input:checked + label{
   -webkit-box-shadow: 0px 0px 15px 5px #ffffff; 
   box-shadow: 0px 0px 15px 5px #ffffff;
-  background: #a924c4 no-repeat center center;
+  background: #680682 no-repeat center center;
 }
 .animalerta input:checked + label{
-  background-image: url('../../../../assets/cat-ativo.png');
-  background-size: 5vh;
+  background-image: url(https://i.imgur.com/GME5xoQ.png);
+  /* background-size: 5vh; */
+  background-size: cover;
 }
 .botaoalertagerar{
   background-color:#ff4880 !important;
 
 }
 .animalerta input + label{
-  background-image: url('../../../../assets/cat.png');
-  background-size: 5vh;
+  background-image: url(https://i.imgur.com/P7svsUr.png);
+  background-size: cover;
 }
 
 @media only screen and (max-width: 850px) {
