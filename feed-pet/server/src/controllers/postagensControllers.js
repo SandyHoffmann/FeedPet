@@ -114,7 +114,7 @@ module.exports = {
     getComentariosPostagem,
     createCurtida,
     getAllCurtidas,
-    deletePost
+    deletePost,
     deletePostagem,
     deleteComentario
 }

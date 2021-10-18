@@ -202,7 +202,7 @@ export class FormAnimal extends React.Component {
                             <option>Pastor Alemão</option>
                             <option>Pincher</option>
                             <option>Pitbull</option>
-                            <option>Vira Lata</option>
+                            <option>SRD</option>
                         </select>
                     </div>
                     <div className="form-group" className={this.state.tipo_animal == "Gato" || "hidden"}>
@@ -210,9 +210,9 @@ export class FormAnimal extends React.Component {
                         <select className="form-control" id="raca" name="raca" value={this.state.raca} onChange={this.handleChange}>
                             <option>Angora</option>
                             <option>Siames</option>
-                            <option>Gato Rebaixado</option>
+                            <option>Burmese</option>
                             <option>Rajado</option>
-                            <option>Vira Lata</option>
+                            <option>SRD</option>
                         </select>
                     </div>
                     <div className="form-group">
