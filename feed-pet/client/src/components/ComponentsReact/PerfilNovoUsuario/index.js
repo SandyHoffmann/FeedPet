@@ -101,7 +101,7 @@ export function PaginaPerfilAtualizado(props) {
                         >
                           <img src='https://i.imgur.com/YFQQsA5.png'></img>
                         </h6>
-                        <p class="m-0px font-w-600">Tutor de 3 animais</p>
+                        <p class="m-0px font-w-600">Tutor de {animais.length} animais</p>
                       </div>
                     </div>
                     <div>

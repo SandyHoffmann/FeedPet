@@ -26,7 +26,7 @@ api.interceptors.response.use(function (response) {
       const homeUrl = `http://localhost:3000/animais`;
       // alert(error.request.responseURL)
       const refreshTokenUrl = "http://localhost:3000/auth/refreshToken";  
-      if (error.response.status === 401 
+      if (error.response?.status === 401 
         && originalRequest.url !== refreshTokenUrl
         && error.request.responseURL !== loginUrl
         && error.request.responseURL !== homeUrl) {      

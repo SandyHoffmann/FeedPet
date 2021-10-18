@@ -13,6 +13,18 @@ async function criarPostagem(req, res, next) {
     }
 }
 
+async function deletePost(req, res, next) {
+    try {        
+        const deletar = await postagensServices.deletePost(res.locals.userId, req.params.id)
+
+        res.status(201).json();
+
+    } catch (err) {
+        console.log(err.message);
+        next(err);
+    }
+}
+
 async function getAll(req, res, next) {    
     try {
         const postagens = await postagensServices.getPostagem();
@@ -102,6 +114,7 @@ module.exports = {
     getComentariosPostagem,
     createCurtida,
     getAllCurtidas,
+    deletePost
     deletePostagem,
     deleteComentario
 }

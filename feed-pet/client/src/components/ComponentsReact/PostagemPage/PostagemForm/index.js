@@ -60,16 +60,19 @@ export class FormPostagem extends React.Component {
 
         return (
             <>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className="postagemForm">
                 <div className="form-group titulo-err form-err">
                     <label htmlFor="nome">Titulo:</label>
                     <input type="text" className="form-control" id="nome" name="titulo" aria-describedby="Nome" value={this.state.nome} onChange={this.handleChange} placeholder="Nome do Animal"/>
                 </div>
                 <div className="form-group conteudo-err form-err">
                     <label htmlFor="nome">Conteudo:</label>
-                    <input type="text" className="form-control" id="nome" name="conteudo" aria-describedby="Nome" value={this.state.nome} onChange={this.handleChange} placeholder="Nome do Animal"/>
+                    <textarea type="text" className="form-control" id="nome" name="conteudo" aria-describedby="Nome" value={this.state.nome} onChange={this.handleChange} placeholder="Nome do Animal"/>
                 </div>
-                <button type="submit" className="btn btn-primary">Enviar</button>
+                <br/>
+                <div className="centralizado">
+                <button type="submit" className="btn botaoRosa">Enviar</button>
+                </div>
                 </form>            
             </>
         );

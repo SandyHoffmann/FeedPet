@@ -9,6 +9,7 @@ router.get("/",  postagensController.getAll);
 router.get("/:id",  postagensController.getPostOwner);
 router.get("/:id_post/curtidas", postagensController.getAllCurtidas);
 
+router.delete("/:id",authentication(["usuario", "admin"]),postagensController.deletePost);
 router.get("/:id_post/comentarios", postagensController.getComentariosPostagem);
 router.post("/:id_post/comentarios", authentication(["usuario", "admin"]), postagensController.createComentario);
 router.post("/:id_post/curtidas", authentication(["usuario", "admin"]), postagensController.createCurtida);

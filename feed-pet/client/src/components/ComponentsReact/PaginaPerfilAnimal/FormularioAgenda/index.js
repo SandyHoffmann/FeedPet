@@ -7,7 +7,7 @@ const opcoes = [{"value":"Dei Ração","atividade_feita":"Dei Ração",'label':"
                 {"value":"Dei Remédio","atividade_feita":"Dei Remédio",'label':"Dei Remédio"},
                 {"value":"Coloquei Água","atividade_feita":"Coloquei Água",'label':"Coloquei Água"},
                 {"value":"Levei para Passear","atividade_feita":"Levei para Passear",'label':"Levei para Passear"},
-                {"value":"Outro","atividade_feita":"Outro",'label':"Outro"}]
+                {"value":"Dormiu aqui","atividade_feita":"Dormiu aqui",'label':"Dormiu aqui"}]
 
 export function FormularioAgenda(props) {
     const [atividadeFeita, setAtividadeFeita] = useState("")
@@ -23,7 +23,7 @@ export function FormularioAgenda(props) {
             e.preventDefault();
             let atividades = ""
             for (let atividade of atividadeFeita){
-                atividades+=atividade.atividade_feita+" "
+                atividades+=atividade.atividade_feita+"/separar/"
             }
             try {
                 const res = await api.post(`/agendas/${props.atividade_feita}`,

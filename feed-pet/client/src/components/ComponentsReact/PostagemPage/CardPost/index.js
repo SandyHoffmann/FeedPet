@@ -4,11 +4,39 @@ import "./styles.css";
 import { ComentarioPost } from "../Comentario";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import { FiDelete } from "react-icons/fi";
+import swal from 'sweetalert';
+import { api } from "../../../../service";
+
 const moment = require('moment'); 
 
 export function PostagemCard(props) {
   moment.locale('pt-br');
 
+  async function excluir(e){
+    swal({
+      title: "Você tem certeza?",
+      text: "Sua postagem será deletada permanentemente!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then(async (willDelete) => {
+      if (willDelete) {
+        let deletar=await api.delete(`/postagens/${props.post?.id}`);
+        swal("Postagem deletada com sucesso!", {
+          icon: "success",
+        }).then(async ()=>{
+          console.log(props.posts)
+          let posts = props.posts.filter(post => post.id !== props.post?.id)
+          console.log(posts)
+           props.setarPost(posts)
+      });
+      } else {
+        swal("Ok, não deletamos sua postagem!");
+      }
+    });
+  }
   console.log(props.usuario_logado)
   return (
     <div className="profile-content">
@@ -34,6 +62,7 @@ export function PostagemCard(props) {
               <Link className="teste-link" to={`/perfil-usuario/${props.id_usuario}`}>
                 <span className="username">{props.usuario.nome}</span>
               </Link>
+              {props.usuario_logado===props.id_usuario&&<button onClick={excluir} className="btn editar excluir">Excluir Post<FiDelete color="red"/> </button>}
             </div>
             <div className="timeline-content">
               <p>{props.titulo}</p>

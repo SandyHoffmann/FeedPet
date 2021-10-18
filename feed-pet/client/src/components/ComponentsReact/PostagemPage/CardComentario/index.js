@@ -4,9 +4,8 @@ const moment = require('moment');
 
 
 export function CardComentario(props) {
-    moment.locale('pt-br');
 
-    let data = props.coment?.createdAt
+    let data = props.criado
 
     let tempo = moment(data).format('HH:mm:ss DD-MM')
 
