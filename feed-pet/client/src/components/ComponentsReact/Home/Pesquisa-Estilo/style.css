@@ -82,7 +82,15 @@
     opacity: 0;
     border: 0;
 }
+.rosaBg{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #ff4880;
+    height: 20vh;
+}
 .barra-pesquisa{
+
     width: 100%;
     background-color: #ff4880;
     /* background: linear-gradient(0,#ff4880,#b073d8  ); */

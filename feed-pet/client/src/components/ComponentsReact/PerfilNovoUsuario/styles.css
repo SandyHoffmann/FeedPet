@@ -75,6 +75,9 @@ body {
 #caixaanimais {
   flex: 1;
 }
+.img-thumbnail{
+  border: none;
+}
 .page-heading {
   padding: 30px 40px !important;
   /* margin: -25px -20px 25px; */
@@ -85,13 +88,14 @@ body {
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 40px #ff487f93;
-  margin-right: 30px !important;
   font-weight: 600;
   margin: 0;
   display: flex;
   justify-content: space-around;
 }
-
+.animalEstatistica{
+  width: 100%;
+}
 
 @media only screen and (max-width: 900px) {
   .animaisPerfil{
@@ -111,7 +115,39 @@ body {
     width: 15em;
     height: 15em;
 }
+  #bordaheading{
+    width: 100%;
+    margin-right: 0px;
+  }
+  #texto-sobre{
+    margin: 0;
+  }
 }
 .pessoaEditar{
   display: flex;
+}
+.loadFlex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #ff4880;
+  width: 5em;
+  height: 5em;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

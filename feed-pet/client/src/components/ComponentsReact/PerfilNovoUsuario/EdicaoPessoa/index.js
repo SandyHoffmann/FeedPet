@@ -16,6 +16,8 @@ export function EdicaoPessoa(props) {
       e.preventDefault();
       const formData = new FormData(e.target);
       console.log(formData)
+      let p = document.querySelectorAll(".carregando")
+      p[0].className = "carregando loader"
       const res = await api.put(`/usuarios/${id}`,
         formData, {
         headers: {
@@ -23,13 +25,14 @@ export function EdicaoPessoa(props) {
         }
       });
       props.setinfo(res.data)
+      p[0].className = "carregando"
       let div = document.querySelectorAll(".pessoaEditar")
       div[0].className = "pessoaEditar invisivel"
       let divInvisivel = document.querySelectorAll(".UsuarioDados")
       divInvisivel[0].className = "UsuarioDados"
 
     } catch (error) {
-
+      console.log(error)
     }
   }
 

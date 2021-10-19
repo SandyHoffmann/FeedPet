@@ -40,6 +40,7 @@
     /* background-color: rgba(255,107,222,1); */
     top: 0px;
     justify-content: space-between;
+    z-index: 0;
 }
 
 .loginbox{
@@ -67,13 +68,8 @@
     display: flex;
 }
 .bluhrit {
-    /* filter: blur(3px);
-    filter: grayscale(80%); */
-  /* -webkit-filter: blur(3px);
-  -webkit-filter: grayscale(80%); */
-
   background-size: cover;
-  height: 120%;
+  height: 100%;
   width: 100%;
   padding-left: 2em;
 }
@@ -162,7 +158,7 @@ background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 @media only screen and (max-width: 850px) {
     .grandecaixa{
-        background-image: url("../../../../assets/gifgato.gif");
+        background-image: url("https://imgur.com/gC4karb.gif");
         background-size: cover;
         width: 100%;
     }

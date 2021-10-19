@@ -63,7 +63,8 @@ function criarAccessToken(sub, cargo) {
 async function loginGoogleUser(token) {
     const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
     const client = new OAuth2Client(CLIENT_ID);
-
+    console.log(CLIENT_ID)
+    console.log(token)
 
     try {
         const ticket = await client.verifyIdToken({

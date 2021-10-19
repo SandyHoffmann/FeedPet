@@ -2,7 +2,7 @@ import perfil from "../../assets/amyperfil.jpg";
 import "./styles.css";
 import imgperfil from "../../assets/srd.jpg";
 import imgpost from "../../assets/dogito.jpeg";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Col, Image } from "react-bootstrap";
 import dogcard from "../../assets/dogito.jpeg";
 import gato from "../../assets/gatinho.jpeg";
 import tutor from "../../assets/tutor.png";
@@ -19,11 +19,10 @@ export function Perfilnovo(props) {
             <div className="informacoesUsuario">
               <div className="fotoUsuario ">
                 <a href="#">
-                  <img
-                    className="media-object mw150"
-                    src={perfil}
-                    alt="..."
-                  ></img>
+                <Col xs={6} md={4}>
+                  <Image src={perfil} thumbnail />
+                </Col>
+                  
                 </a>
               </div>
               <div className="media-body ">

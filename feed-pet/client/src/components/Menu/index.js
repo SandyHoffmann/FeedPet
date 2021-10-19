@@ -1,5 +1,5 @@
 import "./styles.css";
-import { DropdownButton, Dropdown } from "react-bootstrap";
+import { DropdownButton, Dropdown, Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { ModalGerarAlertaMenu } from "../ComponentsReact/AlertaAnimal/ModalGerarAlerta";
 import { ModalAlertaMenu } from "../ComponentsReact/AlertaAnimal/ModalAlerta";
@@ -27,16 +27,15 @@ export function Menu(props) {
             <a className="navbar-brand mt-2 mt-lg-0" href="#">
               <img src='https://i.imgur.com/rsUpwDc.png' height="60" alt="10" loading="lazy" id="imagemlogo" />
             </a>
-            <div class="nav-fill">
+            <div className="menuConteudo">
               <ul className="navbar-nav mb-2 mb-lg-0">
                 <li className="nav-item"><NavLink exact to="/" activeClassName="selected" className="nav-link" id="teste" onClick={e => setpagAtual('home')}>Home</NavLink></li>
                 <li className="nav-item"><NavLink to="/postagens" activeClassName="selected" className="nav-link" id="teste" onClick={e => setpagAtual('postagens')}>Feed</NavLink></li>
                 {token && <li className="nav-item"><NavLink to="/chat" activeClassName="selected" className="nav-link" id="teste" onClick={e => setpagAtual('chat')}>Chats</NavLink></li>}
                 <li className="nav-item"><NavLink exact to="/mapa" activeClassName="selected" className="nav-link"  id="teste" onClick={e => setpagAtual('mapa')}>Mapa</NavLink></li>
                 <li className="nav-item"><NavLink exact to="/PaginaNoticias" activeClassName="selected" className="nav-link"  id="teste" onClick={e => setpagAtual('noticias')}>Noticias</NavLink></li>
-
               </ul>
-            </div>
+            </div >
           </div>
 
           {!token &&
@@ -78,6 +77,7 @@ export function Menu(props) {
           </div>
         </div>
       </nav>
+
     </>
   );
 }

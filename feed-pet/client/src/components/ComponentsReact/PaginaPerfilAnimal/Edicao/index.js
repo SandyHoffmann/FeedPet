@@ -24,12 +24,15 @@ export function EdicaoAnimal(props) {
       e.preventDefault();
       const formData = new FormData(e.target);
       console.log(formData)
+      let p = document.querySelectorAll(".carregando")
+      p[0].className = "carregando loader"
       const res = await api.put(`/animais/${id}`,
         formData, {
         headers: {
           "Content-Type": `multipart/form-data;boundary=${formData._boundary}`,
         }
       });
+      p[0].className = "carregando"
       props.setinfo(res.data)
       let div = document.querySelectorAll(".animalEditar")
       div[0].className = "row about-list animalEditar invisivel"

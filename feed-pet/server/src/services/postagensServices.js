@@ -15,7 +15,6 @@ async function createPostagem(id, postagem) {
 
     return postagemCriada;
 }
-
 async function deletePost(id_user,id_post) {
     const postagem = await Postagem.findOne({ where: { id:id_post } });
     if (!postagem) throw createError(404, "Postagem não encontrada!");    
@@ -31,6 +30,20 @@ async function deletePost(id_user,id_post) {
 async function getPostagem() {    
     let postagens = await Postagem.findAll(
         {
+            include:{
+                model:Usuario,
+                as:'usuario'
+            }
+        }
+    );    
+    return postagens
+}
+async function getPostagemEspecifica(id){
+    let postagens = await Postagem.findAll(
+        {
+            where: {
+                user_id : id
+            },
             include:{
                 model:Usuario,
                 as:'usuario'
@@ -58,5 +71,6 @@ module.exports = {
     createPostagem,
     getPostagem,
     acharUsuarioPostagem,
-    deletePost
+    deletePost,
+    getPostagemEspecifica
 }

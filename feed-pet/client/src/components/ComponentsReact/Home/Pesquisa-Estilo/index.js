@@ -7,8 +7,8 @@ import Sky from 'react-sky';
 export function PesquisaEstilo(props) {
 
     return (
-
-
+        <>
+        <div className="rosaBg"></div>
         <div className="barra-pesquisa">
        {/* <Sky
           images={{
@@ -149,6 +149,7 @@ export function PesquisaEstilo(props) {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

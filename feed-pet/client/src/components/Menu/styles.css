@@ -61,6 +61,13 @@
     display: flex !important;
     flex-direction: column;
   }
+  .navbar-nav{
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+ 
 }
 
 

@@ -4,6 +4,18 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.cardComentario a{
+    color: #ff4880;
+    text-decoration: none;
+}
+
+.cardComentario a:active{
+    color: #680682;
+    text-decoration: none;
+}
+
+
 .imgcomentaario{
     display: flex;
     flex-direction: row;

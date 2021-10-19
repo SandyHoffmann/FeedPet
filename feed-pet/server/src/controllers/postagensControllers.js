@@ -34,6 +34,15 @@ async function getAll(req, res, next) {
         next(err);
     }
 }
+async function getEspecificas(req, res, next) {    
+    try {
+        const postagens = await postagensServices.getPostagemEspecifica(req.params.id);
+        res.json(postagens);
+    } catch (err) {
+        console.log(err);
+        next(err);
+    }
+}
 
 async function getAllCurtidas(req, res, next) {    
     try {
@@ -116,5 +125,6 @@ module.exports = {
     getAllCurtidas,
     deletePost,
     deletePostagem,
-    deleteComentario
+    deleteComentario,
+    getEspecificas
 }

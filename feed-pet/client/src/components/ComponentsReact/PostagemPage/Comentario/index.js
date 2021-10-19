@@ -1,6 +1,7 @@
 import { api } from "../../../../service";
 import React from "react";
 import { CardComentario } from "../CardComentario";
+import { VerificarErros } from "../../../../errorHandling";
 const jwt = require('jsonwebtoken');
 
 
@@ -29,6 +30,7 @@ export class ComentarioPost extends React.Component {
 
         } catch (error) {
             console.log(error)
+
         }
     }
 
@@ -53,6 +55,8 @@ export class ComentarioPost extends React.Component {
     handleSubmit = async e => {
         try {
             e.preventDefault();
+            if (this.state.conteudo.length>1 && this.state.conteudo.length<40){
+
             const comentario = await api.post(`/postagens/${this.props.id_postagem}/comentarios`,
                 {
                     "conteudo": this.state.conteudo
@@ -61,7 +65,10 @@ export class ComentarioPost extends React.Component {
             // this.props.setarPost(this.state)
             this.setState({conteudo:""})
             this.addComentario(comentario.data)
+        } else {
+            VerificarErros({errors:[{param:'conteudo',msg:'Mensagem com comprimento invalido!'}]})
 
+        }
 
         } catch (error) {
             console.log(this.state)
@@ -70,9 +77,7 @@ export class ComentarioPost extends React.Component {
     render() {
         return (
             <>
-            {this.state.usuario&&<><div className="user">
-                    <img src={this.state.usuario.avatar}></img>
-                </div>
+            {this.state.usuario&&<>
                 
                     <form onSubmit={this.handleSubmit}>
                         <div className="input-group">
@@ -81,6 +86,8 @@ export class ComentarioPost extends React.Component {
                                 className="form-control rounded-corner"
                                 placeholder="Escreva Algo..."
                                 name="conteudo"
+                                minLength="1"
+                                maxLength="39"
                                 value={this.state.conteudo} onChange={this.handleChange}
                             ></input>
                             <span className="input-group-btn">
@@ -93,7 +100,7 @@ export class ComentarioPost extends React.Component {
                                 </button>
                             </span>
                         </div>
-                    </form></>||<p>Faça login para interagir com os posts!</p>}
+                    </form><div className="form-err conteudo-err"></div></>||<p>Faça login para interagir com os posts!</p>}
                     <div>
                       {this.state.comentarios.map(coment => <CardComentario key={coment.id} comentario={coment} criado = {coment.createdAt} conteudo={coment.conteudo} usuario={coment.usuario}></CardComentario>)}
                 </div>
