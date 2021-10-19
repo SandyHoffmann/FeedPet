@@ -40,7 +40,7 @@ const responseGoogle = async (response) => {
             
             window.location.replace("/")
         } else {
-            alert("Aconteceu algum erro ao fazer o login");
+            alert(res.status);
         }
     } catch (error) {
         console.log(error);

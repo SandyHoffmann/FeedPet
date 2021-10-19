@@ -19,3 +19,14 @@
 .botaoPostagem{
     width: 40%;
 }
+
+@media only screen and (max-width: 990px) {
+    .timeline .timeline-body{
+        margin-left:5% !important;
+        margin-right:5% !important;
+
+    }
+    .timeline:before{
+        background: transparent !important;
+    }
+  }

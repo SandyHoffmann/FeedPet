@@ -11,30 +11,34 @@ export function Footer(props) {
           <div className="container">
             <div className="row">
               <div className="col-sm-6 col-md-3 item">
-                <h3>Services</h3>
+                <h3>Serviços</h3>
                 <ul>
                   <li>
-                    <a href="#">Web design</a>
+                    <a href="#">Cadastramos Animais</a>
                   </li>
                   <li>
-                    <a href="#">Development</a>
+                    <a href="#">Cadastramos Alertas</a>
                   </li>
-                  <li>
-                    <a href="#">Hosting</a>
-                  </li>
+            
                 </ul>
               </div>
               <div className="col-sm-6 col-md-3 item">
-                <h3>About</h3>
+                <h3>Devs</h3>
                 <ul>
                   <li>
-                    <a href="#">Company</a>
+                    <a href="#">Charles</a>
                   </li>
                   <li>
-                    <a href="#">Team</a>
+                    <a href="#">Lucas</a>
                   </li>
                   <li>
-                    <a href="#">Careers</a>
+                    <a href="#">Luiz Eduardo</a>
+                  </li>
+                  <li>
+                    <a href="#">Michelle</a>
+                  </li>
+                  <li>
+                    <a href="#">Sandy</a>
                   </li>
                 </ul>
               </div>
@@ -48,13 +52,13 @@ export function Footer(props) {
                 <a href="#">
                   <FaFacebookF/>
                 </a>
-                <a href="#">
+                <a href="https://github.com/SandyHoffmann/FeedPet.git">
                   < FaGithub />
                 </a>
-                <a href="#">
+                <a href="https://www.instagram.com/projeto.feedpet/">
                   <FaInstagram/>
                 </a>
-                <a href="#">
+                <a href="https://www.linkedin.com/in/equipe-animalium-102290221/">
                 <FaLinkedinIn/>
                 </a>
               </div>

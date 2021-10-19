@@ -6,6 +6,8 @@ const postagensController = require("../controllers/postagensControllers");
 const authentication = require("../middlewares/authMiddleware");
 
 router.get("/",  postagensController.getAll);
+router.get("/especificas/:id",  postagensController.getEspecificas);
+
 router.get("/:id",  postagensController.getPostOwner);
 router.get("/:id_post/curtidas", postagensController.getAllCurtidas);
 

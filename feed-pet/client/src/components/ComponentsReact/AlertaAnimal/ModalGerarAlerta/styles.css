@@ -97,7 +97,7 @@ outline: none;}
 textarea:focus-visible{
   outline: none;}
 .passarPag{
-  width: 20%;
+  width: 100%;
 }
 .animalerta:after{
   content: "";

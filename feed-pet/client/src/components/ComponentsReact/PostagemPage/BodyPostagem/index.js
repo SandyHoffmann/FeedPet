@@ -59,9 +59,11 @@ export class CorpoPaginaPostagem extends React.Component {
             <>
                 {/* <CaixaComentarios nome="Teste" dataComentario="22/08/2021" avatarUsuario="https://i.pinimg.com/736x/59/74/d0/5974d04323d9efbaf170c72cfdb07b44.jpg" comentario="audshfiauhsdifuhasdiuhfiasudhfiuasdhifuhaiusdhfiasudhfiuasdhifuda fdshsadfsdhsadlsadkçlsjalçsaçsa fhsalsdfsdfhsdflsdjdfshfsdhsadaa hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdsf hhhhhhhhhhhhhhh"/> */}
                 <div className="pagPostagem">
-                    <div className="divBotao">
-                        <ModalPostagem setarPost={this.addPostagem} className="botaoPostagem" />
-                    </div>
+                    {this.state.usuario&&
+                        <div className="divBotao">
+                            <ModalPostagem setarPost={this.addPostagem} className="botaoPostagem" />
+                        </div>
+                    }
                     <div className="bodyPost">
                         <div className="tab-content p-0">
                             <div className="tab-pane fade active show" id="profile-post">

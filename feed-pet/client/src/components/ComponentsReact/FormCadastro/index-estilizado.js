@@ -29,12 +29,15 @@ export function FormCadastroEstilizado(){
             e.preventDefault();
             const formData = new FormData(e.target);
             console.log(formData)
+            let p = document.querySelectorAll(".carregando")
+            p[0].className = "carregando loader"
             const res = await api.post(`/usuarios/`, 
                                 formData, {
                                     headers: {
                                         "Content-Type": `multipart/form-data;boundary=${formData._boundary}`,
                                         }
                                 });
+            p[0].className = "carregando"
             console.log(res.data)
             setNome("")
             setEmail("")
@@ -55,7 +58,7 @@ export function FormCadastroEstilizado(){
         return (
             <>
             <div className="grandecaixa">
-            <div className="caixaimagem"><img src='https://i.imgur.com/gJYqv2B.jpg' className="bluhrit"></img></div>
+            <div className="caixaimagem"><img src='https://imgur.com/gC4karb.gif' className="bluhrit"></img></div>
             <div className="container caixa">
                 <form onSubmit={handleSubmit} className="caixaElemento  cadastroCaixa" enctype="multipart/form-data"> 
                 <h1>Cadastre-se</h1>
@@ -78,6 +81,9 @@ export function FormCadastroEstilizado(){
                 <span className="avatar-err form-err cadastro-err"></span>
                 <br/>
                 <button type="submit" className="btn botaoRosa">Enviar</button>
+                <div className="loadFlex">
+                <p className="carregando"></p>
+                </div>
                 </form>   
                 <br/>
                 </div>      

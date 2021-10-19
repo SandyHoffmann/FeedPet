@@ -60,25 +60,15 @@ export class FormAnimal extends React.Component {
             e.preventDefault();
             const token = jwt.decode(localStorage.getItem("access-token"), process.env.REACT_APP_REFRESH_TOKEN_SECRET)
             let formData = new FormData(e.target);
-            console.log(formData)
-
-            // let animalFormado = {nome:this.state.nome,
-            //                     raca:this.state.raca,
-            //                     porte:this.state.porte,
-            //                     cor:this.state.cor,
-            //                     tipo_animal:this.state.tipo_animal,
-            //                     status:this.state.status,
-            //                     sexo:this.state.sexo,
-            //                     publico:this.state.publico,
-            //                     avatar:formData}
+            let p = document.querySelectorAll(".carregando")
+            p[0].className = "carregando loader"
             const animal = await api.post(`/usuarios/animais/${token.sub}`,
                 formData, {
                 headers: {
                     "Content-Type": `multipart/form-data;boundary=${formData._boundary}`,
                 }
             });
-            console.log(animal.data)
-
+            p[0].className = "carregando"
             if (this.props.alertaAnimal) {
                 this.props.cardAlerta([animal.data, ...this.props.animaisAlerta])
                 let div = document.querySelectorAll(".voltaranimalalerta")
@@ -229,9 +219,13 @@ export class FormAnimal extends React.Component {
                     <input type="file" name="avatar" className="form-cadastro img inputfile" onChange={this.handleChange} />
                     <br />
                     <br />
+                    <div className="loadFlex">
+                        <p className="carregando"></p>
+                    </div>
                     <div className="botaocentralizado">
                         <button type="submit" className="btn btn-primary">Enviar</button>
                     </div>
+                   
                 </form>
             </>
         );

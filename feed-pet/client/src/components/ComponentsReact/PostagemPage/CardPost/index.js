@@ -82,7 +82,7 @@ export function PostagemCard(props) {
                 </span>
               </div>
             </div>
-            <div className="timeline-footer">
+            {props.tipo!=='perfil'&&<><div className="timeline-footer">
               <a
                 href="javascript:;"
                 className="m-r-15 text-inverse-lighter"
@@ -97,8 +97,9 @@ export function PostagemCard(props) {
                   <ComentarioPost id_postagem={props.id_post} usuariologado={props.usuario_logado}/>
               </div>
             </div>
+            </>
+          }
             </div>
-
 
          </li>
 

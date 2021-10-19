@@ -46,8 +46,35 @@
 .botaoVerde{
     color: white;
     background-color: rgb(184, 250, 53);
-
 }
+
+
+.loadFlex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #ff4880;
+    width: 5em;
+    height: 5em;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
 .gray-bg {
     background-color: #ffff;
 }

@@ -12,7 +12,7 @@ import swal from 'sweetalert';
 import ReactTooltip from "react-tooltip";
 
 const jwt = require('jsonwebtoken');
-const moment = require('moment'); 
+const moment = require('moment');
 
 
 
@@ -20,7 +20,7 @@ const moment = require('moment');
 export function PaginaAnimal(props) {
   const [informacoes, setInformacoes] = useState([])
   const [desaparecido, setDesaparecido] = useState([])
-  const [dados,setDados] = useState([])
+  const [dados, setDados] = useState([])
   const [usuario, setUsuario] = useState([])
   const [dono, setDono] = useState([])
   const editando = useRef(false)
@@ -41,17 +41,17 @@ export function PaginaAnimal(props) {
       setUsuario(token.sub)
       const agenda = await api.get(`/agendas/${id}`);
       let dados = agenda.data[1].map(atividade => atividade.atividade_feita.split("/separar/"))
-      let lista = {"comida":0,"dormir":0}
-      if (dados){
-        for (let d of dados){
-          for(let e of d){
-            if (e == "Dei Ração"){
-              lista.comida+=1
-            } if (e == "Dormiu aqui"){
-              lista.dormir+=1
+      let lista = { "comida": 0, "dormir": 0 }
+      if (dados) {
+        for (let d of dados) {
+          for (let e of d) {
+            if (e == "Dei Ração") {
+              lista.comida += 1
+            } if (e == "Dormiu aqui") {
+              lista.dormir += 1
             }
           }
-         
+
         }
       }
       setDados(lista)
@@ -65,8 +65,8 @@ export function PaginaAnimal(props) {
     let div = document.querySelectorAll(".escondido")
     div[0].className = ""
   }
-  function editar(e){
-    if (editando.current == false){
+  function editar(e) {
+    if (editando.current == false) {
       let div = document.querySelectorAll(".animalEditar")
       div[0].className = "row about-list animalEditar"
       let divInvisivel = document.querySelectorAll("#lista")
@@ -74,7 +74,7 @@ export function PaginaAnimal(props) {
       editando.current = true
       let divWarn = document.querySelectorAll(".editar")
 
-    } else{
+    } else {
       let div = document.querySelectorAll(".animalEditar")
       div[0].className = "row about-list animalEditar invisivel"
       let divInvisivel = document.querySelectorAll("#lista")
@@ -83,7 +83,7 @@ export function PaginaAnimal(props) {
     }
   }
 
-  async function excluir(e){
+  async function excluir(e) {
     swal({
       title: "Você tem certeza?",
       text: "Seu animal sera deletado permanentemente!",
@@ -91,65 +91,65 @@ export function PaginaAnimal(props) {
       buttons: true,
       dangerMode: true,
     })
-    .then(async (willDelete) => {
-      if (willDelete) {
-        let deletar=await api.delete(`/animais/${id}`);
-        swal("Animal deletado com sucesso!", {
-          icon: "success",
-        }).then(()=>
-        window.location.replace("/")
-        );
-      } else {
-        swal("Ok, não deletamos seu animal!");
-      }
-    });
+      .then(async (willDelete) => {
+        if (willDelete) {
+          let deletar = await api.delete(`/animais/${id}`);
+          swal("Animal deletado com sucesso!", {
+            icon: "success",
+          }).then(() =>
+            window.location.replace("/")
+          );
+        } else {
+          swal("Ok, não deletamos seu animal!");
+        }
+      });
   }
 
   return (
     <>
       <section class="section about-section gray-bg" id="about">
         <div className="container bodyDog" id="cabecalho">
-            <div id="sobreanimal">
-              <div class="about-text go-to">
-                <div class="avatarFoto">
-                  <div class="about-avatar">
-                    <div>
+          <div id="sobreanimal">
+            <div class="about-text go-to">
+              <div class="avatarFoto">
+                <div class="about-avatar">
+                  <div>
                     <img id="perfilcachorro" src={informacoes.avatar} />
-                    </div>
-                    <div className="escondido">
+                  </div>
+                  <div className="escondido">
                     <Alert variant="success">
                       <Alert.Heading>Esperamos que tudo tenha se resolvido!</Alert.Heading>
                       <p>
                         Conte com a feedPet para ajudar seus animais!
                       </p>
                     </Alert>
-                    </div>
-                    {(informacoes.status === "Desaparecido") &&
-                  <>
-                    <div className="animalDesaparecido" data-tip data-for="registerTip">
-                      <h2>Animal Desaparecido!</h2>
-                      
-                      <p>Você viu esse bichano? Entre em contato com
-                        <Link to={`/perfil-usuario/${informacoes?.usuario[0].id}`} activeClassName="selected" className="link-drop"> {informacoes?.usuario[0].nome} </Link>
-                        para ajuda-lo com informacoes!
-                      </p>
-                      <ReactTooltip id="registerTip" place="top" effect="solid" backgroundColor="white" textColor="black">
-                        <p>Descrição - {desaparecido.descricao}</p>
-                        <p>Local - {desaparecido.cidade}</p>
-                      </ReactTooltip>
-                      {(informacoes?.usuario[0].id === usuario) && <button className="btn" onClick={AnimalEncontrado}>Marcar como Encontrado</button>}
-                    </div>
-                  </>
-                }
                   </div>
+                  {(informacoes.status === "Desaparecido") &&
+                    <>
+                      <div className="animalDesaparecido" data-tip data-for="registerTip">
+                        <h2>Animal Desaparecido!</h2>
+
+                        <p>Você viu esse bichano? Entre em contato com
+                          <Link to={`/perfil-usuario/${informacoes?.usuario[0].id}`} activeClassName="selected" className="link-drop"> {informacoes?.usuario[0].nome} </Link>
+                          para ajuda-lo com informacoes!
+                        </p>
+                        <ReactTooltip id="registerTip" place="top" effect="solid" backgroundColor="white" textColor="black">
+                          <p>Descrição - {desaparecido.descricao}</p>
+                          <p>Local - {desaparecido.cidade}</p>
+                        </ReactTooltip>
+                        {(informacoes?.usuario[0].id === usuario) && <button className="btn" onClick={AnimalEncontrado}>Marcar como Encontrado</button>}
+                      </div>
+                    </>
+                  }
                 </div>
-                <div className="corpoPerfilAnimal">
+              </div>
+              <div className="corpoPerfilAnimal">
                 <div className="flexDiv">
                   <h3 class="dark-color">{informacoes.nome}</h3>
-                {(usuario === dono.id)&&<>
-                <button onClick={editar} className="btn editar">Editar <AiOutlineEdit/> </button>
-                <button onClick={excluir} className="btn editar excluir">Excluir <FiDelete color="red"/> </button>
-                </>}
+                  {(usuario === dono.id) && <>
+                    <button onClick={editar} className="btn editar">Editar <AiOutlineEdit /> </button>
+                    <button onClick={excluir} className="btn editar excluir">Excluir <FiDelete color="red" /> </button>
+                  </>}
                 </div>
                 {/* {((informacoes.tipo_animal == "Cachorro") && (
                   <>
@@ -166,8 +166,8 @@ export function PaginaAnimal(props) {
                     lar amoroso pra chamar de seu!
                   </p>
                 </>)} */}
-               
-               
+
+
                 <div class="row about-list" id="lista">
                   <div class="col-md-6">
                     <div class="small">
@@ -177,7 +177,7 @@ export function PaginaAnimal(props) {
                     <div class="small">
                       <label>TUTOR</label>
                       <p>
-                      <Link to={`/perfil-usuario/${dono.id}`} activeClassName="selected" className="link-drop"> {dono.nome} </Link>
+                        <Link to={`/perfil-usuario/${dono.id}`} activeClassName="selected" className="link-drop"> {dono.nome} </Link>
                       </p>
                     </div>
                     <div class="small">
@@ -207,14 +207,17 @@ export function PaginaAnimal(props) {
                       <p>{informacoes.sexo}</p>
                     </div>
                   </div>
-                 
+
+                </div>
+                {usuario === dono.id &&
+                  <div class="row about-list animalEditar invisivel">
+                    <EdicaoAnimal informacao={informacoes} dono={dono} setinfo={setInformacoes} />
+                  </div>
+                }
+                <div className="loadFlex">
+                  <p className="carregando"></p>
+                </div>
               </div>
-              {usuario===dono.id&&
-              <div class="row about-list animalEditar invisivel">
-                    <EdicaoAnimal informacao={informacoes} dono={dono} setinfo={setInformacoes}/>
-              </div>  
-              }
-            </div>
             </div>
 
           </div>
@@ -262,8 +265,8 @@ export function PaginaAnimal(props) {
             <div className="profile-content">
               <div className="tab-content p-0">
                 <div className="tab-pane fade active show" id="profile-post">
-                {usuario.length<1&&<div className="novaAtividade aviso"><p>Usuario não logado, para interagir com a agenda faça o 
-                <Link to={`/login`} activeClassName="selected" className="link-drop"> Login!</Link>
+                  {usuario.length < 1 && <div className="novaAtividade aviso"><p>Usuario não logado, para interagir com a agenda faça o
+                    <Link to={`/login`} activeClassName="selected" className="link-drop"> Login!</Link>
                   </p></div>}
                   <ul className="timeline">
                     <AgendaAnimal />

@@ -167,7 +167,7 @@ export function ModalGerarAlertaMenu(props) {
      
               <div className="modalFlex">
                 <div>
-              <button className="btn botaoRosa botaoalertanimal passarPag irBotao" onClick={e => {passarPag('voltar')}}><IoMdArrowRoundBack/> Voltar</button>
+              <button className="btn botaoRosa botaoalertanimal passarPag irBotao" onClick={e => {passarPag('voltar')}}><IoMdArrowRoundBack/></button>
               </div>
                 <div className="areaInputs">
                   <form onSubmit={handleSubmit}>
