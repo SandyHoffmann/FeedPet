@@ -95,7 +95,7 @@ export class FormLoginEstilizado extends React.Component {
             <>
             {/* colocar validações */}
         <div className="grandecaixa">
-            <div className="caixaimagem"><img src='https://imgur.com/gC4karb.gif' className="bluhrit"></img></div>
+            <div className="caixaimagem"><img src='http://i.imgur.com/TsDHJPgh.gif' className="bluhrit"></img></div>
             <div className="container caixa">
                 <form onSubmit={this.handleSubmit} className="caixaElemento">
                 {/* <h1>Login</h1> */}

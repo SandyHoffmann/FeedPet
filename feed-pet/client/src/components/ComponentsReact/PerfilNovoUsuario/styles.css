@@ -5,9 +5,9 @@ body {
 .perfilFlex {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center;
   align-items: center;
-  align-content: center;
+  align-content: center; */
 }
 .areaTexto {
   background-color: transparent;
@@ -20,6 +20,9 @@ body {
   align-items: center;
   text-align: center;
   width: 80%;
+}
+.iconePessoa{
+  width: 64px;
 }
 
 .iconesPerfil{
@@ -87,7 +90,7 @@ body {
   padding: 20px 15px;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 0 40px #ff487f93;
+  box-shadow: 0 0 40px #ff487fc5;
   font-weight: 600;
   margin: 0;
   display: flex;
@@ -95,6 +98,12 @@ body {
 }
 .animalEstatistica{
   width: 100%;
+}
+.animaisPerfil{
+  padding-right:30px;
+  justify-content: center;
+  align-items:center;
+  display: flex;
 }
 
 @media only screen and (max-width: 900px) {

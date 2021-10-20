@@ -193,6 +193,7 @@ export class FormAnimal extends React.Component {
                             <option>Pincher</option>
                             <option>Pitbull</option>
                             <option>SRD</option>
+                            <option>Raça não cadastrada</option>
                         </select>
                     </div>
                     <div className="form-group" className={this.state.tipo_animal == "Gato" || "hidden"}>
@@ -203,6 +204,7 @@ export class FormAnimal extends React.Component {
                             <option>Burmese</option>
                             <option>Rajado</option>
                             <option>SRD</option>
+                            <option>Raça não cadastrada</option>
                         </select>
                     </div>
                     <div className="form-group">
@@ -213,6 +215,7 @@ export class FormAnimal extends React.Component {
                             <option>Alaranjado</option>
                             <option>Tricolor</option>
                             <option>Caramelo</option>
+                            <option>Cor não cadastrada</option>
                         </select>
                     </div>
                     <br />

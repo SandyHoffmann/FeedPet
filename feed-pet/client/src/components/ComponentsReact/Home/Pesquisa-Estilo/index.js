@@ -110,6 +110,7 @@ export function PesquisaEstilo(props) {
                                     <option>Pincher</option>
                                     <option>Pitbull</option>
                                     <option>SRD</option>
+                                    <option>Raça não cadastrada</option>
                                 </select>
                             </label>
                         </div>
@@ -121,6 +122,7 @@ export function PesquisaEstilo(props) {
                                 <option>Burmese</option>
                                 <option>Rajado</option>
                                 <option>SRD</option>
+                                <option>Raça não cadastrada</option>
                             </select>
                         </div>
                         <div className="elemento select cor">
@@ -132,6 +134,7 @@ export function PesquisaEstilo(props) {
                                     <option>Alaranjado</option>
                                     <option>Tricolor</option>
                                     <option>Caramelo</option>
+                                    <option>Cor não cadastrada</option>
                                 </select>
                             </div>
                         </div>
@@ -139,9 +142,9 @@ export function PesquisaEstilo(props) {
                             <div className="form-group form-personalizado">
                                 <label htmlFor="raca">Selecione o Porte</label>
                                 <select className="form-control selectPorte form-personalizado" id="porte" name="porte" onChange={props.onChangeOption}>
+                                    <option>Pequeno</option>
                                     <option>Médio</option>
                                     <option>Grande</option>
-                                    <option>Pequeno</option>
                                 </select>
                             </div>
                         </div>

@@ -50,7 +50,7 @@ export function FormCadastroEstilizado(){
             if (typeof erros === 'object'){
                 VerificarErros(erros)
             } else{
-                VerificarErros({errors:[{param:'cadastro',msg:'Já existe um usuario com esse e-mail!'}]})
+                VerificarErros({errors:[{param:'cadastro',msg:'Já existe um usuário com esse e-mail!'}]})
             }
         }
     }
@@ -58,7 +58,7 @@ export function FormCadastroEstilizado(){
         return (
             <>
             <div className="grandecaixa">
-            <div className="caixaimagem"><img src='https://imgur.com/gC4karb.gif' className="bluhrit"></img></div>
+            <div className="caixaimagem"><img src='http://i.imgur.com/hPpW64Wh.gif' className="bluhrit"></img></div>
             <div className="container caixa">
                 <form onSubmit={handleSubmit} className="caixaElemento  cadastroCaixa" enctype="multipart/form-data"> 
                 <h1>Cadastre-se</h1>

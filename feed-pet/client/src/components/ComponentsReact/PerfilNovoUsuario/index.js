@@ -72,7 +72,7 @@ export function PaginaPerfilAtualizado(props) {
                 <div className="UsuarioDados">
                   <h2 className="media-heading">{informacoes.nome}</h2>
                   <p className="lead" id="texto-sobre">
-                    {informacoes.descricao?informacoes.descricao:"Escreva uma Descrição no Editar!"}
+                    {informacoes.descricao?informacoes.descricao:"Escreva uma descrição no editar!"}
                   </p>
                 </div>
                 <div class="pessoaEditar invisivel">
@@ -91,9 +91,9 @@ export function PaginaPerfilAtualizado(props) {
                           data-to="500"
                           data-speed="500"
                         >
-                          <img src='https://i.imgur.com/9wYz4GH.png'></img>
+                          <img className="iconePessoa" src='https://i.imgur.com/YFQQsA5.png'></img>
                         </h6>
-                        <p class="m-0px font-w-600">Ajudou 5 animais</p>
+                        <p class="m-0px font-w-600">Tutor de {animais.length} animais</p>
                       </div>
                     </div>
                     <div>
@@ -104,9 +104,9 @@ export function PaginaPerfilAtualizado(props) {
                           data-to="850"
                           data-speed="850"
                         >
-                          <img src='https://i.imgur.com/YFQQsA5.png'></img>
+                          <img className="iconePessoa" src='https://i.imgur.com/3bqxcS1.png'></img>
                         </h6>
-                        <p class="m-0px font-w-600">Tutor de {animais.length} animais</p>
+                        <p class="m-0px font-w-600">Tem 0 cães</p>
                       </div>
                     </div>
                     <div>
@@ -117,9 +117,9 @@ export function PaginaPerfilAtualizado(props) {
                           data-to="190"
                           data-speed="190"
                         >
-                          <img src='https://i.imgur.com/7UuTzkO.png'></img>
+                          <img className="iconePessoa" src='https://i.imgur.com/tldds0b.png'></img>
                         </h6>
-                        <p class="m-0px font-w-600">Mora em Timbó</p>
+                        <p class="m-0px font-w-600">Tem 0 gatos</p>
                       </div>
                     </div>
                   </div>

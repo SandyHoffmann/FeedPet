@@ -37,7 +37,7 @@ export function ModalChat(props) {
   }
   return (
     <>
-      <Dropdown className="menuNotificacao" onClick={handleClick} 
+      <Dropdown id="menuNotificacao" onClick={handleClick} 
       >
         <Dropdown.Toggle id="dropdown-basic" className="menuchaticon">
           <RiChatHeartLine size='30' />
