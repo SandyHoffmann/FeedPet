@@ -10,7 +10,7 @@
     display: flex;
     background-color: #8fc424;
     justify-content: space-between;
-    padding: 2%;
+    padding: 2em;
 }
 .flexContato{
     display: flex;

@@ -59,7 +59,7 @@ export function ComentarioPost(props) {
             console.log(this.state)
         }
     }
-    render() {
+    render() 
         return (
             <>
                 <div className="user">
@@ -92,5 +92,5 @@ export function ComentarioPost(props) {
         )
 
     }
-}
+
 

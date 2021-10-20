@@ -96,7 +96,7 @@ export function ModalGerarAlertaMenu(props) {
   return (
     <>
       <Button
-        className="btn botaoalertagerar"
+        id="botaoalertagerar"
         onClick={handleShow}
       >
         {" "}

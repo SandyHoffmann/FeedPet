@@ -65,8 +65,8 @@ export function Menu(props) {
                 title={<img src='https://i.imgur.com/Pm6cTZh.png' className="lupa" ></img>}
                 variant="flat"
               >
-                <Dropdown.Item><li><NavLink to={`/perfil-usuario/${token?.sub}`} activeClassName="selected" className="link-drop" onClick={e => setpagAtual('perfil-usuario')}>Perfil-Usuario</NavLink></li></Dropdown.Item>
-                <Dropdown.Item><li><NavLink to="/animais" activeClassName="selected" className="link-drop" onClick={e => setpagAtual('animais')}>Meus Animais</NavLink></li></Dropdown.Item>
+                <Dropdown.Item><li><NavLink to={`/perfil-usuario/${token?.sub}`} activeClassName="selected" className="link-drop" onClick={e => setpagAtual('perfil-usuario')}>Perfil do usuário</NavLink></li></Dropdown.Item>
+                <Dropdown.Item><li><NavLink to="/animais" activeClassName="selected" className="link-drop" onClick={e => setpagAtual('animais')}>Meus animais</NavLink></li></Dropdown.Item>
                 <Dropdown.Item>
                   <NavLink to="/logoff" activeClassName="selected" className="link-drop">
                     Log Out

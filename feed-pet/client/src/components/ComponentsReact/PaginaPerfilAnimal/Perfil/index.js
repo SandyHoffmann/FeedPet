@@ -86,7 +86,7 @@ export function PaginaAnimal(props) {
   async function excluir(e) {
     swal({
       title: "Você tem certeza?",
-      text: "Seu animal sera deletado permanentemente!",
+      text: "Seu animal será deletado permanentemente!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
@@ -120,7 +120,7 @@ export function PaginaAnimal(props) {
                     <Alert variant="success">
                       <Alert.Heading>Esperamos que tudo tenha se resolvido!</Alert.Heading>
                       <p>
-                        Conte com a feedPet para ajudar seus animais!
+                        Conte com a FeedPet para ajudar seus animais!
                       </p>
                     </Alert>
                   </div>
@@ -131,7 +131,7 @@ export function PaginaAnimal(props) {
 
                         <p>Você viu esse bichano? Entre em contato com
                           <Link to={`/perfil-usuario/${informacoes?.usuario[0].id}`} activeClassName="selected" className="link-drop"> {informacoes?.usuario[0].nome} </Link>
-                          para ajuda-lo com informacoes!
+                          para ajudá-lo com informações!
                         </p>
                         <ReactTooltip id="registerTip" place="top" effect="solid" backgroundColor="white" textColor="black">
                           <p>Descrição - {desaparecido.descricao}</p>
@@ -181,15 +181,19 @@ export function PaginaAnimal(props) {
                       </p>
                     </div>
                     <div class="small">
-                      <label>RACA</label>
+                      <label>RAÇA</label>
                       <p>{informacoes.raca}</p>
                     </div>
                     <div class="small">
                       <label>PORTE</label>
                       <p>{informacoes.porte}</p>
                     </div>
+                    <div class="small">
+                      <label>SEXO</label>
+                      <p>{informacoes.sexo}</p>
+                    </div>
                   </div>
-                  <div class="col-md-4">
+                  {/* <div class="col-md-4">
                     <div class="small">
                       <label>ENDEREÇO</label>
                       <p>Visto em Indaial</p>
@@ -201,12 +205,9 @@ export function PaginaAnimal(props) {
                     <div class="small">
                       <label>PELO</label>
                       <p>Pelo curto</p>
-                    </div>
-                    <div class="small">
-                      <label>SEXO</label>
-                      <p>{informacoes.sexo}</p>
-                    </div>
-                  </div>
+                    </div> */}
+
+                  {/* </div> */}
 
                 </div>
                 {usuario === dono.id &&
@@ -226,15 +227,15 @@ export function PaginaAnimal(props) {
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
                   <h6 class="count h2" id="icones" data-to="500" data-speed="500">
-                    <img src='https://i.imgur.com/qNhgLfw.png'></img>
+                    <img className="iconeAnimal" src='https://i.imgur.com/IB1WmcV.png'></img>
                   </h6>
-                  <p class="m-0px font-w-600">100 likes</p>
+                  <p class="m-0px font-w-600">Ganhou água 0x</p>
                 </div>
               </div>
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
                   <h6 class="count h2" id="icones" data-to="150" data-speed="150">
-                    <img src='https://i.imgur.com/02MPWUK.png'></img>
+                    <img className="iconeAnimal" src='https://i.imgur.com/02MPWUK.png'></img>
                   </h6>
                   <p class="m-0px font-w-600">Alimentado {dados.comida}x</p>
                 </div>
@@ -242,7 +243,7 @@ export function PaginaAnimal(props) {
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
                   <h6 class="count h2" id="icones" data-to="850" data-speed="850">
-                    <img src='https://i.imgur.com/9NbLHB6.png'></img>
+                    <img className="iconeAnimal" src='https://i.imgur.com/9NbLHB6.png'></img>
                   </h6>
                   <p class="m-0px font-w-600">Dormiu em {dados.dormir} locais</p>
                 </div>
@@ -250,9 +251,9 @@ export function PaginaAnimal(props) {
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
                   <h6 class="count h2" id="icones" data-to="190" data-speed="190">
-                    <img src='https://i.imgur.com/7UuTzkO.png'></img>
+                    <img className="iconeAnimal" src='https://i.imgur.com/0DMwO9w.png'></img>
                   </h6>
-                  <p class="m-0px font-w-600">Visto em Timbó</p>
+                  <p class="m-0px font-w-600">Passeou 0x</p>
                 </div>
               </div>
             </div>

@@ -1,7 +1,12 @@
 #botaoalerta {
-  margin-right: 4px;
+  margin-right: 3px !important;
+  background-color: #ff4880 !important;
+  border-color: #ff4880 !important;
 }
-
+.btn-check:focus+.btn, .btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem transparent !important;
+}
 .imagemmenu{
   width: 32px;
   height: 32px;

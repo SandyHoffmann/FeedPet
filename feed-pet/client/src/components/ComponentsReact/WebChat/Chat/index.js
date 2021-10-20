@@ -32,7 +32,7 @@ export function Chat(props) {
             const chatsNovos = res.data[0]
             const ultimasMsg = res.data[1]
             for (let x = 0; x<chatsNovos.length; x++){
-                lista.push(Object.assign(chatsNovos[x],{ultimaMsg : ultimasMsg[x]?ultimasMsg[x]:{conteudo:"Nenhuma Mensagem",createdAt:chatsNovos[x].createdAt}}))
+                lista.push(Object.assign(chatsNovos[x],{ultimaMsg : ultimasMsg[x]?ultimasMsg[x]:{conteudo:"Nenhuma mensagem",createdAt:chatsNovos[x].createdAt}}))
             }
 
             let data
