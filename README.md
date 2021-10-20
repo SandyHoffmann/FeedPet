@@ -19,12 +19,6 @@ O funcionamento do site ocorre com a utilização das bibliotecas Python SQLAlch
 * :star: Sistema CRUD com login e cadastro.
 
 
-### 💻 Separação de Camadas
-
-O site é dividido na pasta client (possui os componentes react) e em frontend (possui as rotas, os controllers e os services).
-
---Botar imagem das pastas
-
 ### 📋 Como Ver o WebSite
 
 É possivel ver o website de maneira online no heroku:
@@ -37,10 +31,10 @@ O site é dividido na pasta client (possui os componentes react) e em frontend (
 
 ## ✒️ Autores
 
-* **Charles David Duggen** - *Front-End* - [Charles David Duggen](https://github.com/SandyHoffmann)
-* **Lucas Jose Roncaglio** - *Front-End* - [Lucas Jose Roncaglio](https://github.com/SandyHoffmann)
-* **Luiz Eduardo Schlickmann de Carvalho** - *Back-End* - [Luiz Eduardo Schlickmann de Carvalho](https://github.com/SandyHoffmann)
-* **Michelle Cristina Giesler** - *Front-End* - [Michelle Cristina Giesler](https://github.com/SandyHoffmann)
+* **Charles David Duggen** - *Front-End* - [Charles David Duggen](https://github.com/chalamisterio)
+* **Lucas Jose Roncaglio** - *Front-End* - [Lucas Jose Roncaglio](https://github.com/LucasJoseRoncaglio)
+* **Luiz Eduardo Schlickmann de Carvalho** - *Back-End* - [Luiz Eduardo Schlickmann de Carvalho](https://github.com/Luiz-esc)
+* **Michelle Cristina Giesler** - *Front-End* - [Michelle Cristina Giesler](https://github.com/mihcgieseler)
 * **Sandy Hoffmann** - *Back-End* - [Sandy Hoffmann](https://github.com/SandyHoffmann)
 
 ## 📄 Licença
