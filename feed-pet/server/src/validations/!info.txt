@@ -1,0 +1,2 @@
+As validations são uma segunda medida de segurança para os formulários
+só para checar se todos os dados passados cumprem os requerimentos.

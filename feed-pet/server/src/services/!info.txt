@@ -1,0 +1,2 @@
+Nos services é onde estão as regras de negócio em si
+eles são chamados pelos controllers, não tem muito oq explicar

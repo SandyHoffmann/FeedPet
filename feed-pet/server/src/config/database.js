@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+// Usando a biblioteca dotenv para não expor as credenciais do banco de dados no código
+
 module.exports = {
   development: {
     username: process.env.DB_USERNAME,
