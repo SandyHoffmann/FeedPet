@@ -1,0 +1,1 @@
+As migrations são criadas puxando os dados dos modelos pela biblioteca sequelize

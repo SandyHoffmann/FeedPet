@@ -1,14 +1,11 @@
+// O index é a pasta do server onde é definido as rotas
+
 const express = require("express");
 const app = express();
 const cors = require('cors');
 const morgan = require('morgan');
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("../swagger.json");
-
-// const usuario = require("./models/usuario");
-// const { Usuario, Animal, Endereco, Atividade, Postagem, Comentario, Curtida } = require("./models");
-
-// const db = require(".db/models");
 
 const usuariosRoutes = require("./routes/usuariosRoutes");
 const animaisRoutes = require("./routes/animaisRoutes");

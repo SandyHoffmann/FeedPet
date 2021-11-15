@@ -1,0 +1,17 @@
+Nas routes é onde definimos:
+
+- Que tipo de rota é aquela (get, post, delete, put)
+
+- Que parâmetros ela terá na URL, por exemplo:
+    "router.post("/animais/:id"..."
+    usamos os ":" para definirmos isso como um parâmetro.
+
+- Que cargos tem permissão de acessar aquela página 
+    (ou pelo menos era pra ser assim mas a gnt acabou não usando admin pra nada kkkkk)
+    "router.post("/animais/:id", authentication(["usuario", "admin"])..."
+    e essa função "authentication" vem dos middlewares.
+
+- Qual função dos controllers cada rota irá chamar
+    router.post("/animais/:id", authentication(["usuario", "admin"]), animaisController.criarParaUsuario);
+
+e o próximo passo começa nos controllers.

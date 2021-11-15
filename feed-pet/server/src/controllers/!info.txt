@@ -1,0 +1,2 @@
+Os controllers resumidamente validam os requests das routes e 
+as respostas dos services,usando funções assíncronas de try/catch.
